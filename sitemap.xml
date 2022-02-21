@@ -1,1 +1,11 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>http://example.org/categories/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url><url><loc>http://example.org/tags/draft/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url><url><loc>http://example.org/categories/draft/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url><url><loc>http://example.org/posts/first_post/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url><url><loc>http://example.org/posts/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url><url><loc>http://example.org/tags/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url><url><loc>http://example.org/</loc><lastmod>2022-02-21T16:37:27+08:00</lastmod></url></urlset>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  ><url>
+      <loc>https://buli-home.cn/categories/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url><url>
+      <loc>https://buli-home.cn/tags/draft/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url><url>
+      <loc>https://buli-home.cn/categories/draft/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url><url>
+      <loc>https://buli-home.cn/posts/first_post/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url><url>
+      <loc>https://buli-home.cn/posts/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url><url>
+      <loc>https://buli-home.cn/tags/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url><url>
+      <loc>https://buli-home.cn/</loc><lastmod>2022-02-21T16:37:27&#43;08:00</lastmod></url></urlset>
