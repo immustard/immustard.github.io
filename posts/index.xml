@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on </title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 21 Feb 2022 16:37:27 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First_post</title>
+      <link>/first_post/</link>
+      <pubDate>Mon, 21 Feb 2022 16:37:27 +0800</pubDate>
+      
+      <guid>/first_post/</guid>
+      <description>&lt;h2 id=&#34;title2&#34;&gt;title2&lt;/h2&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
