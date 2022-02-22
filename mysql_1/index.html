@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>MySQL总览 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="database,MySQL" /><meta itemprop="name" content="MySQL总览">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-12-13T16:31:37+08:00" />
+<meta itemprop="dateModified" content="2022-02-22T14:07:25+08:00" />
+<meta itemprop="wordCount" content="1675"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="database,MySQL," /><meta property="og:title" content="MySQL总览" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/mysql_1/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-13T16:31:37+08:00" />
+<meta property="article:modified_time" content="2022-02-22T14:07:25+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="MySQL总览"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/mysql_1/" /><link rel="next" href="https://buli-home.cn/mysql_2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "MySQL总览",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/mysql_1\/"
+    },"image": [{
+              "@type": "ImageObject",
+              "url": "https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png",
+              "width":  2880 ,
+              "height":  1578 
+            }],"genre": "posts","keywords": "database, MySQL","wordcount":  1675 ,
+    "url": "https:\/\/buli-home.cn\/mysql_1\/","datePublished": "2021-12-13T16:31:37+08:00","dateModified": "2022-02-22T14:07:25+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  528 ,
+          "height":  560 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="/images/fixit.svg"
+    title="/images/fixit.svg" /><span class="header-title-text">FixIt</span></a><span class="header-subtitle"></span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="         搜索" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="/images/fixit.svg"
+    title="/images/fixit.svg" /><span class="header-title-text">FixIt</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder="         搜索" id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animated flipInX">MySQL总览</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class=" author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
+      <div class="post-meta-line"><span title=2021-12-13&#32;16:31:37>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-13" >2021-12-13</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1675 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是crud">什么是<code>CRUD</code>?</a></li>
+    <li><a href="#什么是数据库驱动">什么是数据库驱动?</a></li>
+    <li><a href="#数据库连接池是用来干嘛的">数据库连接池是用来干嘛的?</a></li>
+    <li><a href="#mysql是如何执行一条sql语句的">MySQL是如何执行一条SQL语句的?</a>
+      <ul>
+        <li><a href="#第一步-线程-接收sql语句">第一步 线程: 接收SQL语句</a></li>
+        <li><a href="#第二步-sql接口-解析sql语句">第二步 SQL接口: 解析SQL语句</a></li>
+        <li><a href="#第三步-查询优化器-选择最优查询路径">第三步 查询优化器: 选择最优查询路径</a></li>
+        <li><a href="#第四步-存储引擎-调用存储引擎接口-真正执行sql语句">第四步 存储引擎: 调用存储引擎接口, 真正执行SQL语句</a></li>
+        <li><a href="#第五步-执行器-根据执行计划调用存储引擎的接口">第五步 执行器: 根据执行计划调用存储引擎的接口</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="什么是crud">什么是<code>CRUD</code>?</h2>
+<p><code>CRUD</code>是指在做计算处理时的增加(<code>Create</code>), 读取查询(<code>Retrieve</code>), 更新(<code>Update</code>)和删除(<code>Delete</code>). 主要是被用在描述软件系统中<strong>DataBase</strong>或者持久层的基本操作.</p>
+<h2 id="什么是数据库驱动">什么是数据库驱动?</h2>
+<p>想要访问数据库, 就需要和数据库建立一个网络连接. 那么, 建立这个网络连接的就是数据库驱动. 所以对于<strong>MySQL</strong>来说, 对应每种常见的编程语言(e.g. <strong>Java</strong>, <strong>PHP</strong>, <strong>.NET</strong>, <strong>Python</strong>, <strong>Ruby</strong>等), <strong>MySQL</strong>都会提供对应语言的<strong>MySQL驱动</strong>. 其实<strong>数据库驱动</strong>就是中间件.</p>
+<h2 id="数据库连接池是用来干嘛的">数据库连接池是用来干嘛的?</h2>
+<p>首先要知道的是, 一个系统和数据库建立的连接往往都不止一个. 但是每次访问数据库的时候都建立一个连接, 然后执行<strong>SQL语句</strong>, 然后再销毁这个连接, 这种方式显然是不合适的. 因为每次建立一个<strong>数据库连接</strong>都很耗时, 效率会很低下. 所以, 就出现了<strong>数据库连接池</strong>这个东西. 一个<strong>数据库连接池</strong>里会维持多个连接, 让多个线程使用里面的不同的<strong>数据库连接</strong>去执行<strong>SQL语句,</strong> 执行完语句之后, 不是销毁这个连接, 而是把它放回池子里, 后面还能继续用.</p>
+<p>常见的<strong>数据库连接池</strong>有<code>DBCP</code>, <code>C3P0</code>, <code>Druid</code></p>
+<h2 id="mysql是如何执行一条sql语句的">MySQL是如何执行一条SQL语句的?</h2>
+<h3 id="第一步-线程-接收sql语句">第一步 线程: 接收SQL语句</h3>
+<p>首先, 假设数据库服务器的连接池中的某个连接收到了<strong>网络请求</strong>, 假设就是一条<strong>SQL语句</strong>, 这个工作一定是一个<strong>线程</strong>来进行处理的, 来监听请求以及读取请求数据. 当<strong>MySQL</strong>的工作线程接收到<strong>SQL语句</strong>之后, 会转交给<strong>SQL接口</strong>去执行.</p>
+<p><strong>SQL接口(SQL Interface)<strong>就是</strong>MySQL</strong>内部提供的一个组件, 是一套执行<strong>SQL语句</strong>的接口.</p>
+<h3 id="第二步-sql接口-解析sql语句">第二步 SQL接口: 解析SQL语句</h3>
+<p>那么, <strong>SQL接口</strong>又是如何执行<strong>SQL语句</strong>的呢? 比如要执行下面这条语句:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>MySQL</strong>本身也是一个系统, 是一个<strong>数据库管理系统(DBMS)</strong>, 是没法直接理解这些语句的, 所以就需要**查询解析器(Parser)**出场了! 这个查询解析器是负责对SQL语句进行解析的, 比如上面的语句拆解一下, 可以拆解为一下几个部分:</p>
+<ol>
+<li>
+<p>我们现在要从<code>users</code>表里查询数据</p>
+</li>
+<li>
+<p>查询<code>id</code>字段的值等于<code>1</code>的那行数据</p>
+</li>
+<li>
+<p>对查出来的哪行数据要提取里面的<code>id, name, age</code>三个字段</p>
+</li>
+</ol>
+<p>所谓的<strong>SQL解析</strong>, 就是按照既定的SQL语法, 对我们按照SQL语法规则编写的SQL语句进行解析, 然后理解这个SQL语句要干什么事情.</p>
+<h3 id="第三步-查询优化器-选择最优查询路径">第三步 查询优化器: 选择最优查询路径</h3>
+<p>当通过解析器理解了SQL语句要干什么之后, 接着就会找**查询优化器(Optimizer)**来选择一个最优的查询路径.</p>
+<h3 id="第四步-存储引擎-调用存储引擎接口-真正执行sql语句">第四步 存储引擎: 调用存储引擎接口, 真正执行SQL语句</h3>
+<p>最后一步, 就是把查询优化器选择的最有查询路径交给底层的存储引擎去真正的执行.</p>
+<p><strong>存储引擎</strong>是MySQL架构设计中很有特色的一个环节. 在真正执行SQL语句的时候, 要不是更新数据, 要不是查询数据, 但是具体的数据是存放在内存里还是在磁盘里呢? 这个时候就需要<strong>存储引擎</strong>了, 存储引擎其实就是执行SQL语句的, 它是按照一定的步骤去查询内存缓存数据, 更新磁盘数据, 查询磁盘数据等等, 执行诸如此类的一系列的操作.</p>
+<p>MySQL的架构设计中, SQL接口, SQL解析器, 查询优化器其实都是通用的, 就是一套组件而已. 但是是支持各种各样的存储引擎的, 比如常见的<code>InnoDB</code>, <code>MyISAM</code>, <code>Memory</code>等等, 我们是可以选择使用哪种存储引擎来负责具体的SQL语句执行的.</p>
+<h3 id="第五步-执行器-根据执行计划调用存储引擎的接口">第五步 执行器: 根据执行计划调用存储引擎的接口</h3>
+<p>现在回过头来看一个问题, 存储引擎可以访问内存和磁盘上的数据, 那么是谁来调用存储引擎的接口呢?</p>
+<p>其实还漏了一个<strong>执行器</strong>的概念, 执行器会根据优化器选择的执行方案, 去调用存储引擎的接口按照一定的顺序和步骤, 就把SQL语句的逻辑给执行了.</p>
+<p>举个🌰: 比如执行器可能会先调用存储引擎的一个接口, 去获取<code>users</code>表中的第一行数据, 然后判断一下这个数据的<code>id</code>字段的值是否等于我们期望的值, 如果不是的话, 就继续调用存储引擎的接口, 去获取<code>users</code>表的下一行数据.</p>
+<p>基于上述的思路, <strong>执行器就会去根据优化器生成的一套执行计划, 然后不停的调用存储引擎的各种接口去完成SQL语句的执行计划</strong>, 大致就是不听的更新或者提取一些数据出来.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-02-22&#32;14:07:25>更新于 2022-02-22</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/mysql_1/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/mysql_1/" data-title="MySQL总览" data-hashtags="database,MySQL"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/mysql_1/" data-hashtag="database"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/mysql_1/" data-title="MySQL总览"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/mysql_1/" data-title="MySQL总览"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/mysql_1/" data-title="MySQL总览" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/database/">database</a>,&nbsp;<a href="/tags/mysql/">MySQL</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav">
+      <a href="/mysql_2/" class="next" rel="next" title="InnoDB存储引擎的架构设计">InnoDB存储引擎的架构设计<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"buli-home","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>
