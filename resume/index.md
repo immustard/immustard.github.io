@@ -39,7 +39,7 @@
 
 ### 工作经历
 
-* **吉林高邦科技有限公司**: 后台开发组长, iOS开发组长 – 2018.04~至今
+* **长春市高邦软件开发有限公司**: 后台开发组长, iOS开发组长 – 2018.04~至今
 
 &emsp;&emsp;『长春市职业能力建设服务端』: 开发组长, 项目的开发, 需求沟通, 迭代, 各类维护等. 负载均衡, 解释器, 主动冗余. 
 
@@ -72,9 +72,10 @@
 * **编程语言**: Java, Swift, Objective-C
 * **Java框架**: SpringBoot, SpringCloud, SpringMVC
 * **数据库**: MySQL, Redis, 达梦, Elasticsearch
+* **中间件**: Nginx, Tomcat, RabbitMQ
 * **开发工具**: IntelliJ IDEA, Xcode, VSCode, git, svn, maven, cocoapods, SwiftPackage
 * **操作系统**: Linux常用命令
-* **Web开发(了解)**: HTML5、JS、Ajax、vue框架、element-UI组件等
+* **Web开发(了解)**: HTML5, JS, Ajax, jQuery, vue框架, element-UI组件等
 
 
 
@@ -86,7 +87,7 @@
 
 ***
 
-[简历附件](http://mustard_gxg.gitee.io/pic/files/2022-02/Resume.pdf)
+[在线简历预览](http://mustard_gxg.gitee.io/pic/files/2022-02/Resume.pdf)
 
 
 
