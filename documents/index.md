@@ -35,4 +35,5 @@
 * [力扣（LeetCode）中国官网](https://leetcode-cn.com/)
 * [Markdown 入门基础 | Markdown 官方教程](https://markdown.com.cn/intro.html)
 * [飞桨PaddlePaddle-源于产业实践的开源深度学习平台](https://www.paddlepaddle.org.cn/)
+* [Elasticsearch Guide 8.0](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 

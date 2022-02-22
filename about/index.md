@@ -1,4 +1,4 @@
-# 关于 Buli's Home
+# 关于 Buli Home
 
 
 {{< music url="http://m701.music.126.net/20220222101334/db7a4ab484f482e434f6ecdd0105e963/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/11983356173/ed2f/6024/be41/2dc456563c5f9c9535b75ecb066c0325.mp3" name="陈奕迅" artist="孤勇者" cover="https://y.qq.com/music/photo_new/T002R300x300M000001uaPM93kxk1R_3.jpg?max_age=2592000" fixed=true >}}
