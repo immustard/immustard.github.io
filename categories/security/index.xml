@@ -4,7 +4,14 @@
     <link>https://buli-home.cn/categories/security/</link>
     <description>security - 分类 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 23 Feb 2022 16:28:04 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/security/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 24 Feb 2022 10:09:59 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/security/" rel="self" type="application/rss+xml" /><item>
+  <title>SQL注入</title>
+  <link>https://buli-home.cn/sqlinjection/</link>
+  <pubDate>Thu, 24 Feb 2022 10:09:59 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/sqlinjection/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
   <title>CSRF攻击</title>
   <link>https://buli-home.cn/csrf/</link>
   <pubDate>Wed, 23 Feb 2022 16:28:04 &#43;0800</pubDate>
