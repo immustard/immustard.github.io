@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>database - 标签 - Buli&#39;s Home</title>
+    <title>Database - 标签 - Buli&#39;s Home</title>
     <link>https://buli-home.cn/tags/database/</link>
-    <description>database - 标签 - Buli&#39;s Home</description>
+    <description>Database - 标签 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
       <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 10 Jan 2022 19:56:53 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/database/" rel="self" type="application/rss+xml" /><item>
   <title>MySQL压力测试</title>
