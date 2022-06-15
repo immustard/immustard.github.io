@@ -21,7 +21,7 @@
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="http://mustard_gxg.gitee.io/pic/pictures/2022-02/202202242122780.png" width = "85%" alt=""/>
+    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202242122780.png" width = "85%" alt="" onclick="window.open(this.src)"/>
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -30,6 +30,7 @@
       说到Java的Collection就一定会放出这张神图
   	</div>
 </center>
+
 
 
 
@@ -185,7 +186,7 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
 <center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="http://mustard_gxg.gitee.io/pic/pictures/2022-02/202202260717202.png" width = "65%" alt=""/>
+    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202260717202.png" width = "65%" alt="" onclick="window.open(this.src)"/>
     <br>
     <div style="color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
@@ -194,6 +195,7 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
       LinkedHashSet继承体系
   	</div>
 </center>
+
 
 `LinkedHashSet`是`Set`接口的`Hash`表和`LinkedList`的实现. 但是这个实现不同于`HashSet`的是, 它维护者一个贯穿所有条目的双向列表. 此链表定义了元素插入集合的顺序. **注意: 如果元素重新插入, 则插入顺序不会受到影响**. 
 

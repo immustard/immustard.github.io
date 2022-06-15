@@ -4,14 +4,70 @@
     <link>https://buli-home.cn/</link>
     <description>关于 FixIt 主题</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 25 Feb 2022 09:22:28 &#43;0800</lastBuildDate>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 14 Jun 2022 13:29:39 &#43;0800</lastBuildDate>
       <atom:link href="https://buli-home.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
-  <title>语法糖</title>
-  <link>https://buli-home.cn/syntacticsugar/</link>
-  <pubDate>Fri, 25 Feb 2022 09:22:28 &#43;0800</pubDate>
+  <title>数据仓库</title>
+  <link>https://buli-home.cn/data_warehouse/</link>
+  <pubDate>Tue, 14 Jun 2022 13:29:39 &#43;0800</pubDate>
   <author>作者</author>
-  <guid>https://buli-home.cn/syntacticsugar/</guid>
+  <guid>https://buli-home.cn/data_warehouse/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>内存中的地址空间</title>
+  <link>https://buli-home.cn/os_address/</link>
+  <pubDate>Thu, 17 Mar 2022 11:02:07 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/os_address/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>计算机体系结构及内存分层体系</title>
+  <link>https://buli-home.cn/os_computerarchitecture/</link>
+  <pubDate>Wed, 16 Mar 2022 14:22:17 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/os_computerarchitecture/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>系统调用、异常和中断</title>
+  <link>https://buli-home.cn/os_interface/</link>
+  <pubDate>Wed, 16 Mar 2022 13:44:12 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/os_interface/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>操作系统的启动</title>
+  <link>https://buli-home.cn/os_bootloader/</link>
+  <pubDate>Tue, 15 Mar 2022 15:40:36 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/os_bootloader/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>稀疏数组</title>
+  <link>https://buli-home.cn/sparsearray/</link>
+  <pubDate>Mon, 07 Mar 2022 16:57:32 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/sparsearray/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>线性结构和非线性结构</title>
+  <link>https://buli-home.cn/linear_nonlinear/</link>
+  <pubDate>Mon, 07 Mar 2022 16:40:35 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/linear_nonlinear/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>Fail-fast</title>
+  <link>https://buli-home.cn/failfast/</link>
+  <pubDate>Sun, 06 Mar 2022 16:33:34 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/failfast/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>二分法查找</title>
+  <link>https://buli-home.cn/binarysearch/</link>
+  <pubDate>Tue, 01 Mar 2022 16:11:56 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/binarysearch/</guid>
   <description><![CDATA[]]></description>
 </item><item>
   <title>Java集合</title>
@@ -19,55 +75,6 @@
   <pubDate>Thu, 24 Feb 2022 20:15:26 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/java_collection/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>SQL注入</title>
-  <link>https://buli-home.cn/sqlinjection/</link>
-  <pubDate>Thu, 24 Feb 2022 10:09:59 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/sqlinjection/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>CSRF攻击</title>
-  <link>https://buli-home.cn/csrf/</link>
-  <pubDate>Wed, 23 Feb 2022 16:28:04 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/csrf/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>XSS(跨站脚本攻击)</title>
-  <link>https://buli-home.cn/xss/</link>
-  <pubDate>Wed, 23 Feb 2022 08:35:48 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/xss/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>MySQL压力测试</title>
-  <link>https://buli-home.cn/mysql_4/</link>
-  <pubDate>Mon, 10 Jan 2022 19:56:53 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/mysql_4/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>MySQL生产经验</title>
-  <link>https://buli-home.cn/mysql_3/</link>
-  <pubDate>Mon, 27 Dec 2021 19:14:34 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/mysql_3/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>InnoDB存储引擎的架构设计</title>
-  <link>https://buli-home.cn/mysql_2/</link>
-  <pubDate>Thu, 23 Dec 2021 16:53:11 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/mysql_2/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>MySQL总览</title>
-  <link>https://buli-home.cn/mysql_1/</link>
-  <pubDate>Mon, 13 Dec 2021 16:31:37 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/mysql_1/</guid>
   <description><![CDATA[]]></description>
 </item></channel>
 </rss>
