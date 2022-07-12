@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>湖仓一体 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="big data,data lakehouse" /><meta itemprop="name" content="湖仓一体">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-06-16T09:23:45+08:00" />
+<meta itemprop="dateModified" content="2022-06-16T10:30:08+08:00" />
+<meta itemprop="wordCount" content="1545"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="big data,data lakehouse," /><meta property="og:title" content="湖仓一体" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/data_lakehouse/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-16T09:23:45+08:00" />
+<meta property="article:modified_time" content="2022-06-16T10:30:08+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="湖仓一体"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/data_lakehouse/" /><link rel="prev" href="https://buli-home.cn/date_lake/" /><link rel="next" href="https://buli-home.cn/scala_1/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "湖仓一体",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/data_lakehouse\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "big data, data lakehouse","wordcount":  1545 ,
+    "url": "https:\/\/buli-home.cn\/data_lakehouse\/","datePublished": "2022-06-16T09:23:45+08:00","dateModified": "2022-06-16T10:30:08+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="         搜索" id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder="         搜索" id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">湖仓一体</h1><h2 class="single-subtitle">Data Lakehouse</h2><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/big-data/"><i class="far fa-folder fa-fw"></i>big data</a></span></div>
+      <div class="post-meta-line"><span title=2022-06-16&#32;09:23:45>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-06-16" >2022-06-16</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1545 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#数据仓库与数据湖的区别">数据仓库与数据湖的区别</a></li>
+    <li><a href="#湖仓一体是怎么诞生的">湖仓一体是怎么诞生的</a></li>
+    <li><a href="#湖仓一体的好处">湖仓一体的好处</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="数据仓库与数据湖的区别">数据仓库与数据湖的区别</h2>
+<p>说到湖仓一体, 就要先了解一下数据仓库和数据湖的区别是什么.</p>
+<p>下面这个表格就是AWS(<a
+  href="https://aws.amazon.com/cn/big-data/datalakes-and-analytics/what-is-a-data-lake/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a>)上的对比:</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>数据仓库</th>
+<th>数据湖</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数据</strong></td>
+<td>来自事务系统、运营数据和业务线应用程序的关系数据</td>
+<td>来自IoT设备、网站、移动应用程序、社交媒体和企业应用程序的非关系和关系数据</td>
+</tr>
+<tr>
+<td><strong>Schema</strong></td>
+<td>设计数据仓库实施之前(写入型Schema)</td>
+<td>写入在分析时(读取型Schema)</td>
+</tr>
+<tr>
+<td><strong>性价比</strong></td>
+<td>更快查询结果会带来较高存储成本</td>
+<td>更快查询结果只需较低存储成本</td>
+</tr>
+<tr>
+<td><strong>数据质量</strong></td>
+<td>可作为重要事实依据的高度监管数据</td>
+<td>任何可以或无法进行监管的数据(例如原始数据)</td>
+</tr>
+<tr>
+<td><strong>用户</strong></td>
+<td>业务分析师</td>
+<td>数据科学家、数据开发人员和业务分析师(使用监管数据)</td>
+</tr>
+<tr>
+<td><strong>分析</strong></td>
+<td>批处理报告、BI和可视化</td>
+<td>机器学习、预测分析、数据发现和分析</td>
+</tr>
+</tbody>
+</table>
+<p>从上面这个表就能看出来数据仓库和数据湖的差别还是很明显的. 在企业中, 两者的作用是互补的, 所以<strong>不应该认为数据湖的出现是为了取代数据仓库, 毕竟两者的作用是截然不同的</strong>.</p>
+<h2 id="湖仓一体是怎么诞生的">湖仓一体是怎么诞生的</h2>
+<p>对于数据而言, 数据仓库就像是一个大型图书馆, 里面的数据需要按照规范放好, 可以按照类别找到想要的信息. 而数据湖就像是一个大型仓库, 可以存储任何形式(结构化, 半结构化和非结构化)和任何格式(文本, 图像, 音频, 视频)的原始数据.</p>
+<p>在产品的角度上来说, 数据仓库一般是独立标准化产品, 数据湖更像是一种架构指导, 需要配合着系列周边工具来实现业务需要. 也就是说, 数据湖的灵活性对于前期开发和前期部署是友好的; 数据仓库的规范性对于大数据后期的运行和长期发展是友好的. 那有没有一种新架构能兼具数据仓库和数据湖的优点?</p>
+<p>然后, 湖仓一体就诞生了.</p>
+<p>依据DataBricks公司对Lakehouse 的定义, 湖仓一体是一种结合了数据湖和数据仓库优势的新范式, 在用于数据湖的低成本存储上, 实现与数据仓库中类似的数据结构和数据管理功能. 湖仓一体是一种更开放的新型架构, 有人把它做了一个比喻, 就类似于在湖边搭建了很多小房子, 有的负责数据分析, 有的运转机器学习, 有的来检索音视频等, 至于那些数据源流, 都可以从数据湖里轻松获取.</p>
+<blockquote>
+<p>需要注意的是:</p>
+<p>数据湖 + 数据仓库 ≠ 湖仓一体</p>
+</blockquote>
+<p>湖仓一体诞生的目的, 总结起来就是:</p>
+<ol>
+<li>打通数据的存储与计算</li>
+<li>灵活性与成长性兼得</li>
+</ol>
+<center>
+    <img style="border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
+    src="https://miro.medium.com/max/1280/1*Nv28a3S6zQFAHZd4iVy8Xw.png" width = "65%" alt="" onclick="window.open(this.src)"/>
+    <br>
+    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+    display: inline-block;
+    color: #999;
+    padding: 2px;">
+      灵活性与成长性
+  	</div>
+</center>
+<h2 id="湖仓一体的好处">湖仓一体的好处</h2>
+<ul>
+<li>
+<p><strong>数据重复性</strong>：如果一个组织同时维护了一个数据湖和多个数据仓库，这无疑会带来数据冗余。在最好的情况下，这仅仅只会带来数据处理的不高效，但是在最差的情况下，它会导致数据不一致的情况出现。湖仓一体的结合，能够去除数据的重复性，真正做到了唯一。</p>
+</li>
+<li>
+<p><strong>高存储成本</strong>：数据仓库和数据湖都是为了降低数据存储的成本。数据仓库往往是通过降低冗余，以及整合异构的数据源来做到降低成本。而数据湖则往往使用大数据文件系统和Spark在廉价的硬件上存储计算数据。湖仓一体架构的目标就是结合这些技术来最大力度降低成本。</p>
+</li>
+<li>
+<p><strong>报表和分析应用之间的差异</strong>：数据科学倾向于与数据湖打交道，使用各种分析技术来处理未经加工的数据。而报表分析师们则倾向于使用整合后的数据，比如数据仓库或是数据集市。而在一个组织内，往往这两个团队之间没有太多的交集，但实际上他们之间的工作又有一定的重复和矛盾。而当使用湖仓一体架构后，两个团队可以在同一数据架构上进行工作，避免不必要的重复。</p>
+</li>
+<li>
+<p><strong>数据停滞</strong>：在数据湖中，数据停滞是一个最为严重的问题，如果数据一直无人治理，那将很快变为数据沼泽。我们往往轻易的将数据丢入湖中，但缺乏有效的治理，长此以往，数据的时效性变得越来越难追溯。湖仓一体的引入，对于海量数据进行治理，能够更有效地帮助提升分析数据的时效性。</p>
+</li>
+<li>
+<p><strong>潜在不兼容性带来的风险</strong>：数据分析仍是一门兴起的技术，新的工具和技术每年仍在不停地出现中。一些技术可能只和数据湖兼容，而另一些则又可能只和数据仓库兼容。湖仓一体的架构意味着为两方面做准备。</p>
+</li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-06-16&#32;10:30:08>更新于 2022-06-16</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/data_lakehouse/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/data_lakehouse/" data-title="湖仓一体" data-hashtags="big data,data lakehouse"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/data_lakehouse/" data-hashtag="big data"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/data_lakehouse/" data-title="湖仓一体"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/data_lakehouse/" data-title="湖仓一体"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/data_lakehouse/" data-title="湖仓一体" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/big-data/">big data</a>,&nbsp;<a href="/tags/data-lakehouse/">data lakehouse</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/date_lake/" class="prev" rel="prev" title="数据湖"><i class="fas fa-angle-left fa-fw"></i>数据湖</a>
+      <a href="/scala_1/" class="next" rel="next" title="Scala概述">Scala概述<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"buli-home","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

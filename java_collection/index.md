@@ -76,7 +76,7 @@ for (Iterator it = list.iterator(); it.hasNext(); ) {
 
 `List`接口也是一个顶层接口, 继承了`Collection`接口, 同时也是`ArrayList`, `LinkedList`等集合元素的父类. 
 
-`Set`接口位于与`List`接口同级的层次上, 它同事也继承了`Collection`接口. `Set`接口提供了额外的规定. 对`add()`, `equals()`, `hashCode()`方法提供了额外的标准. 
+`Set`接口位于与`List`接口同级的层次上, 它同时也继承了`Collection`接口. `Set`接口提供了额外的规定. 对`add()`, `equals()`, `hashCode()`方法提供了额外的标准. 
 
 `Queue`是和`List`, `Set`接口并列的`Collection`的**三大接口**之一. `Queue`的设计用来在处理之前保持元素的访问次序. 除了`Collection`基础的操作外, 对立提供了额外的插入, 读取, 检查操作. 
 

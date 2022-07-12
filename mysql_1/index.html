@@ -9,14 +9,14 @@
 <meta name="description" content="关于 FixIt 主题" />
 <meta name="keywords" content="Database,MySQL" /><meta itemprop="name" content="MySQL总览">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-12-13T16:31:37+08:00" />
-<meta itemprop="dateModified" content="2022-06-14T09:22:19+08:00" />
-<meta itemprop="wordCount" content="1684"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="dateModified" content="2022-06-17T08:36:34+08:00" />
+<meta itemprop="wordCount" content="1680"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
 <meta itemprop="keywords" content="Database,MySQL," /><meta property="og:title" content="MySQL总览" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buli-home.cn/mysql_1/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-13T16:31:37+08:00" />
-<meta property="article:modified_time" content="2022-06-14T09:22:19+08:00" />
+<meta property="article:modified_time" content="2022-06-17T08:36:34+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/buli-home.cn\/mysql_1\/"
-    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Database, MySQL","wordcount":  1684 ,
-    "url": "https:\/\/buli-home.cn\/mysql_1\/","datePublished": "2021-12-13T16:31:37+08:00","dateModified": "2022-06-14T09:22:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Database, MySQL","wordcount":  1680 ,
+    "url": "https:\/\/buli-home.cn\/mysql_1\/","datePublished": "2021-12-13T16:31:37+08:00","dateModified": "2022-06-17T08:36:34+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Lruihao","logo": {
           "@type": "ImageObject",
@@ -151,7 +151,7 @@
 ><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
       <div class="post-meta-line"><span title=2021-12-13&#32;16:31:37>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-13" >2021-12-13</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1684 字&nbsp;
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1680 字&nbsp;
         <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -209,7 +209,7 @@
 </ol>
 <p>所谓的<strong>SQL解析</strong>, 就是按照既定的SQL语法, 对我们按照SQL语法规则编写的SQL语句进行解析, 然后理解这个SQL语句要干什么事情.</p>
 <h3 id="第三步-查询优化器-选择最优查询路径">第三步 查询优化器: 选择最优查询路径</h3>
-<p>当通过解析器理解了SQL语句要干什么之后, 接着就会找**查询优化器(Optimizer)**来选择一个最优的查询路径.</p>
+<p>当通过解析器理解了SQL语句要干什么之后, 接着就会找<strong>查询优化器</strong>(Optimizer)来选择一个最优的查询路径.</p>
 <h3 id="第四步-存储引擎-调用存储引擎接口-真正执行sql语句">第四步 存储引擎: 调用存储引擎接口, 真正执行SQL语句</h3>
 <p>最后一步, 就是把查询优化器选择的最有查询路径交给底层的存储引擎去真正的执行.</p>
 <p><strong>存储引擎</strong>是MySQL架构设计中很有特色的一个环节. 在真正执行SQL语句的时候, 要不是更新数据, 要不是查询数据, 但是具体的数据是存放在内存里还是在磁盘里呢? 这个时候就需要<strong>存储引擎</strong>了, 存储引擎其实就是执行SQL语句的, 它是按照一定的步骤去查询内存缓存数据, 更新磁盘数据, 查询磁盘数据等等, 执行诸如此类的一系列的操作.</p>
@@ -218,11 +218,11 @@
 <p>现在回过头来看一个问题, 存储引擎可以访问内存和磁盘上的数据, 那么是谁来调用存储引擎的接口呢?</p>
 <p>其实还漏了一个<strong>执行器</strong>的概念, 执行器会根据优化器选择的执行方案, 去调用存储引擎的接口按照一定的顺序和步骤, 就把SQL语句的逻辑给执行了.</p>
 <p>举个🌰: 比如执行器可能会先调用存储引擎的一个接口, 去获取<code>users</code>表中的第一行数据, 然后判断一下这个数据的<code>id</code>字段的值是否等于我们期望的值, 如果不是的话, 就继续调用存储引擎的接口, 去获取<code>users</code>表的下一行数据.</p>
-<p>基于上述的思路, <strong>执行器就会去根据优化器生成的一套执行计划, 然后不停的调用存储引擎的各种接口去完成SQL语句的执行计划</strong>, 大致就是不听的更新或者提取一些数据出来.</p></div><div class="post-footer" id="post-footer">
+<p>基于上述的思路, <strong>执行器就会去根据优化器生成的一套执行计划, 然后不停的调用存储引擎的各种接口去完成SQL语句的执行计划</strong>, 大致就是不停的更新或者提取一些数据出来.</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-06-14&#32;09:22:19>更新于 2022-06-14</span>
+        <span title=2022-06-17&#32;08:36:34>更新于 2022-06-17</span>
       </div>
       <div class="post-info-license"></div>
     </div>
