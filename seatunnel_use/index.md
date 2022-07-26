@@ -7,16 +7,59 @@
 
 > 官方文档: [传送门](https://seatunnel.apache.org/)
 
-
+> 本文档针对 SeaTunnel v2.1.2 编写
 
 ---
 
-## 环境
+## SeaTunnel是什么
 
-| 组件      | 版本  | 备注                                                         |
-| --------- | ----- | ------------------------------------------------------------ |
-| Flink     | 1.13  | 因为当前版本SeaTunnel还未适配Flink1.14, 所以使用Flink1.13版本进行文档编写 |
-| SeaTunnel | 2.1.2 |                                                              |
+### 概述
+
+先来看一下官方文档上是怎么说的:
+
+SeaTunnel is a very easy-to-use ultra-high-performance distributed data integration platform that supports real-time synchronization of massive data. It can synchronize tens of billions of data stably and efficiently every day, and has been used in the production of nearly 100 companies.
+
+> 翻译一下: 
+>
+> SeaTunnel 是一个使用起来非常简单, 性能非常高效的分布式数据集成平台. 它支持海量数据的实时同步. 它可以每天稳定高效的同步数百亿的数据, 并且已经用于近百个公司的生产中. 
+
+可以从上面提炼出几个关键词:
+
+1. very easy-to-use: 使用非常简单. 其实 SeaTunnel 并不是对 Flink 或是 Spark 或是以后支持的其他技术的二次开发, 而是在其之上封装了一层, 使得这些技术使用起来会更简便. 
+2. ultra-high-performance: 超高性能. 
+3. real-time synchronization of massive data: 海量数据的实时同步. 
+
+
+
+> 以下是从官方文档摘抄: 
+
+> ### 为什么我们需要 SeaTunnel
+>
+> SeaTunnel 尽所能为您解决海量数据同步中可能遇到的问题：
+>
+> - 数据丢失与重复
+> - 任务堆积与延迟
+> - 吞吐量低
+> - 应用到生产环境周期长
+> - 缺少应用运行状态监控
+
+> ### SeaTunnel 使用场景
+>
+> - 海量数据同步
+> - 海量数据集成
+> - 海量数据的 ETL
+> - 海量数据聚合
+> - 多源数据处理
+
+
+
+## 环境依赖
+
+| 组件  | 版本 | 备注                                                         |
+| :---: | ---- | ------------------------------------------------------------ |
+| Java  | >=8  |                                                              |
+| Flink | 1.13 | 因为当前版本SeaTunnel还未适配Flink1.14, 所以使用Flink1.13版本进行文档编写 |
+| Spark | 2.x  | 如果是集群方式的话, Yarn/Standalone 都是支持的               |
 
 
 
@@ -137,22 +180,6 @@ Usage: start-seatunnel-flink.sh [options]
 
 ```
 env{}`  `source{}` --> `transform{}` --> `sink{}
-env {
-    # 设置Spark或Flink的环境参数
-}
-
-source {
-    # 声明数据源, 可以声明多个Source插件
-    KafkaTableStream {... ...}
-}
-transform {
-    Split {... ...}
-    sql {... ...}
-}
-sink {
-    # 声明数据的输出
-    KafkaTable {... ...}
-}
 ```
 
 
@@ -287,7 +314,7 @@ sink {
 | **Iceberg**       | ✔️         | ❌         |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/Iceberg) |
 | **InfluxDb**      | ❌         | ✔️         |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/InfluxDb) |
 | **Jdbc**          | ✔️         | ✔️         |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/Jdbc) |
-| **Kafka**         | ✔️         | ✔️         | Kafka 版本 >= 0.10.0, 目前发现源码中发现 Schema 的解析有问题(原因为社区把 fastjson 换成 Jackon 引起的). | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/Kafka) |
+| **Kafka**         | ✔️         | ✔️         | Kafka 版本 >= 0.10.0, ~~目前源码中发现 Schema 的解析有问题~~(原因为社区把 fastjson 换成 Jackon 引起的). | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/Kafka) |
 | **Kudu**          | ✔️         | ❌         | 兼容 Kerberos 认证                                           | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/Kudu) |
 | **MongoDb**       | ✔️         | ❌         |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/MongoDB) |
 | **Neo4j**         | ✔️         | ❌         |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/source/neo4j) |
@@ -378,4 +405,5 @@ sink块里可以声明多个 sink 插件, 每个 sink 插件都可以指定`sour
 | **Phoenix**        |     ✔️     |     ❌     |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/sink/Phoenix) |
 | **Redis**          |     ✔️     |     ❌     |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/sink/Redis) |
 | **TiDb**           |     ✔️     |     ❌️     |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/sink/Tidb) |
+
 

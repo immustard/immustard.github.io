@@ -20,10 +20,12 @@
 
 ## Big Data
 
+* [Apache Kafka](https://kafka.apache.org/)
+
 * [The Scala Programming Language (scala-lang.org)](https://scala-lang.org/)
 * [Apache Flink: Stateful Computations over Data Streams](https://flink.apache.org/)
 
-* [Apache SeaTunnel | Apache SeaTunnel](https://seatunnel.apache.org/)
+* [Apache SeaTunnel](https://seatunnel.apache.org/)
 
 ***
 
