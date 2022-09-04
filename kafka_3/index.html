@@ -5,38 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>Kafka概述 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+    <title>Kafka生产者 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
 <meta name="description" content="关于 FixIt 主题" />
-<meta name="keywords" content="Kafka,Message Queue,big data" /><meta itemprop="name" content="Kafka概述">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-07-26T14:33:48+08:00" />
-<meta itemprop="dateModified" content="2022-09-04T13:17:23+08:00" />
-<meta itemprop="wordCount" content="930"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
-<meta itemprop="keywords" content="Kafka,Message Queue,big data," /><meta property="og:title" content="Kafka概述" />
+<meta name="keywords" content="Kafka,Message Queue,big data" /><meta itemprop="name" content="Kafka生产者">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-09-02T12:48:11+08:00" />
+<meta itemprop="dateModified" content="2022-09-04T18:14:41+08:00" />
+<meta itemprop="wordCount" content="1245"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="Kafka,Message Queue,big data," /><meta property="og:title" content="Kafka生产者" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://buli-home.cn/kafka_1/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-07-26T14:33:48+08:00" />
-<meta property="article:modified_time" content="2022-09-04T13:17:23+08:00" />
+<meta property="og:url" content="https://buli-home.cn/kafka_3/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-02T12:48:11+08:00" />
+<meta property="article:modified_time" content="2022-09-04T18:14:41+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
 
-<meta name="twitter:title" content="Kafka概述"/>
+<meta name="twitter:title" content="Kafka生产者"/>
 <meta name="twitter:description" content=""/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/kafka_1/" /><link rel="prev" href="https://buli-home.cn/canal/" /><link rel="next" href="https://buli-home.cn/kafka_2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/kafka_3/" /><link rel="prev" href="https://buli-home.cn/kafka_2/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "Kafka概述",
+    "headline": "Kafka生产者",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/buli-home.cn\/kafka_1\/"
-    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Kafka, Message Queue, big data","wordcount":  930 ,
-    "url": "https:\/\/buli-home.cn\/kafka_1\/","datePublished": "2022-07-26T14:33:48+08:00","dateModified": "2022-09-04T13:17:23+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@id": "https:\/\/buli-home.cn\/kafka_3\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Kafka, Message Queue, big data","wordcount":  1245 ,
+    "url": "https:\/\/buli-home.cn\/kafka_3\/","datePublished": "2022-09-02T12:48:11+08:00","dateModified": "2022-09-04T18:14:41+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Lruihao","logo": {
           "@type": "ImageObject",
@@ -130,7 +130,7 @@
     
   </aside>
 
-  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kafka概述</h1><h2 class="single-subtitle">Kafka Overview</h2><div class="post-meta">
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kafka生产者</h1><h2 class="single-subtitle">Kafka Producer</h2><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a
   href="https://github.com/immustard"
   
@@ -149,10 +149,10 @@
   
   
 ><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/kafka/"><i class="far fa-folder fa-fw"></i>Kafka</a></span></div>
-      <div class="post-meta-line"><span title=2022-07-26&#32;14:33:48>
-            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-07-26" >2022-07-26</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 930 字&nbsp;
-        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+      <div class="post-meta-line"><span title=2022-09-02&#32;12:48:11>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-02" >2022-09-02</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1245 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -160,68 +160,130 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#定义">定义</a></li>
-    <li><a href="#消息队列">消息队列</a>
+    <li><a href="#生产者消息发送流程">生产者消息发送流程</a>
       <ul>
-        <li><a href="#传统消息队列的应用场景">传统消息队列的应用场景</a></li>
-        <li><a href="#消息队列的两种模式">消息队列的两种模式</a></li>
+        <li><a href="#发送原理">发送原理</a></li>
+        <li><a href="#生产者重要参数">生产者重要参数</a></li>
       </ul>
     </li>
-    <li><a href="#kafka基础框架">Kafka基础框架</a></li>
+    <li><a href="#生产者分区">生产者分区</a>
+      <ul>
+        <li><a href="#分区的好处">分区的好处</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据传递语义">数据传递语义</a></li>
+    <li><a href="#幂等性">幂等性</a>
+      <ul>
+        <li><a href="#幂等性原理">幂等性原理</a></li>
+        <li><a href="#如何使用幂等性">如何使用幂等性</a></li>
+      </ul>
+    </li>
+    <li><a href="#生产者事务">生产者事务</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h2 id="定义">定义</h2>
-<ul>
-<li><strong>Kafka传统定义</strong>: Kafka 是一个<strong>分布式</strong>的基于<strong>发布/订阅模式</strong>的<strong>消息队列</strong>(Message Queue)</li>
-<li><strong>发布/订阅</strong>: 消息的发布者不会讲消息直接发送给特定的订阅者, 而是<strong>将发布的消息分为不同的类型, 订阅者只接受感兴趣的消息</strong>.</li>
-<li><strong>Kafka最新定义</strong>: Kafka是一个开元的<strong>分布式事件流平台</strong>(Event Streaming Platform), 被数千家公司用于高性能<strong>数据管道</strong>、<strong>流分析</strong>、<strong>数据集成</strong>和<strong>关键任务应用</strong>.</li>
-</ul>
-<h2 id="消息队列">消息队列</h2>
-<p>目前比较常见的消息队列产品主要有Kafka、ActiveMQ、RabbitMQ、RocketMQ等.</p>
-<p>大数据场景主要采用 Kafka, JavaEE 开发中主要采用 ActiveMQ、RabbitMQ、RocketMQ .</p>
-<h3 id="传统消息队列的应用场景">传统消息队列的应用场景</h3>
-<ul>
-<li><strong>缓存/消峰</strong>: 有助于控制和优化数据流经过系统的速度, 解决生产消息和消费消息的处理速度不一致的情况.</li>
-<li><strong>解耦</strong>: 允许独立的扩展或修改两边的处理过程, 只要确保它们遵守同样的接口约束.</li>
-<li><strong>异步通信</strong>: <strong>允许用户把一个消息放入队列, 但并不立即处理它</strong>, 然后<strong>在需要的时候再去处理它们</strong>.</li>
-</ul>
-<h3 id="消息队列的两种模式">消息队列的两种模式</h3>
+      </div><div class="content" id="content"><h2 id="生产者消息发送流程">生产者消息发送流程</h2>
+<h3 id="发送原理">发送原理</h3>
+<p>在消息发送的过程中, 涉及到了<strong>两个线程&ndash;<code>main线程</code>和<code>Sender线程</code></strong>. 在 main 线程中创建了一个<code>双端队列RecordAccumulator</code>. main 线程将消息发送个 RecordAccumulator, Sender 线程不断从 RecordAccumulator 中拉取消息发送到 Kafka Broker.</p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202209041729645.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       发送流程   	</div> </center>
+<h3 id="生产者重要参数">生产者重要参数</h3>
+<table>
+<thead>
+<tr>
+<th><strong>参数名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bootstrap.servers</code></td>
+<td>生产者连接集群所需的 boker 地址清单. 可以设置一个或多个, 中间用<code>,</code>隔开. <strong>注意:</strong> 并非需要所有的 broker 地址, 因为生产者从给定的 broker 里查找其他 broker 信息</td>
+</tr>
+<tr>
+<td><code>key.serializer</code>和<code>value.serializer</code></td>
+<td>指定发送消息的 key 和 value 的序列化类型. <strong>一定要写全类名!</strong></td>
+</tr>
+<tr>
+<td><code>buffer.memory</code></td>
+<td>RecordAccumulator 缓冲区总大小, <code>默认32m</code>.</td>
+</tr>
+<tr>
+<td><code>batch.size</code></td>
+<td>缓冲区一批数据最大值, <code>默认16k</code>. (适当增加可以提高吞吐量; 但是如果过大的话, 会导致数据传输延迟增加).</td>
+</tr>
+<tr>
+<td><code>linger.ms</code></td>
+<td>如果数据一直未到达 batch.size, sender 等待 linger.ms 之后就会发送数据, 单位是ms. <code>默认0ms</code>, 表示没有延迟. (生产环境一般 5-100ms 之间)</td>
+</tr>
+<tr>
+<td><code>acks</code></td>
+<td>0: 生产者发送过来的数据, 不需要等数据落盘应答; 1: 生产者发送过来的数据, Leader 收到数据后应答; -1(all): 生产者发送过来的数据, Leader+ 和 isr 队列里面的所有节点收齐数据后应答. <code>默认是-1</code>, -1和all是等价的.</td>
+</tr>
+<tr>
+<td><code>max.in.flight.request.per.connection</code></td>
+<td>允许最多没有返回 ack 的次数, <code>默认为5</code>, 开启幂等性要保证该值是 1-5 的数字.</td>
+</tr>
+<tr>
+<td><code>retries</code></td>
+<td>当消息发送出现错误的时候, 系统会重发消息. 该值表示重复次数. <code>默认为int最大值,2147483647</code>. 如果设置了重试, 还想保证消息的有序性, 需要设置 MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION=1 否则在重试此失败消息的时候, 其他的消息可能发送成功了.</td>
+</tr>
+<tr>
+<td><code>retry.backoff.ms</code></td>
+<td>两次重试之间的时间间隔, <code>默认为100ms</code>.</td>
+</tr>
+<tr>
+<td><code>enable.idempotence</code></td>
+<td>是否开启幂等性, <code>默认为true</code>, 开启幂等性.</td>
+</tr>
+<tr>
+<td><code>compression.type</code></td>
+<td>生产者发送的所有数据的压缩方式. <code>默认为none</code>, 也就是不压缩. 支持压缩类型: none, gzip, snappy, lz4和zstd.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="生产者分区">生产者分区</h2>
+<h3 id="分区的好处">分区的好处</h3>
 <ol>
-<li><strong>点对点模式</strong>: 消费者主动拉取数据, 消息收到后清除消息</li>
-<li><strong>发布/订阅模式</strong>:
-<ul>
-<li>可以有多个 topic(主题) (浏览、点赞、收藏、评论等)</li>
-<li>消费者消费数据之后, 不能删除数据</li>
-<li>每个消费者相互独立, 都可以消费到数据</li>
-</ul>
-</li>
+<li><strong>便于合理使用存储资源</strong>, 每个 Partition 在一个 Broker 上存储, 可以吧海量的数据按照分区切割成小块存储在多台 Broker 上. 合理控制分区的任务, 可以实现<strong>负载均衡</strong>的效果.</li>
+<li><strong>提高并行度</strong>, 生产者可以以分区为单位<strong>发送数据</strong>; 消费者可以以分区为单位<strong>消费数据</strong>.</li>
 </ol>
-<h2 id="kafka基础框架">Kafka基础框架</h2>
-<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202207261603195.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       Kafka基础框架   	</div> </center>
-<ol>
-<li><strong>Producer</strong>: 消息生产者, 向 Kafka broker 发消息的客户端.</li>
-<li><strong>Consumer</strong>: 消息消费者, 向 Kafka broker 取消息的客户端.</li>
-<li><strong>Consumer Group(CG)</strong>: 消费者组, 由多个 consumer 组成. 消费者组内每个消费者负责消费不同分区的数据, 一个分区只能由一个组内消费者消费; 消费者组之间互不影响. 所有的消费者都属于某个消费者组, 即消费者组是逻辑上的一个订阅者.</li>
-<li><strong>Broker</strong>: 一台 Kafka 服务器就是一个 broker. 一个集群由多个 broker 组成. 一个 broker 可以容纳多个topic.</li>
-<li><strong>Topic</strong>: 可以理解为一个队列, 生产者和消费者面向的都是一个 topic.</li>
-<li><strong>Partition</strong>: 为了实现扩展性, 一个非常大的 topic 可以分布到多个 broker(即服务器) 上, 一个 topic 可以分为多个 partition, 每个 partition 是一个有序的队列.</li>
-<li><strong>Replica</strong>: 副本. 一个 topic 的每个分区都有若干个副本, 一个 Leader 和若干个 Follower.</li>
-<li><strong>Leader</strong>: 每个分区多个副本的&quot;主&quot;, 生产者发送数据的对象, 以及消费者消费数据的对象都是Leader.</li>
-<li><strong>Follower</strong>: 每个分区多个副本中的&quot;从&quot;, 实时从 Leader 中同步数据, 保持和 Leader 数据的同步. Leader 发生故障时, 某个 Follower 会成为新的 Leader.</li>
-</ol></div><div class="post-footer" id="post-footer">
+<h2 id="数据传递语义">数据传递语义</h2>
+<ul>
+<li><strong>至少一次</strong>(At Least Once) = <code>ACK级别设置为-1</code> + <code>分区副本大于等于2</code> + <code>ISR里应答的最小副本数量大于等于2</code></li>
+<li><strong>最多一次</strong>(At Most Once) = <code>ACK级别设置为0</code>.</li>
+<li><strong>精确一次</strong>(Exactly Once): 对于一些非常重要的信息, 例如和钱相关的数据, 要求数据既不能重复也不能丢失.</li>
+</ul>
+<p>也就是说, At Least Once 可以保证数据不丢失, 但是<strong>不能保证数据不重复</strong>; At Most Once 可以保证数据不重复, 但是<strong>不能保证数据不丢失</strong>.</p>
+<h2 id="幂等性">幂等性</h2>
+<h3 id="幂等性原理">幂等性原理</h3>
+<p>幂等性就是指 Producer 不论向 Broker 发送多少次重复数据, Broker 端都只会持久化一条, 保证了不重复.</p>
+<p>所以上面的 Exactly Once = <code>幂等性</code> + <code>At Least Once</code>(ack=-1 + partitions&gt;=2 + ISR最小副本数&gt;=2)</p>
+<p><strong>重复数据的判断标准</strong>: 具有<code>&lt;PID, Partition, SeqNumber&gt;</code>相同逐渐的消息提交时, Borker 只会持久化一条. 其中:</p>
+<ul>
+<li>PID 是 Kafka 每次重启都会分配一个新的;</li>
+<li>Partition 表示分区号</li>
+<li>Sequence Number 单调自增</li>
+</ul>
+<p><strong>综上, 幂等性只能保证的是在单分区单会话内不重复</strong>.</p>
+<h3 id="如何使用幂等性">如何使用幂等性</h3>
+<p>开启参数<code>enable.idempotence</code>.</p>
+<h2 id="生产者事务">生产者事务</h2>
+<blockquote>
+<p>开启事务, 必须开启幂等性!</p>
+</blockquote>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202209041812162.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       Kafka事务原理   	</div> </center></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-09-04&#32;13:17:23>更新于 2022-09-04</span>
+        <span title=2022-09-04&#32;18:14:41>更新于 2022-09-04</span>
       </div>
       <div class="post-info-license"></div>
     </div>
     <div class="post-info-line">
       <div class="post-info-md"><span>
-              <a class="link-to-markdown" href="/kafka_1/index.md" target="_blank">阅读原始文档</a>
+              <a class="link-to-markdown" href="/kafka_3/index.md" target="_blank">阅读原始文档</a>
             </span></div>
       <div class="post-info-share">
-        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/kafka_1/" data-title="Kafka概述" data-hashtags="Kafka,Message Queue,big data"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/kafka_1/" data-hashtag="Kafka"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/kafka_1/" data-title="Kafka概述"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/kafka_1/" data-title="Kafka概述"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/kafka_1/" data-title="Kafka概述" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者" data-hashtags="Kafka,Message Queue,big data"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/kafka_3/" data-hashtag="Kafka"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
       </div>
     </div>
   </div>
@@ -233,8 +295,7 @@
     </section>
   </div>
 
-  <div class="post-nav"><a href="/canal/" class="prev" rel="prev" title="Canal"><i class="fas fa-angle-left fa-fw"></i>Canal</a>
-      <a href="/kafka_2/" class="next" rel="next" title="Kafka命令行操作">Kafka命令行操作<i class="fas fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/kafka_2/" class="prev" rel="prev" title="Kafka命令行操作"><i class="fas fa-angle-left fa-fw"></i>Kafka命令行操作</a></div>
 </div>
 </article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.102.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>

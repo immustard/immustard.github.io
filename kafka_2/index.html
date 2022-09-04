@@ -5,38 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>CSRF攻击 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+    <title>Kafka命令行操作 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
 <meta name="description" content="关于 FixIt 主题" />
-<meta name="keywords" content="Security,Network,HTTP" /><meta itemprop="name" content="CSRF攻击">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-02-23T16:28:04+08:00" />
-<meta itemprop="dateModified" content="2022-08-14T11:45:47+08:00" />
-<meta itemprop="wordCount" content="1447"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
-<meta itemprop="keywords" content="Security,Network,HTTP," /><meta property="og:title" content="CSRF攻击" />
+<meta name="keywords" content="Kafka,Message Queue,big data" /><meta itemprop="name" content="Kafka命令行操作">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-09-02T10:10:36+08:00" />
+<meta itemprop="dateModified" content="2022-09-02T12:48:44+08:00" />
+<meta itemprop="wordCount" content="396"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="Kafka,Message Queue,big data," /><meta property="og:title" content="Kafka命令行操作" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://buli-home.cn/csrf/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-23T16:28:04+08:00" />
-<meta property="article:modified_time" content="2022-08-14T11:45:47+08:00" />
+<meta property="og:url" content="https://buli-home.cn/kafka_2/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-02T10:10:36+08:00" />
+<meta property="article:modified_time" content="2022-09-02T12:48:44+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
 
-<meta name="twitter:title" content="CSRF攻击"/>
+<meta name="twitter:title" content="Kafka命令行操作"/>
 <meta name="twitter:description" content=""/>
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/csrf/" /><link rel="prev" href="https://buli-home.cn/xss/" /><link rel="next" href="https://buli-home.cn/sqlinjection/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/kafka_2/" /><link rel="prev" href="https://buli-home.cn/kafka_1/" /><link rel="next" href="https://buli-home.cn/kafka_3/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
-    "headline": "CSRF攻击",
+    "headline": "Kafka命令行操作",
     "inLanguage": "zh-CN",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https:\/\/buli-home.cn\/csrf\/"
-    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Security, Network, HTTP","wordcount":  1447 ,
-    "url": "https:\/\/buli-home.cn\/csrf\/","datePublished": "2022-02-23T16:28:04+08:00","dateModified": "2022-08-14T11:45:47+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@id": "https:\/\/buli-home.cn\/kafka_2\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Kafka, Message Queue, big data","wordcount":  396 ,
+    "url": "https:\/\/buli-home.cn\/kafka_2\/","datePublished": "2022-09-02T10:10:36+08:00","dateModified": "2022-09-02T12:48:44+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Lruihao","logo": {
           "@type": "ImageObject",
@@ -130,7 +130,7 @@
     
   </aside>
 
-  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">CSRF攻击</h1><div class="post-meta">
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Kafka命令行操作</h1><h2 class="single-subtitle">Kafka Command Line Operation</h2><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a
   href="https://github.com/immustard"
   
@@ -148,11 +148,11 @@
     class="author"
   
   
-><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/security/"><i class="far fa-folder fa-fw"></i>Security</a></span></div>
-      <div class="post-meta-line"><span title=2022-02-23&#32;16:28:04>
-            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-23" >2022-02-23</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1447 字&nbsp;
-        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/kafka/"><i class="far fa-folder fa-fw"></i>Kafka</a></span></div>
+      <div class="post-meta-line"><span title=2022-09-02&#32;10:10:36>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-02" >2022-09-02</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 396 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
@@ -160,142 +160,270 @@
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#什么是csrf攻击">什么是CSRF攻击</a></li>
-        <li><a href="#csrf攻击的原理">CSRF攻击的原理</a></li>
-        <li><a href="#常见的几种类型">常见的几种类型</a></li>
-        <li><a href="#防御手段">防御手段</a></li>
-      </ul>
-    </li>
+    <li><a href="#主题命令行操作">主题命令行操作</a></li>
+    <li><a href="#生产者命令行操作">生产者命令行操作</a></li>
+    <li><a href="#消费者命令行操作">消费者命令行操作</a></li>
   </ul>
 </nav></div>
-      </div><div class="content" id="content"><h3 id="什么是csrf攻击">什么是CSRF攻击</h3>
-<p>CSRF攻击全称跨站请求伪造(Cross-site request forgery), 也被称为<strong>one-click attack</strong>或<strong>session riding</strong>, 通常缩写为CSRF或者XSRF. 尽管CSRF和<a
-  href="../xss"
-  
-  
-  
-  
-  
-  
->XSS攻击</a>很像, 但是两者的方式截然不同, 甚至可以说是相左的. XSS利用的是用户对指定网站的信任, CSRF利用的是网站对用户网页浏览器的信任. 我理解的是XSS是攻击者对浏览器下手, CSRF是对用户下手.</p>
-<p>可以这么理解: 攻击者盗用受信任用户的身份, 以该用户的名已发送恶意请求.</p>
-<h3 id="csrf攻击的原理">CSRF攻击的原理</h3>
-<ol>
-<li>用户1访问受信任的网站A, 输入用户名和密码登录网站A.</li>
-<li>登录成功之后, 网站A产生Cookie信息并返回给浏览器.</li>
-<li>用户1在未退出登录网站A的情况下, <strong>在同一浏览器</strong>, 访问网站B.</li>
-<li>网站B接收到请求后, 携带网站A的Cookie信息, 发出一个请求去访问网站A</li>
-<li>网站A在接收到网站B的请求之后, 会以用户1的权限处理该请求, 从而导致用户1的隐私泄漏和财产安全受到威胁.</li>
-</ol>
-<h3 id="常见的几种类型">常见的几种类型</h3>
+      </div><div class="content" id="content"><h2 id="主题命令行操作">主题命令行操作</h2>
 <ol>
 <li>
-<p><code>GET</code>类型的CSRF:</p>
-<ul>
-<li>这种类型的CSRF利用非常简单, 只需要一个HTTP请求:</li>
-</ul>
+<p>查看操作主题命令参数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">http://xxx.com/csrf?user=xxx</span> <span class="p">/&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在访问这个<code>img</code>的页面后, 成功发出了一次HTTP请求.</p>
+</div><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bootstrap-server &lt;String:server toconnect to&gt;</code></td>
+<td>连接的 Kafka Broker 主机名称和端口号</td>
+</tr>
+<tr>
+<td><code>--topic &lt;String:topic&gt;</code></td>
+<td>操作的 topic 名称</td>
+</tr>
+<tr>
+<td><code>--create</code></td>
+<td>创建主题</td>
+</tr>
+<tr>
+<td><code>--delete</code></td>
+<td>删除主题</td>
+</tr>
+<tr>
+<td><code>--alter</code></td>
+<td>修改主题</td>
+</tr>
+<tr>
+<td><code>--list</code></td>
+<td>查看所有主题</td>
+</tr>
+<tr>
+<td><code>--describe</code></td>
+<td>查看主题详细描述</td>
+</tr>
+<tr>
+<td><code>--partitions &lt;Integer:# of partitions&gt;</code></td>
+<td>设置分区数</td>
+</tr>
+<tr>
+<td><code>--replication-factor &lt;Integer: replication factor&gt;</code></td>
+<td>设置分区副本</td>
+</tr>
+<tr>
+<td><code>--config &lt;String:name=value&gt;</code></td>
+<td>更新系统默认配置</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
-<p><code>POST</code>类型的CSRF:</p>
-<ul>
-<li>这种类型的CSRF没有<code>GET</code>型的大, 利用起来通常使用的是一个自动提交的表单:</li>
-</ul>
+<p>查看当前服务器中的所有 topic</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --list
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>创建 first topic</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --create --partitions <span class="m">1</span> --replication-factor <span class="m">3</span> --topic first
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查看 first 主题详情</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --describe --topic first
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改分区数 <strong>(注意: 分区数只能增加, 不能减少!!!)</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --alter --topic first --partitions <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除topic</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --delete --topic first
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="生产者命令行操作">生产者命令行操作</h2>
+<ol>
+<li>
+<p>查看操作生产者命令参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bootstrap-server &lt;String:server toconnect to&gt;</code></td>
+<td>连接的 Kafka Broker 主机名称和端口号</td>
+</tr>
+<tr>
+<td><code>--topic &lt;String:topic&gt;</code></td>
+<td>操作的 topic 名称</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>发送消息</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">http://xxx.com/csrf.php</span> <span class="na">method</span><span class="o">=</span><span class="s">POST</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;user&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;xxx&#34;</span> <span class="p">/&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span><span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">submit</span><span class="p">();&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh --bootstrap-server hadoop102:9092 --topic first
+</span></span><span class="line"><span class="cl">&gt;hello world
+</span></span><span class="line"><span class="cl">&gt;hello buli-home
 </span></span></code></pre></td></tr></table>
 </div>
 </div></li>
+</ol>
+<h2 id="消费者命令行操作">消费者命令行操作</h2>
+<ol>
 <li>
-<p>其他类型CSRF:</p>
+<p>查看操作生产者命令参数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">http://admin:admin@192.168.1.1</span> <span class="p">/&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在访问这个<code>img</code>的页面后, 路由器会给用户一个合法的SESSION, 就可以进行下一步操作了.</p>
+</div><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bootstrap-server &lt;String:server toconnect to&gt;</code></td>
+<td>连接的 Kafka Broker 主机名称和端口号</td>
+</tr>
+<tr>
+<td><code>--topic &lt;String:topic&gt;</code></td>
+<td>操作的 topic 名称</td>
+</tr>
+<tr>
+<td><code>--from-beginning</code></td>
+<td>从头开始消费</td>
+</tr>
+<tr>
+<td><code>--group &lt;String:consumer group id&gt;</code></td>
+<td>指定消费者组名称</td>
+</tr>
+</tbody>
+</table>
 </li>
-</ol>
-<h3 id="防御手段">防御手段</h3>
-<p>目前防御CSRF攻击主要有三种策略:</p>
+<li>
+<p>消费消息</p>
 <ol>
 <li>
-<p><strong>检查<code>HTTP Referer</code>字段</strong></p>
-<p>根据HTTP协议, 在HTTP头中有一个字段叫Referer, 它记录了该HTTP请求的来源地址.</p>
-<blockquote>
-<p>优势: 简单易行, 网站的普通开发人员不需要操心CSRF的漏洞, 只需要在最后给所有安全敏感的请求统一增加一个拦截器来检查Referer的值就可以了. 特别是对于已有的系统来说, 不需要更改当前系统的任何代码和逻辑, 没有风险.</p>
-<p>劣势: 这种方式是把安全性都依赖于浏览器来保障, 对于一些低版本的浏览器来说, 是可以篡改Referer值的. 对于某些最新的浏览器, 虽然不能篡改Referer的值, 但是用户有些时候会认为Referer值会记录下用户的访问来源, 所以用户自己可以设置浏览器在发送请求的时候不再提供Referer. 这种情况下, 此种方式就会认为是CSRF攻击, 从而拒绝合法用户的访问.</p>
-</blockquote>
-</li>
+<p>消费 first 主题中的数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic first
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
-<p><strong>添加<code>校验token</code></strong></p>
-<p>CSRF之所以能够成功是因为攻击者获取到了Cookie信息. 如果能够不只是依靠Cookie中的信息来抵御CSRF攻击, 那么就可以防御了. 所以这种方式就是在HTTP请求中以参数的形式加入一个随机产生的<code>token</code>, 并且在服务器端建立一个拦截器来验证这个<code>token</code>.</p>
-<blockquote>
-<p>优势: 这种方法比检查Referer更安全一些, <code>token</code>可以在用户登录之后产生并放与SESSION中, 然后每次请求时把<code>token</code>从SESSION中取出来进行比对.</p>
-<p>劣势: 难以保证<code>token</code>本身的安全.</p>
-</blockquote>
-<blockquote>
-<p>疑问: 可以做到每次验证<code>token</code>成功之后, 产生一个新的<code>token</code>是否可以避免此种方法可能产生的漏洞.</p>
-</blockquote>
-</li>
-<li>
-<p><strong>在HTTP头中自定义属性并验证</strong></p>
-<p>这种方法也是使用<code>token</code>进行验证, 但是不是放在参数中, 而是放在HTTP请求头的自定义属性中. 通过<code>XMLHttpRequest</code>这个类, 可以一次性给所有该类请求加上<code>csrftoken</code>这个HTTP头属性, 并把<code>token</code>放进去.</p>
-<blockquote>
-<p>优势: 不会记录到浏览器的地址栏, 统一管理<code>token</code>输入输出, 可以保证<code>token</code>的安全性.</p>
-<p>劣势: 无法在非异步的请求上实施.</p>
-</blockquote>
+<p>把主题中所有的数据都读取出来 (包括历史数据)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --from-beginning --topic first
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
 </li>
 </ol></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-08-14&#32;11:45:47>更新于 2022-08-14</span>
+        <span title=2022-09-02&#32;12:48:44>更新于 2022-09-02</span>
       </div>
       <div class="post-info-license"></div>
     </div>
     <div class="post-info-line">
       <div class="post-info-md"><span>
-              <a class="link-to-markdown" href="/csrf/index.md" target="_blank">阅读原始文档</a>
+              <a class="link-to-markdown" href="/kafka_2/index.md" target="_blank">阅读原始文档</a>
             </span></div>
       <div class="post-info-share">
-        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/csrf/" data-title="CSRF攻击" data-hashtags="Security,Network,HTTP"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/csrf/" data-hashtag="Security"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/csrf/" data-title="CSRF攻击"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/csrf/" data-title="CSRF攻击"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/csrf/" data-title="CSRF攻击" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作" data-hashtags="Kafka,Message Queue,big data"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/kafka_2/" data-hashtag="Kafka"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
       </div>
     </div>
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/security/">Security</a>,&nbsp;<a href="/tags/network/">Network</a>,&nbsp;<a href="/tags/http/">HTTP</a></section>
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/kafka/">Kafka</a>,&nbsp;<a href="/tags/message-queue/">Message Queue</a>,&nbsp;<a href="/tags/big-data/">big data</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/xss/" class="prev" rel="prev" title="XSS(跨站脚本攻击)"><i class="fas fa-angle-left fa-fw"></i>XSS(跨站脚本攻击)</a>
-      <a href="/sqlinjection/" class="next" rel="next" title="SQL注入">SQL注入<i class="fas fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/kafka_1/" class="prev" rel="prev" title="Kafka概述"><i class="fas fa-angle-left fa-fw"></i>Kafka概述</a>
+      <a href="/kafka_3/" class="next" rel="next" title="Kafka生产者">Kafka生产者<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></main><footer class="footer">
     <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.102.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
