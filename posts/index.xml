@@ -4,7 +4,14 @@
     <link>https://buli-home.cn/posts/</link>
     <description>所有文章 | Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 05 Sep 2022 12:47:37 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>Kafka Broker</title>
+  <link>https://buli-home.cn/kafka_4/</link>
+  <pubDate>Mon, 05 Sep 2022 12:47:37 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/kafka_4/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
   <title>Kafka生产者</title>
   <link>https://buli-home.cn/kafka_3/</link>
   <pubDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</pubDate>
@@ -33,6 +40,13 @@
   <guid>https://buli-home.cn/canal/</guid>
   <description><![CDATA[]]></description>
 </item><item>
+  <title>Scala控制流程</title>
+  <link>https://buli-home.cn/scala_4/</link>
+  <pubDate>Fri, 15 Jul 2022 15:51:27 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/scala_4/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
   <title>Scala运算符</title>
   <link>https://buli-home.cn/scala_3/</link>
   <pubDate>Thu, 14 Jul 2022 20:38:28 &#43;0800</pubDate>
@@ -59,20 +73,6 @@
   <pubDate>Wed, 06 Jul 2022 16:30:20 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/scala_1/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>湖仓一体</title>
-  <link>https://buli-home.cn/data_lakehouse/</link>
-  <pubDate>Thu, 16 Jun 2022 09:23:45 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/data_lakehouse/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>数据湖</title>
-  <link>https://buli-home.cn/date_lake/</link>
-  <pubDate>Wed, 15 Jun 2022 16:19:40 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/date_lake/</guid>
   <description><![CDATA[]]></description>
 </item></channel>
 </rss>

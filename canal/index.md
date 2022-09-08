@@ -176,6 +176,8 @@ canal.instance.enableDruid=false
 canal.instance.filter.regex=.*\\..*
 # mysql 数据解析表的黑名单，多个表用，隔开
 canal.instance.filter.black.regex=
+# 解析表字段的黑名单, 多个字段用/隔开, 多个表用,隔开(format: schema1.tableName1:field1/field2,schema2.tableName2:field1/field2)
+canal.instance.filter.black.field=data_center.canal_test_2:column_2,data_center.canal_test_1:column_1,data_center.canal_test_3:column_2/column_3
 ```
 
 
@@ -320,6 +322,12 @@ canal.instance.filter.black.regex=
    默认还是输出到指定 Kafka 主题的一个分区, 因为多个分区并行可能会打乱 binlog 的顺序, 如果要提高并行度, 首先设置 kafka 的分区数 > 1, 然后设置`canal.mq.partitionHash`属性. 
 
 4. 启动 canal
+
+   ```bash
+   $ ./bin/startup.sh
+   ```
+
+   
 
 5. 然后测试: 
 

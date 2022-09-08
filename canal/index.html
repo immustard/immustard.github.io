@@ -9,14 +9,14 @@
 <meta name="description" content="关于 FixIt 主题" />
 <meta name="keywords" content="canal,big data" /><meta itemprop="name" content="Canal">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-07-26T08:14:47+08:00" />
-<meta itemprop="dateModified" content="2022-08-14T11:45:47+08:00" />
-<meta itemprop="wordCount" content="2285"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="dateModified" content="2022-09-08T09:36:59+08:00" />
+<meta itemprop="wordCount" content="2327"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
 <meta itemprop="keywords" content="canal,big data," /><meta property="og:title" content="Canal" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buli-home.cn/canal/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-26T08:14:47+08:00" />
-<meta property="article:modified_time" content="2022-08-14T11:45:47+08:00" />
+<meta property="article:modified_time" content="2022-09-08T09:36:59+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
@@ -26,7 +26,7 @@
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/canal/" /><link rel="prev" href="https://buli-home.cn/scala_3/" /><link rel="next" href="https://buli-home.cn/kafka_1/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/canal/" /><link rel="prev" href="https://buli-home.cn/scala_4/" /><link rel="next" href="https://buli-home.cn/kafka_1/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/buli-home.cn\/canal\/"
-    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "canal, big data","wordcount":  2285 ,
-    "url": "https:\/\/buli-home.cn\/canal\/","datePublished": "2022-07-26T08:14:47+08:00","dateModified": "2022-08-14T11:45:47+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "canal, big data","wordcount":  2327 ,
+    "url": "https:\/\/buli-home.cn\/canal\/","datePublished": "2022-07-26T08:14:47+08:00","dateModified": "2022-09-08T09:36:59+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Lruihao","logo": {
           "@type": "ImageObject",
@@ -151,7 +151,7 @@
 ><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/canal/"><i class="far fa-folder fa-fw"></i>canal</a></span></div>
       <div class="post-meta-line"><span title=2022-07-26&#32;08:14:47>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-07-26" >2022-07-26</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2285 字&nbsp;
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2327 字&nbsp;
         <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -393,6 +393,8 @@
 </span><span class="lnt">25
 </span><span class="lnt">26
 </span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">## mysql serverId , v1.0.26+ will autoGen
@@ -422,6 +424,8 @@
 </span></span><span class="line"><span class="cl">canal.instance.filter.regex=.*\\..*
 </span></span><span class="line"><span class="cl"># mysql 数据解析表的黑名单，多个表用，隔开
 </span></span><span class="line"><span class="cl">canal.instance.filter.black.regex=
+</span></span><span class="line"><span class="cl"># 解析表字段的黑名单, 多个字段用/隔开, 多个表用,隔开(format: schema1.tableName1:field1/field2,schema2.tableName2:field1/field2)
+</span></span><span class="line"><span class="cl">canal.instance.filter.black.field=data_center.canal_test_2:column_2,data_center.canal_test_1:column_1,data_center.canal_test_3:column_2/column_3
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="实时监控测试">实时监控测试</h2>
@@ -687,7 +691,15 @@
 </li>
 <li>
 <p>启动 canal</p>
-</li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ./bin/startup.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>然后测试:</p>
 <div class="highlight"><div class="chroma">
@@ -707,7 +719,7 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-08-14&#32;11:45:47>更新于 2022-08-14</span>
+        <span title=2022-09-08&#32;09:36:59>更新于 2022-09-08</span>
       </div>
       <div class="post-info-license"></div>
     </div>
@@ -728,7 +740,7 @@
     </section>
   </div>
 
-  <div class="post-nav"><a href="/scala_3/" class="prev" rel="prev" title="Scala运算符"><i class="fas fa-angle-left fa-fw"></i>Scala运算符</a>
+  <div class="post-nav"><a href="/scala_4/" class="prev" rel="prev" title="Scala控制流程"><i class="fas fa-angle-left fa-fw"></i>Scala控制流程</a>
       <a href="/kafka_1/" class="next" rel="next" title="Kafka概述">Kafka概述<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></main><footer class="footer">

@@ -2,22 +2,24 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>https://buli-home.cn/tags/big-data/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/categories/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/tags/kafka/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/categories/kafka/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/big-data/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/categories/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/kafka/</loc><lastmod>2022-09-05T12:49:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/categories/kafka/</loc><lastmod>2022-09-05T12:49:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/kafka_4/</loc><lastmod>2022-09-05T12:49:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/message-queue/</loc><lastmod>2022-09-05T12:49:27&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/posts/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://buli-home.cn/kafka_3/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/tags/message-queue/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/posts/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/tags/</loc><lastmod>2022-09-04T18:14:41&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://buli-home.cn/kafka_2/</loc><lastmod>2022-09-02T12:48:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://buli-home.cn/kafka_1/</loc><lastmod>2022-09-04T13:17:23&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/tags/canal/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-      <loc>https://buli-home.cn/categories/canal/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-      <loc>https://buli-home.cn/canal/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-      <loc>https://buli-home.cn/tags/scala/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-      <loc>https://buli-home.cn/categories/scala/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+      <loc>https://buli-home.cn/tags/canal/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/categories/canal/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/canal/</loc><lastmod>2022-09-08T09:36:59&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/scala/</loc><lastmod>2022-09-06T15:44:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/categories/scala/</loc><lastmod>2022-09-06T15:44:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/scala_4/</loc><lastmod>2022-09-06T15:44:50&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://buli-home.cn/scala_3/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>https://buli-home.cn/categories/big-data/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>https://buli-home.cn/tags/seatunnel/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
