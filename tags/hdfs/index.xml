@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>HDFS - 标签 - Buli&#39;s Home</title>
+    <link>https://buli-home.cn/tags/hdfs/</link>
+    <description>HDFS - 标签 - Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 27 Feb 2023 16:59:57 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/hdfs/" rel="self" type="application/rss+xml" /><item>
+  <title>Hadoop分布式文件系统——HDFS</title>
+  <link>https://buli-home.cn/hdfs/</link>
+  <pubDate>Mon, 27 Feb 2023 16:59:57 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/hdfs/</guid>
+  <description><![CDATA[]]></description>
+</item></channel>
+</rss>

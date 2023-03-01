@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>部署Seatunnel引擎 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="SeaTunnel,big data" /><meta itemprop="name" content="部署Seatunnel引擎">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-02-28T13:26:37+08:00" />
+<meta itemprop="dateModified" content="2023-03-01T16:59:28+08:00" />
+<meta itemprop="wordCount" content="1813"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="SeaTunnel,big data," /><meta property="og:title" content="部署Seatunnel引擎" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/seatunnel_engine/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-28T13:26:37+08:00" />
+<meta property="article:modified_time" content="2023-03-01T16:59:28+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="部署Seatunnel引擎"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/seatunnel_engine/" /><link rel="prev" href="https://buli-home.cn/hdfs/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "部署Seatunnel引擎",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/seatunnel_engine\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "SeaTunnel, big data","wordcount":  1813 ,
+    "url": "https:\/\/buli-home.cn\/seatunnel_engine\/","datePublished": "2023-02-28T13:26:37+08:00","dateModified": "2023-03-01T16:59:28+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">部署Seatunnel引擎</h1><h2 class="single-subtitle">Deploy Seatunnel Engine</h2><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/big-data/"><i class="far fa-folder fa-fw"></i>big data</a></span></div>
+      <div class="post-meta-line"><span title=2023-02-28&#32;13:26:37>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-02-28" >2023-02-28</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1813 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-下载">1. 下载</a></li>
+    <li><a href="#2-配置seatunnel_home">2. 配置<code>SEATUNNEL_HOME</code></a></li>
+    <li><a href="#3-配置seatunnel-engine的-jvm-参数">3. 配置<code>Seatunnel Engine</code>的 JVM 参数</a></li>
+    <li><a href="#4-配置seatunnel-engine">4. 配置<code>Seatunnel Engine</code></a>
+      <ul>
+        <li><a href="#41-backup-count-备份数">4.1 Backup count (备份数)</a></li>
+        <li><a href="#42-slot-service-插槽服务">4.2 Slot service (插槽服务)</a></li>
+        <li><a href="#43-checkpoint-manager-检查点管理">4.3 Checkpoint Manager (检查点管理)</a>
+          <ul>
+            <li><a href="#interval-间隔">interval (间隔)</a></li>
+            <li><a href="#timeout-超时">timeout (超时)</a></li>
+            <li><a href="#max-concurrent-最大并发">max-concurrent (最大并发)</a></li>
+            <li><a href="#tolerable-failure-重试">tolerable-failure (重试)</a></li>
+            <li><a href="#checkpoint-storage-检查点存储">checkpoint storage (检查点存储)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#5-配置seatunnel-engine服务">5. 配置<code>Seatunnel Engine</code>服务</a>
+      <ul>
+        <li><a href="#51-cluster-name-集群名称">5.1 cluster-name (集群名称)</a></li>
+        <li><a href="#52-network-网络">5.2 Network (网络)</a>
+          <ul>
+            <li><a href="#tcp">TCP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#6-配置seatunnel-engine客户端">6. 配置<code>SeaTunnel Engine</code>客户端</a>
+      <ul>
+        <li><a href="#61-cluster-name-集群名称">6.1 cluster-name (集群名称)</a></li>
+        <li><a href="#62-network-网络">6.2 Network (网络)</a>
+          <ul>
+            <li><a href="#cluster-members-集群成员">cluster-members (集群成员)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#7-启动seatunnel-engine服务节点">7. 启动<code>SeaTunnel Engine</code>服务节点</a></li>
+    <li><a href="#8-安装seatunnel-engine客户端">8. 安装<code>Seatunnel Engine</code>客户端</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>该文档针对 <code>Seatunnel v2.3.0</code>版本.</p>
+</blockquote>
+<h2 id="1-下载">1. 下载</h2>
+<p><code>Seatunnel Engine</code>是 Seatunnel 的默认引擎. Seatunnel 的安装包已经包含了所有<code>Seatunnel Engine</code>的内容.</p>
+<h2 id="2-配置seatunnel_home">2. 配置<code>SEATUNNEL_HOME</code></h2>
+<ol>
+<li>
+<p>添加文件: <code>/etc/profile.d/seatunnel.sh</code></p>
+</li>
+<li>
+<p>添加内容:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SEATUNNEL_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">seatunnel</span><span class="p"> install path</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$SEATUNNEL_HOME</span>/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="3-配置seatunnel-engine的-jvm-参数">3. 配置<code>Seatunnel Engine</code>的 JVM 参数</h2>
+<p><code>Seatunnel Engine</code>支持两种方式设置 jvm 参数</p>
+<ol>
+<li>
+<p>在<code>$SEATUNNEL_HOME/bin/seatunnel-cluster.sh</code>中添加.</p>
+<p>修改该文件: 在第一行添加内容<code>JAVA_OPTS=&quot;-Xms2G -Xmx2G&quot;</code></p>
+</li>
+<li>
+<p>在启动<code>Seatunnel Engine</code>的时候添加 jvm 参数. 🌰: <code>seatunnel-cluster.sh -DJvmOption=&quot;-Xms2G -Xmx2G&quot;</code></p>
+</li>
+</ol>
+<h2 id="4-配置seatunnel-engine">4. 配置<code>Seatunnel Engine</code></h2>
+<blockquote>
+<p><code>Seatunnel Engine</code>提供了很多需要在<code>seatunnel.yaml</code>(在<code>$SEATUNNEL_HOME/config/</code>下)中设置的参数.</p>
+</blockquote>
+<h3 id="41-backup-count-备份数">4.1 Backup count (备份数)</h3>
+<p><code>Seatunnel Engine</code>实现了基于<a
+  href="https://docs.hazelcast.com/imdg/4.1/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Hazelcast IMDG</a>的集群管理. 集群的状态数据(任务运行状态, 资源状态)存放在<a
+  href="https://docs.hazelcast.com/imdg/4.1/data-structures/map"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Hazelcast IMap</a>中. 这些状态数据在 Hazelcast IMap 中是分布式的并且是存储在所有集群节点中的. Hazelcast 会将数据分区存储在 Imap 中. 每个分区可以指定备份的数量. 因此, <code>Seatunnel Engine</code>可以在不使用其他服务(例如 zookeeper)的情况下实现集群.</p>
+<p><code>backup count</code>参数定义了同步备份的数量. 举个🌰, 如果设置为<code>1</code>, 分区的备份将会存放在另一个分区上; 设置为<code>2</code>, 将会存放在另外两个分区上.</p>
+<p><code>backup count</code>建议为<code>min(1, max(5, N/2))</code>, 其中<code>N</code>为集群节点数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">seatunnel:
+</span></span><span class="line"><span class="cl">	engine:
+</span></span><span class="line"><span class="cl">		backup-count: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># other config</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="42-slot-service-插槽服务">4.2 Slot service (插槽服务)</h3>
+<p>插槽的数量决定了集群节点可以并行运行的任务组的数量. <code>Seatunnel Engine</code>是一个数据同步引擎, 并且大多数的任务都是<code>IO</code>密集型的.</p>
+<p>建议使用动态插槽:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">seatunnel:
+</span></span><span class="line"><span class="cl">	engine:
+</span></span><span class="line"><span class="cl">		slot-service:
+</span></span><span class="line"><span class="cl">			dynamic-slot: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">		<span class="c1"># other config</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="43-checkpoint-manager-检查点管理">4.3 Checkpoint Manager (检查点管理)</h3>
+<blockquote>
+<p>像是 FLink, <code>Seatunnel Engine</code>也支持 Chandy–Lamport 算法(分布式快照算法). <code>Seatunnel Engine</code>可以在没有数据丢失和重复的前提下实现数据同步.</p>
+</blockquote>
+<h4 id="interval-间隔">interval (间隔)</h4>
+<p>两个检查点之间的间隔单位是毫秒. 如果<code>checkpoint.interval</code>参数在任务的配置文件的<code>env块</code>中设置了, 这个值将会被覆盖掉.</p>
+<h4 id="timeout-超时">timeout (超时)</h4>
+<p>检查点的超时. 如果一个检查点没有在超时范围内完成的话, 那么这个检查点就触发失败. 因此, 任务就会被恢复.</p>
+<h4 id="max-concurrent-最大并发">max-concurrent (最大并发)</h4>
+<p>最多可以同时执行多少个检查点.</p>
+<h4 id="tolerable-failure-重试">tolerable-failure (重试)</h4>
+<p>检查点失败后最大重试次数.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">seatunnel:
+</span></span><span class="line"><span class="cl">	engine:
+</span></span><span class="line"><span class="cl">		backup-count: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">		print-execution-info-interval: <span class="m">10</span>
+</span></span><span class="line"><span class="cl">		slot-service:
+</span></span><span class="line"><span class="cl">			dynamic-slot: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">		checkpoint:
+</span></span><span class="line"><span class="cl">			interval: <span class="m">300000</span>
+</span></span><span class="line"><span class="cl">			timeout: <span class="m">10000</span>
+</span></span><span class="line"><span class="cl">			max-concurrent: <span class="m">1</span>
+</span></span><span class="line"><span class="cl">			tolerable-failure: <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="checkpoint-storage-检查点存储">checkpoint storage (检查点存储)</h4>
+<p><strong>todo</strong></p>
+<h2 id="5-配置seatunnel-engine服务">5. 配置<code>Seatunnel Engine</code>服务</h2>
+<blockquote>
+<p>所有<code>Seatunnel Engine</code>服务配置都在<code>hazelcast.yaml</code>文件中.</p>
+</blockquote>
+<h3 id="51-cluster-name-集群名称">5.1 cluster-name (集群名称)</h3>
+<p><code>Seatunnel Engine</code>节点通过集群名来判断对方是否和自身属于同一集群. 如果两个节点之间的集群名是不同的, 那么<code>Seatunnel Engine</code>会拒绝服务请求.</p>
+<h3 id="52-network-网络">5.2 Network (网络)</h3>
+<p>基于<a
+  href="https://docs.hazelcast.com/imdg/4.1/clusters/discovery-mechanisms"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Hazelcast</a>,<code>Seatunnel Engine</code>集群是运行<code>Seatunnel Engine</code>服务的集群成员网络. 集群成员自动连接在一起组成一个集群. 这种自动加入是通过集群成员用来相互查找的各种发现机制进行的.</p>
+<p><strong>需要注意一点</strong>, 一旦集群建立, 无论是通过什么样的发现机制, 各集群成员之间的通信总是通过 TCP/IP 完成的.</p>
+<p><code>Seatunnel Engine</code>使用以下发现机制:</p>
+<h4 id="tcp">TCP</h4>
+<p>可以将<code>Seatunnel Engine</code>配置为一个完整的 TCP/IP 集群.</p>
+<p>🌰</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hazelcast:
+</span></span><span class="line"><span class="cl">  cluster-name: seatunnel
+</span></span><span class="line"><span class="cl">  network:
+</span></span><span class="line"><span class="cl">    join:
+</span></span><span class="line"><span class="cl">      tcp-ip:
+</span></span><span class="line"><span class="cl">        enabled: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">        member-list:
+</span></span><span class="line"><span class="cl">          - hostname1
+</span></span><span class="line"><span class="cl">    port:
+</span></span><span class="line"><span class="cl">      auto-increment: <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">      port: <span class="m">5801</span>
+</span></span><span class="line"><span class="cl">  properties:
+</span></span><span class="line"><span class="cl">    hazelcast.logging.type: log4j2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>TCP是在单独的SeaTunnel引擎集群中的建议方式.</strong></p>
+<p>另一方面, Hazelcast 提供了一些其他服务发现方法. 点此查看详情: <a
+  href="https://docs.hazelcast.com/imdg/4.1/clusters/setting-up-clusters"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Hazelcast Network</a></p>
+<h2 id="6-配置seatunnel-engine客户端">6. 配置<code>SeaTunnel Engine</code>客户端</h2>
+<blockquote>
+<p>所有<code>SeaTunnel Engine</code>客户端配置都在<code>hazelcast-client.yaml</code>文件中.</p>
+</blockquote>
+<h3 id="61-cluster-name-集群名称">6.1 cluster-name (集群名称)</h3>
+<p>客户端必须和<code>Seatunnel Engine</code>的<code>cluster-name</code>一致. 否则, <code>Seatunnel Engine</code>将会拒绝客户端的请求.</p>
+<h3 id="62-network-网络">6.2 Network (网络)</h3>
+<h4 id="cluster-members-集群成员">cluster-members (集群成员)</h4>
+<p>所有<code>Seatunnel Engine</code>服务节点地址需要添加在这:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">hazelcast-client:
+</span></span><span class="line"><span class="cl">  cluster-name: seatunnel
+</span></span><span class="line"><span class="cl">  properties:
+</span></span><span class="line"><span class="cl">      hazelcast.logging.type: log4j2
+</span></span><span class="line"><span class="cl">  network:
+</span></span><span class="line"><span class="cl">    cluster-members:
+</span></span><span class="line"><span class="cl">      - hostname1:5801
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="7-启动seatunnel-engine服务节点">7. 启动<code>SeaTunnel Engine</code>服务节点</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir -p <span class="nv">$SEATUNNEL_HOME</span>/logs
+</span></span><span class="line"><span class="cl">nohup seatunnel-cluster.sh <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>日志会写在<code>$SEATUNNEL_HOME/logs/seatunnel-server.log</code>中.</p>
+<h2 id="8-安装seatunnel-engine客户端">8. 安装<code>Seatunnel Engine</code>客户端</h2>
+<p>只需要将<code>Seatunnel Engine</code>节点上的<code>$Seatunnel Engine</code>目录复制到客户端节点, 并像<code>Seatunnel Engine</code>服务节点一样配置<code>$Seatunnel Engine</code>就可以了.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2023-03-01&#32;16:59:28>更新于 2023-03-01</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/seatunnel_engine/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/seatunnel_engine/" data-title="部署Seatunnel引擎" data-hashtags="SeaTunnel,big data"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/seatunnel_engine/" data-hashtag="SeaTunnel"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/seatunnel_engine/" data-title="部署Seatunnel引擎"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/seatunnel_engine/" data-title="部署Seatunnel引擎"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/seatunnel_engine/" data-title="部署Seatunnel引擎" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/seatunnel/">SeaTunnel</a>,&nbsp;<a href="/tags/big-data/">big data</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/hdfs/" class="prev" rel="prev" title="Hadoop分布式文件系统——HDFS"><i class="fas fa-angle-left fa-fw"></i>Hadoop分布式文件系统——HDFS</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.102.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

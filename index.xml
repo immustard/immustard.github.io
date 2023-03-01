@@ -4,9 +4,23 @@
     <link>https://buli-home.cn/</link>
     <description>关于 FixIt 主题</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</lastBuildDate>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</lastBuildDate>
       <atom:link href="https://buli-home.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>部署Seatunnel引擎</title>
+  <link>https://buli-home.cn/seatunnel_engine/</link>
+  <pubDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/seatunnel_engine/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
+  <title>Hadoop分布式文件系统——HDFS</title>
+  <link>https://buli-home.cn/hdfs/</link>
+  <pubDate>Mon, 27 Feb 2023 16:59:57 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/hdfs/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
   <title>Kafka生产者</title>
   <link>https://buli-home.cn/kafka_3/</link>
   <pubDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</pubDate>
@@ -61,20 +75,6 @@
   <pubDate>Thu, 07 Jul 2022 09:00:03 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/scala_2/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>Scala概述</title>
-  <link>https://buli-home.cn/scala_1/</link>
-  <pubDate>Wed, 06 Jul 2022 16:30:20 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/scala_1/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>湖仓一体</title>
-  <link>https://buli-home.cn/data_lakehouse/</link>
-  <pubDate>Thu, 16 Jun 2022 09:23:45 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/data_lakehouse/</guid>
   <description><![CDATA[]]></description>
 </item></channel>
 </rss>
