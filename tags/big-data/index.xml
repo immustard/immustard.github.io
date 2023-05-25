@@ -4,7 +4,14 @@
     <link>https://buli-home.cn/tags/big-data/</link>
     <description>big data - 标签 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/big-data/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 24 May 2023 13:51:15 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/big-data/" rel="self" type="application/rss+xml" /><item>
+  <title>Seatunnel 连接器 V2 版本</title>
+  <link>https://buli-home.cn/seatunnel_connector_v2/</link>
+  <pubDate>Wed, 24 May 2023 13:51:15 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/seatunnel_connector_v2/</guid>
+  <description><![CDATA[]]></description>
+</item><item>
   <title>部署Seatunnel引擎</title>
   <link>https://buli-home.cn/seatunnel_engine/</link>
   <pubDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</pubDate>
@@ -66,13 +73,6 @@
   <pubDate>Wed, 15 Jun 2022 16:19:40 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/date_lake/</guid>
-  <description><![CDATA[]]></description>
-</item><item>
-  <title>数据仓库</title>
-  <link>https://buli-home.cn/data_warehouse/</link>
-  <pubDate>Tue, 14 Jun 2022 13:29:39 &#43;0800</pubDate>
-  <author>作者</author>
-  <guid>https://buli-home.cn/data_warehouse/</guid>
   <description><![CDATA[]]></description>
 </item></channel>
 </rss>

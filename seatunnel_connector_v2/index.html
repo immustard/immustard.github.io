@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Seatunnel 连接器 V2 版本 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="SeaTunnel,big data" /><meta itemprop="name" content="Seatunnel 连接器 V2 版本">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-05-24T13:51:15+08:00" />
+<meta itemprop="dateModified" content="2023-05-25T13:44:17+08:00" />
+<meta itemprop="wordCount" content="1056"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="SeaTunnel,big data," /><meta property="og:title" content="Seatunnel 连接器 V2 版本" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/seatunnel_connector_v2/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-24T13:51:15+08:00" />
+<meta property="article:modified_time" content="2023-05-25T13:44:17+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="Seatunnel 连接器 V2 版本"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/seatunnel_connector_v2/" /><link rel="prev" href="https://buli-home.cn/taier_datasourcex/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Seatunnel 连接器 V2 版本",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/seatunnel_connector_v2\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "SeaTunnel, big data","wordcount":  1056 ,
+    "url": "https:\/\/buli-home.cn\/seatunnel_connector_v2\/","datePublished": "2023-05-24T13:51:15+08:00","dateModified": "2023-05-25T13:44:17+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Seatunnel 连接器 V2 版本</h1><h2 class="single-subtitle">Seatunnel Connector V2 Features</h2><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/big-data/"><i class="far fa-folder fa-fw"></i>big data</a></span></div>
+      <div class="post-meta-line"><span title=2023-05-24&#32;13:51:15>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-05-24" >2023-05-24</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1056 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#连接器-v2-与-v1-的区别">连接器 V2 与 V1 的区别</a></li>
+    <li><a href="#源连接器特点-source">源连接器特点 (Source)</a>
+      <ul>
+        <li><a href="#exactly-once-精确一次">exactly-once (精确一次)</a></li>
+        <li><a href="#column-projection-列投影">column projection (列投影)</a></li>
+        <li><a href="#batch-批">batch (批)</a></li>
+        <li><a href="#stream-流">stream (流)</a></li>
+        <li><a href="#parallelism-并行度">parallelism (并行度)</a></li>
+        <li><a href="#support-user-defined-split-支持用户定义分割">support user-defined split (支持用户定义分割)</a></li>
+      </ul>
+    </li>
+    <li><a href="#接收连接器特点-sink">接收连接器特点 (Sink)</a>
+      <ul>
+        <li><a href="#exactly-once-精确一次-1">exactly-once (精确一次)</a></li>
+        <li><a href="#cdc-change-data-capture--变更数据捕获">cdc (change data capture  变更数据捕获)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="连接器-v2-与-v1-的区别">连接器 V2 与 V1 的区别</h2>
+<p>自从 <a
+  href="https://github.com/apache/incubator-seatunnel/issues/1608"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>https://github.com/apache/incubator-seatunnel/issues/1608</a> 之后添加了<code>连接器 V2</code> 功能. 连接器 V2 是基于 Seatunnel Connector API 接口定义的. 和连接器 V1 不同的是, 连接器 V2 支持以下功能:</p>
+<ul>
+<li><strong>多引擎支持</strong>: SeaTunnel Connector API 是一套独立与引擎的 API. 在这套 API 的基础上进行研发的连接器 V2  是可以运行在多个引擎上的. 现在是支持 Flink 和 Spark 的, 未来还会支持更多的引擎.</li>
+<li><strong>多引擎版本支持</strong>: 通过翻译层 (translation layer) 将连接器与引擎解耦, 解决了大多数连接器需要修改代码才能支持新版本的底层引擎的问题.</li>
+<li><strong>统一批处理和流处理</strong>: 连接器 V2 支持批处理和流处理. 不需要分别开发批处理和流处理的连接器.</li>
+<li><strong>多路复用的 JDBC/Log 连接器</strong>: 连接器 V2 支持 JDBC 资源重用和共享数据库日志解析.</li>
+</ul>
+<h2 id="源连接器特点-source">源连接器特点 (Source)</h2>
+<p>源连接器拥有一些共同的特点, 并且每种连接器不同程度的支持它们.</p>
+<h3 id="exactly-once-精确一次">exactly-once (精确一次)</h3>
+<p>如果数据源中的每条数据只会被源发送到下游一次, 则认为这个源连接器支持只写一次.</p>
+<p>在 SeaTunnel 中, 可以在检查点时将读取的分割 (<strong>Split</strong>) 及其偏移量 (<strong>offset</strong>) (当时拆分中读取数据的位置, 如行号、字节大小、偏移量等) 保存为状态快照 (<strong>StateSnapshot</strong>) . 如果任务重新启动, 我们将获得最后一个状态快照, 然后定位上次读取的分割和偏移量并继续向下游发送数据.</p>
+<p>例如: <code>File</code>, <code>Kafka</code></p>
+<h3 id="column-projection-列投影">column projection (列投影)</h3>
+<p>如果连接器支持仅从数据源读取指定的列 (注意! 如果先读取所有的列, 然后通过 <code>schema</code> 过滤不需要的列, 那么这种不是真正的列投影).</p>
+<p>例如 <code>JDBC 源</code> 可以用 sql  定义读取的列.</p>
+<p><code>Kafka 源</code> 会读取指定主题的所有内容, 然后使用 <code>schema</code> 过滤不需要的列, 这个就不是<strong>列投影</strong>.</p>
+<h3 id="batch-批">batch (批)</h3>
+<p>批处理模式, 数据读取是有边界的, 当所有数据被读取完之后作业就会结束.</p>
+<h3 id="stream-流">stream (流)</h3>
+<p>流处理模式, 数据读取是无边界的, 并且作业是不会停止的.</p>
+<h3 id="parallelism-并行度">parallelism (并行度)</h3>
+<p>并行源连接器支持配置 <code>parallelism</code>, 每个并行度都回创建一个任务来读取数据. 在并行源连接器中, 源会被拆分为多个, 然后通过枚举器 (enumerator) 分配给源阅读器 (SourceReader) 进行处理.</p>
+<h3 id="support-user-defined-split-支持用户定义分割">support user-defined split (支持用户定义分割)</h3>
+<p>用户可以配置分割规则.</p>
+<h2 id="接收连接器特点-sink">接收连接器特点 (Sink)</h2>
+<p>接收连接器拥有一些共同的特点, 并且每种连接器不同程度的支持它们.</p>
+<h3 id="exactly-once-精确一次-1">exactly-once (精确一次)</h3>
+<p>当任何数据流入分布式系统时, 如果系统在整个处理过程中只对任何一条数据准确地处理了一次, 并且处理结果是正确的, 则认为系统满足了精确的一次一致性.</p>
+<p>对于接收连接器, 如果任何数据只写入目标一次, 则接收连接器支持精确一次. 通常有两种方法可以实现这一点:</p>
+<ol>
+<li>目标数据源支持键消重 (key deduplication), 例如: <code>MySQL</code>, <code>Kudu</code>.</li>
+<li>目标支持 <strong>XA Transaction</strong> (此事务可以跨会话使用. 即使创建事务的程序已经结束了, 新创建的程序只需要知道上一个事务的 ID 来重新提交或回滚事务). 所以可以使用两段提交 (<strong>Two-phase Commit</strong>) 来确保 <strong>exactly-once</strong>. 例如: <code>File</code>, <code>MySQL</code>.</li>
+</ol>
+<h3 id="cdc-change-data-capture--变更数据捕获">cdc (change data capture  变更数据捕获)</h3>
+<p>如果接收连接器支持基于主键的写入行类型 (INSERT/UPDATE_BEFORE/UPDATE_AFTER/DELETE), 那么则认为支持  cdc.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2023-05-25&#32;13:44:17>更新于 2023-05-25</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/seatunnel_connector_v2/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/seatunnel_connector_v2/" data-title="Seatunnel 连接器 V2 版本" data-hashtags="SeaTunnel,big data"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/seatunnel_connector_v2/" data-hashtag="SeaTunnel"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/seatunnel_connector_v2/" data-title="Seatunnel 连接器 V2 版本"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/seatunnel_connector_v2/" data-title="Seatunnel 连接器 V2 版本"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/seatunnel_connector_v2/" data-title="Seatunnel 连接器 V2 版本" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/seatunnel/">SeaTunnel</a>,&nbsp;<a href="/tags/big-data/">big data</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/taier_datasourcex/" class="prev" rel="prev" title="关于剥离 Taier 中 DatasourceX 组件"><i class="fas fa-angle-left fa-fw"></i>关于剥离 Taier 中 DatasourceX 组件</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>
