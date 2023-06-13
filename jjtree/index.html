@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>JJTree - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="Java,JavaCC,JJTree" /><meta itemprop="name" content="JJTree">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-06-13T10:50:03+08:00" />
+<meta itemprop="dateModified" content="2023-06-13T10:54:38+08:00" />
+<meta itemprop="wordCount" content="4347"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="Java,JavaCC,JJTree," /><meta property="og:title" content="JJTree" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/jjtree/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-13T10:50:03+08:00" />
+<meta property="article:modified_time" content="2023-06-13T10:54:38+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="JJTree"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/jjtree/" /><link rel="prev" href="https://buli-home.cn/javacc/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "JJTree",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/jjtree\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Java, JavaCC, JJTree","wordcount":  4347 ,
+    "url": "https:\/\/buli-home.cn\/jjtree\/","datePublished": "2023-06-13T10:50:03+08:00","dateModified": "2023-06-13T10:54:38+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">JJTree</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>Java</a></span></div>
+      <div class="post-meta-line"><span title=2023-06-13&#32;10:50:03>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-06-13" >2023-06-13</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4347 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#确定节点">确定节点</a></li>
+            <li><a href="#条件节点">条件节点</a></li>
+          </ul>
+        </li>
+        <li><a href="#节点范围和用户操作">节点范围和用户操作</a></li>
+        <li><a href="#异常处理">异常处理</a></li>
+        <li><a href="#节点作用域钩子">节点作用域钩子</a></li>
+        <li><a href="#跟踪令牌">跟踪令牌</a></li>
+        <li><a href="#节点的生命周期">节点的生命周期</a></li>
+        <li><a href="#访客支持">访客支持</a></li>
+        <li><a href="#选项">选项</a></li>
+      </ul>
+    </li>
+    <li><a href="#jjtree-接口">JJTree 接口</a>
+      <ul>
+        <li><a href="#jjtree-状态">JJTree 状态</a></li>
+        <li><a href="#节点对象">节点对象</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>传送门: <a
+  href="https://javacc.github.io/javacc/documentation/jjtree.html"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>JJTree</a></p>
+</blockquote>
+<h2 id="概述">概述</h2>
+<p>JJTree 是 JavaCC 的预处理器, 可在 JavaCC 源代码的不同位置插入解析树构建操作. JJTree 的输出通过 JavaCC 运行以创建解析器. 此文档描述了如何使用 JJTree, 以及如何将解析器连接到 JJTree.</p>
+<p>默认情况下, JJTree 生成代码来为语言中的每个非终节点结构解析书节点. 但是可以修改这个行为, 为了某些非终节点不会生成节点, 或者为生产扩展的一部分生成节点.</p>
+<p>JJTree 定义了一个 Java 接口 <code>Node</code> , 并且所有解析树节点都必须实现它. 这个接口提供了例如设置父节点、添加和检索子节点等操作的方法.</p>
+<p>JJTree 以两种模式之一运行, 简单模式和多模式 (需要更好的术语). 在简单模式下, 每个解析树节点都是具体类型的 <code>SimpleNode</code>, 在多模式下, 解析树节点的类型源自节点的名称. 如果不提供节点类的实现, 那么 JJTree 会生成基于 <code>SimpleNode</code> 的示例实现. 之后可以修改该实现来进行适配.</p>
+<p>虽然 JavaCC 是一个自上而下的解析器, 但是 JJTree 是自下而上地构造解析树. 为此, 它使用一个堆栈, 在创建节点后推送节点. 当它为它们找到父级时, 它会从堆栈中弹出 (pop) 子级并将它们添加到父级, 并且最后推送新的父节点本身. 堆栈是开放的, 这意味着可以从语法操作中访问它: 可以用认为合适的方式进行推送 (push), 弹出 (pop)和其他方式操作其内容 (详细信息可以参考 <a
+  href="#%e8%8a%82%e7%82%b9%e8%8c%83%e5%9b%b4%e5%92%8c%e7%94%a8%e6%88%b7%e6%93%8d%e4%bd%9c"
+  
+  
+  
+  
+  
+  
+>节点范围和用户操作</a> )</p>
+<p>JJTree 提供了两种基本类型的节点的装饰, 以及一些语法速记以方便它们的使用.</p>
+<h4 id="确定节点">确定节点</h4>
+<p>一个确定节点是用特定数量的子节点构成的. 许多节点从堆栈中弹出并成为新节点的子节点, 然后将其推送到堆栈本身上.</p>
+<p>可以标记一个确定节点, 类似这样:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#ADefiniteNode(INTEGER EXPRESSION)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>确定节点描述符表达式可以是任何整数表达式, 尽管文字整数常量是迄今为止最常见的表达式.</p>
+<h4 id="条件节点">条件节点</h4>
+<p>当且仅当条件计算为真 (<code>true</code>) 时才使用其节点范围内被推送到堆栈的所有子节点构造条件节点. 如果计算条件为假 (<code>false</code>) 时, 该节点不会被构造, 并且其所有子节点会留在节点堆栈中.</p>
+<p>可以标记一个条件节点, 类似这样:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#ConditionalNode(BOOLEAN EXPRESSION)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>条件节点描述符表达式可以是任何布尔表达式.</p>
+<p>条件节点有两种常见的简写:
+1. 不定节点 (Indefinite nodes)
+<code>#IndefiniteNode is short for #IndefiniteNode(true)</code>
+2. 大于节点 (Greater-than nodes)
+<code>#GTNode(&gt;1) is short for #GTNode(jjtree.arity() &gt; 1)</code></p>
+<p>不定节点速记 <code>(1)</code> 在后面跟着带括号的展开时可能会导致 JJTree 源中的歧义. 在这种情况下, 速记必须替换为完整表达式:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">( ... ) #N ( a() )
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面这个是有歧义的, 所以必须使用显示条件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">( ... ) #N(true) ( a() )
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>注意: 节点描述符表达式不应该有副作用. JJTree没有指定表达式将被计算多少次.</strong></p>
+<p>默认情况下, JJTree 将每个非终节点视为不定节点, 并从其生产名称派生节点的名称. 可以使用以下语法为其命名:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P1() #MyNode : { ... } { ... }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当解析器识别出一个 <code>P1</code> 非终节点时, 它会开始一个不定节点. 它标记堆栈, 以便在 <code>P1</code> 扩展中由非终节点创建并推送到堆栈上的任何解析树节点都将被弹出并成为节点 <code>MyNode</code> 的子节点.</p>
+<p>如果要禁止为生产创建节点, 可以使用以下语法:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P2() #void : { ... } { ... }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在, 在 <code>P2</code> 的扩展中由非终节点推送的任何解析树节点都将保留在堆栈上, 以便弹出并使其成为树上更向上的生产子节点. 可以使用 <code>NODE_DEFAULT_VOID</code> 选项将此设置为未装饰节点的默认行为.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P3() : {} {
+</span></span><span class="line"><span class="cl">	P4() ( P5() )+ P6()
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个例子中, 开始一个不定节点 <code>P3</code>, 标记堆栈, 然后解析一个 <code>P4</code> 节点、一个或多个 <code>P5</code> 节点和一个 <code>P6</code> 节点.</p>
+<p>可以进一步自定义生成的树:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P3() : {} {
+</span></span><span class="line"><span class="cl">	P4() ( P5() )+ #ListOfP5s P6()
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在, <code>P3</code> 节点将有一个 <code>P4</code> 节点、一个 <code>ListOfP5s</code> 节点和一个 <code>P6</code> 节点作为子节点. <code>#Name</code> 构造充当后缀运算符, 其作用域是紧接在前的扩展单元.</p>
+<h3 id="节点范围和用户操作">节点范围和用户操作</h3>
+<p>每个节点都与一个节点作用域 (<em>node scope</em>) 相关联. 此范围内的用户操作可以通过使用特殊标识符 <code>jjtThis</code> 来访问正在构建的节点, 以引用该节点. 该标识符被隐式声明为该节点的正确类型, 因此可以轻松地访问该节点拥有的任何字段和方法.</p>
+<p>作用域是紧靠在节点修饰之前的扩展单元. 这可以是带括号的表达式. 当对生产签名进行装饰时 (可能隐式带有默认节点), 作用域是生产的整个右侧, 包括其声明块.</p>
+<p>还可以在扩展引用的左侧使用涉及 <code>jjtThis</code> 的表达式.</p>
+<p>🌰:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">... ( jjtThis.my_foo = foo() ) #Baz ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的 <code>jjtThis</code> 指向的是一个 <code>Baz</code> 节点, 他有一个名为 <code>my_foo</code> 的字段. 将解析生成的 <code>foo()</code> 的结果赋给 <code>myfoo</code>.</p>
+<p>节点范围内的最终用户操作与所有其他操作不同. 当其中的代码执行时, 节点的子节点已经从堆栈中弹出并添加到节点中, 节点本身已被推送到堆栈中. 现在, 可以通过节点的方法 (比如 <code>jjtGetChild()</code>) 来访问子节点.</p>
+<p>除最后一个操作之外的其他用户操作只能访问堆栈上的子级. 它们还没有被加入到节点中, 所以还不能通过节点的方法进行访问. 如果条件节点的节点描述符表达式的计算结果为 <code>false</code>, 则不会将其添加到堆栈中, 也不会向其添加子节点. 条件节点范围内的最终用户操作可以通过调用 <code>nodeCreated()</code> 方法来确定节点是否被创建. 只有当节点的条件被满足且被创建且被推入到节点堆栈中时才返回 <code>true</code>, 否则返回 <code>false</code>.</p>
+<h3 id="异常处理">异常处理</h3>
+<p>由节点作用域中的扩展抛出的异常不在该节点作用域内捕获, 由 JJTree 本身捕获. 发生这种情况时, 任何已被压入节点范围内的堆栈的节点都将被弹出并丢弃. 然后重新抛出异常.</p>
+<p>这么做的目的是使解析器能够实现错误恢复, 并在已知状态下继续使用节点堆栈.</p>
+<p><strong>注意: JJTree 目前无法检测节点作用域内的用户操作是否引发异常. 这样的异常可能会被错误地处理.</strong></p>
+<h3 id="节点作用域钩子">节点作用域钩子</h3>
+<p>如果 <code>NODE_SCOPE_HOOK</code> 设置为 <code>true</code>, 那么 JJTree 将在每个节点作用域的入口和出口上生成对两个用户定义的解析器方法的调用. 这些方法必须具有以下声明:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeOpenNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeCloseNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果解析器是 <code>STATIC</code>, 那么这些方法也必须被声明为 <code>static</code>. 它们都以当前节点作为参数调用.</p>
+<p>一种用途可能是将解析器对象本身存储在节点中, 以便可以提供应该由该解析器生成的所有节点共享的状态. 🌰, 解析器可能维护一个符号表.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeOpenNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">((</span><span class="n">SimpleNode</span><span class="o">)</span><span class="n">n</span><span class="o">).</span><span class="na">jjtSetValue</span><span class="o">(</span><span class="n">getSymbolTable</span><span class="o">());</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeCloseNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中 <code>getSymbolTable()</code> 是一个用户自定义的方法, 用来返回节点的符号表的结构.</p>
+<h3 id="跟踪令牌">跟踪令牌</h3>
+<p>跟踪每个节点的最初和最后的令牌通常很有用, 这样就可以轻松地再次复制输入. 通过设置 <code>TRACK_TOKENS</code> 选项, 生成的 <code>SimpleNode</code> 类将包含 4 个额外的方法:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Token</span> <span class="nf">jjtGetFirstToken</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtSetFirstToken</span><span class="o">(</span><span class="n">Token</span> <span class="n">token</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Token</span> <span class="nf">jjtGetLastToken</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtSetLastToken</span><span class="o">(</span><span class="n">Token</span> <span class="n">token</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当解析器运行的时候, 将自动设置每个节点的最初和最后的令牌.</p>
+<h3 id="节点的生命周期">节点的生命周期</h3>
+<p>节点在创建的时候将进行一系列的确定的步骤. 这是从节点本身的角度来看的序列:</p>
+<ol>
+<li>使用唯一的整数参数调用节点的构造函数. 此参数标识节点的类型, 在简单模式下特别有用. JJTree 会自动生成一个叫做 <code>&lt;parser&gt;TreeConstants.java</code> 的文件, 用来声明有效常量. 常量的命名是通过在节点的大写名称前加上 JJT 来派生的, 点 (<code>.</code>) 替换为下划线 (<code>_</code>). 为方便起见, 在同一文件中维护了一个名为 <code>jjtNodeName[]</code> 的字符串数组, 它将常量映射到未修改的节点名称.</li>
+<li>节点的 <code>jjtOpen()</code> 方法被调用.</li>
+<li>如果设置了 <code>NODE_SCOPE_HOOK</code> 选项, 用户自定义解析器方法 <code>openNodeScope()</code> 会被调用, 并且节点作为参数进行传递. 该方法可以初始化节点中的字段或调用其方法. 🌰, 它可以存储节点的第一个令牌.</li>
+<li>如果在解析节点时抛出未处理的异常, 则将该节点抛弃. JJTree 再也不会引用它了. 它不会被关闭, 并且<strong>不会使用</strong>它作为参数来调用用户定义的节点作用域钩子 <code>CloseNodeHook()</code>.</li>
+<li>否则, 如果该节点是有条件的, 并且其条件表达式的计算结果为 <code>false</code>, 则该节点将被放弃. 它不会被关闭, 尽管<strong>可以使用</strong>它作为参数调用用户定义的节点作用域钩子 <code>CloseNodeHook()</code>.</li>
+<li>否则, 由确定节点的整数表达式指定的节点的所有子节点, 或在条件节点范围内推送到堆栈上的所有节点都将添加到该节点. 它们添加的顺序是不确定的.</li>
+<li>节点的 <code>jjtClose()</code> 方法被调用.</li>
+<li>节点被推到堆栈中.</li>
+<li>如果设置了 <code>NODE_SCOPE_HOOK</code> 选项, 用户自定义解析器方法 <code>closeNodeScope()</code> 会被调用, 并且节点作为参数进行传递.</li>
+<li>如果节点不是根节点, 那么它将被添加为另一个节点的子节点, 并调用其 <code>jjtSetParent()</code> 方法.</li>
+</ol>
+<h3 id="访客支持">访客支持</h3>
+<p>JJTree 为访问者设计模式提供了一些基本支持. 如果 <code>VISITOR</code> 选项设置为 <code>true</code>, JJTree 将把 <code>jjtAccept()</code> 方法插入到它生成的所有节点类中, 并且还生成可以实现并传递给节点以接受的访问者接口.</p>
+<p>访问者接口的命名是通过将 <code>Visitor</code> 附加到解析器的名称来构造的. 每次运行 JJTree 时都会重新生成接口, 以便准确表示解析器使用的节点集. 如果没有为新节点更新实现类, 这将导致编译时错误. 这是一个功能.</p>
+<h3 id="选项">选项</h3>
+<table>
+<thead>
+<tr>
+<th><strong>选项</strong></th>
+<th><strong>缺省值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BUILD_NODE_FILES</code></td>
+<td><code>true</code></td>
+<td>为 <code>SimpleNode</code> 和语法中使用的任何其他节点生成示例实现.</td>
+</tr>
+<tr>
+<td><code>MULTI</code></td>
+<td><code>false</code></td>
+<td>生成多模式解析树. 缺省值为 <code>false</code>, 生成一个简单模式解析树.</td>
+</tr>
+<tr>
+<td><code>NODE_DEFAULT_VOID</code></td>
+<td><code>false</code></td>
+<td>与其使每个未装饰的产品成为不定节点, 不如使其无效.</td>
+</tr>
+<tr>
+<td><code>NODE_CLASS</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>如果设置定义将扩展 <code>SimpleNode</code> 的用户提供的类名称, 那么创建的任何树节点都将是 <code>NODE_CLASS</code> 的子类.</td>
+</tr>
+<tr>
+<td><code>NODE_FACTORY</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>指定一个包含工厂方法的类, 该方法具有以下签名以构造节点: <code>public static Node jjtCreate(int id)</code>. 为了向后兼容, 也可以指定值 <code>false</code>, 这意味着 <code>SimpleNode</code> 将用作工厂类.</td>
+</tr>
+<tr>
+<td><code>NODE_PACKAGE</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>生成节点类的包. 默认为解析器包.</td>
+</tr>
+<tr>
+<td><code>NODE_EXTENDS</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>弃用. <code>SimpleNode</code> 类的超类. 通过提供自定义超类, 可以避免编辑生成的<code>SimpleNode.java</code>.</td>
+</tr>
+<tr>
+<td><code>NODE_PREFIX</code></td>
+<td><code>&quot;AST&quot;</code></td>
+<td>用于在多模式下从节点标识符构造节点类名的前缀.</td>
+</tr>
+<tr>
+<td><code>NODE_SCOPE_HOOK</code></td>
+<td><code>false</code></td>
+<td>在每个节点作用域的入口和出口上生成对两个用户定义的解析器方法的调用.</td>
+</tr>
+<tr>
+<td><code>NODE_USES_PARSER</code></td>
+<td><code>false</code></td>
+<td>JJTree 将使用另一种形式的节点构造例程, 在其中传递解析器对象. 🌰: <br/><code>public static Node MyNode.jjtCreate(MyParser p, int id);</code><br/><code>MyNode(MyParser p, int id);</code></td>
+</tr>
+<tr>
+<td><code>TRACK_TOKENS</code></td>
+<td><code>false</code></td>
+<td>在 <code>SimpleNode</code> 中插入 <code>jjtGetFirstToken()</code>, <code>jjtSetFirstToken()</code>, <code>getLastToken()</code> 和 <code>jjtSetLastToken()</code> 方法. <code>FirstToken</code> 在进入节点作用域时自动设置; <code>LastToken</code> 在退出节点作用域时自动设置.</td>
+</tr>
+<tr>
+<td><code>STATIC</code></td>
+<td><code>true</code></td>
+<td>为静态解析器生成代码. 这必须与等效的 JavaCC 选项一致使用. 该选项的值在 JavaCC 源中发出.</td>
+</tr>
+<tr>
+<td><code>VISITOR</code></td>
+<td><code>false</code></td>
+<td>在节点类中插入一个 <code>jjtAccept()</code> 方法, 并为语法中使用的每个节点类型生成一个包含条目的访问者实现.</td>
+</tr>
+<tr>
+<td><code>VISITOR_DATA_TYPE</code></td>
+<td><code>&quot;Object&quot;</code></td>
+<td>如果设置了该选项, 它将在生成的<code>jjtAccept()</code> 方法和 <code>visit()</code> 方法的签名中用作数据参数的类型.</td>
+</tr>
+<tr>
+<td><code>VISITOR_RETURN_TYPE</code></td>
+<td><code>&quot;Object&quot;</code></td>
+<td>如果设置了该选项, 它将在生成的<code>jjtAccept()</code> 方法和 <code>visit()</code> 方法的签名中用作返回参数的类型.</td>
+</tr>
+<tr>
+<td><code>VISITOR_EXCEPTION</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>如果设置了该选项, 它将在生成的<code>jjtAccept()</code> 方法和 <code>visit()</code> 方法的签名中.</td>
+</tr>
+<tr>
+<td><code>JJTREE_OUTPUT_DIRECTORY</code></td>
+<td><code>&quot;OUTPUT_DIRECTORY&quot;</code></td>
+<td>默认情况下, JJTree 在全局 <code>OUTPUT_DIRECTORY</code> 设置中指定的目录中生成其输出. 显式设置此选项允许用户将解析器与树文件分开.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="jjtree-接口">JJTree 接口</h2>
+<h3 id="jjtree-状态">JJTree 状态</h3>
+<p>JJTree 将其状态保存在一个名为 <code>jjtree</code> 的解析器类字段中. 可以使用此成员中的方法来操作节点堆栈.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span> <span class="kd">class</span> <span class="nc">JJTreeState</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 调用它来重新初始化节点堆栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">void</span> <span class="nf">reset</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 返回抽象语法树 (AST) 的根节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Node</span> <span class="nf">rootNode</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 判断当前节点是否实际关闭并推送
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">boolean</span> <span class="nf">nodeCreated</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 返回节点上当前推送的节点数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 当前节点作用域内的堆栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="nf">arity</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 推送节点到堆栈
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">void</span> <span class="nf">pushNode</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 返回堆栈顶部的节点, 并将其从堆栈中移除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Node</span> <span class="nf">popNode</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 返回当前位于堆栈顶部的节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Node</span> <span class="nf">peekNode</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="节点对象">节点对象</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">	* 所有 AST 节点必须实现该接口.
+</span></span></span><span class="line"><span class="cl"><span class="cm">	* 它为构建节点之间的父子关系提供了基本机制.
+</span></span></span><span class="line"><span class="cl"><span class="cm">	*/</span>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Node</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// 将节点设为当前节点后调用此方法.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 表示现在可以向其中添加子节点. 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtOpen</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 添加所有子节点后调用此方法.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtClose</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 这对方法用于通知节点其父节点.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtSetParent</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="n">Node</span> <span class="nf">jjtGetParent</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 此方法通知节点将其参数添加到节点的子节点列表中. 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtAddChild</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 此方法返回子节点.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="c1">// 子节点编号从 0 开始, 从左至右.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">public</span> <span class="n">Node</span> <span class="nf">jjtGetChild</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="c1">// 返回节点拥有的子节点数.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="nf">jjtGetNumChildren</span><span class="o">();</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>SimpleNode</code> 类实现了 <code>Node</code> 接口, 如果它不存在, 则由 JJTree 自动生成. 可以使用该类作为节点实现的模板或超类, 或修改其进行适配. <code>SimpleNode</code> 还提供了递归转储节点及其子节点的基本机制.</p>
+<p>可以像这样使用这个命令:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="o">((</span><span class="n">SimpleNode</span><span class="o">)</span><span class="n">jjtree</span><span class="o">.</span><span class="na">rootNode</span><span class="o">()).</span><span class="na">dump</span><span class="o">(</span><span class="s">&#34;&gt;&#34;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>dump()</code> 的字符串参数用作填充, 以指示树层次结构.</p>
+<p>如果设置了 <code>VISITOR</code> 选项, 则会生成另一个实用程序方法:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">childrenAccept</span><span class="o">(</span><span class="n">MyParserVisitor</span> <span class="n">visitor</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这会轮流遍历节点的子节点, 要求它们接受访问者. 这在实现前序和后序遍历时很有用.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2023-06-13&#32;10:54:38>更新于 2023-06-13</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/jjtree/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/jjtree/" data-title="JJTree" data-hashtags="Java,JavaCC,JJTree"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/jjtree/" data-hashtag="Java"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/jjtree/" data-title="JJTree"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/jjtree/" data-title="JJTree"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/jjtree/" data-title="JJTree" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/java/">Java</a>,&nbsp;<a href="/tags/javacc/">JavaCC</a>,&nbsp;<a href="/tags/jjtree/">JJTree</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/javacc/" class="prev" rel="prev" title="JavaCC"><i class="fas fa-angle-left fa-fw"></i>JavaCC</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.111.3">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>
