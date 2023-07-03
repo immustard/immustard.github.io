@@ -8,15 +8,17 @@
   <title>CSRF攻击</title>
   <link>https://buli-home.cn/csrf/</link>
   <pubDate>Wed, 23 Feb 2022 16:28:04 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/csrf/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>XSS(跨站脚本攻击)</title>
   <link>https://buli-home.cn/xss/</link>
   <pubDate>Wed, 23 Feb 2022 08:35:48 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/xss/</guid>
   <description><![CDATA[]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

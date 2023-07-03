@@ -340,3 +340,9 @@ canal.instance.filter.black.field=data_center.canal_test_2:column_2,data_center.
    
 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/canal/  
+

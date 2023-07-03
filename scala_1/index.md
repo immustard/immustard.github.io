@@ -46,3 +46,9 @@
 1. 安装插件 Scala
 2. 创建项目之后, 右键项目目录 -> Add Framework Support -> 选择 Scala
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/scala_1/  
+

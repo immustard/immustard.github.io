@@ -281,3 +281,9 @@ object TestDataType {
   * 数值 -> `String`: `+ ""`就行, 和 Java 一样
   * `String` -> 数值: `s1.toInt`, `s1.toFloat`, `s1.toDouble`, `s1.toByte`, `s1.toLong`, `s1.toShort`
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/scala_2/  
+

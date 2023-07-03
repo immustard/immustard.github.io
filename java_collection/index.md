@@ -306,3 +306,9 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
 | CopyOnWriteArrayList |  ✅   |    ✅     |        ❌        |    ✅     |   ✅    |    ✅     |
 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/java_collection/  
+

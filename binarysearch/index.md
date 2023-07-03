@@ -131,3 +131,9 @@ public int search(int[] array, int target) {
 
 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/binarysearch/  
+

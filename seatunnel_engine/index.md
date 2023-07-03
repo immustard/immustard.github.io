@@ -232,3 +232,9 @@ nohup seatunnel-cluster.sh &
 
 只需要将`Seatunnel Engine`节点上的`$Seatunnel Engine`目录复制到客户端节点, 并像`Seatunnel Engine`服务节点一样配置`$Seatunnel Engine`就可以了. 
  
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/seatunnel_engine/  
+

@@ -50,3 +50,9 @@
 * [飞桨PaddlePaddle-源于产业实践的开源深度学习平台](https://www.paddlepaddle.org.cn/)
 * [Elasticsearch Guide 8.0](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 
+
+---
+
+> 作者: [Mustard](https://github.com/immustard)  
+> URL: https://buli-home.cn/documents/  
+

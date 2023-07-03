@@ -51,3 +51,9 @@
 ## Other
 
 {{< link card=true href="/years/" content="Annual Summary" title="年度总结" >}}
+
+---
+
+> 作者: [Mustard](https://github.com/immustard)  
+> URL: https://buli-home.cn/about/  
+

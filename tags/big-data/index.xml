@@ -8,71 +8,81 @@
   <title>SeaTunnel 配置文件加解密</title>
   <link>https://buli-home.cn/seatunnel_encryption/</link>
   <pubDate>Thu, 25 May 2023 14:27:11 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/seatunnel_encryption/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Seatunnel 连接器 V2 版本</title>
   <link>https://buli-home.cn/seatunnel_connector_v2/</link>
   <pubDate>Wed, 24 May 2023 13:51:15 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/seatunnel_connector_v2/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>部署Seatunnel引擎</title>
   <link>https://buli-home.cn/seatunnel_engine/</link>
   <pubDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/seatunnel_engine/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Hadoop分布式文件系统——HDFS</title>
   <link>https://buli-home.cn/hdfs/</link>
   <pubDate>Mon, 27 Feb 2023 16:59:57 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/hdfs/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Kafka生产者</title>
   <link>https://buli-home.cn/kafka_3/</link>
   <pubDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/kafka_3/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Kafka命令行操作</title>
   <link>https://buli-home.cn/kafka_2/</link>
   <pubDate>Fri, 02 Sep 2022 10:10:36 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/kafka_2/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Kafka概述</title>
   <link>https://buli-home.cn/kafka_1/</link>
   <pubDate>Tue, 26 Jul 2022 14:33:48 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/kafka_1/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Canal</title>
   <link>https://buli-home.cn/canal/</link>
   <pubDate>Tue, 26 Jul 2022 08:14:47 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/canal/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>Seatunnel使用手册</title>
   <link>https://buli-home.cn/seatunnel_use/</link>
   <pubDate>Tue, 12 Jul 2022 16:47:48 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/seatunnel_use/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>湖仓一体</title>
   <link>https://buli-home.cn/data_lakehouse/</link>
   <pubDate>Thu, 16 Jun 2022 09:23:45 &#43;0800</pubDate>
-  <author>作者</author>
+  <author>Mustard</author>
   <guid>https://buli-home.cn/data_lakehouse/</guid>
   <description><![CDATA[]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

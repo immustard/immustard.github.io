@@ -79,3 +79,9 @@
 * 必须知道内存架构
 * MMU(内存管理单元): 硬件组件负责处理CPU的内存访问请求
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/os_computerarchitecture/  
+

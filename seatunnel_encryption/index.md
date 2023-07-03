@@ -171,3 +171,9 @@ Base64 加密支持加密以下参数:
 6. 将选项 `shade.identifier` 的值更改为上面定义在配置文件中的 `ConfigShade#getIdentifier` 的值. 
 7. 完成! 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/seatunnel_encryption/  
+

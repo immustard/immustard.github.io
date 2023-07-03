@@ -249,3 +249,9 @@ def main(args: Array[String]): Unit = {
 
 这里的`breakable`和上面的区别是将其放入到了循环内部, 这样可以实现结束本次执行而不是整个循环结束, 从而实现`continue`的功能. 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/scala_4/  
+

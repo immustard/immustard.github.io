@@ -53,3 +53,9 @@
 8. **Leader**: 每个分区多个副本的"主", 生产者发送数据的对象, 以及消费者消费数据的对象都是Leader. 
 9. **Follower**: 每个分区多个副本中的"从", 实时从 Leader 中同步数据, 保持和 Leader 数据的同步. Leader 发生故障时, 某个 Follower 会成为新的 Leader. 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/kafka_1/  
+

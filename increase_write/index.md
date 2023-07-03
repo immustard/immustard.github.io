@@ -71,3 +71,9 @@ SHOW VARIABLES LIKE 'sync_binlog';
 
 所以最终, 我将 `innodb_flush_log_at_trx_commit` 设置为 `2`, `sync_binlog` 设置为 `100` . 然后经过测试, v2.3.2 对于 MySQL 的写入速度达到了 2000+/s 的速度. 😄
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/increase_write/  
+

@@ -75,3 +75,9 @@
 ### cdc (change data capture  变更数据捕获)
 如果接收连接器支持基于主键的写入行类型 (INSERT/UPDATE_BEFORE/UPDATE_AFTER/DELETE), 那么则认为支持  cdc. 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/seatunnel_connector_v2/  
+

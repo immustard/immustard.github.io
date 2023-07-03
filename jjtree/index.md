@@ -268,3 +268,9 @@ public interface Node {
 
 这会轮流遍历节点的子节点, 要求它们接受访问者. 这在实现前序和后序遍历时很有用. 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/jjtree/  
+

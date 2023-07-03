@@ -407,3 +407,9 @@ sink块里可以声明多个 sink 插件, 每个 sink 插件都可以指定`sour
 | **TiDb**           |     ✔️     |     ❌️     |                                                              | [传送门](https://seatunnel.apache.org/docs/2.1.2/connector/sink/Tidb) |
 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/seatunnel_use/  
+

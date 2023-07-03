@@ -86,3 +86,9 @@ CSRF攻击全称跨站请求伪造(Cross-site request forgery), 也被称为**on
    >
    > 劣势: 无法在非异步的请求上实施. 
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/csrf/  
+

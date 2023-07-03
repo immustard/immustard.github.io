@@ -47,3 +47,9 @@ IINA的安装可以点开上面的地址进行安装.
 
 [Open In IINA - Chrome 应用商店 (google.com)](https://chrome.google.com/webstore/detail/open-in-iina/pdnojahnhpgmdhjdhgphgdcecehkbhfo)
 
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/iina/  
+
