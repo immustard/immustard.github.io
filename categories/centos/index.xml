@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>CentOS - 分类 - Buli&#39;s Home</title>
+    <link>https://buli-home.cn/categories/centos/</link>
+    <description>CentOS - 分类 - Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Jul 2023 10:37:36 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/centos/" rel="self" type="application/rss+xml" /><item>
+  <title>mac 配置 VMware 的 CentOS 网络 (NAT 模式)</title>
+  <link>https://buli-home.cn/mac_vmware_set_net/</link>
+  <pubDate>Tue, 11 Jul 2023 10:37:36 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/mac_vmware_set_net/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

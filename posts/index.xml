@@ -4,7 +4,15 @@
     <link>https://buli-home.cn/posts/</link>
     <description>所有文章 | Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Jul 2023 11:12:37 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/posts/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Jul 2023 10:37:36 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>mac 配置 VMware 的 CentOS 网络 (NAT 模式)</title>
+  <link>https://buli-home.cn/mac_vmware_set_net/</link>
+  <pubDate>Tue, 11 Jul 2023 10:37:36 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/mac_vmware_set_net/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>MySQL写入速度调优之`innodb_flush_log_at_trx_commit`</title>
   <link>https://buli-home.cn/increase_write/</link>
   <pubDate>Mon, 03 Jul 2023 11:12:37 &#43;0800</pubDate>
@@ -61,27 +69,19 @@
   <description><![CDATA[]]></description>
 </item>
 <item>
+  <title>CDH环境搭建</title>
+  <link>https://buli-home.cn/cdh/</link>
+  <pubDate>Wed, 01 Mar 2023 20:09:33 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/cdh/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>部署Seatunnel引擎</title>
   <link>https://buli-home.cn/seatunnel_engine/</link>
   <pubDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/seatunnel_engine/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Hadoop分布式文件系统——HDFS</title>
-  <link>https://buli-home.cn/hdfs/</link>
-  <pubDate>Mon, 27 Feb 2023 16:59:57 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/hdfs/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Kafka生产者</title>
-  <link>https://buli-home.cn/kafka_3/</link>
-  <pubDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/kafka_3/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
