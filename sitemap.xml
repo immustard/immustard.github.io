@@ -2,16 +2,23 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>https://buli-home.cn/</loc><lastmod>2023-07-25T13:33:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/categories/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+      <loc>https://buli-home.cn/tags/big-data/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/categories/big-data/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/categories/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/data-center/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/data-lake/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/data-mark/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/data-warehouse/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/database/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/posts/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/tags/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+      <loc>https://buli-home.cn/data_summary/</loc><lastmod>2023-07-25T13:39:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
       <loc>https://buli-home.cn/tags/centos/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
       <loc>https://buli-home.cn/categories/centos/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
       <loc>https://buli-home.cn/mac_vmware_set_net/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
       <loc>https://buli-home.cn/tags/network/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
       <loc>https://buli-home.cn/tags/operating-system/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-      <loc>https://buli-home.cn/posts/</loc><lastmod>2023-07-25T13:33:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-      <loc>https://buli-home.cn/tags/</loc><lastmod>2023-07-14T15:11:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-      <loc>https://buli-home.cn/tags/database/</loc><lastmod>2023-07-03T13:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>https://buli-home.cn/tags/mysql/</loc><lastmod>2023-07-03T13:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>https://buli-home.cn/categories/mysql/</loc><lastmod>2023-07-03T13:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
       <loc>https://buli-home.cn/increase_write/</loc><lastmod>2023-07-03T13:35:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
@@ -21,8 +28,6 @@
       <loc>https://buli-home.cn/tags/jjtree/</loc><lastmod>2023-06-13T10:54:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/jjtree/</loc><lastmod>2023-06-13T10:54:38&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/javacc/</loc><lastmod>2023-06-13T10:51:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-      <loc>https://buli-home.cn/tags/big-data/</loc><lastmod>2023-07-14T14:58:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-      <loc>https://buli-home.cn/categories/big-data/</loc><lastmod>2023-07-14T14:58:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
       <loc>https://buli-home.cn/tags/seatunnel/</loc><lastmod>2023-05-25T14:29:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/seatunnel_encryption/</loc><lastmod>2023-05-25T14:29:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/seatunnel_connector_v2/</loc><lastmod>2023-05-25T13:44:17&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -60,9 +65,7 @@
       <loc>https://buli-home.cn/scala_1/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/tags/data-lakehouse/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/data_lakehouse/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-      <loc>https://buli-home.cn/tags/data-lake/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/date_lake/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-      <loc>https://buli-home.cn/tags/data-warehouse/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/data_warehouse/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/categories/operating-system/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/os_address/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -90,5 +93,4 @@
       <loc>https://buli-home.cn/mysql_3/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/mysql_2/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
       <loc>https://buli-home.cn/mysql_1/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-      <loc>https://buli-home.cn/about/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-      <loc>https://buli-home.cn/data_summary/</loc><lastmod>2023-07-25T13:33:39&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
+      <loc>https://buli-home.cn/about/</loc><lastmod>2022-08-14T11:45:47&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>

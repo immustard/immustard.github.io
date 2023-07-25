@@ -1,6 +1,9 @@
-# 
+# 数据库, 数据仓库, 数据集市, 数据湖, 数据中台
 
- 
+
+<!--more-->
+
+
 
 转载声明
 ===========================================================================================
@@ -1330,6 +1333,6 @@ ODS通常运行在关系数据库管理系统(RDBMS)或Hadoop平台。
 
 ---
 
-> 作者: [Mustard](https://github.com/immustard)  
+> 作者: [迷路剑客](https://blog.csdn.net/baichoufei90/article/details/87880848)  
 > URL: https://buli-home.cn/data_summary/  
-
+> 转载 URL: https://blog.csdn.net/baichoufei90/article/details/87880848

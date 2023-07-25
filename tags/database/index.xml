@@ -1,10 +1,18 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Database - 标签 - Buli&#39;s Home</title>
+    <title>database - 标签 - Buli&#39;s Home</title>
     <link>https://buli-home.cn/tags/database/</link>
-    <description>Database - 标签 - Buli&#39;s Home</description>
+    <description>database - 标签 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Jul 2023 11:12:37 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/database/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/database/" rel="self" type="application/rss+xml" /><item>
+  <title>数据库, 数据仓库, 数据集市, 数据湖, 数据中台</title>
+  <link>https://buli-home.cn/data_summary/</link>
+  <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/data_summary/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>MySQL写入速度调优之`innodb_flush_log_at_trx_commit`</title>
   <link>https://buli-home.cn/increase_write/</link>
   <pubDate>Mon, 03 Jul 2023 11:12:37 &#43;0800</pubDate>
