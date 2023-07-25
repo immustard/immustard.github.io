@@ -306,7 +306,7 @@
 </table>
 <h3 id="环境配置">环境配置</h3>
 <p><code>config</code>目录下<code>seatunnel-env.sh</code>中可以配置Spark和Flink的环境</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -317,8 +317,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Home directory of spark distribution.
 </span></span><span class="line"><span class="cl">SPARK_HOME=${SPARK_HOME:-/opt/spark}
 </span></span><span class="line"><span class="cl"># Home directory of flink distribution.
-</span></span><span class="line"><span class="cl">FLINK_HOME=${FLINK_HOME:-/opt/flink}
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">FLINK_HOME=${FLINK_HOME:-/opt/flink}</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p><code>:-</code>代表: 若未找到之前的地址, 则用之后的地址</p>
@@ -326,7 +325,7 @@
 <h2 id="官方示例">官方示例</h2>
 <p>首先来进行一个官方示例简单的运行一下.</p>
 <p>在<code>config</code>目录下创建文件<code>example.conf</code>:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -395,17 +394,15 @@
 </span></span><span class="line"><span class="cl"># 在 sink 块中声明要输出到哪
 </span></span><span class="line"><span class="cl">sink {
 </span></span><span class="line"><span class="cl">     ConsoleSink {}
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后<code>cd</code>到seatunnel目录在shell中执行:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh --config config/example.conf
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh --config config/example.conf</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>用<code>nc -lk 9999</code>模拟一下socket连接</p>
@@ -416,7 +413,7 @@
 <li>拿到<code>info</code>字段, 利用<code>Split</code>插件进行切分</li>
 </ol>
 <h3 id="启动命令">启动命令</h3>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -439,30 +436,27 @@
 </span></span><span class="line"><span class="cl">    -r, --run-mode job run mode, run or run-application (default: RUN) 
 </span></span><span class="line"><span class="cl">                   (values: [RUN, APPLICATION_RUN])
 </span></span><span class="line"><span class="cl">    -i, --variable variable substitution, such as -i city=beijing, or -i 
-</span></span><span class="line"><span class="cl">                   date=20190318 (default: [])
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">                   date=20190318 (default: [])</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>其中, <code>--config</code>是必填参数</strong></p>
 <ul>
 <li>
 <p><code>-i</code></p>
 <p>当其中上面的sql改为:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sql = &#34;select * from (select info, split(info) as info_row from fake) where age &gt; &#34;${age}&#34;&#34;
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sql = &#34;select * from (select info, split(info) as info_row from fake) where age &gt; &#34;${age}&#34;&#34;</span></span></code></pre></td></tr></table>
 </div>
 </div><p>启动命令改为:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh --config config/example02.conf -i age=18
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh --config config/example02.conf -i age=18</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -472,17 +466,16 @@
 </ul>
 <h2 id="应用配置的4个基本组件">应用配置的4个基本组件</h2>
 <p>一个完整的SeaTunnel配置文件应包含四个配置组件:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">env{}`  `source{}` --&gt; `transform{}` --&gt; `sink{}
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">env{}`  `source{}` --&gt; `transform{}` --&gt; `sink{}</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="env块">env块</h3>
 <p>env块中可以直接写 spark 或 flink 支持的配置项. 比如并行度, 检查点时间, 检查点 hdfs 路径等. 以 Flink 为例, 在 SeaTunnel 源码的<code>ConfigKeyName</code>类中声明了所有可用的key:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-8"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -547,8 +540,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MIN_STATE_RETENTION_TIME</span> <span class="p">=</span> <span class="s">&#34;execution.query.state.min-retention&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">STATE_BACKEND</span> <span class="p">=</span> <span class="s">&#34;execution.state.backend&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">PLANNER</span> <span class="p">=</span> <span class="s">&#34;execution.planner&#34;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="row">Row</h3>
 <p>在说明<code>source块</code>, <code>transform块</code>和<code>sink块</code>之前, 需要先了解一下 SeaTunnel 中的核心数据结构: <code>Row</code></p>
@@ -557,7 +549,7 @@
 <p>因为 <code>DataStream</code>可以很方便地和 Table 进行互转, 所以将 Row 当作核心数据结构可以让转换插件同时具有使用代码 (命令式) 和 sql (声明式) 处理数据的能力.</p>
 </blockquote>
 <p>可以看一下上面示例中, 读取数据的源码:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-9"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -600,13 +592,12 @@
 </span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="nx">row</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="p">}).</span><span class="nf">returns</span><span class="p">(</span><span class="nx">new</span> <span class="nf">RowTypeInfo</span><span class="p">(</span><span class="nx">Types</span><span class="p">.</span><span class="nf">STRING</span><span class="p">()));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>感兴趣的话, 也可以看到源码中的 Split, sql, sink 都是用<code>DataStream&lt;Row&gt;</code>进行数据传递的</p>
 <h3 id="source块">source块</h3>
 <p><code>source{}</code>是可以配置多个 source 插件的</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-10"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -657,8 +648,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sink {
 </span></span><span class="line"><span class="cl">    elasticsearch { ... }
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>需要注意的是: 所有的 source 插件中都可以声明<code>result_table_name</code>. 如果声明了<code>result_table_name</code>. SeaTunnel 会将 source 插件输出的<code>DataStream&lt;Row&gt;</code>转换为 Table 并注册在 Table 环境中. 当指定了<code>result_table_name</code>那么还可以指定<code>field_name</code>, 在注册时, 给 Table重设字段名.</p>
@@ -832,7 +822,7 @@
 <p><code>transform{}</code>中可以声明多个转换插件. 所有的转换插件都可以使用<code>source_table_name</code>, 和<code>result_table_name</code>. 同样, 如果声明了<code>result_table_name</code>, 那么就能声明<code>field_name</code>.</p>
 <h4 id="split插件">Split插件</h4>
 <p>这里着重说一下 Split 插件:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-11"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -879,8 +869,7 @@
 </span></span><span class="line"><span class="cl">                    .getBatchTableEnvironment()
 </span></span><span class="line"><span class="cl">                    .registerFunction(&#34;split&#34;, new ScalarSplit(rowTypeInfo, num, separator));
 </span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">    }
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">    }</span></span></code></pre></td></tr></table>
 </div>
 </div><p>从源码中可以发现 Split 插件并没有对数据流进行任何的处理, 而是将它直接<code>return</code>了. 反之, 它向表环境中注册了一个名为 <strong>split</strong> 的 UDF(用户自定义函数). 而且, 函数名是写死的. 这意味着, <strong>如果声明了多个 Split 后面的 UDF 还会把前面的覆盖</strong>.</p>
 <blockquote>
@@ -1073,7 +1062,7 @@
       <a href="/scala_3/" class="post-nav-item" rel="next" title="Scala运算符">Scala运算符<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

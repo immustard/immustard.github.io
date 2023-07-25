@@ -244,15 +244,14 @@
 </li>
 <li>
 <p>添加内容:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SEATUNNEL_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">seatunnel</span><span class="p"> install path</span><span class="si">}</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$SEATUNNEL_HOME</span>/bin
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$SEATUNNEL_HOME</span>/bin</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -275,7 +274,7 @@
 <p><code>Seatunnel Engine</code>实现了基于<a href="https://docs.hazelcast.com/imdg/4.1/"target="_blank" rel="external nofollow noopener noreferrer">Hazelcast IMDG</a>的集群管理. 集群的状态数据(任务运行状态, 资源状态)存放在<a href="https://docs.hazelcast.com/imdg/4.1/data-structures/map"target="_blank" rel="external nofollow noopener noreferrer">Hazelcast IMap</a>中. 这些状态数据在 Hazelcast IMap 中是分布式的并且是存储在所有集群节点中的. Hazelcast 会将数据分区存储在 Imap 中. 每个分区可以指定备份的数量. 因此, <code>Seatunnel Engine</code>可以在不使用其他服务(例如 zookeeper)的情况下实现集群.</p>
 <p><code>backup count</code>参数定义了同步备份的数量. 举个🌰, 如果设置为<code>1</code>, 分区的备份将会存放在另一个分区上; 设置为<code>2</code>, 将会存放在另外两个分区上.</p>
 <p><code>backup count</code>建议为<code>min(1, max(5, N/2))</code>, 其中<code>N</code>为集群节点数</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -286,13 +285,12 @@
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">seatunnel:
 </span></span><span class="line"><span class="cl">	engine:
 </span></span><span class="line"><span class="cl">		backup-count: <span class="m">1</span>
-</span></span><span class="line"><span class="cl">		<span class="c1"># other config</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">		<span class="c1"># other config</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="42-slot-service-插槽服务">4.2 Slot service (插槽服务)</h3>
 <p>插槽的数量决定了集群节点可以并行运行的任务组的数量. <code>Seatunnel Engine</code>是一个数据同步引擎, 并且大多数的任务都是<code>IO</code>密集型的.</p>
 <p>建议使用动态插槽:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -305,8 +303,7 @@
 </span></span><span class="line"><span class="cl">	engine:
 </span></span><span class="line"><span class="cl">		slot-service:
 </span></span><span class="line"><span class="cl">			dynamic-slot: <span class="nb">true</span>
-</span></span><span class="line"><span class="cl">		<span class="c1"># other config</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">		<span class="c1"># other config</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="43-checkpoint-manager-检查点管理">4.3 Checkpoint Manager (检查点管理)</h3>
 <blockquote>
@@ -320,7 +317,7 @@
 <p>最多可以同时执行多少个检查点.</p>
 <h4 id="tolerable-failure-重试">tolerable-failure (重试)</h4>
 <p>检查点失败后最大重试次数.</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -345,8 +342,7 @@
 </span></span><span class="line"><span class="cl">			interval: <span class="m">300000</span>
 </span></span><span class="line"><span class="cl">			timeout: <span class="m">10000</span>
 </span></span><span class="line"><span class="cl">			max-concurrent: <span class="m">1</span>
-</span></span><span class="line"><span class="cl">			tolerable-failure: <span class="m">2</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">			tolerable-failure: <span class="m">2</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="checkpoint-storage-检查点存储">checkpoint storage (检查点存储)</h4>
 <p><strong>todo</strong></p>
@@ -363,7 +359,7 @@
 <h4 id="tcp">TCP</h4>
 <p>可以将<code>Seatunnel Engine</code>配置为一个完整的 TCP/IP 集群.</p>
 <p>🌰</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -392,8 +388,7 @@
 </span></span><span class="line"><span class="cl">      auto-increment: <span class="nb">false</span>
 </span></span><span class="line"><span class="cl">      port: <span class="m">5801</span>
 </span></span><span class="line"><span class="cl">  properties:
-</span></span><span class="line"><span class="cl">    hazelcast.logging.type: log4j2
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">    hazelcast.logging.type: log4j2</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>TCP是在单独的SeaTunnel引擎集群中的建议方式.</strong></p>
 <p>另一方面, Hazelcast 提供了一些其他服务发现方法. 点此查看详情: <a href="https://docs.hazelcast.com/imdg/4.1/clusters/setting-up-clusters"target="_blank" rel="external nofollow noopener noreferrer">Hazelcast Network</a></p>
@@ -406,7 +401,7 @@
 <h3 id="62-network-网络">6.2 Network (网络)</h3>
 <h4 id="cluster-members-集群成员">cluster-members (集群成员)</h4>
 <p>所有<code>Seatunnel Engine</code>服务节点地址需要添加在这:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -423,19 +418,17 @@
 </span></span><span class="line"><span class="cl">      hazelcast.logging.type: log4j2
 </span></span><span class="line"><span class="cl">  network:
 </span></span><span class="line"><span class="cl">    cluster-members:
-</span></span><span class="line"><span class="cl">      - hostname1:5801
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">      - hostname1:5801</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="7-启动seatunnel-engine服务节点">7. 启动<code>SeaTunnel Engine</code>服务节点</h2>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir -p <span class="nv">$SEATUNNEL_HOME</span>/logs
-</span></span><span class="line"><span class="cl">nohup seatunnel-cluster.sh <span class="p">&amp;</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">nohup seatunnel-cluster.sh <span class="p">&amp;</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>日志会写在<code>$SEATUNNEL_HOME/logs/seatunnel-server.log</code>中.</p>
 <h2 id="8-安装seatunnel-engine客户端">8. 安装<code>Seatunnel Engine</code>客户端</h2>
@@ -469,7 +462,7 @@
       <a href="/cdh/" class="post-nav-item" rel="next" title="CDH环境搭建">CDH环境搭建<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

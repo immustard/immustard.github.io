@@ -199,13 +199,12 @@
 <ol>
 <li>
 <p>查看操作主题命令参数</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh</span></span></code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -260,57 +259,52 @@
 </li>
 <li>
 <p>查看当前服务器中的所有 topic</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --list
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --list</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>创建 first topic</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --create --partitions <span class="m">1</span> --replication-factor <span class="m">3</span> --topic first
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --create --partitions <span class="m">1</span> --replication-factor <span class="m">3</span> --topic first</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>查看 first 主题详情</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --describe --topic first
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --describe --topic first</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>修改分区数 <strong>(注意: 分区数只能增加, 不能减少!!!)</strong></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --alter --topic first --partitions <span class="m">3</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --alter --topic first --partitions <span class="m">3</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>删除topic</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --delete --topic first
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --delete --topic first</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -318,13 +312,12 @@
 <ol>
 <li>
 <p>查看操作生产者命令参数</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh</span></span></code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -347,7 +340,7 @@
 </li>
 <li>
 <p>发送消息</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-8"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -356,8 +349,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh --bootstrap-server hadoop102:9092 --topic first
 </span></span><span class="line"><span class="cl">&gt;hello world
-</span></span><span class="line"><span class="cl">&gt;hello buli-home
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">&gt;hello buli-home</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -365,13 +357,12 @@
 <ol>
 <li>
 <p>查看操作生产者命令参数</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-9"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh</span></span></code></pre></td></tr></table>
 </div>
 </div><table>
 <thead>
@@ -405,24 +396,22 @@
 <ol>
 <li>
 <p>消费 first 主题中的数据</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-10"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic first
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic first</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>把主题中所有的数据都读取出来 (包括历史数据)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-11"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --from-beginning --topic first
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --from-beginning --topic first</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -457,7 +446,7 @@
       <a href="/kafka_3/" class="post-nav-item" rel="next" title="Kafka生产者">Kafka生产者<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

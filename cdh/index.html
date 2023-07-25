@@ -316,7 +316,7 @@ manifest.json</li>
 <ul>
 <li>
 <p>设置 hostname</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -333,13 +333,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># vi /etc/sysconfig/network</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Created by anaconda</span>
 </span></span><span class="line"><span class="cl"><span class="nv">NETWORKING</span><span class="o">=</span>yes
-</span></span><span class="line"><span class="cl"><span class="nv">HOSTNAME</span><span class="o">=</span>server4
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nv">HOSTNAME</span><span class="o">=</span>server4</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>设置 hosts</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -358,19 +357,17 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">192.168.100.101 cdh1
 </span></span><span class="line"><span class="cl">192.168.100.102 cdh2
-</span></span><span class="line"><span class="cl">192.168.100.103 cdh3
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">192.168.100.103 cdh3</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>重启!</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># reboot</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># reboot</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -382,7 +379,7 @@ manifest.json</li>
 <ul>
 <li>
 <p>执行指令:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -425,13 +422,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="p">|</span><span class="o">=</span> + X o       . o<span class="p">|</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span>.. B .       E . <span class="p">|</span>
 </span></span><span class="line"><span class="cl"><span class="p">|</span>. .              <span class="p">|</span>
-</span></span><span class="line"><span class="cl">+----<span class="o">[</span>SHA256<span class="o">]</span>-----+
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">+----<span class="o">[</span>SHA256<span class="o">]</span>-----+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>查看生成的公钥和私钥</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -444,24 +440,22 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># ll</span>
 </span></span><span class="line"><span class="cl">总用量 <span class="m">8</span>
 </span></span><span class="line"><span class="cl">-rw-------. <span class="m">1</span> root root <span class="m">1679</span> 3月   <span class="m">1</span> 08:20 id_rsa
-</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root  <span class="m">391</span> 3月   <span class="m">1</span> 08:20 id_rsa.pub
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root  <span class="m">391</span> 3月   <span class="m">1</span> 08:20 id_rsa.pub</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>生成 <code>authorized_keys</code> 文件, 并把公钥刚进去</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># cp id_rsa.pub authorized_keys</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># cp id_rsa.pub authorized_keys</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>然后将 cdh2 和 cdh3 的公钥拷贝进去</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -472,26 +466,24 @@ manifest.json</li>
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># cat authorized_keys</span>
 </span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRqj0kcgwR68Ci2otjFu5QYQe/wBlyDpX9eI68XU6q6XzyxTrvLkbEpDpHkNwMpmqfr+y/tOMpk5/dAIBUn3pOiRKBpXVDxA4xZkpIpC1PXHi3BxY8zz58QXgBQbm1tFxFplAzkCjlxsYE08Oq0X/xD3vR6T4ZRsFfMdKMo7R2LmyoPohDTf8aiiqvE6ftF+Tv8YmNdb0TKbNwgD76f5vatrYhRZ+XitHCC8NGffDyOA62ogkd04G9mXOKYEhvsu7eYHa98xddhiXmK0mdeBRcV4BfeEkIEBdlcYl1LpYNjKR1oePFzudfG7czeKltgdPTqy5wPvAEPic9HBw3t2St root@cdh1
 </span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEhVBXXBXUiz21kxafL7FadgIrKgNJlvds+Gwf5G9fB+28kXyDgvRFL5F1twCGlIakt266K2kuZioffcwWJ3Co5N6XlyF/ABHq4cxjD1js9uKbXVENDove8CCR8zCIMmojJqEZO53TUljJjau+TEQQrXBaSUcQ6dkmMSEo7XuPYbCukXcZY4xX4tXX4XQyUFnX0T3xGkFkgHZ6JjPMBEo1deWpJn0igt4LEZcdfBNCywmZr4bIFDVnpER7gmZJB15AW1cEqy8++2qL5a/acee85olRzLeGWFZTkP4XRH5Rqkva7U924f+8uWZQefz7VTlcdruhmLJNhN+DJntrL/Sr root@cdh2
-</span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsBR+l8JM2NMR9JJ8XeQaFV50VFwto6ZJkkdygj6fQPbGms7XYQLTutNRaERXgQPCNgfz2Y7ZncIu0zNoK5ibmFH8qU1RGvpkscTX0AaBnrRtpESBH5R/Gn0ZCqsjSE829GC+VkSxwHgKkrgS63iWVhUjNnkcoHiBueiyR6c8NHxpC0PrM9ePazYGFo/LvjlFFtHXzQYHlA5Dldk6oPm2pKOof1oEuWYhPvsIPluyExZpDeg0dSZaJSWNXJlaHgnO0lp2O2rUjY+A6FVxVh1VbKZlj0R4ZP5WHKkkGZjibdz810iR8VK+COsGXRwLhc+BmGVf10ik/Z2k2qISHKBUZ root@cdh3
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsBR+l8JM2NMR9JJ8XeQaFV50VFwto6ZJkkdygj6fQPbGms7XYQLTutNRaERXgQPCNgfz2Y7ZncIu0zNoK5ibmFH8qU1RGvpkscTX0AaBnrRtpESBH5R/Gn0ZCqsjSE829GC+VkSxwHgKkrgS63iWVhUjNnkcoHiBueiyR6c8NHxpC0PrM9ePazYGFo/LvjlFFtHXzQYHlA5Dldk6oPm2pKOof1oEuWYhPvsIPluyExZpDeg0dSZaJSWNXJlaHgnO0lp2O2rUjY+A6FVxVh1VbKZlj0R4ZP5WHKkkGZjibdz810iR8VK+COsGXRwLhc+BmGVf10ik/Z2k2qISHKBUZ root@cdh3</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>再将 <code>authorized_keys</code> 分发到 cdh2 和 cdh3</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-8"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># scp authorized_keys root@cdh2:/root/.ssh/</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># scp authorized_keys root@cdh3:/root/.ssh/</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># scp authorized_keys root@cdh3:/root/.ssh/</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>测试连接</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-9"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -504,8 +496,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">Last failed login: Wed Mar  <span class="m">1</span> 08:29:01 EST <span class="m">2023</span> from cdh1 on ssh:notty
 </span></span><span class="line"><span class="cl">There were <span class="m">4</span> failed login attempts since the last successful login.
 </span></span><span class="line"><span class="cl">Last login: Wed Mar  <span class="m">1</span> 08:10:27 <span class="m">2023</span> from 192.168.100.1
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 ~<span class="o">]</span><span class="c1">#</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 ~<span class="o">]</span><span class="c1">#</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -518,42 +509,39 @@ manifest.json</li>
 <li>
 <p>关闭 <code>chronyd</code> 服务 (所有节点)</p>
 <p>因为 CentOS 默认的使用的是 chronyd 服务进行时间同步的, 所以先关掉</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-10"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl stop chronyd</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl disable chronyd</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl disable chronyd</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>修改时区 (改为中国标准时区) (所有节点)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-11"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>安装 <code>NTP</code> (所有节点)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-12"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum -y install ntp</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum -y install ntp</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>修改 <code>NTP</code> 服务器配置 (cdh1)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-13"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -590,13 +578,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">server 2.cn.pool.ntp.org iburst
 </span></span><span class="line"><span class="cl">server 3.cn.pool.ntp.org iburst
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">...
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>修改同步配置 (cdh1)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-14"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -609,19 +596,17 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Command line options for ntpd</span>
 </span></span><span class="line"><span class="cl"><span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&#34;-g&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nv">SYNC_HWCLOCK</span><span class="o">=</span>yes
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nv">SYNC_HWCLOCK</span><span class="o">=</span>yes</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>重启 <code>NTP</code> 服务 (cdh1)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-15"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl restart ntpd</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl restart ntpd</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -629,7 +614,7 @@ manifest.json</li>
 <ul>
 <li>
 <p>修改服务器配置</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-16"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -660,13 +645,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">server cdh1 iburst
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">...
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>手动同步时间</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-17"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -683,26 +667,24 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># ntpdate cdh1</span>
 </span></span><span class="line"><span class="cl"> <span class="m">3</span> Mar 10:53:47 ntpdate<span class="o">[</span>10943<span class="o">]</span>: step <span class="nb">time</span> server 192.168.100.101 offset 131446.778897 sec
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># systemctl start ntpd</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># date</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># date</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 </li>
 <li>
 <p>配置开机启动(所有节点)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-18"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># systemctl enable ntpd</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># systemctl enable ntpd</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 <h3 id="安装-httpd-所有节点">安装 <code>httpd</code> (所有节点)</h3>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-19"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -711,36 +693,33 @@ manifest.json</li>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum -y install httpd</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl start httpd</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl enable httpd</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl enable httpd</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="配置-xsync-所有节点">配置 <code>xsync</code> (所有节点)</h3>
 <ul>
 <li>
 <p><code>xsync</code> 是对 <code>rsync</code> 的二次封装, 所以先安装 <code>rsync</code></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-20"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum install -y rsync</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum install -y rsync</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>在用户主目录的<code>bin</code>目录下添加脚本:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-21"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># mkdir bin</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim ./bin/xsync</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim ./bin/xsync</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>脚本内容:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-22"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -807,22 +786,20 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">                        <span class="nb">echo</span> <span class="nv">$file</span> does not exists!
 </span></span><span class="line"><span class="cl">                <span class="k">fi</span>
 </span></span><span class="line"><span class="cl">        <span class="k">done</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="k">done</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>赋权限:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-23"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># chmod 755 ./bin/xsync</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># chmod 755 ./bin/xsync</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>测试一下:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-24"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -867,8 +844,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">./bin/xsync
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sent <span class="m">934</span> bytes  received <span class="m">38</span> bytes  1,944.00 bytes/sec
-</span></span><span class="line"><span class="cl">total size is <span class="m">824</span>  speedup is 0.85
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">total size is <span class="m">824</span>  speedup is 0.85</span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后到其他机器上看一下文件是不是真的分发下去了.</p>
 </li>
@@ -877,7 +853,7 @@ manifest.json</li>
 <ul>
 <li>
 <p><code>xcall</code>的作用就是所有节点都执行命令的时候, 只需要在一台服务器上执行就可以了.</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-25"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -930,13 +906,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">        ssh <span class="nv">$user</span>@<span class="nv">$host</span> <span class="nv">$cmd</span>
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;excute successfully !&#34;</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;excute successfully !&#34;</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>测试一下:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-26"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1029,8 +1004,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
 </span></span><span class="line"><span class="cl">    inet6 fe80::20c:29ff:fefe:d4de/64 scope link
 </span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
-</span></span><span class="line"><span class="cl">excute successfully !
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">excute successfully !</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -1039,19 +1013,18 @@ manifest.json</li>
 <li>
 <p>因为我这里是新的 minimal 的虚拟机, 所以肯定没有安装过 <code>jdk</code>, 这里就直接安装了.</p>
 <p><strong>有一点需要说明一下, 一定要安装 <code>cdh</code> 对应版本的 <code>jdk</code>!!!</strong></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-27"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># rpm -ivh /opt/oracle-j2sdk1.8-1.8.0+update181-1.x86_64.rpm</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># rpm -ivh /opt/oracle-j2sdk1.8-1.8.0+update181-1.x86_64.rpm</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这一步这三台一起安装, 安装包就可以用 <code>xsync</code> 同步啦.</p>
 </li>
 <li>
 <p>配置环境变量</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-28"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1062,22 +1035,20 @@ manifest.json</li>
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim /etc/profile.d/java.sh</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/java/jdk1.8.0_181-cloudera
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后分发一下, 后面需要分发的地方就不写命令了</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-29"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/profile.d/java.sh</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/profile.d/java.sh</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>所有服务器都刷新一下环境变量</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-30"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1090,8 +1061,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># java -version</span>
 </span></span><span class="line"><span class="cl">java version <span class="s2">&#34;1.8.0_181&#34;</span>
 </span></span><span class="line"><span class="cl">Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_181-b13<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.181-b13, mixed mode<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.181-b13, mixed mode<span class="o">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -1099,18 +1069,17 @@ manifest.json</li>
 <ul>
 <li>
 <p>创建目录</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-31"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># mkdir /usr/share/java</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># mkdir /usr/share/java</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>上传 <code>mysql-connector-java.jar</code></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-32"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1119,13 +1088,12 @@ manifest.json</li>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@cdh1 ~]# ll /usr/share/java/
 </span></span><span class="line"><span class="cl">总用量 984
-</span></span><span class="line"><span class="cl">-rw-r--r--. 1 root root 1007502 3月   3 11:34 mysql-connector-java.jar
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">-rw-r--r--. 1 root root 1007502 3月   3 11:34 mysql-connector-java.jar</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>解压安装包</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-33"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1164,14 +1132,13 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>   <span class="m">2274268</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-libs-5.7.26-1.el7.x86_64.rpm
 </span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>   <span class="m">2118444</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-libs-compat-5.7.26-1.el7.x86_64.rpm
 </span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span> <span class="m">173541272</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-server-5.7.26-1.el7.x86_64.rpm
-</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span> <span class="m">122249684</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-test-5.7.26-1.el7.x86_64.rpm
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span> <span class="m">122249684</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-test-5.7.26-1.el7.x86_64.rpm</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>安装</p>
 <p>因为我安装的时候, 遇到了 <code>mariadb</code> 的依赖冲突, 所以先解决一下这个问题:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-34"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1180,11 +1147,10 @@ manifest.json</li>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -qa | grep mariadb</span>
 </span></span><span class="line"><span class="cl">mariadb-libs-5.5.56-2.el7.x86_64
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后继续安装 <code>MySQL</code></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-35"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1199,13 +1165,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-client-5.7.26-1.el7.x86_64.rpm</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-devel-5.7.26-1.el7.x86_64.rpm</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-server-5.7.26-1.el7.x86_64.rpm</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-libs-compat-5.7.26-1.el7.x86_64.rpm</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-libs-compat-5.7.26-1.el7.x86_64.rpm</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>启动 <code>MySQL</code></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-36"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1228,8 +1193,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">2023-03-03T04:18:30.220950Z <span class="m">0</span> <span class="o">[</span>Warning<span class="o">]</span> Gtid table is not ready to be used. Table <span class="s1">&#39;mysql.gtid_executed&#39;</span> cannot be opened.
 </span></span><span class="line"><span class="cl">2023-03-03T04:18:30.221618Z <span class="m">1</span> <span class="o">[</span>Note<span class="o">]</span> A temporary password is generated <span class="k">for</span> root@localhost: 7uTGbVWuja,.
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># systemctl enable mysqld</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># systemctl start mysqld</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># systemctl start mysqld</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -1237,7 +1201,7 @@ manifest.json</li>
 </li>
 <li>
 <p>重新登录 <code>root</code>, 创建数据表:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-37"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1262,8 +1226,7 @@ manifest.json</li>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">amon</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;amonuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">rman</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kp">charset</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">collate</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">rman</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;rmanuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">rman</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;rmanuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -1271,7 +1234,7 @@ manifest.json</li>
 <ul>
 <li>
 <p>上传安装包到各服务器</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-38"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1304,13 +1267,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 opt<span class="o">]</span><span class="c1"># ll</span>
 </span></span><span class="line"><span class="cl">总用量 <span class="m">1169532</span>
 </span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root   <span class="m">10215488</span> 3月   <span class="m">3</span> 12:43 cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
-</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">1187380436</span> 3月   <span class="m">3</span> 12:45 cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">1187380436</span> 3月   <span class="m">3</span> 12:45 cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>安装 (<code>cdh1</code> 安装 3 个, <code>cdh2</code> 和 <code>cdh3</code> 安装 2 个)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-39"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1321,8 +1283,7 @@ manifest.json</li>
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm 
 </span></span><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-server-6.2.0-968826.el7.x86_64.rpm
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-server-6.2.0-968826.el7.x86_64.rpm</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -1330,7 +1291,7 @@ manifest.json</li>
 <ul>
 <li>
 <p>上传安装包</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-40"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1357,8 +1318,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 parcel-repo<span class="o">]</span><span class="c1"># cd /opt/cloudera/csd/</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 csd<span class="o">]</span><span class="c1"># ll</span>
 </span></span><span class="line"><span class="cl">总用量 <span class="m">8</span>
-</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">5306</span> 3月   <span class="m">3</span> 13:03 PHOENIX-1.0.jar
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">5306</span> 3月   <span class="m">3</span> 13:03 PHOENIX-1.0.jar</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -1366,7 +1326,7 @@ manifest.json</li>
 <ul>
 <li>
 <p><code>cdh1</code></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-41"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1395,13 +1355,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">com.cloudera.cmf.db.name<span class="o">=</span>cmserver
 </span></span><span class="line"><span class="cl">com.cloudera.cmf.db.user<span class="o">=</span>root
 </span></span><span class="line"><span class="cl">com.cloudera.cmf.db.setupType<span class="o">=</span>EXTERNAL
-</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.password<span class="o">=</span>root
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.password<span class="o">=</span>root</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p><code>cdh1</code>, <code>cdh2</code>, <code>cdh3</code></p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-42"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1426,15 +1385,14 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">...
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/cloudera-scm-agent/config.ini</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/cloudera-scm-agent/config.ini</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
 </li>
 </ul>
 <h3 id="修改linux-swappiness参数-所有节点">修改Linux <code>swappiness</code>参数 (所有节点）</h3>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-43"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1469,20 +1427,18 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">vm.swappiness<span class="o">=</span><span class="m">0</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/sysctl.conf</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/sysctl.conf</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>所有节点执行</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-44"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo 0 &gt; /proc/sys/vm/swappiness 
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo 0 &gt; /proc/sys/vm/swappiness </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="禁用透明页-所有节点">禁用透明页 (所有节点)</h3>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-45"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1525,25 +1481,23 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/defrag
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/enabled
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/rc.local</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/rc.local</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>所有节点执行</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-46"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># chmod +x /etc/rc.d/rc.local</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># source /etc/rc.local</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># source /etc/rc.local</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="启动-cm-和-cdh-集群">启动 <code>CM</code> 和 <code>CDH</code> 集群</h3>
 <ul>
 <li>
 <p>启动 <code>server</code> (<code>cdh1</code>)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-47"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1562,13 +1516,12 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">   Active: active <span class="o">(</span>running<span class="o">)</span> since 五 2023-03-03 13:11:11 CST<span class="p">;</span> 7s ago
 </span></span><span class="line"><span class="cl"> Main PID: <span class="m">13692</span> <span class="o">(</span>java<span class="o">)</span>
 </span></span><span class="line"><span class="cl">   CGroup: /system.slice/cloudera-scm-server.service
-</span></span><span class="line"><span class="cl">           └─13692 /usr/java/jdk1.8.0_181-cloudera/bin/java -cp .:/usr/share/java/mysql-connector-java.jar:/usr/share/java/oracle-connector-java.jar:/usr/share/java/postgresql-connector-java.jar:lib/* -server -Dlog4j.configuration<span class="o">=</span>fil...
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">           └─13692 /usr/java/jdk1.8.0_181-cloudera/bin/java -cp .:/usr/share/java/mysql-connector-java.jar:/usr/share/java/oracle-connector-java.jar:/usr/share/java/postgresql-connector-java.jar:lib/* -server -Dlog4j.configuration<span class="o">=</span>fil...</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>启动 <code>agent</code> (所有节点)</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-48"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -1587,8 +1540,7 @@ manifest.json</li>
 </span></span><span class="line"><span class="cl">   Active: active <span class="o">(</span>running<span class="o">)</span> since 五 2023-03-03 13:13:03 CST<span class="p">;</span> 10s ago
 </span></span><span class="line"><span class="cl"> Main PID: <span class="m">11790</span> <span class="o">(</span>cmagent<span class="o">)</span>
 </span></span><span class="line"><span class="cl">   CGroup: /system.slice/cloudera-scm-agent.service
-</span></span><span class="line"><span class="cl">           └─11790 /usr/bin/python2 /opt/cloudera/cm-agent/bin/cm agent
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">           └─11790 /usr/bin/python2 /opt/cloudera/cm-agent/bin/cm agent</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ul>
@@ -1641,7 +1593,7 @@ manifest.json</li>
       <a href="/iina/" class="post-nav-item" rel="next" title="IINA配置youtube-dl">IINA配置youtube-dl<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

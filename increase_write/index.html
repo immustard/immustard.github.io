@@ -205,13 +205,12 @@
 <h2 id="innodb_flush_log_at_trx_commit"><code>innodb_flush_log_at_trx_commit</code></h2>
 <p>这个参数是用来配置 MySQL 日志何时写入硬盘的参数.</p>
 <p>查看 MySQL 配置:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;innodb_flush_log_at_trx_commit&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;innodb_flush_log_at_trx_commit&#39;</span><span class="p">;</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><code>0</code>: 日志缓存区将每隔 1 秒写到日志中, 并且将日志文件的数据刷新 (flush) 到磁盘上. 该模式下在事务提交时不会主动触发写入磁盘的操作.</li>
@@ -236,13 +235,12 @@
 <p>默认情况下, 并不是每次写入时都将 binlog 日志文件与磁盘同步. 因此如果操作系统或服务器崩溃. 有可能 binlog 中最后的语句丢失.</p>
 <p>为了防止这种情况, 可以使用 <code>sync_binlog</code> 全局变量 (<code>1</code> 是最安全的值, 但也是最慢的), 使 binlog 在每 N 次 binlog 日志文件写入后与磁盘同步.</p>
 <p>查看 MySQL 配置:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;sync_binlog&#39;</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SHOW</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;sync_binlog&#39;</span><span class="p">;</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>所以最终, 我将 <code>innodb_flush_log_at_trx_commit</code> 设置为 <code>2</code>, <code>sync_binlog</code> 设置为 <code>100</code> . 然后经过测试, v2.3.2 对于 MySQL 的写入速度达到了 2000+/s 的速度. 😄</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -264,7 +262,7 @@
   </div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/database/' class="post-tag">Database</a><a href='/tags/mysql/' class="post-tag">MySQL</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/database/' class="post-tag">database</a><a href='/tags/mysql/' class="post-tag">MySQL</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
@@ -274,7 +272,7 @@
       <a href="/mac_vmware_set_net/" class="post-nav-item" rel="next" title="mac 配置 VMware 的 CentOS 网络 (NAT 模式)">mac 配置 VMware 的 CentOS 网络 (NAT 模式)<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

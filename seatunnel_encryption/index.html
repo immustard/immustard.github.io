@@ -208,7 +208,7 @@
 <p>接下来展示怎么使用 <code>base64</code> 进行加密:</p>
 <ol>
 <li>在配置文件中添加新的配置项 <code>shade.identifier</code>, 这个配置项指示要使用的加密方法, 在这个示例中, 应该在配置中添加 <code>shade.identifier = base64</code>, 如下所示：
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -319,21 +319,19 @@
 </span></span><span class="line"><span class="cl">	primary_key = &#34;id&#34;
 </span></span><span class="line"><span class="cl">	support_upsert = true
 </span></span><span class="line"><span class="cl">  }
-</span></span><span class="line"><span class="cl">}	
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">}	</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>使用基于不同计算引擎的命令行来加密配置文件, 🌰中使用 Zeta (SeaTunnel 自研):
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; <span class="si">${</span><span class="nv">SEATUNNEL_HOME</span><span class="si">}</span>/bin/seatunnel.sh --config config/v2.batch.template --encrypt
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; <span class="si">${</span><span class="nv">SEATUNNEL_HOME</span><span class="si">}</span>/bin/seatunnel.sh --config config/v2.batch.template --encrypt</span></span></code></pre></td></tr></table>
 </div>
 </div>然后就可以在命令行中看到加密的配置:
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -404,18 +402,16 @@
 </span></span><span class="line"><span class="cl">			<span class="nt">&#34;username&#34;</span> <span class="p">:</span> <span class="s2">&#34;c2VhdHVubmVs&#34;</span>
 </span></span><span class="line"><span class="cl">		<span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>当然, 不仅支持加密配置文件, 如果用户想查看解密后的配置文件, 可以执行以下命令:
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; <span class="si">${</span><span class="nv">SEATUNNEL_HOME</span><span class="si">}</span>/bin/seatunnel.sh --config config/v2.batch.template --decrypt
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; <span class="si">${</span><span class="nv">SEATUNNEL_HOME</span><span class="si">}</span>/bin/seatunnel.sh --config config/v2.batch.template --decrypt</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -424,7 +420,7 @@
 <ol>
 <li>创建一个 Java 的 maven 项目</li>
 <li>添加 <code>seatunnel-api</code> 模块在 <code>pom.xml</code>中:
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -437,12 +433,11 @@
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;groupId&gt;</span>org.apache.seatunnel<span class="nt">&lt;/groupId&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;artifactId&gt;</span>seatunnel-api<span class="nt">&lt;/artifactId&gt;</span>
 </span></span><span class="line"><span class="cl">	<span class="nt">&lt;version&gt;</span>${seatunnel.version}<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>创建一个新的类, 并实现 <code>ConfigShade</code> 接口, 这个接口有下列方法:
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -507,8 +502,7 @@
 </span></span><span class="line"><span class="cl">	<span class="k">default</span> <span class="n">String</span><span class="o">[]</span> <span class="nf">sensitiveOptions</span><span class="o">()</span> <span class="o">{</span>
 </span></span><span class="line"><span class="cl">		<span class="k">return</span> <span class="k">new</span> <span class="n">String</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
 </span></span><span class="line"><span class="cl">	<span class="o">}</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>在 <code>resources/META-INF/services</code> 添加 <code>org.apache.seatunnel.api.configuration.ConfigShade</code>.</li>
@@ -545,7 +539,7 @@
       <a href="/javacc/" class="post-nav-item" rel="next" title="JavaCC">JavaCC<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

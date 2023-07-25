@@ -228,25 +228,23 @@
 <h4 id="确定节点">确定节点</h4>
 <p>一个确定节点是用特定数量的子节点构成的. 许多节点从堆栈中弹出并成为新节点的子节点, 然后将其推送到堆栈本身上.</p>
 <p>可以标记一个确定节点, 类似这样:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#ADefiniteNode(INTEGER EXPRESSION)
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#ADefiniteNode(INTEGER EXPRESSION)</span></span></code></pre></td></tr></table>
 </div>
 </div><p>确定节点描述符表达式可以是任何整数表达式, 尽管文字整数常量是迄今为止最常见的表达式.</p>
 <h4 id="条件节点">条件节点</h4>
 <p>当且仅当条件计算为真 (<code>true</code>) 时才使用其节点范围内被推送到堆栈的所有子节点构造条件节点. 如果计算条件为假 (<code>false</code>) 时, 该节点不会被构造, 并且其所有子节点会留在节点堆栈中.</p>
 <p>可以标记一个条件节点, 类似这样:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#ConditionalNode(BOOLEAN EXPRESSION)
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#ConditionalNode(BOOLEAN EXPRESSION)</span></span></code></pre></td></tr></table>
 </div>
 </div><p>条件节点描述符表达式可以是任何布尔表达式.</p>
 <p>条件节点有两种常见的简写:
@@ -255,45 +253,41 @@
 2. 大于节点 (Greater-than nodes)
 <code>#GTNode(&gt;1) is short for #GTNode(jjtree.arity() &gt; 1)</code></p>
 <p>不定节点速记 <code>(1)</code> 在后面跟着带括号的展开时可能会导致 JJTree 源中的歧义. 在这种情况下, 速记必须替换为完整表达式:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">( ... ) #N ( a() )
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">( ... ) #N ( a() )</span></span></code></pre></td></tr></table>
 </div>
 </div><p>上面这个是有歧义的, 所以必须使用显示条件:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">( ... ) #N(true) ( a() )
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">( ... ) #N(true) ( a() )</span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>注意: 节点描述符表达式不应该有副作用. JJTree没有指定表达式将被计算多少次.</strong></p>
 <p>默认情况下, JJTree 将每个非终节点视为不定节点, 并从其生产名称派生节点的名称. 可以使用以下语法为其命名:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P1() #MyNode : { ... } { ... }
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P1() #MyNode : { ... } { ... }</span></span></code></pre></td></tr></table>
 </div>
 </div><p>当解析器识别出一个 <code>P1</code> 非终节点时, 它会开始一个不定节点. 它标记堆栈, 以便在 <code>P1</code> 扩展中由非终节点创建并推送到堆栈上的任何解析树节点都将被弹出并成为节点 <code>MyNode</code> 的子节点.</p>
 <p>如果要禁止为生产创建节点, 可以使用以下语法:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P2() #void : { ... } { ... }
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P2() #void : { ... } { ... }</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在, 在 <code>P2</code> 的扩展中由非终节点推送的任何解析树节点都将保留在堆栈上, 以便弹出并使其成为树上更向上的生产子节点. 可以使用 <code>NODE_DEFAULT_VOID</code> 选项将此设置为未装饰节点的默认行为.</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -302,12 +296,11 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P3() : {} {
 </span></span><span class="line"><span class="cl">	P4() ( P5() )+ P6()
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这个例子中, 开始一个不定节点 <code>P3</code>, 标记堆栈, 然后解析一个 <code>P4</code> 节点、一个或多个 <code>P5</code> 节点和一个 <code>P6</code> 节点.</p>
 <p>可以进一步自定义生成的树:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-8"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -316,8 +309,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void P3() : {} {
 </span></span><span class="line"><span class="cl">	P4() ( P5() )+ #ListOfP5s P6()
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
 </div>
 </div><p>现在, <code>P3</code> 节点将有一个 <code>P4</code> 节点、一个 <code>ListOfP5s</code> 节点和一个 <code>P6</code> 节点作为子节点. <code>#Name</code> 构造充当后缀运算符, 其作用域是紧接在前的扩展单元.</p>
 <h3 id="节点范围和用户操作">节点范围和用户操作</h3>
@@ -325,13 +317,12 @@
 <p>作用域是紧靠在节点修饰之前的扩展单元. 这可以是带括号的表达式. 当对生产签名进行装饰时 (可能隐式带有默认节点), 作用域是生产的整个右侧, 包括其声明块.</p>
 <p>还可以在扩展引用的左侧使用涉及 <code>jjtThis</code> 的表达式.</p>
 <p>🌰:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-9"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">... ( jjtThis.my_foo = foo() ) #Baz ...
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">... ( jjtThis.my_foo = foo() ) #Baz ...</span></span></code></pre></td></tr></table>
 </div>
 </div><p>这里的 <code>jjtThis</code> 指向的是一个 <code>Baz</code> 节点, 他有一个名为 <code>my_foo</code> 的字段. 将解析生成的 <code>foo()</code> 的结果赋给 <code>myfoo</code>.</p>
 <p>节点范围内的最终用户操作与所有其他操作不同. 当其中的代码执行时, 节点的子节点已经从堆栈中弹出并添加到节点中, 节点本身已被推送到堆栈中. 现在, 可以通过节点的方法 (比如 <code>jjtGetChild()</code>) 来访问子节点.</p>
@@ -342,19 +333,18 @@
 <p><strong>注意: JJTree 目前无法检测节点作用域内的用户操作是否引发异常. 这样的异常可能会被错误地处理.</strong></p>
 <h3 id="节点作用域钩子">节点作用域钩子</h3>
 <p>如果 <code>NODE_SCOPE_HOOK</code> 设置为 <code>true</code>, 那么 JJTree 将在每个节点作用域的入口和出口上生成对两个用户定义的解析器方法的调用. 这些方法必须具有以下声明:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-10"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeOpenNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span>
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeCloseNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeCloseNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果解析器是 <code>STATIC</code>, 那么这些方法也必须被声明为 <code>static</code>. 它们都以当前节点作为参数调用.</p>
 <p>一种用途可能是将解析器对象本身存储在节点中, 以便可以提供应该由该解析器生成的所有节点共享的状态. 🌰, 解析器可能维护一个符号表.</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-11"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -367,13 +357,12 @@
 </span></span><span class="line"><span class="cl">	<span class="o">((</span><span class="n">SimpleNode</span><span class="o">)</span><span class="n">n</span><span class="o">).</span><span class="na">jjtSetValue</span><span class="o">(</span><span class="n">getSymbolTable</span><span class="o">());</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeCloseNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">jjtreeCloseNodeScope</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中 <code>getSymbolTable()</code> 是一个用户自定义的方法, 用来返回节点的符号表的结构.</p>
 <h3 id="跟踪令牌">跟踪令牌</h3>
 <p>跟踪每个节点的最初和最后的令牌通常很有用, 这样就可以轻松地再次复制输入. 通过设置 <code>TRACK_TOKENS</code> 选项, 生成的 <code>SimpleNode</code> 类将包含 4 个额外的方法:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-12"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -384,8 +373,7 @@
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Token</span> <span class="nf">jjtGetFirstToken</span><span class="o">()</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtSetFirstToken</span><span class="o">(</span><span class="n">Token</span> <span class="n">token</span><span class="o">)</span>
 </span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="n">Token</span> <span class="nf">jjtGetLastToken</span><span class="o">()</span>
-</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtSetLastToken</span><span class="o">(</span><span class="n">Token</span> <span class="n">token</span><span class="o">)</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">jjtSetLastToken</span><span class="o">(</span><span class="n">Token</span> <span class="n">token</span><span class="o">)</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>当解析器运行的时候, 将自动设置每个节点的最初和最后的令牌.</p>
 <h3 id="节点的生命周期">节点的生命周期</h3>
@@ -505,7 +493,7 @@
 <h2 id="jjtree-接口">JJTree 接口</h2>
 <h3 id="jjtree-状态">JJTree 状态</h3>
 <p>JJTree 将其状态保存在一个名为 <code>jjtree</code> 的解析器类字段中. 可以使用此成员中的方法来操作节点堆栈.</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-13"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -554,11 +542,10 @@
 </span></span><span class="line"><span class="cl">	
 </span></span><span class="line"><span class="cl">	<span class="c1">// 返回当前位于堆栈顶部的节点
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="n">Node</span> <span class="nf">peekNode</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="节点对象">节点对象</h3>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-14"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -613,12 +600,11 @@
 </span></span><span class="line"><span class="cl">	
 </span></span><span class="line"><span class="cl">	<span class="c1">// 返回节点拥有的子节点数.
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kt">int</span> <span class="nf">jjtGetNumChildren</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>SimpleNode</code> 类实现了 <code>Node</code> 接口, 如果它不存在, 则由 JJTree 自动生成. 可以使用该类作为节点实现的模板或超类, 或修改其进行适配. <code>SimpleNode</code> 还提供了递归转储节点及其子节点的基本机制.</p>
 <p>可以像这样使用这个命令:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-15"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -627,12 +613,11 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">{</span>
 </span></span><span class="line"><span class="cl">	<span class="o">((</span><span class="n">SimpleNode</span><span class="o">)</span><span class="n">jjtree</span><span class="o">.</span><span class="na">rootNode</span><span class="o">()).</span><span class="na">dump</span><span class="o">(</span><span class="s">&#34;&gt;&#34;</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>dump()</code> 的字符串参数用作填充, 以指示树层次结构.</p>
 <p>如果设置了 <code>VISITOR</code> 选项, 则会生成另一个实用程序方法:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-16"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -641,8 +626,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="o">{</span>
 </span></span><span class="line"><span class="cl">	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">childrenAccept</span><span class="o">(</span><span class="n">MyParserVisitor</span> <span class="n">visitor</span><span class="o">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="o">}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>这会轮流遍历节点的子节点, 要求它们接受访问者. 这在实现前序和后序遍历时很有用.</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
@@ -674,7 +658,7 @@
       <a href="/increase_write/" class="post-nav-item" rel="next" title="MySQL写入速度调优之`innodb_flush_log_at_trx_commit`">MySQL写入速度调优之`innodb_flush_log_at_trx_commit`<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">

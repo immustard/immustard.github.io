@@ -25,7 +25,7 @@
 <meta name="application-name" content="FixIt">
 <meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/mac_vmware_set_net/" /><link rel="prev" href="https://buli-home.cn/increase_write/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/mac_vmware_set_net/" /><link rel="prev" href="https://buli-home.cn/increase_write/" /><link rel="next" href="https://buli-home.cn/data_summary/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -189,7 +189,7 @@
 </li>
 <li>
 <p>关闭防火墙</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -204,21 +204,19 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 禁用</span>
 </span></span><span class="line"><span class="cl">&gt; systemctl disable firewalld
 </span></span><span class="line"><span class="cl"><span class="c1"># 查看状态</span>
-</span></span><span class="line"><span class="cl">&gt; systemctl status firewalld
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">&gt; systemctl status firewalld</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>禁用 selinux</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 将 SELINUX 设置为 `disabled`</span>
-</span></span><span class="line"><span class="cl">&gt; vi /etc/selinux/config
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">&gt; vi /etc/selinux/config</span></span></code></pre></td></tr></table>
 </div>
 </div> <center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202307110914417.png" width = "85%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       禁用 selinux   	</div> </center>
 <blockquote>
@@ -227,29 +225,27 @@
 </li>
 <li>
 <p>获取 mac vmnet8 的 gateway 地址</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; cat /Library/Preferences/VMware<span class="se">\ </span>Fusion/vmnet8/nat.conf
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; cat /Library/Preferences/VMware<span class="se">\ </span>Fusion/vmnet8/nat.conf</span></span></code></pre></td></tr></table>
 </div>
 </div><p>找到 <code># NAT gateway address</code> 一行, 然后记下 <code>ip</code> 和 <code>netmask</code></p>
 </li>
 <li>
 <p>修改虚拟机中的网卡配置</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; vi /etc/sysconfig/network-scripts/ifcfg-ens33
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; vi /etc/sysconfig/network-scripts/ifcfg-ens33</span></span></code></pre></td></tr></table>
 </div>
 </div> <center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202307110938671.png" width = "85%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       ifcfg-ens33   	</div> </center>
 <p>上图红框为修改内容, 绿框为新增内容</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -270,35 +266,32 @@
 </span></span><span class="line"><span class="cl"><span class="nv">DNS1</span><span class="o">=</span>114.114.114.114
 </span></span><span class="line"><span class="cl"><span class="nv">DNS2</span><span class="o">=</span>8.8.8.8
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 其中 GATEWAY 为第 4 步中的 ip, NETMASK 为第 4 步 中的 netmask</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="c1"># 其中 GATEWAY 为第 4 步中的 ip, NETMASK 为第 4 步 中的 netmask</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>重启虚拟机网卡</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; systemctl restart network
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; systemctl restart network</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p><code>ping</code> 一下外网就可以啦!</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; ping www.baidu.com
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; ping www.baidu.com</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>修改主机名</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-8"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -307,20 +300,18 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; vi /etc/hostname
 </span></span><span class="line"><span class="cl"><span class="c1"># 将其中内容删除, 改为: `buli_server1`</span>
-</span></span><span class="line"><span class="cl">&gt; vi /etc/hosts
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">&gt; vi /etc/hosts</span></span></code></pre></td></tr></table>
 </div>
 </div> <center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202307110956306.png" width = "85%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       /etc/hosts   	</div> </center>
 </li>
 <li>
 <p>重启</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-9"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; reboot -f
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; reboot -f</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol></div><div class="post-footer" id="post-footer">
@@ -349,10 +340,11 @@
     </section>
   </div>
 
-  <div class="post-nav"><a href="/increase_write/" class="post-nav-item" rel="prev" title="MySQL写入速度调优之`innodb_flush_log_at_trx_commit`"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>MySQL写入速度调优之`innodb_flush_log_at_trx_commit`</a></div>
+  <div class="post-nav"><a href="/increase_write/" class="post-nav-item" rel="prev" title="MySQL写入速度调优之`innodb_flush_log_at_trx_commit`"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>MySQL写入速度调优之`innodb_flush_log_at_trx_commit`</a>
+      <a href="/data_summary/" class="post-nav-item" rel="next" title="数据库, 数据仓库, 数据集市, 数据湖, 数据中台">数据库, 数据仓库, 数据集市, 数据湖, 数据中台<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
               <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
