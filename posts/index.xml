@@ -4,15 +4,7 @@
     <link>https://buli-home.cn/posts/</link>
     <description>所有文章 | Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/posts/" rel="self" type="application/rss+xml" /><item>
-  <title>数据库, 数据仓库, 数据集市, 数据湖, 数据中台</title>
-  <link>https://buli-home.cn/data_summary/</link>
-  <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/data_summary/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 11 Jul 2023 10:37:36 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/posts/" rel="self" type="application/rss+xml" /><item>
   <title>mac 配置 VMware 的 CentOS 网络 (NAT 模式)</title>
   <link>https://buli-home.cn/mac_vmware_set_net/</link>
   <pubDate>Tue, 11 Jul 2023 10:37:36 &#43;0800</pubDate>
@@ -82,6 +74,14 @@
   <pubDate>Wed, 01 Mar 2023 20:09:33 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/cdh/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>部署Seatunnel引擎</title>
+  <link>https://buli-home.cn/seatunnel_engine/</link>
+  <pubDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/seatunnel_engine/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
