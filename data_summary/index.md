@@ -876,6 +876,7 @@ Azure的数据湖解决方案包括数据湖存储、接口层、资源调度与
     
 *   计算引擎上，Azure提供了U-SQL、hadoop和Spark等多种处理引擎。  
     
+
 ​	![](https://raw.githubusercontent.com/immustard/gallery/master/pictures/20230725125618.png)
 
 *   开发工具的支持  
@@ -1280,7 +1281,7 @@ ODS通常运行在关系数据库管理系统(RDBMS)或Hadoop平台。
 
 
 
-> 本文转自 [https://blog.csdn.net/baichoufei90/article/details/87880848?spm=1001.2014.3001.5501](https://blog.csdn.net/baichoufei90/article/details/87880848?spm=1001.2014.3001.5501)，如有侵权，请联系删除。
+> 本文转自 https://blog.csdn.net/baichoufei90/article/details/87880848，如有侵权，请联系删除。
 
 ---
 

@@ -4,7 +4,15 @@
     <link>https://buli-home.cn/categories/</link>
     <description>Categories - 分类 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/" rel="self" type="application/rss+xml" /><item>
+  <title>draft</title>
+  <link>https://buli-home.cn/categories/draft/</link>
+  <pubDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/categories/draft/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>big data</title>
   <link>https://buli-home.cn/categories/big-data/</link>
   <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
   <pubDate>Tue, 26 Jul 2022 08:14:47 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/categories/canal/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>scala</title>
-  <link>https://buli-home.cn/categories/scala/</link>
-  <pubDate>Fri, 15 Jul 2022 15:51:27 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/categories/scala/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
