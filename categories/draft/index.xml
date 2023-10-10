@@ -4,12 +4,12 @@
     <link>https://buli-home.cn/categories/draft/</link>
     <description>draft - 分类 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/draft/" rel="self" type="application/rss+xml" /><item>
-  <title>正向代理和反向代理</title>
-  <link>https://buli-home.cn/proxy/</link>
-  <pubDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</pubDate>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/draft/" rel="self" type="application/rss+xml" /><item>
+  <title>Hive 的数据倾斜问题</title>
+  <link>https://buli-home.cn/hive_skewed_data/</link>
+  <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
   <author>Mustard</author>
-  <guid>https://buli-home.cn/proxy/</guid>
+  <guid>https://buli-home.cn/hive_skewed_data/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Hive 的数据倾斜问题 - Buli&#39;s Home</title><meta name="author" content="Mustard">
+<meta name="author-link" content="https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='draft' /><meta itemprop="name" content="Hive 的数据倾斜问题">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2023-10-10T17:23:33+08:00" />
+<meta itemprop="dateModified" content="2023-10-10T17:24:23+08:00" />
+<meta itemprop="wordCount" content="3313"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="draft," /><meta property="og:title" content="Hive 的数据倾斜问题" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/hive_skewed_data/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-10T17:23:33+08:00" />
+<meta property="article:modified_time" content="2023-10-10T17:24:23+08:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="Hive 的数据倾斜问题"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/hive_skewed_data/" /><link rel="prev" href="https://buli-home.cn/proxy/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Hive 的数据倾斜问题",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/hive_skewed_data\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "draft","wordcount":  3313 ,
+    "url": "https:\/\/buli-home.cn\/hive_skewed_data\/","datePublished": "2023-10-10T17:23:33+08:00","dateModified": "2023-10-10T17:24:23+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" srcset="/logo.png, /logo.png 1.5x, /logo.png 2x" sizes="auto" data-title="Buli&#39;s Home" data-alt="Buli&#39;s Home" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" srcset="/logo.png, /logo.png 1.5x, /logo.png 2x" sizes="auto" data-title="/logo.png" data-alt="/logo.png" class="logo" style="background: url(/svg/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;this.alt=this.dataset.alt;for(const a of ['style','data-title','data-alt','onerror','onload']){this.removeAttribute(a);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Hive 的数据倾斜问题</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      </span></span>
+          <span class="post-category">收录于 <a href="/categories/draft/"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> draft</a></span></div>
+      <div class="post-meta-line"><span title="发布于 2023-10-10 17:23:33"><i class="fa-regular fa-calendar-alt fa-fw me-1" aria-hidden="true"></i><time datetime="2023-10-10">2023-10-10</time></span>&nbsp;<span title="更新于 2023-10-10 17:24:23"><i class="fa-regular fa-edit fa-fw me-1" aria-hidden="true"></i><time datetime="2023-10-10">2023-10-10</time></span>&nbsp;<span><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3313 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 7 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是数据倾斜">什么是数据倾斜</a></li>
+    <li><a href="#什么情况下会出现数据倾斜">什么情况下会出现数据倾斜</a></li>
+    <li><a href="#数据倾斜的原因">数据倾斜的原因</a></li>
+    <li><a href="#数据倾斜的解决方案">数据倾斜的解决方案</a>
+      <ul>
+        <li><a href="#优先开启负载均衡">优先开启负载均衡</a></li>
+        <li><a href="#表-join-连接时引发的数据倾斜">表 join 连接时引发的数据倾斜</a>
+          <ul>
+            <li><a href="#小表-join-大表-某个-key-过大">小表 join 大表, 某个 key 过大</a></li>
+            <li><a href="#表中作为关联条件的字段值为-0-或空值的较多">表中作为关联条件的字段值为 0 或空值的较多</a></li>
+            <li><a href="#表中作为关联条件的字段重复值过多">表中作为关联条件的字段重复值过多</a></li>
+          </ul>
+        </li>
+        <li><a href="#空值引发的数据倾斜">空值引发的数据倾斜</a></li>
+        <li><a href="#不同数据类型关联产生数据倾斜">不同数据类型关联产生数据倾斜</a></li>
+        <li><a href="#count-distinct-大量相同特殊值">COUNT DISTINCT 大量相同特殊值</a></li>
+        <li><a href="#数据膨胀引发的数据倾斜">数据膨胀引发的数据倾斜</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>在日常使用 Hive 的过程中, 经常会出现这样一种场景: 明明查询的时候进度条很快, 但是总是会卡在 99% 的地方. 出现这种情况往往就是因为数据倾斜导致的.</p>
+</blockquote>
+<h2 id="什么是数据倾斜">什么是数据倾斜</h2>
+<p>数据倾斜在 MapReduce 中经常发生的. 简单点说就是, 在整个计算过程中, 大量相同的 key 被分配到了同一个任务上, 造成了大量的数据涌入到一个节点当中. 这也违背了分布式计算的初衷, 使得计算的整体执行效率十分低下.</p>
+<p>数据倾斜后的直观表现就是任务进度长时间维持在 99% (或100%), 查看监控之后会发现只有少量的 Reduce 子任务未完成. 因为其处理的数据量和其他的 Reduce 子任务差异过大, 造成最长时长远大于平均时长.</p>
+<h2 id="什么情况下会出现数据倾斜">什么情况下会出现数据倾斜</h2>
+<p>在日常使用中数据倾斜主要是发生在 Reduce 阶段, 很少会发生在 Map 阶段, 因为 Map 阶段的数据倾斜一般是由于 HDFS 数据存储不均匀造成的(一般存储都是均匀分块存储, 每个文件大小基本固定), 而 Reduce 阶段的数据倾斜几乎都是因为数据没有考虑到某种 key 值数据量偏多的情况而导致的.</p>
+<p>Reduce 阶段最容易出现数据倾斜的两个场景分别是 Join 和 Count Distinct.</p>
+<h2 id="数据倾斜的原因">数据倾斜的原因</h2>
+<ul>
+<li>key 分布不均匀</li>
+<li>业务数据本身的特性</li>
+<li>建表时考虑不周</li>
+<li>某些 SQL 语句本身就有数据倾斜</li>
+</ul>
+<h2 id="数据倾斜的解决方案">数据倾斜的解决方案</h2>
+<h3 id="优先开启负载均衡">优先开启负载均衡</h3>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">-- map 端的 Combiner, 默认为 <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> hive.map.aggr<span class="o">=</span>true<span class="p">;</span>
+</span></span><span class="line"><span class="cl">-- 开启负载均衡 <span class="o">(</span>默认为 <span class="nb">false</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> hive.groupby.skewindata<span class="o">=</span>true<span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果发生数据倾斜, 首先需要调整参数, 进行负载均衡处理, 这样 MapReduce 进程则会生成两个额外的 MR Job, 这两个任务的主要操作如下:</p>
+<ol>
+<li>MR Job 中 Map 输出的结果集首先会随机分配到 Reduce 中, 然后每个 Reduce 做局部聚合操作并输出结果, 这样处理的原因是相同的 Group By Key 有可能被分发到不同的 Reduce Job 中, 从而达到负载均衡的目的.</li>
+<li>MR Job 再根据预处理的数据结果按照 Group By Key 分布到 Reduce 中 (这个过程会保证相同的 Group By Key 被分不到同一个 Reduce 中), 最后完成聚合.</li>
+</ol>
+<h3 id="表-join-连接时引发的数据倾斜">表 join 连接时引发的数据倾斜</h3>
+<p>两个表进行 join 时, 如果表连接的 key 存在倾斜, 那么在 Shuffle 阶段必然会引起数据倾斜</p>
+<h4 id="小表-join-大表-某个-key-过大">小表 join 大表, 某个 key 过大</h4>
+<p>通常做法是将倾斜的数据存到分布式缓存中, 分发到各个 Map 任务所在节点. 在 Map 阶段完成 join 操作, 即 MapJoin, 这样就避免了 Shuffle, 从而避免了数据倾斜.</p>
+<p>MapJoin 是 Hive 的一种优化操作, 其适用于小表 Join 大表的场景, 由于表的 Join 操作是在 Map 端且在内存尽情的, 所以其并不需要启动 Reduce 任务也就不需要经过 Shuffle 阶段, 从而能在一定程度上节省资源提高 Join 效率.</p>
+<p>在 Hive v0.11 之前, 如果想在 Map 阶段完成 join 操作, 必须使用 MAPJOIN 来标记显式的启动该优化操作, 由于其需要将小表加载进内存所以要注意小表的大小.</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 常规 join
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_name</span><span class="w"> </span><span class="n">serviceName</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_code</span><span class="w"> </span><span class="n">serviceCode</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pip</span><span class="p">.</span><span class="n">code_text</span><span class="w"> </span><span class="n">serviceType</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">prd_price_increment_service</span><span class="w"> </span><span class="n">pis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">prd_price_increment_product</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">pip</span><span class="p">.</span><span class="n">increment_service_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- Hive v0.11 之前开启 MapJoin
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 将小表 prd_price_increment_service 放到 map 端的内存中
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 如果想将多个表放在 Map 端内存中, 只需在 mapjoin() 中写多个表名称即可, 用逗号分割
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="cm">/*+ mapjoin(pis) */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_name</span><span class="w"> </span><span class="n">serviceName</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_code</span><span class="w"> </span><span class="n">serviceCode</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pip</span><span class="p">.</span><span class="n">code_text</span><span class="w"> </span><span class="n">serviceType</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">prd_price_increment_service</span><span class="w"> </span><span class="n">pis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">prd_price_increment_product</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">pip</span><span class="p">.</span><span class="n">increment_service_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 v0.11 及之后, Hive 默认启动该优化, 不需要显式的使用 MAPJOIN 标记, 可以通过下面两个属性来设置该优化的出发时机:</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 自动开启 MAPJOIN 优化, 默认为 true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="n">hive</span><span class="p">.</span><span class="n">auto</span><span class="p">.</span><span class="k">convert</span><span class="p">.</span><span class="k">join</span><span class="o">=</span><span class="k">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 确定使用该优化的表的大小, 如果表的大小小于此值就会被加载到内存中, 默认为 25000000 (25M)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="n">hive</span><span class="p">.</span><span class="n">mapjoin</span><span class="p">.</span><span class="n">smalltable</span><span class="p">.</span><span class="n">filesize</span><span class="o">=</span><span class="mi">25000000</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_name</span><span class="w"> </span><span class="n">serviceName</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_code</span><span class="w"> </span><span class="n">serviceCode</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pip</span><span class="p">.</span><span class="n">code_text</span><span class="w"> </span><span class="n">serviceType</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">prd_price_increment_service</span><span class="w"> </span><span class="n">pis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">prd_price_increment_product</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">pip</span><span class="p">.</span><span class="n">increment_service_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 特殊说明
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 使用默认启动该优化的方式如果出现莫名其妙的 bug (比如 MAPJOIN 不起作用), 就将以下两个属性置为 false
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 关闭自动 MAPJOIN 转换操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="n">hive</span><span class="p">.</span><span class="n">auto</span><span class="p">.</span><span class="k">convert</span><span class="p">.</span><span class="k">join</span><span class="o">=</span><span class="k">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 不忽略 MAPJOIN 标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="n">hive</span><span class="p">.</span><span class="k">ignore</span><span class="p">.</span><span class="n">mapjoin</span><span class="p">.</span><span class="n">hint</span><span class="o">=</span><span class="k">false</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="cm">/*+ mapjoin(pis) */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_name</span><span class="w"> </span><span class="n">serviceName</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">service_code</span><span class="w"> </span><span class="n">serviceCode</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">pip</span><span class="p">.</span><span class="n">code_text</span><span class="w"> </span><span class="n">serviceType</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">prd_price_increment_service</span><span class="w"> </span><span class="n">pis</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">prd_price_increment_product</span><span class="w"> </span><span class="n">pip</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">pip</span><span class="p">.</span><span class="n">increment_service_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pis</span><span class="p">.</span><span class="n">id_</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>将表放在 Map 端的内存时, 如果节点的内存很大, 但还是出现内存溢出的情况, 可以通过参数 <code>mapreduce.map.memory.mb</code> 调节 Map 端内存的大小.</p>
+</blockquote>
+<h4 id="表中作为关联条件的字段值为-0-或空值的较多">表中作为关联条件的字段值为 0 或空值的较多</h4>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 方案一: 给空值添加随机 key 值, 将其发放到不同的 reduce 中处理. 由于 null 值关联不上, 所以对结果无影响. 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;hive&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rand</span><span class="p">())</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 方案二: 去重空值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="表中作为关联条件的字段重复值过多">表中作为关联条件的字段重复值过多</h4>
+<div class="highlight" id="id-5"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">a</span><span class="p">.</span><span class="o">*</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">b</span><span class="p">.</span><span class="n">name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">row_number</span><span class="p">()</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">create_time</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">b</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="空值引发的数据倾斜">空值引发的数据倾斜</h3>
+<p>实际业务中有些大量的 <code>null</code> 值或者一些无意义的数据参与到计算作业中, 表中有大量的 <code>null</code> 值, 如果表之间进行 JOIN 操作, 就会有 Shuffle 产生, 这样所有的 <code>null</code> 值都会被分配到一个 reduce 中, 所以就一定会产生数据倾斜.</p>
+<p>这里有一个问题: 如果 A, B 两表进行 JOIN 操作, 如果 A 表中需要 JOIN 的字段为 <code>null</code>, 但是 B 表中需要 JOIN 的字段不为 <code>null</code>, 这两个字段根本就 JOIN 部上, 但是还是会放到一个 reduce 中. 这是因为, 数据放到同一个 reduce 中的原因不是因为字段能不能 JOIN 上, 而是因为 Shuffle 阶段的 hash 操作, 只有 key 的 hash 是一样的, 就会被放到同一个 reduce 中.</p>
+<div class="highlight" id="id-6"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 解决方案
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 场景: 🌰 日志中, 经常会有信息丢失的问题, 比如日志中的 user_id, 如果取其中的 user_id 和用户表中的 user_id 关联, 会碰到数据倾斜的问题
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 方案一: 可以直接不让 null 值参与 JOIN 操作, 即不让 null 值有 Shuffle 阶段, 所以 user_id 为空的不参与关联
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">JOIN</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">a</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 方案二: 因为 null 值参与 Shuffle 时的 hash 结果是一样的, 那么我们可以给 null 值随机赋值, 这样它们的 hash 结果就不一致, 就会进到不同的 reduce 中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="o">*</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;hvie_&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">rand</span><span class="p">())</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>针对上述方案进行分析, 方案二比方案一的效率更高, 不但 IO 少了, 而且作业数也少了. 方案一中对 log 读取两次,  jobs 为 2. 方案二 job 数是 1. 这个优化适合对无效 id (-99, &lsquo;&rsquo;, null 等) 产生的倾斜问题. 把空值的 key 变成一个字符串加上随机数, 就能把倾斜的数据分到不同的 reduce 上, 从而解决倾斜的问题.</p>
+</blockquote>
+<h3 id="不同数据类型关联产生数据倾斜">不同数据类型关联产生数据倾斜</h3>
+<p>对于两个表 JOIN, 表 a 中需要 JOIN 的字段 key 为 int, 表 b 中 key 字段既有 string 类型也有 int 类型. 当按照 key 进行两个表的 JOIN 操作时, 默认的 hash 操作会按 int 类型的 id 来进行分配, 这样所有的 string 类型都将分配成同一个 id, 结果就是所有的 string 类型的字段进入到一个 reduce 中, 从而造成数据倾斜.</p>
+<div class="highlight" id="id-7"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 如果 key 字段既有 string 类型也有 int 类型, 那么就直接都转成 string 类型, hash 时就会按照 string 类型分配了
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 方案一: 把数字类型转成字符串类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">logs</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">string</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 方案二: 建表时按照规范建设, 统一词根, 同一词根数据类型一致</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="count-distinct-大量相同特殊值">COUNT DISTINCT 大量相同特殊值</h3>
+<p>由于 SQL 中的 DISTINCT 操作本身会有一个全局排序的过程, 一般情况下, 不建议采用 COUNT DISTINCT 方式进行去重计数, 除非表的数量较小.</p>
+<ul>
+<li>当 SQL 中不存在分组字段时, COUNT DISTINCT 操作仅生成一个 reduce 任务, 该任务对全部数据进行去重统计;</li>
+<li>当 SQL 中存在分组字段时, 可能某些 reduce 任务需要去重统计的数量非常大;</li>
+</ul>
+<div class="highlight" id="id-8"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 可能造成倾斜的 SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 先去重, 然后分组统计
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>总结: 如果分组统计的数据存在多个 DISTINCT 结果, 可以先将数值为空的数据占位处理, 分 SQL 统计数据, 然后将两组结果 UNION ALL 进行汇总结算.</p>
+</blockquote>
+<h3 id="数据膨胀引发的数据倾斜">数据膨胀引发的数据倾斜</h3>
+<p>在多维聚合计算时, 如果进行分组聚合的字段过多, 且数据量很大, map 端的聚合不能很好地起到数据压缩的情况下, 会导致 map 产出的数据急速膨胀, 这种情况容易导致作业内存溢出的异常. 如果 log 表含有数据倾斜 key, 会家具 Shuffle 过程的倾斜.</p>
+<div class="highlight" id="id-9"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 造成倾斜或内存溢出的情况
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- SQL 01
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">  </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ROLLUP</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- SQL 02
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">GROUPING</span><span class="w"> </span><span class="k">SETS</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 解决方案
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 可以拆分上面的 SQL, 将 WITH ROLLUP 拆分成几个 SQL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">SELECT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 但是这种方式不太友好, 因为这是对 3 个字段进行分组聚合, 但如果是更多的字段就很麻烦了. 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 在 Hive 中可以通过参数 hive.new.job.grouping.set.cardinality 配置的方式自动控制作业的拆解, 该参数默认值是 30
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- 该参数主要针对 GROUPING SETS/ROLLUPS/CUBES 这类多维聚合的操作生效, 如果最后拆解的键组合大于该值, 会启用新的任务去处理大于该值之外的组合. 如果在处理数据时, 某个分组聚合的列有较大的倾斜, 可以适当调小该值. 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="n">hive</span><span class="p">.</span><span class="k">new</span><span class="p">.</span><span class="n">job</span><span class="p">.</span><span class="k">grouping</span><span class="p">.</span><span class="k">set</span><span class="p">.</span><span class="k">cardinality</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">log</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="k">c</span><span class="p">,</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ROLLUP</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>说到底, 解决 reduce 端数据倾斜的必然途径就是让 map 端的输出数据更均匀地分布到 reduce 中.</p>
+<p>在此过程中, 掌握四点可以更好的解决数据倾斜问题:</p>
+<ol>
+<li>如果任务长时间卡在 99% 则基本可以认为是发生了数据倾斜, 建议调整参数以实现负载均衡: <code>set hive.groupby.skewindata=true</code></li>
+<li>小表关联大表操作, 需要先看能否使用子查询, 再看能否使用 MAPJOIN</li>
+<li>JOIN 操作注意关联字段不能出现大量的重复值或者空值</li>
+<li>COUNT(DISTINCT id) 去重统计用慎用, 尽量通过其它方式替换</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-10-10 17:24:23">更新于 2023-10-10&nbsp;</span>
+      </div></div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a href="/hive_skewed_data/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/hive_skewed_data/" data-title="Hive 的数据倾斜问题" data-hashtags="draft"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/hive_skewed_data/" data-hashtag="draft"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/hive_skewed_data/" data-title="Hive 的数据倾斜问题"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/hive_skewed_data/" data-title="Hive 的数据倾斜问题"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/hive_skewed_data/" data-title="Hive 的数据倾斜问题" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href='/tags/draft/' class="post-tag">draft</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/proxy/" class="post-nav-item" rel="prev" title="正向代理和反向代理"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>正向代理和反向代理</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.115.4">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.2.18"><img class="fixit-icon" src="/fixit.min.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">
+              <a href="https://github.com/immustard"target="_blank" rel="external nofollow noopener noreferrer">Mustard</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

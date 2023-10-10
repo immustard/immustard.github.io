@@ -4,7 +4,15 @@
     <link>https://buli-home.cn/categories/</link>
     <description>Categories - 分类 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/" rel="self" type="application/rss+xml" /><item>
+  <title>draft</title>
+  <link>https://buli-home.cn/categories/draft/</link>
+  <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/categories/draft/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Network</title>
   <link>https://buli-home.cn/categories/network/</link>
   <pubDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
   <pubDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/categories/kafka/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>canal</title>
-  <link>https://buli-home.cn/categories/canal/</link>
-  <pubDate>Tue, 26 Jul 2022 08:14:47 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/categories/canal/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
