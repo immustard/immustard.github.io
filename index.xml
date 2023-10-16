@@ -4,9 +4,17 @@
     <link>https://buli-home.cn/</link>
     <description>关于 FixIt 主题</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</lastBuildDate>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</lastBuildDate>
       <atom:link href="https://buli-home.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>MongoDB 单节点开启 oplog</title>
+  <link>https://buli-home.cn/mongo_single_oplog/</link>
+  <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/mongo_single_oplog/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Hive 的数据倾斜问题</title>
   <link>https://buli-home.cn/hive_skewed_data/</link>
   <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
@@ -76,14 +84,6 @@
   <pubDate>Wed, 24 May 2023 13:51:15 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/seatunnel_connector_v2/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>关于剥离 Taier 中 DatasourceX 组件</title>
-  <link>https://buli-home.cn/taier_datasourcex/</link>
-  <pubDate>Thu, 27 Apr 2023 13:53:23 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/taier_datasourcex/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>

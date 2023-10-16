@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>database - 分类 - Buli&#39;s Home</title>
+    <link>https://buli-home.cn/categories/database/</link>
+    <description>database - 分类 - Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/database/" rel="self" type="application/rss+xml" /><item>
+  <title>MongoDB 单节点开启 oplog</title>
+  <link>https://buli-home.cn/mongo_single_oplog/</link>
+  <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/mongo_single_oplog/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>

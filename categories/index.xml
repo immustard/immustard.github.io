@@ -4,12 +4,20 @@
     <link>https://buli-home.cn/categories/</link>
     <description>Categories - 分类 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/" rel="self" type="application/rss+xml" /><item>
-  <title>draft</title>
-  <link>https://buli-home.cn/categories/draft/</link>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/" rel="self" type="application/rss+xml" /><item>
+  <title>database</title>
+  <link>https://buli-home.cn/categories/database/</link>
+  <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/categories/database/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>big data</title>
+  <link>https://buli-home.cn/categories/big-data/</link>
   <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
   <author>Mustard</author>
-  <guid>https://buli-home.cn/categories/draft/</guid>
+  <guid>https://buli-home.cn/categories/big-data/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
@@ -18,14 +26,6 @@
   <pubDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/categories/network/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>big data</title>
-  <link>https://buli-home.cn/categories/big-data/</link>
-  <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/categories/big-data/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>

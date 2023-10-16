@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>hive - 标签 - Buli&#39;s Home</title>
+    <link>https://buli-home.cn/tags/hive/</link>
+    <description>hive - 标签 - Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/hive/" rel="self" type="application/rss+xml" /><item>
+  <title>Hive 的数据倾斜问题</title>
+  <link>https://buli-home.cn/hive_skewed_data/</link>
+  <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/hive_skewed_data/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
