@@ -4,12 +4,28 @@
     <link>https://buli-home.cn/tags/</link>
     <description>Tags - 标签 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/" rel="self" type="application/rss+xml" /><item>
   <title>big data</title>
   <link>https://buli-home.cn/tags/big-data/</link>
-  <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/tags/big-data/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>SeaTunnel</title>
+  <link>https://buli-home.cn/tags/seatunnel/</link>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/tags/seatunnel/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>distributed system</title>
+  <link>https://buli-home.cn/tags/distributed-system/</link>
+  <pubDate>Mon, 23 Oct 2023 10:22:21 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/tags/distributed-system/</guid>
   <description><![CDATA[]]></description>
 </item>
 <item>
@@ -66,22 +82,6 @@
   <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/tags/data-lake/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>data mark</title>
-  <link>https://buli-home.cn/tags/data-mark/</link>
-  <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/tags/data-mark/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>data warehouse</title>
-  <link>https://buli-home.cn/tags/data-warehouse/</link>
-  <pubDate>Tue, 25 Jul 2023 11:28:09 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/tags/data-warehouse/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>

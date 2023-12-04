@@ -4,7 +4,15 @@
     <link>https://buli-home.cn/categories/big-data/</link>
     <description>big data - 分类 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/big-data/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/big-data/" rel="self" type="application/rss+xml" /><item>
+  <title>SeaTunnel 配置文件从 hocon 解析为 Json 过程</title>
+  <link>https://buli-home.cn/seatunnel_transfer_hocon/</link>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/seatunnel_transfer_hocon/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Hive 的数据倾斜问题</title>
   <link>https://buli-home.cn/hive_skewed_data/</link>
   <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
   <pubDate>Thu, 16 Jun 2022 09:23:45 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/data_lakehouse/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>数据湖</title>
-  <link>https://buli-home.cn/date_lake/</link>
-  <pubDate>Wed, 15 Jun 2022 16:19:40 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/date_lake/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -4,7 +4,15 @@
     <link>https://buli-home.cn/tags/big-data/</link>
     <description>big data - 标签 - Buli&#39;s Home</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/big-data/" rel="self" type="application/rss+xml" /><item>
+      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/big-data/" rel="self" type="application/rss+xml" /><item>
+  <title>SeaTunnel 配置文件从 hocon 解析为 Json 过程</title>
+  <link>https://buli-home.cn/seatunnel_transfer_hocon/</link>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
+  <author>Mustard</author>
+  <guid>https://buli-home.cn/seatunnel_transfer_hocon/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>MongoDB 单节点开启 oplog</title>
   <link>https://buli-home.cn/mongo_single_oplog/</link>
   <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
   <pubDate>Fri, 02 Sep 2022 12:48:11 &#43;0800</pubDate>
   <author>Mustard</author>
   <guid>https://buli-home.cn/kafka_3/</guid>
-  <description><![CDATA[]]></description>
-</item>
-<item>
-  <title>Kafka命令行操作</title>
-  <link>https://buli-home.cn/kafka_2/</link>
-  <pubDate>Fri, 02 Sep 2022 10:10:36 &#43;0800</pubDate>
-  <author>Mustard</author>
-  <guid>https://buli-home.cn/kafka_2/</guid>
   <description><![CDATA[]]></description>
 </item>
 </channel>
