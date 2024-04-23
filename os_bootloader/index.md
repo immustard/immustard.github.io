@@ -1,7 +1,7 @@
 # 操作系统的启动
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -15,18 +15,18 @@
 
 **BIOS**在内存中是有一个固定的地址的, 以`x86`为例, **BIOS**是存放在`CS:IP = 0xf000:fff0`这个地址中的(CS: 段寄存器; IP: 指令寄存器) . 
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203151607693.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203151607693.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       BootLoader启动过程
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 
@@ -47,4 +47,10 @@
 
 另一个方面, 希望通过操作系统, 给上层的应用提供简单, 一致的接口, 使得应用程序不用关注底层设备的复杂性和差异性. 
 
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/os_bootloader/  
 

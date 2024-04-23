@@ -1,7 +1,7 @@
 # Canal
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -9,15 +9,15 @@
 
 
 
-> 官方文档: [传送门](https://github.com/alibaba/canal/wiki)
+&gt; 官方文档: [传送门](https://github.com/alibaba/canal/wiki)
 
 
 
 ### Canal的起源
 
-阿里巴巴 B2B 公司, 因为业务的特性, 卖家主要集中在国内, 买家主要集中在国外, 所以衍生出了**同步杭州和美国异地机房**的需求, 从2010年开始, 阿里系公司开始逐步的尝试基于数据库的日志解析, 获取增量变更进行同步, 由此衍生出了增量 订阅&消费 的业务. 
+阿里巴巴 B2B 公司, 因为业务的特性, 卖家主要集中在国内, 买家主要集中在国外, 所以衍生出了**同步杭州和美国异地机房**的需求, 从2010年开始, 阿里系公司开始逐步的尝试基于数据库的日志解析, 获取增量变更进行同步, 由此衍生出了增量 订阅&amp;消费 的业务. 
 
-Canal 是用 Java 开发的基于数据库增量日志解析, 提供增量数据 订阅&消费 的中间件. 目前, Canal 主要支持了 MySQL 的 Binlog 解析, 解析完成后才利用 Canal Client 来处理获得的相关数据. (数据库同步需要阿里的 Otter 中间件, 基于 Canal ). 
+Canal 是用 Java 开发的基于数据库增量日志解析, 提供增量数据 订阅&amp;消费 的中间件. 目前, Canal 主要支持了 MySQL 的 Binlog 解析, 解析完成后才利用 Canal Client 来处理获得的相关数据. (数据库同步需要阿里的 Otter 中间件, 基于 Canal ). 
 
 
 
@@ -29,11 +29,11 @@ MySQL 的二进制日志可以说是 MySQL 最重要的日志了, 它记录了�
 
 **Binlog是事务安全性的**. 
 
-> 一般来说, SQL语言分为三类: 
->
-> * `DML`(Data Manipulation Language): 数据操纵语言, 最常用的增删改查就是这类, 操作对象是数据表中的记录
-> * `DDL`(Data Definition Language): 数据定义语言, 例如建库、建表等
-> * `DCL`(Data Control Language): 数据控制语言, 如 Grant、Rollback 等, 常见于数据库安全管理
+&gt; 一般来说, SQL语言分为三类: 
+&gt;
+&gt; * `DML`(Data Manipulation Language): 数据操纵语言, 最常用的增删改查就是这类, 操作对象是数据表中的记录
+&gt; * `DDL`(Data Definition Language): 数据定义语言, 例如建库、建表等
+&gt; * `DCL`(Data Control Language): 数据控制语言, 如 Grant、Rollback 等, 常见于数据库安全管理
 
 
 
@@ -72,7 +72,7 @@ MySQL Binlog 的格式有三种, 分别是 STATEMENT,MIXED,ROW . 在配置文件
 
 
 
-<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202207281640445.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       官方文档: MySQL主从复制过程   	</div> </center>
+&lt;center&gt;     &lt;img style=&#34;border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34;      src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202207281640445.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;     &lt;br&gt;     &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;&#34;&gt;       官方文档: MySQL主从复制过程   	&lt;/div&gt; &lt;/center&gt;
 
 #### Canal的工作原理
 
@@ -155,7 +155,7 @@ MySQL的安装这里就不说了, 网上有很多.
 ```
 
 ```properties
-## mysql serverId , v1.0.26+ will autoGen
+## mysql serverId , v1.0.26&#43; will autoGen
 ## v1.0.26版本后会自动生成slaveId，所以可以不用配置
 # canal.instance.mysql.slaveId=0
 
@@ -182,6 +182,8 @@ canal.instance.enableDruid=false
 canal.instance.filter.regex=.*\\..*
 # mysql 数据解析表的黑名单，多个表用，隔开
 canal.instance.filter.black.regex=
+# 解析表字段的黑名单, 多个字段用/隔开, 多个表用,隔开(format: schema1.tableName1:field1/field2,schema2.tableName2:field1/field2)
+canal.instance.filter.black.field=data_center.canal_test_2:column_2,data_center.canal_test_1:column_1,data_center.canal_test_3:column_2/column_3
 ```
 
 
@@ -193,11 +195,11 @@ canal.instance.filter.black.regex=
 1. 创建一个 maven 项目, 在`pom.xml`中配置:
 
 	```xml
-	<dependency>
-    <groupId>com.alibaba.otter</groupId>
-    <artifactId>canal.client</artifactId>
-    <version>1.1.2</version>
-	</dependency>
+	&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba.otter&lt;/groupId&gt;
+    &lt;artifactId&gt;canal.client&lt;/artifactId&gt;
+    &lt;version&gt;1.1.2&lt;/version&gt;
+	&lt;/dependency&gt;
 	```
 
 2. 创建类: `CanalClient`
@@ -220,22 +222,22 @@ canal.instance.filter.black.regex=
    
        public static void main(String[] args) throws InvalidProtocolBufferException {
            // 获取连接对象
-           CanalConnector canalConnector = CanalConnectors.newSingleConnector(new InetSocketAddress("hadoop102", 11111), "example", "", "");
+           CanalConnector canalConnector = CanalConnectors.newSingleConnector(new InetSocketAddress(&#34;hadoop102&#34;, 11111), &#34;example&#34;, &#34;&#34;, &#34;&#34;);
    
            // 获取连接
            canalConnector.connect();
    
            // 指定要监控的数据库
-           canalConnector.subscribe("canal.*");
+           canalConnector.subscribe(&#34;canal.*&#34;);
    
            long idx = 0;
            while (true) {
                // 获取message
                Message msg = canalConnector.get(100);
    
-               List<CanalEntry.Entry> entries = msg.getEntries();
-               if (entries.size() <= 0) {
-                   System.out.println((++idx) + ". 没有数据, 等一会儿");
+               List&lt;CanalEntry.Entry&gt; entries = msg.getEntries();
+               if (entries.size() &lt;= 0) {
+                   System.out.println((&#43;&#43;idx) &#43; &#34;. 没有数据, 等一会儿&#34;);
                    try {
                        Thread.sleep(1000);
                    } catch (InterruptedException e) {
@@ -259,25 +261,25 @@ canal.instance.filter.black.regex=
                            CanalEntry.EventType eventType = rowChange.getEventType();
    
                            // 获取具体数据
-                           List<CanalEntry.RowData> rowDatasList = rowChange.getRowDatasList();
+                           List&lt;CanalEntry.RowData&gt; rowDatasList = rowChange.getRowDatasList();
                            // 遍历打印
                            for (CanalEntry.RowData rowData : rowDatasList) {
-                               List<CanalEntry.Column> beforeColumnsList = rowData.getBeforeColumnsList();
+                               List&lt;CanalEntry.Column&gt; beforeColumnsList = rowData.getBeforeColumnsList();
                                JSONObject beforeData = new JSONObject();
                                for (CanalEntry.Column column : beforeColumnsList) {
                                    beforeData.put(column.getName(), column.getValue());
                                }
    
-                               List<CanalEntry.Column> afterColumnsList = rowData.getAfterColumnsList();
+                               List&lt;CanalEntry.Column&gt; afterColumnsList = rowData.getAfterColumnsList();
                                JSONObject afterData = new JSONObject();
                                for (CanalEntry.Column column : afterColumnsList) {
                                    afterData.put(column.getName(), column.getValue());
                                }
    
-                               System.out.println("TableName: " + tableName +
-                                       ", EventType: " + eventType +
-                                       ", Before: " + beforeData +
-                                       ", After: " + afterData);
+                               System.out.println(&#34;TableName: &#34; &#43; tableName &#43;
+                                       &#34;, EventType: &#34; &#43; eventType &#43;
+                                       &#34;, Before: &#34; &#43; beforeData &#43;
+                                       &#34;, After: &#34; &#43; afterData);
                            }
                        }
                    }
@@ -323,18 +325,30 @@ canal.instance.filter.black.regex=
    canal.mq.topic=canal_test
    ```
 
-   默认还是输出到指定 Kafka 主题的一个分区, 因为多个分区并行可能会打乱 binlog 的顺序, 如果要提高并行度, 首先设置 kafka 的分区数 > 1, 然后设置`canal.mq.partitionHash`属性. 
+   默认还是输出到指定 Kafka 主题的一个分区, 因为多个分区并行可能会打乱 binlog 的顺序, 如果要提高并行度, 首先设置 kafka 的分区数 &gt; 1, 然后设置`canal.mq.partitionHash`属性. 
 
 4. 启动 canal
+
+   ```bash
+   $ ./bin/startup.sh
+   ```
+
+   
 
 5. 然后测试: 
 
    ```shell
    [root@hadoop102 kafka_2.12-2.8.1]# ./bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic canal_test
-   {"data":[{"id":"5","name":"aria","gender":"female"}],"database":"canal_test","es":1658589672000,"id":2,"isDdl":false,"mysqlType":{"id":"int(11)","name":"varchar(255)","gender":"varchar(255)"},"old":null,"pkNames":null,"sql":"","sqlType":{"id":4,"name":12,"gender":12},"table":"user_info","ts":1658589672852,"type":"DELETE"}
-   {"data":[{"id":"5","name":"aria","gender":"female"}],"database":"canal_test","es":1658589697000,"id":3,"isDdl":false,"mysqlType":{"id":"int(11)","name":"varchar(255)","gender":"varchar(255)"},"old":null,"pkNames":null,"sql":"","sqlType":{"id":4,"name":12,"gender":12},"table":"user_info","ts":1658589697570,"type":"INSERT"}
+   {&#34;data&#34;:[{&#34;id&#34;:&#34;5&#34;,&#34;name&#34;:&#34;aria&#34;,&#34;gender&#34;:&#34;female&#34;}],&#34;database&#34;:&#34;canal_test&#34;,&#34;es&#34;:1658589672000,&#34;id&#34;:2,&#34;isDdl&#34;:false,&#34;mysqlType&#34;:{&#34;id&#34;:&#34;int(11)&#34;,&#34;name&#34;:&#34;varchar(255)&#34;,&#34;gender&#34;:&#34;varchar(255)&#34;},&#34;old&#34;:null,&#34;pkNames&#34;:null,&#34;sql&#34;:&#34;&#34;,&#34;sqlType&#34;:{&#34;id&#34;:4,&#34;name&#34;:12,&#34;gender&#34;:12},&#34;table&#34;:&#34;user_info&#34;,&#34;ts&#34;:1658589672852,&#34;type&#34;:&#34;DELETE&#34;}
+   {&#34;data&#34;:[{&#34;id&#34;:&#34;5&#34;,&#34;name&#34;:&#34;aria&#34;,&#34;gender&#34;:&#34;female&#34;}],&#34;database&#34;:&#34;canal_test&#34;,&#34;es&#34;:1658589697000,&#34;id&#34;:3,&#34;isDdl&#34;:false,&#34;mysqlType&#34;:{&#34;id&#34;:&#34;int(11)&#34;,&#34;name&#34;:&#34;varchar(255)&#34;,&#34;gender&#34;:&#34;varchar(255)&#34;},&#34;old&#34;:null,&#34;pkNames&#34;:null,&#34;sql&#34;:&#34;&#34;,&#34;sqlType&#34;:{&#34;id&#34;:4,&#34;name&#34;:12,&#34;gender&#34;:12},&#34;table&#34;:&#34;user_info&#34;,&#34;ts&#34;:1658589697570,&#34;type&#34;:&#34;INSERT&#34;}
    ```
 
    
 
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/canal/  
 

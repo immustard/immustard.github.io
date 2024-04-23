@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Kafka命令行操作 - Buli&#39;s Home</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='Kafka, Message Queue, big data' />
+  <meta itemprop="name" content="Kafka命令行操作">
+  <meta itemprop="description" content="关于 FixIt 主题">
+  <meta itemprop="datePublished" content="2022-09-02T10:10:36+08:00">
+  <meta itemprop="dateModified" content="2024-04-23T11:04:45+08:00">
+  <meta itemprop="wordCount" content="396">
+  <meta itemprop="image" content="https://buli-home.cn/logo.png">
+  <meta itemprop="keywords" content="Kafka,Message Queue,Big Data"><meta property="og:url" content="https://buli-home.cn/kafka_2/">
+  <meta property="og:site_name" content="Buli&#39;s Home">
+  <meta property="og:title" content="Kafka命令行操作">
+  <meta property="og:description" content="关于 FixIt 主题">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-02T10:10:36+08:00">
+    <meta property="article:modified_time" content="2024-04-23T11:04:45+08:00">
+    <meta property="article:tag" content="Kafka">
+    <meta property="article:tag" content="Message Queue">
+    <meta property="article:tag" content="Big Data">
+    <meta property="og:image" content="https://buli-home.cn/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"><meta name="twitter:title" content="Kafka命令行操作">
+<meta name="twitter:description" content="">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/kafka_2/" /><link rel="prev" href="https://buli-home.cn/kafka_1/" /><link rel="next" href="https://buli-home.cn/kafka_3/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Kafka命令行操作",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/kafka_2\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Kafka, Message Queue, big data","wordcount":  396 ,
+    "url": "https:\/\/buli-home.cn\/kafka_2\/","datePublished": "2022-09-02T10:10:36+08:00","dateModified": "2024-04-23T11:04:45+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "作者"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="Buli&#39;s Home" data-title="Buli&#39;s Home" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="/logo.png" data-title="/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Kafka命令行操作</span>
+      </h1><p class="single-subtitle animate__animated animate__fadeIn">Kafka Command Line Operation</p></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/kafka/" class="post-category" title="分类 - Kafka"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Kafka</a></span></div><div class="post-meta-line"><span title="发布于 2022-09-02 10:10:36"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2022-09-02">2022-09-02</time></span>&nbsp;<span title="更新于 2024-04-23 11:04:45"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-23">2024-04-23</time></span>&nbsp;<span title="396 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 400 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#主题命令行操作">主题命令行操作</a></li>
+    <li><a href="#生产者命令行操作">生产者命令行操作</a></li>
+    <li><a href="#消费者命令行操作">消费者命令行操作</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="主题命令行操作" class="heading-element">
+  <a href="#%e4%b8%bb%e9%a2%98%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%93%8d%e4%bd%9c" class="heading-mark"></a>主题命令行操作</h2><ol>
+<li>
+<p>查看操作主题命令参数</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bootstrap-server &lt;String:server toconnect to&gt;</code></td>
+<td>连接的 Kafka Broker 主机名称和端口号</td>
+</tr>
+<tr>
+<td><code>--topic &lt;String:topic&gt;</code></td>
+<td>操作的 topic 名称</td>
+</tr>
+<tr>
+<td><code>--create</code></td>
+<td>创建主题</td>
+</tr>
+<tr>
+<td><code>--delete</code></td>
+<td>删除主题</td>
+</tr>
+<tr>
+<td><code>--alter</code></td>
+<td>修改主题</td>
+</tr>
+<tr>
+<td><code>--list</code></td>
+<td>查看所有主题</td>
+</tr>
+<tr>
+<td><code>--describe</code></td>
+<td>查看主题详细描述</td>
+</tr>
+<tr>
+<td><code>--partitions &lt;Integer:# of partitions&gt;</code></td>
+<td>设置分区数</td>
+</tr>
+<tr>
+<td><code>--replication-factor &lt;Integer: replication factor&gt;</code></td>
+<td>设置分区副本</td>
+</tr>
+<tr>
+<td><code>--config &lt;String:name=value&gt;</code></td>
+<td>更新系统默认配置</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>查看当前服务器中的所有 topic</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --list</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>创建 first topic</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --create --partitions <span class="m">1</span> --replication-factor <span class="m">3</span> --topic first</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查看 first 主题详情</p>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --describe --topic first</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改分区数 <strong>(注意: 分区数只能增加, 不能减少!!!)</strong></p>
+<div class="highlight" id="id-5"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --alter --topic first --partitions <span class="m">3</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>删除topic</p>
+<div class="highlight" id="id-6"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-topics.sh --bootstrap-server hadoop102:9092 --delete --topic first</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="生产者命令行操作" class="heading-element">
+  <a href="#%e7%94%9f%e4%ba%a7%e8%80%85%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%93%8d%e4%bd%9c" class="heading-mark"></a>生产者命令行操作</h2><ol>
+<li>
+<p>查看操作生产者命令参数</p>
+<div class="highlight" id="id-7"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bootstrap-server &lt;String:server toconnect to&gt;</code></td>
+<td>连接的 Kafka Broker 主机名称和端口号</td>
+</tr>
+<tr>
+<td><code>--topic &lt;String:topic&gt;</code></td>
+<td>操作的 topic 名称</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>发送消息</p>
+<div class="highlight" id="id-8"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh --bootstrap-server hadoop102:9092 --topic first
+</span></span><span class="line"><span class="cl">&gt;hello world
+</span></span><span class="line"><span class="cl">&gt;hello buli-home</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="消费者命令行操作" class="heading-element">
+  <a href="#%e6%b6%88%e8%b4%b9%e8%80%85%e5%91%bd%e4%bb%a4%e8%a1%8c%e6%93%8d%e4%bd%9c" class="heading-mark"></a>消费者命令行操作</h2><ol>
+<li>
+<p>查看操作生产者命令参数</p>
+<div class="highlight" id="id-9"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-producer.sh</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--bootstrap-server &lt;String:server toconnect to&gt;</code></td>
+<td>连接的 Kafka Broker 主机名称和端口号</td>
+</tr>
+<tr>
+<td><code>--topic &lt;String:topic&gt;</code></td>
+<td>操作的 topic 名称</td>
+</tr>
+<tr>
+<td><code>--from-beginning</code></td>
+<td>从头开始消费</td>
+</tr>
+<tr>
+<td><code>--group &lt;String:consumer group id&gt;</code></td>
+<td>指定消费者组名称</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>消费消息</p>
+<ol>
+<li>
+<p>消费 first 主题中的数据</p>
+<div class="highlight" id="id-10"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --topic first</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>把主题中所有的数据都读取出来 (包括历史数据)</p>
+<div class="highlight" id="id-11"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ bin/kafka-console-consumer.sh --bootstrap-server hadoop102:9092 --from-beginning --topic first</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+</li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-04-23 11:04:45">更新于 2024-04-23&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/kafka_2/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作" data-hashtags="Kafka,Message Queue,big data"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/kafka_2/" data-hashtag="Kafka"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/kafka_2/" data-title="Kafka命令行操作" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/kafka/" class="post-tag" title="标签 - Kafka">Kafka</a><a href="/tags/message-queue/" class="post-tag" title="标签 - Message Queue">Message Queue</a><a href="/tags/big-data/" class="post-tag" title="标签 - Big Data">Big Data</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/kafka_1/" class="post-nav-item" rel="prev" title="Kafka概述"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Kafka概述</a>
+      <a href="/kafka_3/" class="post-nav-item" rel="next" title="Kafka生产者">Kafka生产者<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

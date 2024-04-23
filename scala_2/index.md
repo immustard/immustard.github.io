@@ -1,7 +1,7 @@
 # Scala变量和数据类型
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -34,11 +34,11 @@ var i: Int = 10
 val j: Int = 20
 ```
 
-> * 能用常量的地方就不要用变量
+&gt; * 能用常量的地方就不要用变量
 
-> 1. 声明变(常)量时, 类型可以省略, 编译器自动推导, 即**类型推导**
-> 2. 类型确定后, 就不能更改, 因为 Scala 是强数据类型语音
-> 3. 变量声明时, 必须有初始值
+&gt; 1. 声明变(常)量时, 类型可以省略, 编译器自动推导, 即**类型推导**
+&gt; 2. 类型确定后, 就不能更改, 因为 Scala 是强数据类型语音
+&gt; 3. 变量声明时, 必须有初始值
 
 
 
@@ -51,7 +51,7 @@ val j: Int = 20
 Scala 中的标识符声明, **基本和Java是一致的**, 但是细节上会有变化: 
 
 1. 以字母或下划线开头, 后接字母、数字、下划线
-2. **以操作符开头, 且只包含操作符(+-*/#!等)**
+2. **以操作符开头, 且只包含操作符(&#43;-*/#!等)**
 3. **用反引号\`...\`包括的任意字符串, 即使是 Scala 关键字(39个)也可以**
    * package, import, class, **object**, **trait**, extends, **with**, type, forSom
    * private, protected, abstract, **sealed**, final, **implicit**, lazy, override
@@ -64,32 +64,32 @@ Scala 中的标识符声明, **基本和Java是一致的**, 但是细节上会�
 
 
 
-> 看几个特殊一点的🌰
->
-> ```scala
-> object Hello {
-> 
->   def main(args: Array[String]): Unit = {
->     // ok 因为在 Scala 中 Int 是预定义的字符, 不是关键字, 但是不推荐
->     var Int: String = ""
->     // ok 单独一个下划线不可作为标识符, 因为 _ 被认为是一个方法
->     var _: String = "str"
->     // 会报错
->     println(_)
-> 
->     // ok
->     var -+*/#! : String = ""
->     // error 以操作符开否, 必都是操作符
->     var -_*/#!1 : String = ""
->       
->     // error
->     var if: String = ""
->     // ok
->     var `if`: String = ""
->   }
->   
-> }
-> ```
+&gt; 看几个特殊一点的🌰
+&gt;
+&gt; ```scala
+&gt; object Hello {
+&gt; 
+&gt;   def main(args: Array[String]): Unit = {
+&gt;     // ok 因为在 Scala 中 Int 是预定义的字符, 不是关键字, 但是不推荐
+&gt;     var Int: String = &#34;&#34;
+&gt;     // ok 单独一个下划线不可作为标识符, 因为 _ 被认为是一个方法
+&gt;     var _: String = &#34;str&#34;
+&gt;     // 会报错
+&gt;     println(_)
+&gt; 
+&gt;     // ok
+&gt;     var -&#43;*/#! : String = &#34;&#34;
+&gt;     // error 以操作符开否, 必都是操作符
+&gt;     var -_*/#!1 : String = &#34;&#34;
+&gt;       
+&gt;     // error
+&gt;     var if: String = &#34;&#34;
+&gt;     // ok
+&gt;     var `if`: String = &#34;&#34;
+&gt;   }
+&gt;   
+&gt; }
+&gt; ```
 
 
 
@@ -99,56 +99,56 @@ Scala 中的标识符声明, **基本和Java是一致的**, 但是细节上会�
 
 ### 基本语法
 
-1. 字符串, 通过`+`号连接
+1. 字符串, 通过`&#43;`号连接
 2. `printf`用法: 字符串，通过`%`传值。
 3. 字符串模板(插值字符串): 通过`$`获取变量值
 
-> 来看看🌰:
->
-> ```scala
-> object Hello {
-> 
->   def main(args: Array[String]): Unit = {
->     val name = "mustard"
->     val age = 18
-> 
->     printf("name=%s, age=%d", name, age)
-> 
->     /**
->      * 多行字符串， 在 Scala 中，利用三个双引号包围多行字符串就可以实现。
->      * 输入的内容，带有空格、 \t 之类，导致每一行的开始位置不能整洁对齐。
->      * 应用 scala 的 stripMargin 方法，在 scala 中 stripMargin 默认是 "|" 作为连接符，
->      * 在多行换行的行头前面加一个 "|" 符号即可。
->      */
->     val sql1 =
->       """
->         |select
->         |   name
->         |   age
->         |from user
->         |where name = "mustard"
->       """.stripMargin
->     println(sql1)
-> 
->     // 如果需要对变量进行运算，那么可以加 ${}
->     val sql2 =
->       s"""
->          |select
->          |   name
->          |   age
->          |from user
->          |where name = "$name" and age = ${age + 2}
->       """.stripMargin
->     println(sql2)
-> 
->     val s = s"name=$name"
->     println(s)
->   }
-> 
-> }
-> ```
->
-> 
+&gt; 来看看🌰:
+&gt;
+&gt; ```scala
+&gt; object Hello {
+&gt; 
+&gt;   def main(args: Array[String]): Unit = {
+&gt;     val name = &#34;mustard&#34;
+&gt;     val age = 18
+&gt; 
+&gt;     printf(&#34;name=%s, age=%d&#34;, name, age)
+&gt; 
+&gt;     /**
+&gt;      * 多行字符串， 在 Scala 中，利用三个双引号包围多行字符串就可以实现。
+&gt;      * 输入的内容，带有空格、 \t 之类，导致每一行的开始位置不能整洁对齐。
+&gt;      * 应用 scala 的 stripMargin 方法，在 scala 中 stripMargin 默认是 &#34;|&#34; 作为连接符，
+&gt;      * 在多行换行的行头前面加一个 &#34;|&#34; 符号即可。
+&gt;      */
+&gt;     val sql1 =
+&gt;       &#34;&#34;&#34;
+&gt;         |select
+&gt;         |   name
+&gt;         |   age
+&gt;         |from user
+&gt;         |where name = &#34;mustard&#34;
+&gt;       &#34;&#34;&#34;.stripMargin
+&gt;     println(sql1)
+&gt; 
+&gt;     // 如果需要对变量进行运算，那么可以加 ${}
+&gt;     val sql2 =
+&gt;       s&#34;&#34;&#34;
+&gt;          |select
+&gt;          |   name
+&gt;          |   age
+&gt;          |from user
+&gt;          |where name = &#34;$name&#34; and age = ${age &#43; 2}
+&gt;       &#34;&#34;&#34;.stripMargin
+&gt;     println(sql2)
+&gt; 
+&gt;     val s = s&#34;name=$name&#34;
+&gt;     println(s)
+&gt;   }
+&gt; 
+&gt; }
+&gt; ```
+&gt;
+&gt; 
 
 
 
@@ -167,7 +167,7 @@ Scala 中的标识符声明, **基本和Java是一致的**, 但是细节上会�
 
 **由于 Java 有基本类型, 并且基本类型并不是真正意义的对象, 所以 Java 语言并不是真正意义的面向对象**. 
 
-> 注意哈: Java 中基本类型和引用类型没有共同的祖先
+&gt; 注意哈: Java 中基本类型和引用类型没有共同的祖先
 
 
 
@@ -192,7 +192,7 @@ Scala 中的标识符声明, **基本和Java是一致的**, 但是细节上会�
 | `Int[4]`   | 32位有符号补码整数. 数值区间: -2147483648 到 2147483647 |
 | `Long[8]`  | 64位有符号补码整数. 数值区间: -2^64 到 2^64-1           |
 
-> Scala 的整型，默认为`Int`型，声明`Long`型，须后加`l`或`L`
+&gt; Scala 的整型，默认为`Int`型，声明`Long`型，须后加`l`或`L`
 
 
 
@@ -234,7 +234,7 @@ object TestDataType {
 | `Null`    | `null`, `Null`类型只有一个实例: `null`. **`Null`可以赋值给任意引用类型(AnyRef), 但是不能赋值给值类型(AnyVal)** |
 | `Nothing` | `Nothing`类型在 Scala 的类层级最低端; 它是任何其他类型的子类型. 当一个函数, 确定没有正常的返回值时, 可以用`Nothing`来指定返回类型. |
 
-> `Nothing`的这种机制有一个好处: 可以把返回的值(异常)赋给其它的函数或者变量(兼容性)
+&gt; `Nothing`的这种机制有一个好处: 可以把返回的值(异常)赋给其它的函数或者变量(兼容性)
 
 ```scala
 object TestDataType {
@@ -261,7 +261,7 @@ object TestDataType {
 
 * 数值类型自动转换: 精度小的类型自动转换为精度大的数值类型. (隐式转换)
 
-  `Byte < Short < Int < Long < Float < Double`
+  `Byte &lt; Short &lt; Int &lt; Long &lt; Float &lt; Double`
 
   1. 自动提升原则: 有多种类型的数据混合运算时, 首先**自动将所有数据转换成精度大的数据类型**, 然后再计算
   2. **把精度大的数值类型赋值给精度小的数值类型时, 会报错**
@@ -280,6 +280,12 @@ object TestDataType {
 
 * 数值类型和`String`类型间的转换
 
-  * 数值 -> `String`: `+ ""`就行, 和 Java 一样
-  * `String` -> 数值: `s1.toInt`, `s1.toFloat`, `s1.toDouble`, `s1.toByte`, `s1.toLong`, `s1.toShort`
+  * 数值 -&gt; `String`: `&#43; &#34;&#34;`就行, 和 Java 一样
+  * `String` -&gt; 数值: `s1.toInt`, `s1.toFloat`, `s1.toDouble`, `s1.toByte`, `s1.toLong`, `s1.toShort`
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/scala_2/  
 

@@ -1,24 +1,24 @@
 # 稀疏数组
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
 首先, 看一个🌰. 现在有一个五子棋程序, 其中有一个**存盘退出**和**续上盘**的功能. 
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203071712035.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203071712035.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       二维数组记录棋盘
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 
@@ -60,7 +60,7 @@ int[][] array = {
 |    5    |     4      |    -6     |
 |    6    |     2      |     7     |
 
-> 表中第一行记录了一共几行几列以及多少个非零值
+&gt; 表中第一行记录了一共几行几列以及多少个非零值
 
 从上面这个🌰就能看出来, 将原本需要`7*8=56`个空间变为了`3*8=24`个空间. 
 
@@ -72,11 +72,17 @@ int[][] array = {
 
    1. 遍历原始的二维数组, 得到有效数据的个数`sum`
 
-   2. 根据`sum`就可以创建稀疏数组`int[sum+1][3]`
+   2. 根据`sum`就可以创建稀疏数组`int[sum&#43;1][3]`
 
    3. 将二维数组的有效数据存入到稀疏数组
 
 2. **稀疏数组** 转 **二维数组**
    1. 先读取稀疏数组第一行, 根据第一行的数组创建原始二维数组
    2. 在读取稀疏数组后面的数据, 并赋值给二维数组
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/sparsearray/  
 

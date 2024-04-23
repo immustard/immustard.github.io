@@ -1,29 +1,29 @@
 # 关于 Buli Home
 
 
-{{< music url="http://m701.music.126.net/20220222101334/db7a4ab484f482e434f6ecdd0105e963/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/11983356173/ed2f/6024/be41/2dc456563c5f9c9535b75ecb066c0325.mp3" name="陈奕迅" artist="孤勇者" cover="https://y.qq.com/music/photo_new/T002R300x300M000001uaPM93kxk1R_3.jpg?max_age=2592000" fixed=true >}}
+
 
 ---
 
 
 
-<img src='http://mustard_gxg.gitee.io/pic/pictures/2022-02/202202221426721.jpeg' style='height:300px;width:100%'/>
+&lt;img src=&#39;http://mustard_gxg.gitee.io/pic/pictures/2022-02/202202221426721.jpeg&#39; style=&#39;height:300px;width:100%&#39;/&gt;
 
 
 
 ## 初衷
 
-{{< admonition note "Since: 2021-11-20 08:27:00" >}}
-{{< typeit group=expect >}}
+{{&lt; admonition note &#34;Since: 2021-11-20 08:27:00&#34; &gt;}}
+{{&lt; typeit group=expect &gt;}}
   Work Hard. Play Hard.   
-{{< /typeit >}}
-{{< typeit group=expect >}}
+{{&lt; /typeit &gt;}}
+{{&lt; typeit group=expect &gt;}}
   建站的初衷不是为了炫耀, 只是为了记录生活和工作.   
-{{< /typeit >}}
-{{< typeit group=expect >}}
+{{&lt; /typeit &gt;}}
+{{&lt; typeit group=expect &gt;}}
   想的多一定没做的多有效, 然而不想便做一定没什么效果!
-{{< /typeit >}}
-{{< /admonition >}}
+{{&lt; /typeit &gt;}}
+{{&lt; /admonition &gt;}}
 
 ---
 
@@ -31,8 +31,8 @@
 
 ## 期许
 
-> 不卑不亢，不矜不伐，戒骄戒躁  
-> 不嗔不怒，不争不弃，独善其身
+&gt; 不卑不亢，不矜不伐，戒骄戒躁  
+&gt; 不嗔不怒，不争不弃，独善其身
 
 ---
 
@@ -50,4 +50,10 @@
 
 ## Other
 
-{{< link card=true href="/years/" content="Annual Summary" title="年度总结" >}}
+{{&lt; link card=true href=&#34;/years/&#34; content=&#34;Annual Summary&#34; title=&#34;年度总结&#34; &gt;}}
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/about/  
+

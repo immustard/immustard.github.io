@@ -1,7 +1,7 @@
 # 计算机体系结构及内存分层体系
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -11,35 +11,35 @@
 * 内存主要放置程序的代码和处理的数据
 * 设备
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="http://mustard_gxg.gitee.io/pic/pictures/2022-03/202203161441911.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;http://mustard_gxg.gitee.io/pic/pictures/2022-03/202203161441911.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       计算机基本硬件结构
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 ## 内存分层体系
 
 放上这张图(这张图应该很多人都看到过)
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203171043586.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203171043586.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       内存延时🌰
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 
@@ -78,4 +78,10 @@
 
 * 必须知道内存架构
 * MMU(内存管理单元): 硬件组件负责处理CPU的内存访问请求
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/os_computerarchitecture/  
 

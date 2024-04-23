@@ -1,7 +1,7 @@
 # Fail-fast
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -11,7 +11,7 @@
 
 下面来看一下[维基百科](https://en.wikipedia.org/wiki/Fail-fast)上这怎么写的: 
 
-> In systems design, a **fail-fast** system is one which immediately reports at its interface any condition that is likely to indicate a failure. Fail-fast systems are usually designed to stop normal operation rather than attempt to continue a possibly flawed process. Such designs often check the system's state at several points in an operation, so any failures can be detected early. The responsibility of a fail-fast module is detecting errors, then letting the next-highest level of the system handle them.
+&gt; In systems design, a **fail-fast** system is one which immediately reports at its interface any condition that is likely to indicate a failure. Fail-fast systems are usually designed to stop normal operation rather than attempt to continue a possibly flawed process. Such designs often check the system&#39;s state at several points in an operation, so any failures can be detected early. The responsibility of a fail-fast module is detecting errors, then letting the next-highest level of the system handle them.
 
 从上面这段话就能看出来, `fail-fast`是在系统设计当中的一种**错误检测机制**, 一旦检测到**可能**发生错误, 就立即抛出异常, 程序不再继续运行. 
 
@@ -22,15 +22,15 @@
 首先, 来复现这个错误: 
 
 ```java
-List<String> nameList = new ArrayList<String>() {{
-  add("张三");
-  add("李四");
-  add("小王");
-  add("丑八怪");
+List&lt;String&gt; nameList = new ArrayList&lt;String&gt;() {{
+  add(&#34;张三&#34;);
+  add(&#34;李四&#34;);
+  add(&#34;小王&#34;);
+  add(&#34;丑八怪&#34;);
 }};
 
 for (String name : nameList) {
-  if (name.equals("丑八怪")) {
+  if (name.equals(&#34;丑八怪&#34;)) {
     nameList.remove(name);
   }
 }
@@ -39,7 +39,7 @@ for (String name : nameList) {
 运行上面的代码就会抛出这样的异常: 
 
 ```log
-Exception in thread "main" java.util.ConcurrentModificationException
+Exception in thread &#34;main&#34; java.util.ConcurrentModificationException
 	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:909)
 	at java.util.ArrayList$Itr.next(ArrayList.java:859)
 ```
@@ -54,8 +54,8 @@ Exception in thread "main" java.util.ConcurrentModificationException
 
 ```java
 public boolean add(E e) {
-  ensureCapacityInternal(size + 1);  // Increments modCount!!
-  elementData[size++] = e;
+  ensureCapacityInternal(size &#43; 1);  // Increments modCount!!
+  elementData[size&#43;&#43;] = e;
   return true;
 }
 
@@ -64,20 +64,20 @@ private void ensureCapacityInternal(int minCapacity) {
 }
 
 private void ensureExplicitCapacity(int minCapacity) {
-  modCount++;
+  modCount&#43;&#43;;
 
 	// ...
 }
 
 public boolean remove(Object o) {
   if (o == null) {
-    for (int index = 0; index < size; index++)
+    for (int index = 0; index &lt; size; index&#43;&#43;)
       if (elementData[index] == null) {
         fastRemove(index);
         return true;
       }
   } else {
-    for (int index = 0; index < size; index++)
+    for (int index = 0; index &lt; size; index&#43;&#43;)
       if (o.equals(elementData[index])) {
         fastRemove(index);
         return true;
@@ -87,7 +87,7 @@ public boolean remove(Object o) {
 }
 
 private void fastRemove(int index) {
-  modCount++;
+  modCount&#43;&#43;;
   // ...
 }
 ```
@@ -110,17 +110,17 @@ final void checkForComodification() {
 ### 1. 使用普通`for`循环进行操作
 
 ```java
-List<String> nameList = new ArrayList<String>() {{
-  add("张三");
-  add("李四");
-  add("小王");
-  add("丑八怪");
+List&lt;String&gt; nameList = new ArrayList&lt;String&gt;() {{
+  add(&#34;张三&#34;);
+  add(&#34;李四&#34;);
+  add(&#34;小王&#34;);
+  add(&#34;丑八怪&#34;);
 }};
 
-for (int i = 0; i < nameList.size(); i++) {
+for (int i = 0; i &lt; nameList.size(); i&#43;&#43;) {
   String name = nameList.get(i);
 
-  if (name.equals("丑八怪")) {
+  if (name.equals(&#34;丑八怪&#34;)) {
     nameList.remove(name);
   }
 }
@@ -133,17 +133,17 @@ for (int i = 0; i < nameList.size(); i++) {
 ### 2. 使用`Iterator`进行操作
 
 ```java
-List<String> nameList = new ArrayList<String>() {{
-  add("张三");
-  add("李四");
-  add("小王");
-  add("丑八怪");
+List&lt;String&gt; nameList = new ArrayList&lt;String&gt;() {{
+  add(&#34;张三&#34;);
+  add(&#34;李四&#34;);
+  add(&#34;小王&#34;);
+  add(&#34;丑八怪&#34;);
 }};
 
-Iterator<String> iterator = nameList.iterator();
+Iterator&lt;String&gt; iterator = nameList.iterator();
 
 while (iterator.hasNext()) {
-  if (iterator.next().equals("丑八怪")) {
+  if (iterator.next().equals(&#34;丑八怪&#34;)) {
     iterator.remove();
   }
 }
@@ -154,15 +154,15 @@ while (iterator.hasNext()) {
 ### 3. 其实使用`for-each`也可以
 
 ```java
-List<String> nameList = new ArrayList<String>() {{
-  add("张三");
-  add("李四");
-  add("小王");
-  add("丑八怪");
+List&lt;String&gt; nameList = new ArrayList&lt;String&gt;() {{
+  add(&#34;张三&#34;);
+  add(&#34;李四&#34;);
+  add(&#34;小王&#34;);
+  add(&#34;丑八怪&#34;);
 }};
 
 for (String name : nameList) {
-  if (name.equals("丑八怪")) {
+  if (name.equals(&#34;丑八怪&#34;)) {
     nameList.remove(name);
     break;
   }
@@ -176,4 +176,10 @@ for (String name : nameList) {
 ### 4. 使用`fail-safe`的集合类
 
 ### 5. 使用stream中的filter
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/failfast/  
 

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>SeaTunnel 配置文件从 hocon 解析为 Json 过程 - Buli&#39;s Home</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='SeaTunnel, big data' />
+  <meta itemprop="name" content="SeaTunnel 配置文件从 hocon 解析为 Json 过程">
+  <meta itemprop="description" content="关于 FixIt 主题">
+  <meta itemprop="datePublished" content="2023-12-04T17:20:12+08:00">
+  <meta itemprop="dateModified" content="2024-04-23T11:04:45+08:00">
+  <meta itemprop="wordCount" content="1151">
+  <meta itemprop="image" content="https://buli-home.cn/logo.png">
+  <meta itemprop="keywords" content="SeaTunnel,Big Data"><meta property="og:url" content="https://buli-home.cn/seatunnel_transfer_hocon/">
+  <meta property="og:site_name" content="Buli&#39;s Home">
+  <meta property="og:title" content="SeaTunnel 配置文件从 hocon 解析为 Json 过程">
+  <meta property="og:description" content="关于 FixIt 主题">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-12-04T17:20:12+08:00">
+    <meta property="article:modified_time" content="2024-04-23T11:04:45+08:00">
+    <meta property="article:tag" content="SeaTunnel">
+    <meta property="article:tag" content="Big Data">
+    <meta property="og:image" content="https://buli-home.cn/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"><meta name="twitter:title" content="SeaTunnel 配置文件从 hocon 解析为 Json 过程">
+<meta name="twitter:description" content="">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/seatunnel_transfer_hocon/" /><link rel="prev" href="https://buli-home.cn/single_point/" /><link rel="next" href="https://buli-home.cn/aes/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "SeaTunnel 配置文件从 hocon 解析为 Json 过程",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/seatunnel_transfer_hocon\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "SeaTunnel, big data","wordcount":  1151 ,
+    "url": "https:\/\/buli-home.cn\/seatunnel_transfer_hocon\/","datePublished": "2023-12-04T17:20:12+08:00","dateModified": "2024-04-23T11:04:45+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="Buli&#39;s Home" data-title="Buli&#39;s Home" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="/logo.png" data-title="/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>SeaTunnel 配置文件从 hocon 解析为 Json 过程</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Mustard</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/big-data/" class="post-category" title="分类 - Big Data"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Big Data</a></span></div><div class="post-meta-line"><span title="发布于 2023-12-04 17:20:12"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-12-04">2023-12-04</time></span>&nbsp;<span title="更新于 2024-04-23 11:04:45"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-23">2024-04-23</time></span>&nbsp;<span title="1151 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1200 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hocon-是什么"><code>HOCON</code> 是什么</a>
+      <ul>
+        <li><a href="#优点">优点</a></li>
+        <li><a href="#缺点">缺点</a></li>
+      </ul>
+    </li>
+    <li><a href="#seatunnel-转换-hocon---json">SeaTunnel 转换 <code>hocon</code> -&gt; <code>json</code></a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>SeaTunnel 使用的脚本的格式是 <code>hocon</code> 格式的, 通过观察日志, 可以看到启动之前会将 <code>hocon</code> 格式转为 <code>json</code> 格式. 但是发现会将 <code>source</code>、<code>transform</code>、<code>sink</code> 放在 JsonArray 中, 而不是 JsonObject 中. 带着这个问题, 去看一下源码中是如何将 <code>hocon</code> 转为 <code>json</code> 的.</p>
+</blockquote>
+<blockquote>
+<p>SeaTunnel 版本为 v2.3.3</p>
+</blockquote>
+<h2 id="hocon-是什么" class="heading-element">
+  <a href="#hocon-%e6%98%af%e4%bb%80%e4%b9%88" class="heading-mark"></a><code>HOCON</code> 是什么</h2><p>HOCON (Human-Optimized Config Object Notation) 是一种易于使用的配置格式. <code>hocon</code> 是 <code>json</code> 文件的超集, 也就是说, <code>json</code> 文件可用作 <code>hocon</code> 文件类型. <code>hocon</code> 语法等同于严格的 <code>json</code> 语法. HOCON 文件通常使用后缀 <code>.conf</code>.</p>
+<h3 id="优点" class="heading-element">
+  <a href="#%e4%bc%98%e7%82%b9" class="heading-mark"></a>优点</h3><ul>
+<li>轻量级</li>
+<li>表示复杂的映射非常容易</li>
+<li>可读写性强</li>
+<li>使用任何文本编辑器都能轻松修改</li>
+<li>适用于配置</li>
+<li>合并简单</li>
+<li>代换简单</li>
+<li>可以声明复杂的配置</li>
+</ul>
+<h3 id="缺点" class="heading-element">
+  <a href="#%e7%bc%ba%e7%82%b9" class="heading-mark"></a>缺点</h3><ul>
+<li>是一种新的格式, 存在学习曲线</li>
+<li>不太流行</li>
+</ul>
+<h2 id="seatunnel-转换-hocon---json" class="heading-element">
+  <a href="#seatunnel-%e8%bd%ac%e6%8d%a2-hocon---json" class="heading-mark"></a>SeaTunnel 转换 <code>hocon</code> -&gt; <code>json</code></h2><ol>
+<li>
+<p>因为用 <code>Spark</code> 引擎比较多, 所以从 <code>Spark</code> 启动命令开始.</p>
+<p><code>org.apache.seatunnel.core.starter.spark.SeaTunnelSpark</code>:</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">CommandException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 解析启动命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">SparkCommandArgs</span><span class="w"> </span><span class="n">sparkCommandArgs</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">CommandLineUtils</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="n">args</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="k">new</span><span class="w"> </span><span class="n">SparkCommandArgs</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="n">EngineType</span><span class="p">.</span><span class="na">SPARK2</span><span class="p">.</span><span class="na">getStarterShellName</span><span class="p">(),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="kc">true</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 任务启动</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">SeaTunnel</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">sparkCommandArgs</span><span class="p">.</span><span class="na">buildCommand</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>org.apache.seatunnel.core.starter.SeaTunnel</code>:</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 这个方法是 SeaTunnel 的入口.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param command 启动命令参数
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param &lt;T&gt; 启动命令类型
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">CommandArgs</span><span class="o">&gt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">Command</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">command</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">CommandException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 命令启动</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">command</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ConfigRuntimeException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">showConfigError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">throw</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">showFatalError</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">throw</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>接下来看 <code>Spark</code> 的解析过程, <code>org.apache.seatunnel.core.starter.spark.command.SparkTaskExecuteCommand</code>:</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">execute</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">CommandExecuteException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 读取配置文件地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">Path</span><span class="w"> </span><span class="n">configFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FileUtils</span><span class="p">.</span><span class="na">getConfigPath</span><span class="p">(</span><span class="n">sparkCommandArgs</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 检查配置文件是否存在, 不存在抛出异常</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">checkConfigExist</span><span class="p">(</span><span class="n">configFile</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 开始解析</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">Config</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConfigBuilder</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">configFile</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>org.apache.seatunnel.core.starter.utils.ConfigBuilder</code>:</p>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Loading config file from path: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">filePath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 根据配置文件选择适配器</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">ConfigAdapter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">adapterSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConfigAdapterUtils</span><span class="p">.</span><span class="na">selectAdapter</span><span class="p">(</span><span class="n">filePath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="c1">// 根据适配器开始转换</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">Config</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">adapterSupplier</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">adapter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">of</span><span class="p">(</span><span class="n">adapter</span><span class="p">,</span><span class="w"> </span><span class="n">filePath</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="p">.</span><span class="na">orElseGet</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ofInner</span><span class="p">(</span><span class="n">filePath</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;Parsed config file: {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="na">root</span><span class="p">().</span><span class="na">render</span><span class="p">(</span><span class="n">CONFIG_RENDER_OPTIONS</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">config</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Config</span><span class="w"> </span><span class="nf">of</span><span class="p">(</span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">ConfigAdapter</span><span class="w"> </span><span class="n">configAdapter</span><span class="p">,</span><span class="w"> </span><span class="nd">@NonNull</span><span class="w"> </span><span class="n">Path</span><span class="w"> </span><span class="n">filePath</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&#34;With config adapter spi {}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">configAdapter</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 读取配置</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">flattenedMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configAdapter</span><span class="p">.</span><span class="na">loadConfig</span><span class="p">(</span><span class="n">filePath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 解析配置文件转换的 map</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">Config</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConfigFactory</span><span class="p">.</span><span class="na">parseMap</span><span class="p">(</span><span class="n">flattenedMap</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">ConfigShadeUtils</span><span class="p">.</span><span class="na">decryptConfig</span><span class="p">(</span><span class="n">config</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">warn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">log</span><span class="p">.</span><span class="na">warn</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="s">&#34;Loading config failed with spi {}, fallback to HOCON loader.&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="n">configAdapter</span><span class="p">.</span><span class="na">getClass</span><span class="p">().</span><span class="na">getName</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">ofInner</span><span class="p">(</span><span class="n">filePath</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>一路跳转, 会跳转到 <code>org.apache.seatunnel.shade.com.typesafe.config.impl.Parseable</code> 中, 从这个包名中就能看出来, 这个已经是 <code>hocon</code> 的解析包了:</p>
+<div class="highlight" id="id-5"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 最终会跳转到这个方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">AbstractConfigValue</span><span class="w"> </span><span class="nf">rawParseValue</span><span class="p">(</span><span class="n">Reader</span><span class="w"> </span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">ConfigOrigin</span><span class="w"> </span><span class="n">origin</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">ConfigParseOptions</span><span class="w"> </span><span class="n">finalOptions</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">finalOptions</span><span class="p">.</span><span class="na">getSyntax</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ConfigSyntax</span><span class="p">.</span><span class="na">PROPERTIES</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 最终语法是 properties 的话会进入这个分支</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">PropertiesParser</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Token</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tokens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tokenizer</span><span class="p">.</span><span class="na">tokenize</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span><span class="w"> </span><span class="n">reader</span><span class="p">,</span><span class="w"> </span><span class="n">finalOptions</span><span class="p">.</span><span class="na">getSyntax</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">ConfigNodeRoot</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConfigDocumentParser</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="p">,</span><span class="w"> </span><span class="n">finalOptions</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 这个 ConfigParser 就是最终转换 hoconf 的类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">return</span><span class="w"> </span><span class="n">ConfigParser</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">document</span><span class="p">,</span><span class="w"> </span><span class="n">origin</span><span class="p">,</span><span class="w"> </span><span class="n">finalOptions</span><span class="p">,</span><span class="w"> </span><span class="n">includeContext</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">	</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>最后跳转到这个类 <code>org.apache.seatunnel.shade.com.typesafe.config.impl.ConfigParser</code>, 因为这个类中的代码较多, 就不贴在这里了. 总体的思想就是按行读取配置, 通过对内容的收尾进行判断配置的层级, 从而进行转换.</p>
+<div class="highlight" id="id-6"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 单独将这个方法拿出来是要指出一点, 为什么 SeaTunnel 将 hocon 转为 json 的时候, source、transform、sink 这三个模块是数组类型, 而不是对象. 如果用通用的 hocon 转 json 方法, 那么不能实现 SeaTunnel 的多源. </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">private</span><span class="w"> </span><span class="n">AbstractConfigValue</span><span class="w"> </span><span class="nf">parseValue</span><span class="p">(</span><span class="n">AbstractConfigNodeValue</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">comments</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">AbstractConfigValue</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="kt">int</span><span class="w"> </span><span class="n">startingArrayCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">arrayCount</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ConfigNodeSimpleValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">ConfigNodeSimpleValue</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">).</span><span class="na">value</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ConfigNodeObject</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">Path</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pathStack</span><span class="p">.</span><span class="na">peekFirst</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="c1">// 从这个分支的判断条件就能看出来, 这三个块是特殊处理的, 是将这三个转换为数组而不是对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">ConfigSyntax</span><span class="p">.</span><span class="na">JSON</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">flavor</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="s">&#34;source&#34;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">first</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">						</span><span class="o">||</span><span class="w"> </span><span class="s">&#34;transform&#34;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">first</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">						</span><span class="o">||</span><span class="w"> </span><span class="s">&#34;sink&#34;</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="na">first</span><span class="p">())))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseObjectForSeaTunnel</span><span class="p">((</span><span class="n">ConfigNodeObject</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseObject</span><span class="p">((</span><span class="n">ConfigNodeObject</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ConfigNodeArray</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseArray</span><span class="p">((</span><span class="n">ConfigNodeArray</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="k">instanceof</span><span class="w"> </span><span class="n">ConfigNodeConcatenation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parseConcatenation</span><span class="p">((</span><span class="n">ConfigNodeConcatenation</span><span class="p">)</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">throw</span><span class="w"> </span><span class="n">parseError</span><span class="p">(</span><span class="s">&#34;Expecting a value but got wrong node type: &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="na">getClass</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comments</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">comments</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">withOrigin</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">origin</span><span class="p">().</span><span class="na">prependComments</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="n">comments</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">comments</span><span class="p">.</span><span class="na">clear</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arrayCount</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">startingArrayCount</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ConfigException</span><span class="p">.</span><span class="na">BugOrBroken</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="s">&#34;Bug in config parser: unbalanced array count&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="k">return</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">	</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-04-23 11:04:45">更新于 2024-04-23&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/seatunnel_transfer_hocon/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/seatunnel_transfer_hocon/" data-title="SeaTunnel 配置文件从 hocon 解析为 Json 过程" data-hashtags="SeaTunnel,big data"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/seatunnel_transfer_hocon/" data-hashtag="SeaTunnel"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/seatunnel_transfer_hocon/" data-title="SeaTunnel 配置文件从 hocon 解析为 Json 过程"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/seatunnel_transfer_hocon/" data-title="SeaTunnel 配置文件从 hocon 解析为 Json 过程"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/seatunnel_transfer_hocon/" data-title="SeaTunnel 配置文件从 hocon 解析为 Json 过程" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/seatunnel/" class="post-tag" title="标签 - SeaTunnel">SeaTunnel</a><a href="/tags/big-data/" class="post-tag" title="标签 - Big Data">Big Data</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/single_point/" class="post-nav-item" rel="prev" title="分布式系统的单点问题"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>分布式系统的单点问题</a>
+      <a href="/aes/" class="post-nav-item" rel="next" title="AES初了解">AES初了解<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>CDH环境搭建 - Buli&#39;s Home</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='big data, CDH' />
+  <meta itemprop="name" content="CDH环境搭建">
+  <meta itemprop="description" content="关于 FixIt 主题">
+  <meta itemprop="datePublished" content="2023-03-01T20:09:33+08:00">
+  <meta itemprop="dateModified" content="2024-04-23T11:04:45+08:00">
+  <meta itemprop="wordCount" content="3740">
+  <meta itemprop="image" content="https://buli-home.cn/logo.png">
+  <meta itemprop="keywords" content="Big Data,CDH"><meta property="og:url" content="https://buli-home.cn/cdh/">
+  <meta property="og:site_name" content="Buli&#39;s Home">
+  <meta property="og:title" content="CDH环境搭建">
+  <meta property="og:description" content="关于 FixIt 主题">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-01T20:09:33+08:00">
+    <meta property="article:modified_time" content="2024-04-23T11:04:45+08:00">
+    <meta property="article:tag" content="Big Data">
+    <meta property="article:tag" content="CDH">
+    <meta property="og:image" content="https://buli-home.cn/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"><meta name="twitter:title" content="CDH环境搭建">
+<meta name="twitter:description" content="">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/cdh/" /><link rel="prev" href="https://buli-home.cn/seatunnel_engine/" /><link rel="next" href="https://buli-home.cn/iina/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "CDH环境搭建",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/cdh\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "big data, CDH","wordcount":  3740 ,
+    "url": "https:\/\/buli-home.cn\/cdh\/","datePublished": "2023-03-01T20:09:33+08:00","dateModified": "2024-04-23T11:04:45+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "作者"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="Buli&#39;s Home" data-title="Buli&#39;s Home" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="/logo.png" data-title="/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>CDH环境搭建</span>
+      </h1><p class="single-subtitle animate__animated animate__fadeIn">CDH Environment 1st</p></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/big-data/" class="post-category" title="分类 - Big Data"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Big Data</a></span></div><div class="post-meta-line"><span title="发布于 2023-03-01 20:09:33"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-03-01">2023-03-01</time></span>&nbsp;<span title="更新于 2024-04-23 11:04:45"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-23">2024-04-23</time></span>&nbsp;<span title="3740 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 3800 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 8 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a>
+      <ul>
+        <li><a href="#官网介绍">官网介绍</a></li>
+        <li><a href="#简单来说">简单来说</a></li>
+      </ul>
+    </li>
+    <li><a href="#环境准备">环境准备</a>
+      <ul>
+        <li><a href="#集群机器">集群机器</a></li>
+        <li><a href="#准备安装包">准备安装包</a></li>
+      </ul>
+    </li>
+    <li><a href="#环境安装">环境安装</a>
+      <ul>
+        <li><a href="#修改-hostname-和-hosts-所有节点">修改 hostname 和 hosts (所有节点)</a></li>
+        <li><a href="#ssh免密登录-所有节点"><code>SSH</code>免密登录 (所有节点)</a></li>
+        <li><a href="#配置-ntp-服务-所有节点">配置 <code>NTP</code> 服务 (所有节点)</a></li>
+        <li><a href="#安装-httpd-所有节点">安装 <code>httpd</code> (所有节点)</a></li>
+        <li><a href="#配置-xsync-所有节点">配置 <code>xsync</code> (所有节点)</a></li>
+        <li><a href="#配置-xcall-所有节点">配置 <code>xcall</code> (所有节点)</a></li>
+        <li><a href="#安装-jdk-所有节点">安装 <code>JDK</code> (所有节点)</a></li>
+        <li><a href="#安装-mysql-cdh1">安装 <code>MySQL</code> (cdh1)</a></li>
+        <li><a href="#安装-cm-组件-所有节点">安装 <code>CM</code> 组件 (所有节点)</a></li>
+        <li><a href="#cdh620-cdh1"><code>CDH6.2.0</code> (cdh1)</a></li>
+        <li><a href="#修改linux-swappiness参数-所有节点">修改Linux <code>swappiness</code>参数 (所有节点）</a></li>
+        <li><a href="#禁用透明页-所有节点">禁用透明页 (所有节点)</a></li>
+        <li><a href="#启动-cm-和-cdh-集群">启动 <code>CM</code> 和 <code>CDH</code> 集群</a></li>
+        <li><a href="#登录-web-界面安装">登录 Web 界面安装</a>
+          <ul>
+            <li><a href="#登录">登录</a></li>
+            <li><a href="#勾选同意">勾选同意</a></li>
+            <li><a href="#选择免费版">选择免费版</a></li>
+            <li><a href="#进入安装页面啦">进入安装页面啦!</a></li>
+            <li><a href="#输入集群名">输入集群名</a></li>
+            <li><a href="#添加集群">添加集群</a></li>
+            <li><a href="#选择存储库-默认就可以">选择存储库 (默认就可以)</a></li>
+            <li><a href="#开始安装">开始安装</a></li>
+            <li><a href="#安装完成">安装完成</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>搭建 CDH v6.2.0 (离线版)</p>
+</blockquote>
+<h2 id="简介" class="heading-element">
+  <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark"></a>简介</h2><h3 id="官网介绍" class="heading-element">
+  <a href="#%e5%ae%98%e7%bd%91%e4%bb%8b%e7%bb%8d" class="heading-mark"></a>官网介绍</h3><p><a href="https://www.cloudera.com"target="_blank" rel="external nofollow noopener noreferrer">CDH</a>是Cloudera的100%开源平台发行版, 包括Apache Hadoop, 专为满足企业需求而构建. CDH 提供开箱即用的企业使用所需的一切. 通过将 Hadoop与十几个其他关键的开源项目集成, Cloudera 创建了一个功能先进的系统, 可帮助您执行端到端的大数据工作流程.</p>
+<h3 id="简单来说" class="heading-element">
+  <a href="#%e7%ae%80%e5%8d%95%e6%9d%a5%e8%af%b4" class="heading-mark"></a>简单来说</h3><p>CDH 是一个拥有集群自动化安装、中心化管理、集群监控、报警功能的一个工具(软件), 使得集群的安装可以从几天的时间缩短到几个小时, 运维人数也会从几个人降低到几个人, 极大的提高了集群管理的效率.</p>
+<blockquote>
+<p>提示: <strong>所有的操作, 均在<code>root</code>用户下进行!!!</strong></p>
+</blockquote>
+<h2 id="环境准备" class="heading-element">
+  <a href="#%e7%8e%af%e5%a2%83%e5%87%86%e5%a4%87" class="heading-mark"></a>环境准备</h2><h3 id="集群机器" class="heading-element">
+  <a href="#%e9%9b%86%e7%be%a4%e6%9c%ba%e5%99%a8" class="heading-mark"></a>集群机器</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">虚拟机IP</th>
+<th style="text-align:center">hostname</th>
+<th style="text-align:center">Hadoop</th>
+<th style="text-align:center">MySQL</th>
+<th style="text-align:center">Spark</th>
+<th style="text-align:center">ZooKeeper</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">192.168.100.101</td>
+<td style="text-align:center">cdh1</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.100.102</td>
+<td style="text-align:center">cdh2</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">192.168.100.103</td>
+<td style="text-align:center">cdh3</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="准备安装包" class="heading-element">
+  <a href="#%e5%87%86%e5%a4%87%e5%ae%89%e8%a3%85%e5%8c%85" class="heading-mark"></a>准备安装包</h3><ul>
+<li><strong>jdk</strong>:
+oracle-j2sdk1.8-1.8.0+update181-1.x86_64.rpm</li>
+<li><strong>MySQL</strong>:
+mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar
+mysql-connector-java-5.1.47.jar</li>
+<li><strong>cloudera-repos-6.2.0</strong>:
+cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
+cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm
+cloudera-manager-server-6.2.0-968826.el7.x86_64.rpm</li>
+<li><strong>parcel-6.2.0</strong>:
+CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel
+CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha
+PHOENIX-1.0.jar
+PHOENIX-5.0.0-cdh6.2.0.p0.1308267-el7.parcel
+PHOENIX-5.0.0-cdh6.2.0.p0.1308267-el7.parcel.sha
+manifest.json</li>
+</ul>
+<blockquote>
+<p>下载地址: <a href="https://pan.baidu.com/s/1102pg8hTSieRQTVCCqr3Xw?pwd=cdh6"target="_blank" rel="external nofollow noopener noreferrer">百度网盘</a></p>
+</blockquote>
+<h2 id="环境安装" class="heading-element">
+  <a href="#%e7%8e%af%e5%a2%83%e5%ae%89%e8%a3%85" class="heading-mark"></a>环境安装</h2><blockquote>
+<p>如果没关防火墙, 关一下: <code>systemctl stop firewalld.service</code>
+因为这是我自己的虚拟机, 所以我索性让防火墙不启动了: <code>systemctl disable firewalld.service</code></p>
+</blockquote>
+<h3 id="修改-hostname-和-hosts-所有节点" class="heading-element">
+  <a href="#%e4%bf%ae%e6%94%b9-hostname-%e5%92%8c-hosts-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>修改 hostname 和 hosts (所有节点)</h3><ul>
+<li>
+<p>设置 hostname</p>
+<div class="highlight" id="id-1"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># vi /etc/hostname</span>
+</span></span><span class="line"><span class="cl">cdh1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># vi /etc/sysconfig/network</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Created by anaconda</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NETWORKING</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">HOSTNAME</span><span class="o">=</span>server4</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>设置 hosts</p>
+<div class="highlight" id="id-2"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># vi /etc/hosts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+</span></span><span class="line"><span class="cl">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">192.168.100.101 cdh1
+</span></span><span class="line"><span class="cl">192.168.100.102 cdh2
+</span></span><span class="line"><span class="cl">192.168.100.103 cdh3</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重启!</p>
+<div class="highlight" id="id-3"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1"># reboot</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><strong>同样的操作在三台服务器上! 记得对应不同的 hostsname</strong></p>
+<blockquote>
+<p>这里之后我还是习惯用<code>vim</code>, 所以就安装了<code>vim</code>: <code>yum install -y vim</code></p>
+</blockquote>
+<h3 id="ssh免密登录-所有节点" class="heading-element">
+  <a href="#ssh%e5%85%8d%e5%af%86%e7%99%bb%e5%bd%95-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a><code>SSH</code>免密登录 (所有节点)</h3><ul>
+<li>
+<p>执行指令:</p>
+<div class="highlight" id="id-4"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># ssh-keygen -t rsa -P &#34;&#34;</span>
+</span></span><span class="line"><span class="cl">Generating public/private rsa key pair.
+</span></span><span class="line"><span class="cl">Enter file in which to save the key <span class="o">(</span>/root/.ssh/id_rsa<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">Created directory <span class="s1">&#39;/root/.ssh&#39;</span>.
+</span></span><span class="line"><span class="cl">Your identification has been saved in /root/.ssh/id_rsa.
+</span></span><span class="line"><span class="cl">Your public key has been saved in /root/.ssh/id_rsa.pub.
+</span></span><span class="line"><span class="cl">The key fingerprint is:
+</span></span><span class="line"><span class="cl">SHA256:jGyqRTlDiqwQOP/Id2hVDhKNuigVipeSrkafdVXzP4s root@cdh1
+</span></span><span class="line"><span class="cl">The key<span class="err">&#39;</span>s randomart image is:
+</span></span><span class="line"><span class="cl">+---<span class="o">[</span>RSA 2048<span class="o">]</span>----+
+</span></span><span class="line"><span class="cl"><span class="p">|</span>    .o           <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>. . ...    o     <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span><span class="o">=</span>o +o . . . o    <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>*<span class="o">==</span>o + * .   .   <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>+*o.<span class="o">=</span> <span class="o">=</span> S     .  <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span><span class="o">=</span>+.+ O .       o <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span><span class="o">=</span> + X o       . o<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>.. B .       E . <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>. .              <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+----<span class="o">[</span>SHA256<span class="o">]</span>-----+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>查看生成的公钥和私钥</p>
+<div class="highlight" id="id-5"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># cd .ssh/</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">8</span>
+</span></span><span class="line"><span class="cl">-rw-------. <span class="m">1</span> root root <span class="m">1679</span> 3月   <span class="m">1</span> 08:20 id_rsa
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root  <span class="m">391</span> 3月   <span class="m">1</span> 08:20 id_rsa.pub</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>生成 <code>authorized_keys</code> 文件, 并把公钥刚进去</p>
+<div class="highlight" id="id-6"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># cp id_rsa.pub authorized_keys</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后将 cdh2 和 cdh3 的公钥拷贝进去</p>
+<div class="highlight" id="id-7"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># cat authorized_keys</span>
+</span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDRqj0kcgwR68Ci2otjFu5QYQe/wBlyDpX9eI68XU6q6XzyxTrvLkbEpDpHkNwMpmqfr+y/tOMpk5/dAIBUn3pOiRKBpXVDxA4xZkpIpC1PXHi3BxY8zz58QXgBQbm1tFxFplAzkCjlxsYE08Oq0X/xD3vR6T4ZRsFfMdKMo7R2LmyoPohDTf8aiiqvE6ftF+Tv8YmNdb0TKbNwgD76f5vatrYhRZ+XitHCC8NGffDyOA62ogkd04G9mXOKYEhvsu7eYHa98xddhiXmK0mdeBRcV4BfeEkIEBdlcYl1LpYNjKR1oePFzudfG7czeKltgdPTqy5wPvAEPic9HBw3t2St root@cdh1
+</span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDEhVBXXBXUiz21kxafL7FadgIrKgNJlvds+Gwf5G9fB+28kXyDgvRFL5F1twCGlIakt266K2kuZioffcwWJ3Co5N6XlyF/ABHq4cxjD1js9uKbXVENDove8CCR8zCIMmojJqEZO53TUljJjau+TEQQrXBaSUcQ6dkmMSEo7XuPYbCukXcZY4xX4tXX4XQyUFnX0T3xGkFkgHZ6JjPMBEo1deWpJn0igt4LEZcdfBNCywmZr4bIFDVnpER7gmZJB15AW1cEqy8++2qL5a/acee85olRzLeGWFZTkP4XRH5Rqkva7U924f+8uWZQefz7VTlcdruhmLJNhN+DJntrL/Sr root@cdh2
+</span></span><span class="line"><span class="cl">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsBR+l8JM2NMR9JJ8XeQaFV50VFwto6ZJkkdygj6fQPbGms7XYQLTutNRaERXgQPCNgfz2Y7ZncIu0zNoK5ibmFH8qU1RGvpkscTX0AaBnrRtpESBH5R/Gn0ZCqsjSE829GC+VkSxwHgKkrgS63iWVhUjNnkcoHiBueiyR6c8NHxpC0PrM9ePazYGFo/LvjlFFtHXzQYHlA5Dldk6oPm2pKOof1oEuWYhPvsIPluyExZpDeg0dSZaJSWNXJlaHgnO0lp2O2rUjY+A6FVxVh1VbKZlj0R4ZP5WHKkkGZjibdz810iR8VK+COsGXRwLhc+BmGVf10ik/Z2k2qISHKBUZ root@cdh3</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>再将 <code>authorized_keys</code> 分发到 cdh2 和 cdh3</p>
+<div class="highlight" id="id-8"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># scp authorized_keys root@cdh2:/root/.ssh/</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># scp authorized_keys root@cdh3:/root/.ssh/</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>测试连接</p>
+<div class="highlight" id="id-9"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 .ssh<span class="o">]</span><span class="c1"># ssh cdh2</span>
+</span></span><span class="line"><span class="cl">Last failed login: Wed Mar  <span class="m">1</span> 08:29:01 EST <span class="m">2023</span> from cdh1 on ssh:notty
+</span></span><span class="line"><span class="cl">There were <span class="m">4</span> failed login attempts since the last successful login.
+</span></span><span class="line"><span class="cl">Last login: Wed Mar  <span class="m">1</span> 08:10:27 <span class="m">2023</span> from 192.168.100.1
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 ~<span class="o">]</span><span class="c1">#</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>到此, 免密登录就完成啦! 😁</p>
+<h3 id="配置-ntp-服务-所有节点" class="heading-element">
+  <a href="#%e9%85%8d%e7%bd%ae-ntp-%e6%9c%8d%e5%8a%a1-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>配置 <code>NTP</code> 服务 (所有节点)</h3><blockquote>
+<p>使用 <code>NTP</code> 的目的是对网络内所有具有时钟的设备进行时钟同步, 使网络内所有设备的时钟保持一致, 从而使设备能够提供基于统一时间的多种应用.</p>
+</blockquote>
+<ul>
+<li>
+<p>关闭 <code>chronyd</code> 服务 (所有节点)</p>
+<p>因为 CentOS 默认的使用的是 chronyd 服务进行时间同步的, 所以先关掉</p>
+<div class="highlight" id="id-10"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl stop chronyd</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl disable chronyd</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改时区 (改为中国标准时区) (所有节点)</p>
+<div class="highlight" id="id-11"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安装 <code>NTP</code> (所有节点)</p>
+<div class="highlight" id="id-12"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum -y install ntp</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改 <code>NTP</code> 服务器配置 (cdh1)</p>
+<div class="highlight" id="id-13"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim /etc/ntp.conf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use public servers from the pool.ntp.org project.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Please consider joining the pool (http://www.pool.ntp.org/join.html).</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># server 0.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># server 1.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># server 2.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># server 3.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server 0.cn.pool.ntp.org iburst
+</span></span><span class="line"><span class="cl">server 1.cn.pool.ntp.org iburst
+</span></span><span class="line"><span class="cl">server 2.cn.pool.ntp.org iburst
+</span></span><span class="line"><span class="cl">server 3.cn.pool.ntp.org iburst
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改同步配置 (cdh1)</p>
+<div class="highlight" id="id-14"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim /etc/sysconfig/ntpd</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Command line options for ntpd</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OPTIONS</span><span class="o">=</span><span class="s2">&#34;-g&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYNC_HWCLOCK</span><span class="o">=</span>yes</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重启 <code>NTP</code> 服务 (cdh1)</p>
+<div class="highlight" id="id-15"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl restart ntpd</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>配置其余服务器 (cdh2, cdh3)</p>
+<ul>
+<li>
+<p>修改服务器配置</p>
+<div class="highlight" id="id-16"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 ~<span class="o">]</span><span class="c1"># vim /etc/ntp.conf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use public servers from the pool.ntp.org project.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Please consider joining the pool (http://www.pool.ntp.org/join.html).</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#server 0.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#server 1.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#server 2.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#server 3.centos.pool.ntp.org iburst</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">server cdh1 iburst
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>手动同步时间</p>
+<div class="highlight" id="id-17"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># systemctl stop ntpd</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># date</span>
+</span></span><span class="line"><span class="cl">2023年 03月 01日 星期三 22:22:46 CST
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># ntpdate cdh1</span>
+</span></span><span class="line"><span class="cl"> <span class="m">3</span> Mar 10:53:47 ntpdate<span class="o">[</span>10943<span class="o">]</span>: step <span class="nb">time</span> server 192.168.100.101 offset 131446.778897 sec
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># systemctl start ntpd</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># date</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+<li>
+<p>配置开机启动(所有节点)</p>
+<div class="highlight" id="id-18"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 ~<span class="o">]</span><span class="c1"># systemctl enable ntpd</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="安装-httpd-所有节点" class="heading-element">
+  <a href="#%e5%ae%89%e8%a3%85-httpd-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>安装 <code>httpd</code> (所有节点)</h3><div class="highlight" id="id-19"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum -y install httpd</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl start httpd</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl enable httpd</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-xsync-所有节点" class="heading-element">
+  <a href="#%e9%85%8d%e7%bd%ae-xsync-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>配置 <code>xsync</code> (所有节点)</h3><ul>
+<li>
+<p><code>xsync</code> 是对 <code>rsync</code> 的二次封装, 所以先安装 <code>rsync</code></p>
+<div class="highlight" id="id-20"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># yum install -y rsync</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在用户主目录的<code>bin</code>目录下添加脚本:</p>
+<div class="highlight" id="id-21"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># mkdir bin</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim ./bin/xsync</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>脚本内容:</p>
+<div class="highlight" id="id-22"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">#1. 判断参数个数</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -lt <span class="m">1</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> Not Enought Arguement!
+</span></span><span class="line"><span class="cl">        exit<span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#2. 遍历集群所有机器</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> host in cdh1 cdh2 cdh3
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="o">==============</span> <span class="nv">$host</span> <span class="o">==============</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#3. 遍历所有目录, 挨个发送</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> file in <span class="nv">$@</span>
+</span></span><span class="line"><span class="cl">        <span class="k">do</span>
+</span></span><span class="line"><span class="cl">                <span class="c1">#4. 判断文件是否存在</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="o">[</span> -e <span class="nv">$file</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl">                <span class="k">then</span>
+</span></span><span class="line"><span class="cl">                        <span class="c1">#5. 获取父目录</span>
+</span></span><span class="line"><span class="cl">                        <span class="nv">pdir</span><span class="o">=</span><span class="k">$(</span><span class="nb">cd</span> -P <span class="k">$(</span>dirname <span class="nv">$file</span><span class="k">)</span><span class="p">;</span> <span class="nb">pwd</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                        <span class="c1">#6. 获取当前文件的名称</span>
+</span></span><span class="line"><span class="cl">                        <span class="nv">fname</span><span class="o">=</span><span class="k">$(</span>basename <span class="nv">$file</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">                        ssh <span class="nv">$host</span> <span class="s2">&#34;mkdir -p </span><span class="nv">$pdir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                        rsync -av <span class="nv">$pdir</span>/<span class="nv">$fname</span> <span class="nv">$host</span>:<span class="nv">$pdir</span>
+</span></span><span class="line"><span class="cl">                <span class="k">else</span>
+</span></span><span class="line"><span class="cl">                        <span class="nb">echo</span> <span class="nv">$file</span> does not exists!
+</span></span><span class="line"><span class="cl">                <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">        <span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>赋权限:</p>
+<div class="highlight" id="id-23"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># chmod 755 ./bin/xsync</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>测试一下:</p>
+<div class="highlight" id="id-24"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync ./bin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">==============</span> <span class="nv">cdh1</span> <span class="o">==============</span>
+</span></span><span class="line"><span class="cl">sending incremental file list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sent <span class="m">60</span> bytes  received <span class="m">12</span> bytes  48.00 bytes/sec
+</span></span><span class="line"><span class="cl">total size is <span class="m">824</span>  speedup is 11.44
+</span></span><span class="line"><span class="cl"><span class="o">==============</span> <span class="nv">cdh2</span> <span class="o">==============</span>
+</span></span><span class="line"><span class="cl">sending incremental file list
+</span></span><span class="line"><span class="cl">./bin
+</span></span><span class="line"><span class="cl">./bin/xsync
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sent <span class="m">934</span> bytes  received <span class="m">38</span> bytes  1,944.00 bytes/sec
+</span></span><span class="line"><span class="cl">total size is <span class="m">824</span>  speedup is 0.85
+</span></span><span class="line"><span class="cl"><span class="o">==============</span> <span class="nv">cdh3</span> <span class="o">==============</span>
+</span></span><span class="line"><span class="cl">sending incremental file list
+</span></span><span class="line"><span class="cl">./bin/
+</span></span><span class="line"><span class="cl">./bin/xsync
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sent <span class="m">934</span> bytes  received <span class="m">38</span> bytes  1,944.00 bytes/sec
+</span></span><span class="line"><span class="cl">total size is <span class="m">824</span>  speedup is 0.85</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后到其他机器上看一下文件是不是真的分发下去了.</p>
+</li>
+</ul>
+<h3 id="配置-xcall-所有节点" class="heading-element">
+  <a href="#%e9%85%8d%e7%bd%ae-xcall-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>配置 <code>xcall</code> (所有节点)</h3><ul>
+<li>
+<p><code>xcall</code>的作用就是所有节点都执行命令的时候, 只需要在一台服务器上执行就可以了.</p>
+<div class="highlight" id="id-25"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取控制台指令</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">cmd</span><span class="o">=</span><span class="nv">$*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 判断指令是否为空</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -n <span class="s2">&#34;</span><span class="nv">$cmd</span><span class="s2">&#34;</span> <span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;command can not be null !&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取当前登录用户</span>
+</span></span><span class="line"><span class="cl"><span class="nv">user</span><span class="o">=</span><span class="sb">`</span>whoami<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 在从机执行指令,这里需要根据你具体的集群情况配置，host与具体主机名一致</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> host in cdh1 cdh2 cdh3
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;================current host is </span><span class="nv">$host</span><span class="s2">=================&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;--&gt; excute command \&#34;</span><span class="nv">$cmd</span><span class="s2">\&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">        ssh <span class="nv">$user</span>@<span class="nv">$host</span> <span class="nv">$cmd</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;excute successfully !&#34;</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>测试一下:</p>
+<div class="highlight" id="id-26"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xcall ip addr</span>
+</span></span><span class="line"><span class="cl">/root/bin/xcall:行8: <span class="o">((</span>: <span class="c1">#ip addr -eq # : 语法错误: 期待操作数 （错误符号是 &#34;#ip addr -eq # &#34;）</span>
+</span></span><span class="line"><span class="cl"><span class="o">================</span>current host is <span class="nv">cdh1</span><span class="o">=================</span>
+</span></span><span class="line"><span class="cl">--&gt; excute <span class="nb">command</span> <span class="s2">&#34;ip addr&#34;</span>
+</span></span><span class="line"><span class="cl">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span class="line"><span class="cl">    inet 127.0.0.1/8 scope host lo
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 ::1/128 scope host
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/ether 00:0c:29:7a:6b:88 brd ff:ff:ff:ff:ff:ff
+</span></span><span class="line"><span class="cl">    inet 192.168.100.101/24 brd 192.168.100.255 scope global noprefixroute ens33
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 fe80::20c:29ff:fe7a:6b88/64 scope link
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft <span class="nv">forever</span>
+</span></span><span class="line"><span class="cl"><span class="o">================</span>current host is <span class="nv">cdh2</span><span class="o">=================</span>
+</span></span><span class="line"><span class="cl">--&gt; excute <span class="nb">command</span> <span class="s2">&#34;ip addr&#34;</span>
+</span></span><span class="line"><span class="cl">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span class="line"><span class="cl">    inet 127.0.0.1/8 scope host lo
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 ::1/128 scope host
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/ether 00:0c:29:ee:a3:5c brd ff:ff:ff:ff:ff:ff
+</span></span><span class="line"><span class="cl">    inet 192.168.100.102/24 brd 192.168.100.255 scope global noprefixroute ens33
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 fe80::20c:29ff:feee:a35c/64 scope link
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft <span class="nv">forever</span>
+</span></span><span class="line"><span class="cl"><span class="o">================</span>current host is <span class="nv">cdh3</span><span class="o">=================</span>
+</span></span><span class="line"><span class="cl">--&gt; excute <span class="nb">command</span> <span class="s2">&#34;ip addr&#34;</span>
+</span></span><span class="line"><span class="cl">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</span></span><span class="line"><span class="cl">    inet 127.0.0.1/8 scope host lo
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 ::1/128 scope host
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/ether 00:0c:29:fe:d4:de brd ff:ff:ff:ff:ff:ff
+</span></span><span class="line"><span class="cl">    inet 192.168.100.103/24 brd 192.168.100.255 scope global noprefixroute ens33
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">    inet6 fe80::20c:29ff:fefe:d4de/64 scope link
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span><span class="line"><span class="cl">excute successfully !</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="安装-jdk-所有节点" class="heading-element">
+  <a href="#%e5%ae%89%e8%a3%85-jdk-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>安装 <code>JDK</code> (所有节点)</h3><ul>
+<li>
+<p>因为我这里是新的 minimal 的虚拟机, 所以肯定没有安装过 <code>jdk</code>, 这里就直接安装了.</p>
+<p><strong>有一点需要说明一下, 一定要安装 <code>cdh</code> 对应版本的 <code>jdk</code>!!!</strong></p>
+<div class="highlight" id="id-27"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># rpm -ivh /opt/oracle-j2sdk1.8-1.8.0+update181-1.x86_64.rpm</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这一步这三台一起安装, 安装包就可以用 <code>xsync</code> 同步啦.</p>
+</li>
+<li>
+<p>配置环境变量</p>
+<div class="highlight" id="id-28"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim /etc/profile.d/java.sh</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/java/jdk1.8.0_181-cloudera
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后分发一下, 后面需要分发的地方就不写命令了</p>
+<div class="highlight" id="id-29"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/profile.d/java.sh</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>所有服务器都刷新一下环境变量</p>
+<div class="highlight" id="id-30"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># source /etc/profile</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># java -version</span>
+</span></span><span class="line"><span class="cl">java version <span class="s2">&#34;1.8.0_181&#34;</span>
+</span></span><span class="line"><span class="cl">Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build 1.8.0_181-b13<span class="o">)</span>
+</span></span><span class="line"><span class="cl">Java HotSpot<span class="o">(</span>TM<span class="o">)</span> 64-Bit Server VM <span class="o">(</span>build 25.181-b13, mixed mode<span class="o">)</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="安装-mysql-cdh1" class="heading-element">
+  <a href="#%e5%ae%89%e8%a3%85-mysql-cdh1" class="heading-mark"></a>安装 <code>MySQL</code> (cdh1)</h3><ul>
+<li>
+<p>创建目录</p>
+<div class="highlight" id="id-31"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># mkdir /usr/share/java</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>上传 <code>mysql-connector-java.jar</code></p>
+<div class="highlight" id="id-32"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@cdh1 ~]# ll /usr/share/java/
+</span></span><span class="line"><span class="cl">总用量 984
+</span></span><span class="line"><span class="cl">-rw-r--r--. 1 root root 1007502 3月   3 11:34 mysql-connector-java.jar</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>解压安装包</p>
+<div class="highlight" id="id-33"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># cd /opt/mysql/</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">1036896</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root  <span class="m">530882560</span> 3月   <span class="m">3</span> 11:52 mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># tar -xf mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">1036896</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root  <span class="m">530882560</span> 3月   <span class="m">3</span> 11:52 mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>  <span class="m">25381952</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-client-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>    <span class="m">280904</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-common-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>   <span class="m">3838100</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-devel-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>  <span class="m">47076368</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-embedded-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>  <span class="m">24086952</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-embedded-compat-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span> <span class="m">130023844</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-embedded-devel-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>   <span class="m">2274268</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-libs-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span>   <span class="m">2118444</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-libs-compat-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span> <span class="m">173541272</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-server-5.7.26-1.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> <span class="m">7155</span> <span class="m">31415</span> <span class="m">122249684</span> 4月  <span class="m">15</span> <span class="m">2019</span> mysql-community-test-5.7.26-1.el7.x86_64.rpm</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安装</p>
+<p>因为我安装的时候, 遇到了 <code>mariadb</code> 的依赖冲突, 所以先解决一下这个问题:</p>
+<div class="highlight" id="id-34"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -qa | grep mariadb</span>
+</span></span><span class="line"><span class="cl">mariadb-libs-5.5.56-2.el7.x86_64
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后继续安装 <code>MySQL</code></p>
+<div class="highlight" id="id-35"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-common-5.7.26-1.el7.x86_64.rpm</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-libs-5.7.26-1.el7.x86_64.rpm</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-client-5.7.26-1.el7.x86_64.rpm</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-devel-5.7.26-1.el7.x86_64.rpm</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-server-5.7.26-1.el7.x86_64.rpm</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># rpm -ivh mysql-community-libs-compat-5.7.26-1.el7.x86_64.rpm</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动 <code>MySQL</code></p>
+<div class="highlight" id="id-36"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># mysqld --initialize --user=root</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># cat /var/log/mysqld.log</span>
+</span></span><span class="line"><span class="cl">2023-03-03T04:18:29.973382Z <span class="m">0</span> <span class="o">[</span>Warning<span class="o">]</span> TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option <span class="o">(</span>see documentation <span class="k">for</span> more details<span class="o">)</span>.
+</span></span><span class="line"><span class="cl">2023-03-03T04:18:30.126918Z <span class="m">0</span> <span class="o">[</span>Warning<span class="o">]</span> InnoDB: New log files created, <span class="nv">LSN</span><span class="o">=</span><span class="m">45790</span>
+</span></span><span class="line"><span class="cl">2023-03-03T04:18:30.149953Z <span class="m">0</span> <span class="o">[</span>Warning<span class="o">]</span> InnoDB: Creating foreign key constraint system tables.
+</span></span><span class="line"><span class="cl">2023-03-03T04:18:30.218530Z <span class="m">0</span> <span class="o">[</span>Warning<span class="o">]</span> No existing UUID has been found, so we assume that this is the first <span class="nb">time</span> that this server has been started. Generating a new UUID: 740806b3-b97a-11ed-96b3-000c297a6b88.
+</span></span><span class="line"><span class="cl">2023-03-03T04:18:30.220950Z <span class="m">0</span> <span class="o">[</span>Warning<span class="o">]</span> Gtid table is not ready to be used. Table <span class="s1">&#39;mysql.gtid_executed&#39;</span> cannot be opened.
+</span></span><span class="line"><span class="cl">2023-03-03T04:18:30.221618Z <span class="m">1</span> <span class="o">[</span>Note<span class="o">]</span> A temporary password is generated <span class="k">for</span> root@localhost: 7uTGbVWuja,.
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># systemctl enable mysqld</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 mysql<span class="o">]</span><span class="c1"># systemctl start mysqld</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>更改 <code>MySQL</code> 密码, 给 <code>root</code> 赋权限, 这几步就不写了, 网上有很多.</p>
+</li>
+<li>
+<p>重新登录 <code>root</code>, 创建数据表:</p>
+<div class="highlight" id="id-37"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">cmserver</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kp">charset</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">collate</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">cmserver</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;cmserveruser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">metastore</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kp">charset</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">collate</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">metastore</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;hiveuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">amon</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kp">charset</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">collate</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">amon</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;amonuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">create</span><span class="w"> </span><span class="k">database</span><span class="w"> </span><span class="n">rman</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kp">charset</span><span class="w"> </span><span class="n">utf8</span><span class="w"> </span><span class="k">collate</span><span class="w"> </span><span class="n">utf8_general_ci</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">grant</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">rman</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="s1">&#39;rmanuser&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="k">identified</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;root&#39;</span><span class="p">;</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="安装-cm-组件-所有节点" class="heading-element">
+  <a href="#%e5%ae%89%e8%a3%85-cm-%e7%bb%84%e4%bb%b6-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>安装 <code>CM</code> 组件 (所有节点)</h3><ul>
+<li>
+<p>上传安装包到各服务器</p>
+<div class="highlight" id="id-38"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 opt<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">1169544</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root   <span class="m">10215488</span> 3月   <span class="m">3</span> 12:43 cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">1187380436</span> 3月   <span class="m">3</span> 12:45 cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root       <span class="m">9984</span> 3月   <span class="m">3</span> 12:47 cloudera-manager-server-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 opt<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">1169532</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root   <span class="m">10215488</span> 3月   <span class="m">3</span> 12:43 cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">1187380436</span> 3月   <span class="m">3</span> 12:45 cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh3 opt<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">1169532</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root   <span class="m">10215488</span> 3月   <span class="m">3</span> 12:43 cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">1187380436</span> 3月   <span class="m">3</span> 12:45 cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安装 (<code>cdh1</code> 安装 3 个, <code>cdh2</code> 和 <code>cdh3</code> 安装 2 个)</p>
+<div class="highlight" id="id-39"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-daemons-6.2.0-968826.el7.x86_64.rpm 
+</span></span><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-agent-6.2.0-968826.el7.x86_64.rpm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  yum localinstall -y cloudera-manager-server-6.2.0-968826.el7.x86_64.rpm</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="cdh620-cdh1" class="heading-element">
+  <a href="#cdh620-cdh1" class="heading-mark"></a><code>CDH6.2.0</code> (cdh1)</h3><ul>
+<li>
+<p>上传安装包</p>
+<div class="highlight" id="id-40"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 parcel-repo<span class="o">]</span><span class="c1"># cd /opt/cloudera/parcel-repo/</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 parcel-repo<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">2431572</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">2087665645</span> 3月   <span class="m">3</span> 13:02 CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root         <span class="m">41</span> 3月   <span class="m">3</span> 13:00 CDH-6.2.0-1.cdh6.2.0.p0.967373-el7.parcel.sha
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root      <span class="m">33725</span> 3月   <span class="m">3</span> 13:00 manifest.json
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root  <span class="m">402216960</span> 3月   <span class="m">3</span> 13:00 PHOENIX-5.0.0-cdh6.2.0.p0.1308267-el7.parcel
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root         <span class="m">41</span> 3月   <span class="m">3</span> 12:59 PHOENIX-5.0.0-cdh6.2.0.p0.1308267-el7.parcel.sha
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 parcel-repo<span class="o">]</span><span class="c1"># cd /opt/cloudera/csd/</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 csd<span class="o">]</span><span class="c1"># ll</span>
+</span></span><span class="line"><span class="cl">总用量 <span class="m">8</span>
+</span></span><span class="line"><span class="cl">-rw-r--r--. <span class="m">1</span> root root <span class="m">5306</span> 3月   <span class="m">3</span> 13:03 PHOENIX-1.0.jar</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>修改配置</p>
+<ul>
+<li>
+<p><code>cdh1</code></p>
+<div class="highlight" id="id-41"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~ <span class="o">]</span><span class="c1">#  vim /etc/cloudera-scm-server/db.properties</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Auto-generated by scm_prepare_database.sh on 2020年 10月 16日 星期五 14:26:26 CST</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For information describing how to configure the Cloudera Manager Server</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># to connect to databases, see the &#34;Cloudera Manager Installation Guide.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.type<span class="o">=</span>mysql
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.host<span class="o">=</span>localhost
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.name<span class="o">=</span>cmserver
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.user<span class="o">=</span>root
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.setupType<span class="o">=</span>EXTERNAL
+</span></span><span class="line"><span class="cl">com.cloudera.cmf.db.password<span class="o">=</span>root</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>cdh1</code>, <code>cdh2</code>, <code>cdh3</code></p>
+<div class="highlight" id="id-42"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1">#  vi /etc/cloudera-scm-agent/config.ini</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>General<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Hostname of the CM server.</span>
+</span></span><span class="line"><span class="cl"><span class="nv">server_host</span><span class="o">=</span>cdh1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/cloudera-scm-agent/config.ini</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<h3 id="修改linux-swappiness参数-所有节点" class="heading-element">
+  <a href="#%e4%bf%ae%e6%94%b9linux-swappiness%e5%8f%82%e6%95%b0-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>修改Linux <code>swappiness</code>参数 (所有节点）</h3><div class="highlight" id="id-43"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim /etc/sysctl.conf</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># sysctl settings are defined through files in</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># /usr/lib/sysctl.d/, /run/sysctl.d/, and /etc/sysctl.d/.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Vendors settings live in /usr/lib/sysctl.d/.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># To override a whole file, create a new file with the same in</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># /etc/sysctl.d/ and put new settings there. To override</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># only specific settings, add a file with a lexically later</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># name in /etc/sysctl.d/ and put new settings there.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For more information, see sysctl.conf(5) and sysctl.d(5).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vm.swappiness<span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/sysctl.conf</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>所有节点执行</p>
+<div class="highlight" id="id-44"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">echo 0 &gt; /proc/sys/vm/swappiness </span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="禁用透明页-所有节点" class="heading-element">
+  <a href="#%e7%a6%81%e7%94%a8%e9%80%8f%e6%98%8e%e9%a1%b5-%e6%89%80%e6%9c%89%e8%8a%82%e7%82%b9" class="heading-mark"></a>禁用透明页 (所有节点)</h3><div class="highlight" id="id-45"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># vim /etc/rc.local</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># It is highly advisable to create own systemd services or udev rules</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># to run scripts during boot instead of using this file.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># In contrast to previous versions due to parallel execution during boot</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># this script will NOT be run after all other services.</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Please note that you must run &#39;chmod +x /etc/rc.d/rc.local&#39; to ensure</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># that this script will be executed during boot.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">touch /var/lock/subsys/local
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/defrag
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/enabled
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># xsync /etc/rc.local</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>所有节点执行</p>
+<div class="highlight" id="id-46"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># chmod +x /etc/rc.d/rc.local</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># source /etc/rc.local</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动-cm-和-cdh-集群" class="heading-element">
+  <a href="#%e5%90%af%e5%8a%a8-cm-%e5%92%8c-cdh-%e9%9b%86%e7%be%a4" class="heading-mark"></a>启动 <code>CM</code> 和 <code>CDH</code> 集群</h3><ul>
+<li>
+<p>启动 <code>server</code> (<code>cdh1</code>)</p>
+<div class="highlight" id="id-47"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl start cloudera-scm-server</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh1 ~<span class="o">]</span><span class="c1"># systemctl status cloudera-scm-server</span>
+</span></span><span class="line"><span class="cl">● cloudera-scm-server.service - Cloudera CM Server Service
+</span></span><span class="line"><span class="cl">   Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/cloudera-scm-server.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: disabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   Active: active <span class="o">(</span>running<span class="o">)</span> since 五 2023-03-03 13:11:11 CST<span class="p">;</span> 7s ago
+</span></span><span class="line"><span class="cl"> Main PID: <span class="m">13692</span> <span class="o">(</span>java<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   CGroup: /system.slice/cloudera-scm-server.service
+</span></span><span class="line"><span class="cl">           └─13692 /usr/java/jdk1.8.0_181-cloudera/bin/java -cp .:/usr/share/java/mysql-connector-java.jar:/usr/share/java/oracle-connector-java.jar:/usr/share/java/postgresql-connector-java.jar:lib/* -server -Dlog4j.configuration<span class="o">=</span>fil...</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>启动 <code>agent</code> (所有节点)</p>
+<div class="highlight" id="id-48"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 opt<span class="o">]</span><span class="c1"># systemctl start cloudera-scm-agent</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@cdh2 opt<span class="o">]</span><span class="c1"># systemctl status cloudera-scm-agent</span>
+</span></span><span class="line"><span class="cl">● cloudera-scm-agent.service - Cloudera Manager Agent Service
+</span></span><span class="line"><span class="cl">   Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/cloudera-scm-agent.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: disabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   Active: active <span class="o">(</span>running<span class="o">)</span> since 五 2023-03-03 13:13:03 CST<span class="p">;</span> 10s ago
+</span></span><span class="line"><span class="cl"> Main PID: <span class="m">11790</span> <span class="o">(</span>cmagent<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   CGroup: /system.slice/cloudera-scm-agent.service
+</span></span><span class="line"><span class="cl">           └─11790 /usr/bin/python2 /opt/cloudera/cm-agent/bin/cm agent</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h3 id="登录-web-界面安装" class="heading-element">
+  <a href="#%e7%99%bb%e5%bd%95-web-%e7%95%8c%e9%9d%a2%e5%ae%89%e8%a3%85" class="heading-mark"></a>登录 Web 界面安装</h3><h4 id="登录" class="heading-element">
+  <a href="#%e7%99%bb%e5%bd%95" class="heading-mark"></a>登录</h4><p>打开地址: <code>http://cdh1:7180/cmf/login</code></p>
+<p>登录名/密码: <code>admin</code>/<code>admin</code></p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031449815.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       登录界面   	</div> </center>
+<h4 id="勾选同意" class="heading-element">
+  <a href="#%e5%8b%be%e9%80%89%e5%90%8c%e6%84%8f" class="heading-mark"></a>勾选同意</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031452623.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       勾选同意   	</div> </center>
+<h4 id="选择免费版" class="heading-element">
+  <a href="#%e9%80%89%e6%8b%a9%e5%85%8d%e8%b4%b9%e7%89%88" class="heading-mark"></a>选择免费版</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031453986.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       选择免费版   	</div> </center>
+<h4 id="进入安装页面啦" class="heading-element">
+  <a href="#%e8%bf%9b%e5%85%a5%e5%ae%89%e8%a3%85%e9%a1%b5%e9%9d%a2%e5%95%a6" class="heading-mark"></a>进入安装页面啦!</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031459324.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       安装页面   	</div> </center>
+<h4 id="输入集群名" class="heading-element">
+  <a href="#%e8%be%93%e5%85%a5%e9%9b%86%e7%be%a4%e5%90%8d" class="heading-mark"></a>输入集群名</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031459325.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       输入集群名   	</div> </center>
+<h4 id="添加集群" class="heading-element">
+  <a href="#%e6%b7%bb%e5%8a%a0%e9%9b%86%e7%be%a4" class="heading-mark"></a>添加集群</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031459326.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       添加集群   	</div> </center>
+<h4 id="选择存储库-默认就可以" class="heading-element">
+  <a href="#%e9%80%89%e6%8b%a9%e5%ad%98%e5%82%a8%e5%ba%93-%e9%bb%98%e8%ae%a4%e5%b0%b1%e5%8f%af%e4%bb%a5" class="heading-mark"></a>选择存储库 (默认就可以)</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031459327.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       选择存储库   	</div> </center>
+<h4 id="开始安装" class="heading-element">
+  <a href="#%e5%bc%80%e5%a7%8b%e5%ae%89%e8%a3%85" class="heading-mark"></a>开始安装</h4><center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202303031459328.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       安装   	</div> </center>
+<h4 id="安装完成" class="heading-element">
+  <a href="#%e5%ae%89%e8%a3%85%e5%ae%8c%e6%88%90" class="heading-mark"></a>安装完成</h4></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-04-23 11:04:45">更新于 2024-04-23&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/cdh/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/cdh/" data-title="CDH环境搭建" data-hashtags="big data,CDH"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/cdh/" data-hashtag="big data"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/cdh/" data-title="CDH环境搭建"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/cdh/" data-title="CDH环境搭建"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/cdh/" data-title="CDH环境搭建" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/big-data/" class="post-tag" title="标签 - Big Data">Big Data</a><a href="/tags/cdh/" class="post-tag" title="标签 - CDH">CDH</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/seatunnel_engine/" class="post-nav-item" rel="prev" title="部署Seatunnel引擎"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>部署Seatunnel引擎</a>
+      <a href="/iina/" class="post-nav-item" rel="next" title="IINA配置youtube-dl">IINA配置youtube-dl<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

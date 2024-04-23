@@ -1,7 +1,7 @@
 # Scala控制流程
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -17,8 +17,8 @@
 
 
 
-> * Scala 中的`if-else`是**有返回值的**, 具体取决于**满足条件的代码块的最后一行内容**
-> * Scala 中是没有三元运算符的, 但是可以用`if-else`代替
+&gt; * Scala 中的`if-else`是**有返回值的**, 具体取决于**满足条件的代码块的最后一行内容**
+&gt; * Scala 中是没有三元运算符的, 但是可以用`if-else`代替
 
 
 
@@ -42,7 +42,7 @@ Scala 中为`for`提供了很多的特性:
 
 ```scala
 // 前后闭合: [1,3]
-for (i <- 1 to 3) {
+for (i &lt;- 1 to 3) {
     println(i)
 }
 ```
@@ -53,7 +53,7 @@ for (i <- 1 to 3) {
 
 ```scala
 // 前闭后开: [1, 3)
-for (i <- 1 until 3) {
+for (i &lt;- 1 until 3) {
     println(i)
 }
 ```
@@ -63,12 +63,12 @@ for (i <- 1 until 3) {
 #### 3. 循环守卫
 
 ```scala
-for (i <- 1 to 3 if i != 2) {
+for (i &lt;- 1 to 3 if i != 2) {
   println(i)
 }
 
 // 上面的代码就相当于:
-for (i <- 1 to 3) {
+for (i &lt;- 1 to 3) {
     if (i != 2) {
         println(i)
     }
@@ -80,7 +80,7 @@ for (i <- 1 to 3) {
 #### 4. 循环步长
 
 ```scala
-for (i <- 1 to 10 by 2) {
+for (i &lt;- 1 to 10 by 2) {
     println(i)
 }
 ```
@@ -91,14 +91,14 @@ for (i <- 1 to 10 by 2) {
 
 ```scala
 // 因为没有关键字, 所以一定要加 `;` 来进行分割
-for (i <- 1 to 3; j <- 1 to 3) {
-    println("i=" + i + ", j=" + j)
+for (i &lt;- 1 to 3; j &lt;- 1 to 3) {
+    println(&#34;i=&#34; &#43; i &#43; &#34;, j=&#34; &#43; j)
 }
 
 // 上面的代码相当于:
-for (i <- 1 to 3) {
-    for (j <- 1 to 3) {
-        println("i=" + i + ", j=" + j)
+for (i &lt;- 1 to 3) {
+    for (j &lt;- 1 to 3) {
+        println(&#34;i=&#34; &#43; i &#43; &#34;, j=&#34; &#43; j)
     }
 }
 ```
@@ -108,18 +108,18 @@ for (i <- 1 to 3) {
 #### 6. 引入变量
 
 ```scala
-for (i <- 1 to 3; j = 4 - i) {
-    println("i=" + i + ", j=" + j)
+for (i &lt;- 1 to 3; j = 4 - i) {
+    println(&#34;i=&#34; &#43; i &#43; &#34;, j=&#34; &#43; j)
 }
 
 // for 推导式有一个不成文的规定: 
 // 1. 仅包含单一表达式时, 使用圆括号
 // 2. 当包含多个表达式时, 一般每一行一个表达式, 并且用花括号
 for {
-    i <- 1 to 3
+    i &lt;- 1 to 3
     j = 4 - i
 } {
-    println("i=" + i + ", j=" + j)	
+    println(&#34;i=&#34; &#43; i &#43; &#34;, j=&#34; &#43; j)	
 }
 ```
 
@@ -128,17 +128,17 @@ for {
 #### 7. 循环返回值
 
 ```scala
-val res = for (i <- 1 to 5) yield { i * 2 }
+val res = for (i &lt;- 1 to 5) yield { i * 2 }
 // 输出 2, 4, 6, 8, 10
 println(res)
 ```
 
 
 
-#### 8. 倒叙
+#### 8. 倒序
 
 ```scala
-for (i <- 1 to 10 reverse) {
+for (i &lt;- 1 to 10 reverse) {
     println(i)
 }
 ```
@@ -177,14 +177,14 @@ Scala 内置控制结构特地**去掉了`break`和`continue`**. 是因为更好
 ```scala
 def main(args: Array[String]): Unit = {
     try {
-        for (elem <- 1 to 10) {
+        for (elem &lt;- 1 to 10) {
             println(elem)
             if (elem == 5) throw new RuntimeException
         }
     } catch {
-        case e =>
+        case e =&gt;
     }
-    println("结束循环")
+    println(&#34;结束循环&#34;)
 }
 ```
 
@@ -197,13 +197,13 @@ import scala.util.control.Breaks
 
 def main(args: Array[String]): Unit = {
     Breaks.breakable(
-        for (ele <- 1 to 10) {
+        for (ele &lt;- 1 to 10) {
             println(ele)
             if (ele == 5) Breaks.break()
         }
     )
 
-    println("结束循环")
+    println(&#34;结束循环&#34;)
 }
 ```
 
@@ -216,13 +216,13 @@ import scala.util.control.Breaks._
 
 def main(args: Array[String]): Unit = {
     breakable(
-        for (ele <- 1 to 10) {
+        for (ele &lt;- 1 to 10) {
             println(ele)
             if (ele == 5) break
         }
     )
 
-    println("结束循环")
+    println(&#34;结束循环&#34;)
 }
 ```
 
@@ -234,7 +234,7 @@ def main(args: Array[String]): Unit = {
 import scala.util.control.Breaks._
 
 def main(args: Array[String]): Unit = {
-    for (ele <- 1 to 10) {
+    for (ele &lt;- 1 to 10) {
         breakable(
             if (ele % 2 == 1)
             	break
@@ -243,9 +243,15 @@ def main(args: Array[String]): Unit = {
         )
     }
 
-    println("结束循环")
+    println(&#34;结束循环&#34;)
 }
 ```
 
 这里的`breakable`和上面的区别是将其放入到了循环内部, 这样可以实现结束本次执行而不是整个循环结束, 从而实现`continue`的功能. 
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/scala_4/  
 

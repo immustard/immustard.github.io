@@ -2,35 +2,38 @@
   <channel>
     <title>Operating System - 分类 - Buli&#39;s Home</title>
     <link>https://buli-home.cn/categories/operating-system/</link>
-    <description>Operating System - 分类 - Buli&#39;s Home</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Mar 2022 11:02:07 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/operating-system/" rel="self" type="application/rss+xml" /><item>
+    <description>Operating System - 分类 | Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 17 Mar 2022 11:02:07 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/categories/operating-system/" rel="self" type="application/rss+xml" /><item>
   <title>内存中的地址空间</title>
   <link>https://buli-home.cn/os_address/</link>
   <pubDate>Thu, 17 Mar 2022 11:02:07 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/os_address/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>计算机体系结构及内存分层体系</title>
   <link>https://buli-home.cn/os_computerarchitecture/</link>
   <pubDate>Wed, 16 Mar 2022 14:22:17 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/os_computerarchitecture/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>系统调用、异常和中断</title>
   <link>https://buli-home.cn/os_interface/</link>
   <pubDate>Wed, 16 Mar 2022 13:44:12 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/os_interface/</guid>
   <description><![CDATA[]]></description>
-</item><item>
+</item>
+<item>
   <title>操作系统的启动</title>
   <link>https://buli-home.cn/os_bootloader/</link>
   <pubDate>Tue, 15 Mar 2022 15:40:36 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/os_bootloader/</guid>
   <description><![CDATA[]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

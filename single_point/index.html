@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>分布式系统的单点问题 - Buli&#39;s Home</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='distributed system' />
+  <meta itemprop="name" content="分布式系统的单点问题">
+  <meta itemprop="description" content="关于 FixIt 主题">
+  <meta itemprop="datePublished" content="2023-10-23T10:22:21+08:00">
+  <meta itemprop="dateModified" content="2024-04-23T11:04:45+08:00">
+  <meta itemprop="wordCount" content="2466">
+  <meta itemprop="image" content="https://buli-home.cn/logo.png">
+  <meta itemprop="keywords" content="Distributed System"><meta property="og:url" content="https://buli-home.cn/single_point/">
+  <meta property="og:site_name" content="Buli&#39;s Home">
+  <meta property="og:title" content="分布式系统的单点问题">
+  <meta property="og:description" content="关于 FixIt 主题">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-10-23T10:22:21+08:00">
+    <meta property="article:modified_time" content="2024-04-23T11:04:45+08:00">
+    <meta property="article:tag" content="Distributed System">
+    <meta property="og:image" content="https://buli-home.cn/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"><meta name="twitter:title" content="分布式系统的单点问题">
+<meta name="twitter:description" content="">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/single_point/" /><link rel="prev" href="https://buli-home.cn/mongo_single_oplog/" /><link rel="next" href="https://buli-home.cn/seatunnel_transfer_hocon/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "分布式系统的单点问题",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/single_point\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "distributed system","wordcount":  2466 ,
+    "url": "https:\/\/buli-home.cn\/single_point\/","datePublished": "2023-10-23T10:22:21+08:00","dateModified": "2024-04-23T11:04:45+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="Buli&#39;s Home" data-title="Buli&#39;s Home" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="/logo.png" data-title="/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>分布式系统的单点问题</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Mustard</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/distributed-system/" class="post-category" title="分类 - Distributed System"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Distributed System</a></span></div><div class="post-meta-line"><span title="发布于 2023-10-23 10:22:21"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-10-23">2023-10-23</time></span>&nbsp;<span title="更新于 2024-04-23 11:04:45"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-23">2024-04-23</time></span>&nbsp;<span title="2466 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 2500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 5 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#无状态服务的单点问题">无状态服务的单点问题</a></li>
+    <li><a href="#有状态服务的单点问题">有状态服务的单点问题</a>
+      <ul>
+        <li><a href="#方案一-引入第三方的服务进行裁决">方案一: 引入第三方的服务进行裁决</a></li>
+        <li><a href="#方案二-通过选举算法和租约的方式实现-master-的选举">方案二: 通过选举算法和租约的方式实现 Master 的选举</a></li>
+      </ul>
+    </li>
+    <li><a href="#常见容错机制">常见容错机制</a>
+      <ul>
+        <li><a href="#fail-over-失效转移">Fail-Over: 失效转移</a></li>
+        <li><a href="#fail-back-失效自动恢复">Fail-Back: 失效自动恢复</a></li>
+        <li><a href="#fail-fast-快速失败">Fail-Fast: 快速失败</a></li>
+        <li><a href="#fail-safe-失效安全">Fail-Safe: 失效安全</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>分布式系统的单点问题是一个常见的问题, 可分为无状态服务的单点问题和有状态服务的单点问题.</p>
+<h2 id="无状态服务的单点问题" class="heading-element">
+  <a href="#%e6%97%a0%e7%8a%b6%e6%80%81%e6%9c%8d%e5%8a%a1%e7%9a%84%e5%8d%95%e7%82%b9%e9%97%ae%e9%a2%98" class="heading-mark"></a>无状态服务的单点问题</h2><blockquote>
+<p>无状态服务:</p>
+<p>无状态请求, 服务端所能处理的数据全部来自请求所携带的信息, 无状态服务对于客户端的单次请求, 不依赖于其它请求, 处理一次请求的信息都包含在该请求内. 最典型的就是 web 服务器, 每次 HTTP 请求和之前的都没有关系, 只是获取目标 URL, 得到目标内容, 这次链接内容就被杀死了.</p>
+</blockquote>
+<p>对于无状态的服务, 单点问题的解决比较简单, 因为服务是无状态的, 所以服务节点很容易进行平行扩展. 🌰, 在分布式系统中, 为了降低各进程通信的网络结构的复杂度, 我们会增加代理节点, 专门做消息的转发, 其他的业务直接进行和代理节点的通信, 类似一个星型的网络结构.</p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/分布式单点问题.png" width = "60%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       无状态单点   	</div> </center>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/无状态多点.png" width = "60%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       无状态多点   	</div> </center>
+<p>参考上面这两个图, Proxy 是一个消息转发代理, 业务进程中的消息都会经过该代理. 但第一个图中只有一个 Proxy, 如果该节点挂了, 那么所有业务进程都无法进行通信. 由于 Proxy 是无状态的服务, 所以很容易想到第二个图中的解决方案, 增加一个 Proxy 节点, 两个 Proxy 节点是对等的. 新增节点之后, 业务进程需要与两个 Proxy 之间增加一个心跳的机制, 业务进程在发送消息的时候根据 Proxy 的状态, 选择一个可用的 Proxy 进行消息传递. 从负载均衡的角度来看, 如果两个 Proxy 都是存活状态, 业务进程应当随机选择一个 Proxy.</p>
+<p><strong>这个方案中存在什么问题?</strong></p>
+<p>消息的顺序性问题. 一般来说, 业务的消息都是发送、应答, 再发送、再应答这样的顺序进行的, 在业务中可以保证消息的顺序性. 但是在实际的业务中, 这个方案不能保证消息的顺序性. 比如 <code>业务进程 1</code> 向 <code>业务进程 3</code> 发送 <code>消息 A</code> 和 <code>消息 B</code>, 如果在发送 <code>消息 A</code> 的时候选择了 <code>Proxy 1</code>, 在发送 <code>消息 B</code> 时选择了 <code>Proxy 2</code>, 在分布式的环境中, 就不能确保 <code>消息 A</code> 一定比 <code>消息 B</code> 优先到达.</p>
+<p><strong>怎么解决?</strong></p>
+<p>其实解决也比较简单, 对于这类对消息顺序有要求的业务, 可以指定对应的 Proxy 进行发送. 比如 <code>消息 A</code> 和 <code>消息 B</code> 都使用 <code>Proxy 1</code> 进行发送, 这样就能保证消息的顺序.</p>
+<h2 id="有状态服务的单点问题" class="heading-element">
+  <a href="#%e6%9c%89%e7%8a%b6%e6%80%81%e6%9c%8d%e5%8a%a1%e7%9a%84%e5%8d%95%e7%82%b9%e9%97%ae%e9%a2%98" class="heading-mark"></a>有状态服务的单点问题</h2><blockquote>
+<p>有状态服务:</p>
+<p>服务端会存储请求上下文相关的数据信息, 先后的请求是可以有关联的. 比如 session 等.</p>
+</blockquote>
+<p>如果在架构中, 有个节点是单点的并且是有状态的, 那么首先考虑的是该节点是否可以去状态, 如果可以, 则优先选择去除状态的方案 (比如把状态存储到后端的可靠 DB 中, 可能存在性能的损耗), 然后就退化成一个无状态服务的单点问题了.</p>
+<p>但是并不是所有的服务都是可以去状态的, 比如对于一些业务只能在一个节点中进行处理, 如果在不同的节点中处理的话可能造成状态的不一致, 这类型的业务是无法去除状态的.</p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202309191355178.png" width = "60%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       简单主备   	</div> </center>
+<p>一个方案就是增加一个备用节点, 备用节点和业务进程也可以进行通信, 但是所有的业务消息都发往 Master 节点进行处理. Master 节点和 Slave 节点之间采用 ping 的方式进行通信. Slave 节点会定时发送 ping 包给 Master 节点, Master 节点收到后会响应一个 Ack 包. 当 Slave 节点发现 Master 节点没有响应的时候, 就会认为 Master 节点挂了, 然后把自己升级为 Master 节点, 并且通知业务进程把消息发给自己.</p>
+<p>这个方案看起来挺完美的, 当 Master 和 Slave 之间的网络出现问题的时候, Slave 会认为 Master 挂了, 就会升级为 Master, 同样会执行 Master 的相应的业务逻辑, 同样也会生成一些业务数据回写到 DB 中. 但是 Master 是没有挂的, 它同样也在运行对应的业务逻辑 (即使业务进程的消息没有发给旧的 Master 了), 这样就会出现两个 Master 进行写同一份数据了, 造成数据的混乱, 所以说, 这个方案不是一个完美的方案.</p>
+<h3 id="方案一-引入第三方的服务进行裁决" class="heading-element">
+  <a href="#%e6%96%b9%e6%a1%88%e4%b8%80-%e5%bc%95%e5%85%a5%e7%ac%ac%e4%b8%89%e6%96%b9%e7%9a%84%e6%9c%8d%e5%8a%a1%e8%bf%9b%e8%a1%8c%e8%a3%81%e5%86%b3" class="heading-mark"></a>方案一: 引入第三方的服务进行裁决</h3><p>可以引入 ZooKeeper, 由 ZooKeeper 进行裁决. 同样, 启用两个主节点, <code>节点 A</code>和<code>节点 B</code>. 它们启动之后向 ZooKeeper 去注册一个节点. 假设<code>节点 A</code>注册的节点为<code>master001</code>, <code>节点 B</code>注册的节点为<code>master002</code>, 注册完成后进行选举, 编号小的节点为真正的节点. 那么, 通过这种方式就完成了对两个 Master 进程的调度.</p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202309191432028.png" width = "85%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       ZooKeeper 托管主节点   	</div> </center>
+<h3 id="方案二-通过选举算法和租约的方式实现-master-的选举" class="heading-element">
+  <a href="#%e6%96%b9%e6%a1%88%e4%ba%8c-%e9%80%9a%e8%bf%87%e9%80%89%e4%b8%be%e7%ae%97%e6%b3%95%e5%92%8c%e7%a7%9f%e7%ba%a6%e7%9a%84%e6%96%b9%e5%bc%8f%e5%ae%9e%e7%8e%b0-master-%e7%9a%84%e9%80%89%e4%b8%be" class="heading-mark"></a>方案二: 通过选举算法和租约的方式实现 Master 的选举</h3><p>对于方案一的缺点主要多维护一套 ZooKeeper 的服务, 如果原本业务上并没有部署该服务的话, 要增加该服务的维护也是比较麻烦的事情. 这个时候, 可以在业务进程中加入 Master 的选举方案. 目前有比较成熟的选举算法, 比如 Paxos 和 Raft. 然后再配合租约机制, 就可以实现 Master 的选举, 并且确保当前只有一个 Master 的方案. 比如微信的 PhxPaxos.</p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202309191439350.png" width = "60%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       Paxos 选举   	</div> </center>
+<p>上图的方案中, 三个节点其实都是对等的, 通过选举算法确定一个 Master. 为了确保任何时候都只能存在一个 Master, 需要加入租约的机制. 一个节点成为 Master 之后, Master 和Slave 节点都会进行计时, 在超过租约时间后, 三个节点可以发起 &ldquo;我要成为 Master&rdquo; 的请求, 并进行重新选举. 由于三个节点都是对等的, 任何一个都可以成为 Master, 也就是说租期过后, 有可能出现 Master 切换的情况, 所以为了避免 Master 的频繁切换, Master 节点需要比其他节点先发起自己要成为 Master 的请求 (续租), 告诉其他节点我要继续成为 Master, 然后另外的节点收到请求后会进行应答, 正常情况下另外两个节点会同意该请求. 关键点就是, 在租约过期之前, Slave 节点不能发起 &ldquo;我要成为 Master&rdquo; 的请求, 这样就可以解决 Master 频繁切换的问题.</p>
+<h2 id="常见容错机制" class="heading-element">
+  <a href="#%e5%b8%b8%e8%a7%81%e5%ae%b9%e9%94%99%e6%9c%ba%e5%88%b6" class="heading-mark"></a>常见容错机制</h2><h3 id="fail-over-失效转移" class="heading-element">
+  <a href="#fail-over-%e5%a4%b1%e6%95%88%e8%bd%ac%e7%a7%bb" class="heading-mark"></a>Fail-Over: 失效转移</h3><p>是一种备份操作模式, 当主要组件异常时, 其功能转移到备份组件. 其要点在于有主有备, 且主故障时备可启用, 并设置为主.</p>
+<p>🌰: MySQL 的双 Master 模式, 当正在使用的 Master 出现故障时, 可以拿备 Master 做主使用.</p>
+<h3 id="fail-back-失效自动恢复" class="heading-element">
+  <a href="#fail-back-%e5%a4%b1%e6%95%88%e8%87%aa%e5%8a%a8%e6%81%a2%e5%a4%8d" class="heading-mark"></a>Fail-Back: 失效自动恢复</h3><p><code>Fail-Over</code>之后的自动恢复, 在簇网络系统 (有两台或多台服务器互联的网络) 中, 由于要某台服务器进行维修, 需要网络资源和服务暂时重定向到备用系统. 在此之后将网络资源和服务器恢复为由原始主机提供的过程, 称为自动恢复.</p>
+<p>🌰: MySQL 的双 Master 模式, 当 Master 故障, 在 Fail-Over 至备 Master, 当主 Master 恢复之后, 则自动切换至主 Master.</p>
+<h3 id="fail-fast-快速失败" class="heading-element">
+  <a href="#fail-fast-%e5%bf%ab%e9%80%9f%e5%a4%b1%e8%b4%a5" class="heading-mark"></a>Fail-Fast: 快速失败</h3><p>尽可能的发现系统中的错误, 使系统能够按照事先设定好的错误的流程执行, 对应的方式是 <code>Fault-Tolerant</code>(错误容忍).</p>
+<p>🌰: 以 Java 集合 (Collection) 的快速失败为例, 当多个线程对同一个集合的内容进行操作时, 就可能会产生 <code>Fail-Fast</code> 事件. 当某一个 线程A 通过 <code>iterator</code> 去遍历某集合的过程中, 若该集合的内容被其他线程所改变了; 那么 线程A 访问集合时, 就会抛出 <code>ConcurrentModificationException</code> 异常 (发现错误执行设定好的错误的流程), 产生 <code>Fail-Fast</code> 事件.</p>
+<h3 id="fail-safe-失效安全" class="heading-element">
+  <a href="#fail-safe-%e5%a4%b1%e6%95%88%e5%ae%89%e5%85%a8" class="heading-mark"></a>Fail-Safe: 失效安全</h3><p>在故障的情况下也不会造成伤害或者尽量减少伤害.</p>
+<p>🌰: 写入监控日志出错时, 不会对主业务的成败产生影响.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-04-23 11:04:45">更新于 2024-04-23&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/single_point/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/single_point/" data-title="分布式系统的单点问题" data-hashtags="distributed system"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/single_point/" data-hashtag="distributed system"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/single_point/" data-title="分布式系统的单点问题"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/single_point/" data-title="分布式系统的单点问题"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/single_point/" data-title="分布式系统的单点问题" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/distributed-system/" class="post-tag" title="标签 - Distributed System">Distributed System</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/mongo_single_oplog/" class="post-nav-item" rel="prev" title="MongoDB 单节点开启 oplog"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>MongoDB 单节点开启 oplog</a>
+      <a href="/seatunnel_transfer_hocon/" class="post-nav-item" rel="next" title="SeaTunnel 配置文件从 hocon 解析为 Json 过程">SeaTunnel 配置文件从 hocon 解析为 Json 过程<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

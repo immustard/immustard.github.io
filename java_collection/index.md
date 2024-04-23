@@ -1,35 +1,35 @@
 # Java集合
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
-> 今天进行了一场面试, 面试官在问我关于`HashMap`的时候, 感觉自己回答的不是很好, 所以现在索性就梳理一下Java关于集合的这部分知识.
->
-> 主要是问了这么几个问题:
->
-> 1. `HashMap`是线程安全的么
-> 2. 那线程安全的map是哪种?
-> 3. 在定义`HashMap`的时候会有定义长度的习惯么? 
-> 4. `HashMap`的底层是怎么实现的? 
-> 5. `HashMap`是如何存储的? 
-> 6. `HashMap`最大长度是多少? 或者说是达到多大的长度就需要扩容了?  (这个没答上来...😭)
+&gt; 今天进行了一场面试, 面试官在问我关于`HashMap`的时候, 感觉自己回答的不是很好, 所以现在索性就梳理一下Java关于集合的这部分知识.
+&gt;
+&gt; 主要是问了这么几个问题:
+&gt;
+&gt; 1. `HashMap`是线程安全的么
+&gt; 2. 那线程安全的map是哪种?
+&gt; 3. 在定义`HashMap`的时候会有定义长度的习惯么? 
+&gt; 4. `HashMap`的底层是怎么实现的? 
+&gt; 5. `HashMap`是如何存储的? 
+&gt; 6. `HashMap`最大长度是多少? 或者说是达到多大的长度就需要扩容了?  (这个没答上来...😭)
 
 
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202242122780.png" width = "85%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202242122780.png&#34; width = &#34;85%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       说到Java的Collection就一定会放出这张神图
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 
@@ -43,7 +43,7 @@
 从源码里能看到, 这个接口允许对象成为`for-each`的循环目标, 也就是增强型`for`循环, 是Java中的一种[语法糖](../syntacticsugar). 
 
 ```java
-List<Object> list = new ArrayList();
+List&lt;Object&gt; list = new ArrayList();
 // 补充: 数组也可`for-each`遍历
 // Object[] list = new Object[5];
 
@@ -55,7 +55,7 @@ for (Object obj: list) {}
 **JDK 1.8** 之前, `Iterable`只有一个方法:
 
 ```java
-Iterator<T> iterator();
+Iterator&lt;T&gt; iterator();
 ```
 
 这个接口能够创建一个轻量级的迭代器, 用于**安全的**遍历元素, 移除元素, 添加元素. 其中涉及了一个概念就是[fail-fast](../failfast).
@@ -91,27 +91,27 @@ for (Iterator it = list.iterator(); it.hasNext(); ) {
 `ArrayList`是实现`List`接口的**可扩容数组(动态数组)**, 它的内部是基于数组实现的, 具体的定义: 
 
 ```java
-public class ArrayList<E> extends AbstractList<E> implements List<E>, RandomAccess, Cloneable, java.io.Serializable {...}
+public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt; implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable {...}
 ```
 
 * `ArrayList`可以实现所有可选择的列表操作, 允许所有元素 **(包括** `null`**)**. `ArrayList`还提供了内部存储`list`的方法, 它能够完全替代`Vector`, 只有一点例外, `ArrayList`**不是线程安全的容器**. 
 
-  > 下面会说到`Vector`
+  &gt; 下面会说到`Vector`
 
 * `ArrayList`有一个容量的概念, 这个数组的容量就是`List`用来存储元素的容量. 
 
-  > 在不声明容量的时候, 默认的是10. 当达到当前容量上限的时候, 就会进行扩容, 负载因子为0.5, 即:
-  >
-  > ```
-  > 旧容量 * 1.5 ==> 10->15->22->33...
-  > ```
+  &gt; 在不声明容量的时候, 默认的是10. 当达到当前容量上限的时候, 就会进行扩容, 负载因子为0.5, 即:
+  &gt;
+  &gt; ```
+  &gt; 旧容量 * 1.5 ==&gt; 10-&gt;15-&gt;22-&gt;33...
+  &gt; ```
 
-  `ArrayList`的上限为`Integer.MAX_VALUE - 8`(2<sup>32</sup> - 8). 
+  `ArrayList`的上限为`Integer.MAX_VALUE - 8`(2&lt;sup&gt;32&lt;/sup&gt; - 8). 
 
 * `ArrayList`不是线程安全的容器, 所以可以使用线程安全的`List`:
 
   ```java
-  List list = Collections.synchronizedList(new ArrayList<>());
+  List list = Collections.synchronizedList(new ArrayList&lt;&gt;());
   ```
 
 * `ArrayList`具有[fail-fast](../failfast)快速失败机制, 当在迭代集合的过程中, 该集合发成了改变的时候, 就**可能**会发生`fail-fast`, 抛出`ConcurrentModificationException`异常. 
@@ -135,7 +135,7 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
 * `LinkedList`不是线程安全的容器, 所以可以使用线程安全的`Set`:
 
   ```java
-  List list = Collections.synchronizedList(new LinkedList<>());
+  List list = Collections.synchronizedList(new LinkedList&lt;&gt;());
   ```
 
 * 因为`LinkedList`是一个双向链表, 所以没有初始化大小, 没有扩容机制. 
@@ -155,18 +155,18 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
 * `HashSet`不是线程安全的容器, 所以可以使用线程安全的`Set`:
 
   ```java
-  Set set = Collections.synchronizedSet(new HashSet<>());
+  Set set = Collections.synchronizedSet(new HashSet&lt;&gt;());
   ```
 
 * 支持[fail-fast](../failfast)机制. 
 
 * 因为`HashSet`的底层实际使用`HashMap`实现的, 所以和`HashMap`的容量和扩容机制是一致的: 
 
-  > 在不声明容量的时候, 默认的是16. 当达到当前容量上限的时候, 就会进行扩容, 负载因子为0.75, 即:
-  >
-  > ```
-  > 旧容量 * 1.75 ==> 16->28->49->85...
-  > ```
+  &gt; 在不声明容量的时候, 默认的是16. 当达到当前容量上限的时候, 就会进行扩容, 负载因子为0.75, 即:
+  &gt;
+  &gt; ```
+  &gt; 旧容量 * 1.75 ==&gt; 16-&gt;28-&gt;49-&gt;85...
+  &gt; ```
 
 
 
@@ -183,18 +183,18 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
 
 ## LinkedHashSet
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202260717202.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202260717202.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       LinkedHashSet继承体系
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 `LinkedHashSet`是`Set`接口的`Hash`表和`LinkedList`的实现. 但是这个实现不同于`HashSet`的是, 它维护者一个贯穿所有条目的双向列表. 此链表定义了元素插入集合的顺序. **注意: 如果元素重新插入, 则插入顺序不会受到影响**. 
@@ -305,4 +305,10 @@ Java中的[Vector](https://baike.baidu.com/item/Vector/3330482#1_2)类是允许�
 |        Stack         |  ✅   |    ❌     |        ❌        |    ✅     |   ✅    |    ✅     |
 | CopyOnWriteArrayList |  ✅   |    ✅     |        ❌        |    ✅     |   ✅    |    ✅     |
 
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/java_collection/  
 

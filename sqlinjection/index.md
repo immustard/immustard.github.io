@@ -1,7 +1,7 @@
 # SQL注入
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -34,13 +34,13 @@ SQL注入攻击是通过将恶意的SQL语句插入到应用的输入参数中, 
    SQL语句中可以添加注释:
 
    ```sql
-   SELECT * FROM users WHERE user_gender='男' AND user_age=$age
+   SELECT * FROM users WHERE user_gender=&#39;男&#39; AND user_age=$age
    ```
 
    如果`user_age`中包含了恶意的字符串`20 OR 25 AND SLEEP(500)--`, 那么语句最终会变为:
 
    ```sql
-   SELECT * FROM users WHERE user_gender='男' AND user_age=20 OR 25 AND SLEEP(500)--
+   SELECT * FROM users WHERE user_gender=&#39;男&#39; AND user_age=20 OR 25 AND SLEEP(500)--
    ```
 
    上面这条语句只是想耗尽系统资源, `SLEEP(500)`会一直执行, 但是如果其中添加了修改, 删除数据的语句, 将会造成更大的破坏. 
@@ -53,10 +53,10 @@ SQL注入攻击是通过将恶意的SQL语句插入到应用的输入参数中, 
    SELECT * FROM users WHERE user_name=$user_name
    ```
 
-   如果`user_name`传入参数值`M'ustard`, 那么语句最终会变为:
+   如果`user_name`传入参数值`M&#39;ustard`, 那么语句最终会变为:
 
    ```sql
-   SELECT * FROM users WHERE user_name='M'ustard'
+   SELECT * FROM users WHERE user_name=&#39;M&#39;ustard&#39;
    ```
 
    一般情况下, 执行上面语句就会报错, 但是这种方式可能会产生恶意的SQL语句. 
@@ -72,7 +72,7 @@ SQL注入攻击是通过将恶意的SQL语句插入到应用的输入参数中, 
    如果`user_id`传入的是`1 OR TRUE`, 那么语句最终会变为:
 
    ```sql
-   UPDATE users SET user_password='123456' where user_id=1 OR TRUE
+   UPDATE users SET user_password=&#39;123456&#39; where user_id=1 OR TRUE
    ```
 
    如果执行了上面的语句, 那么所有用户的密码都被更改了. 
@@ -91,11 +91,11 @@ SQL注入攻击是通过将恶意的SQL语句插入到应用的输入参数中, 
 
    参数化查询是目前被视作预防SQL注入攻击最有效的方法. 指的设计数据库连接并访问数据时, 在需要填入数据的地方, 使用参数(Parameter)来给值. 
 
-   > MySQL的参数格式是以`?`加上参数名称而成:
-   >
-   > ```sql
-   > UPDATE table_1 SET row_1=?row_1, row_2=row_2 WHERE row_3=?row_3
-   > ```
+   &gt; MySQL的参数格式是以`?`加上参数名称而成:
+   &gt;
+   &gt; ```sql
+   &gt; UPDATE table_1 SET row_1=?row_1, row_2=row_2 WHERE row_3=?row_3
+   &gt; ```
 
    在使用参数化查询下, 数据库不会将参数的内容视为SQL语句的一部分来处理, 而是在数据库完成SQL语句的编译之后, 才套用参数执行. 因此就算参数中含有破坏性的指令, 也不会被数据库所运行. 
 
@@ -108,4 +108,10 @@ SQL注入攻击是通过将恶意的SQL语句插入到应用的输入参数中, 
 6. **限制数据库权限和特权**
 
 7. **避免直接向用户显示数据库错误**
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/sqlinjection/  
 

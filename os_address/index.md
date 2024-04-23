@@ -1,7 +1,7 @@
 # 内存中的地址空间
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -15,7 +15,7 @@
 
 2. **逻辑地址空间**: 一个运行的程序所拥有的内存范围
 
-   相对于物理地址空间而言, 程序所能"看到的"逻辑地址空间更简单一点, 就是一个一维的线性的地址空间. 
+   相对于物理地址空间而言, 程序所能&#34;看到的&#34;逻辑地址空间更简单一点, 就是一个一维的线性的地址空间. 
 
 但是最终, 逻辑地址和物理地址都是需要对应上的, 这部分就是由OS来完成的.   
 
@@ -25,38 +25,38 @@
 
 用一个C语言的函数来举个🌰
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203171133969.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-03/202203171133969.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       逻辑地址生成
-  	</div>   
-</center>
+  	&lt;/div&gt;   
+&lt;/center&gt;
 
 
-从最开始的**'符号逻辑地址'**到最终的**'具体逻辑地址'**, 经过了上面的这些转换过程, 而这些过程是基本上不需要操作系统来帮助的, 而是通过应用程序、编译器或者Loader就可以完成.  但是当把这个地址放入到内存中之后也是逻辑地址而不是物理地址. 
+从最开始的**&#39;符号逻辑地址&#39;**到最终的**&#39;具体逻辑地址&#39;**, 经过了上面的这些转换过程, 而这些过程是基本上不需要操作系统来帮助的, 而是通过应用程序、编译器或者Loader就可以完成.  但是当把这个地址放入到内存中之后也是逻辑地址而不是物理地址. 
 
 
 
 再把之前的操作系统架构中的图片拿出来:
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-04/202204271432111.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-04/202204271432111.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       物理地址生成
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 * CPU方面: 
@@ -75,5 +75,11 @@
 
 
 
->  **操作系统的一个重要的作用就是: 确保放在内存中的程序相互之间不能相互干扰, 每个程序去访问地址空间是合法的. 换而言之, 确保每个程序访问地址空间是在一个范围之内的.  **
+&gt;  **操作系统的一个重要的作用就是: 确保放在内存中的程序相互之间不能相互干扰, 每个程序去访问地址空间是合法的. 换而言之, 确保每个程序访问地址空间是在一个范围之内的.  **
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/os_address/  
 

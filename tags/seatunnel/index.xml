@@ -2,14 +2,46 @@
   <channel>
     <title>SeaTunnel - 标签 - Buli&#39;s Home</title>
     <link>https://buli-home.cn/tags/seatunnel/</link>
-    <description>SeaTunnel - 标签 - Buli&#39;s Home</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>mustard_gxg@foxmail.com (Mustard)</managingEditor>
-      <webMaster>mustard_gxg@foxmail.com (Mustard)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 12 Jul 2022 16:47:48 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/seatunnel/" rel="self" type="application/rss+xml" /><item>
+    <description>SeaTunnel - 标签 | Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/seatunnel/" rel="self" type="application/rss+xml" /><item>
+  <title>SeaTunnel 配置文件从 hocon 解析为 Json 过程</title>
+  <link>https://buli-home.cn/seatunnel_transfer_hocon/</link>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/seatunnel_transfer_hocon/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>SeaTunnel 配置文件加解密</title>
+  <link>https://buli-home.cn/seatunnel_encryption/</link>
+  <pubDate>Thu, 25 May 2023 14:27:11 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/seatunnel_encryption/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Seatunnel 连接器 V2 版本</title>
+  <link>https://buli-home.cn/seatunnel_connector_v2/</link>
+  <pubDate>Wed, 24 May 2023 13:51:15 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/seatunnel_connector_v2/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>部署Seatunnel引擎</title>
+  <link>https://buli-home.cn/seatunnel_engine/</link>
+  <pubDate>Tue, 28 Feb 2023 13:26:37 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/seatunnel_engine/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Seatunnel使用手册</title>
   <link>https://buli-home.cn/seatunnel_use/</link>
   <pubDate>Tue, 12 Jul 2022 16:47:48 &#43;0800</pubDate>
   <author>作者</author>
   <guid>https://buli-home.cn/seatunnel_use/</guid>
   <description><![CDATA[]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
   <head>
+    
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>Java集合 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
-<meta name="description" content="关于 FixIt 主题" />
-<meta name="keywords" content="Java" /><meta itemprop="name" content="Java集合">
-<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-02-24T20:15:26+08:00" />
-<meta itemprop="dateModified" content="2022-06-17T09:26:55+08:00" />
-<meta itemprop="wordCount" content="4202"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
-<meta itemprop="keywords" content="Java," /><meta property="og:title" content="Java集合" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://buli-home.cn/java_collection/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-24T20:15:26+08:00" />
-<meta property="article:modified_time" content="2022-06-17T09:26:55+08:00" />
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
-
-<meta name="twitter:title" content="Java集合"/>
-<meta name="twitter:description" content=""/>
+    <title>Java集合 - Buli&#39;s Home</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='Java' />
+  <meta itemprop="name" content="Java集合">
+  <meta itemprop="description" content="关于 FixIt 主题">
+  <meta itemprop="datePublished" content="2022-02-24T20:15:26+08:00">
+  <meta itemprop="dateModified" content="2024-04-23T11:04:45+08:00">
+  <meta itemprop="wordCount" content="4296">
+  <meta itemprop="image" content="https://buli-home.cn/logo.png">
+  <meta itemprop="keywords" content="Java"><meta property="og:url" content="https://buli-home.cn/java_collection/">
+  <meta property="og:site_name" content="Buli&#39;s Home">
+  <meta property="og:title" content="Java集合">
+  <meta property="og:description" content="关于 FixIt 主题">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-02-24T20:15:26+08:00">
+    <meta property="article:modified_time" content="2024-04-23T11:04:45+08:00">
+    <meta property="article:tag" content="Java">
+    <meta property="og:image" content="https://buli-home.cn/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"><meta name="twitter:title" content="Java集合">
+<meta name="twitter:description" content="">
 <meta name="application-name" content="FixIt">
-<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/java_collection/" /><link rel="prev" href="https://buli-home.cn/sqlinjection/" /><link rel="next" href="https://buli-home.cn/binarysearch/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/java_collection/" /><link rel="prev" href="https://buli-home.cn/sqlinjection/" /><link rel="next" href="https://buli-home.cn/binarysearch/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BlogPosting",
@@ -35,8 +42,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/buli-home.cn\/java_collection\/"
-    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Java","wordcount":  4202 ,
-    "url": "https:\/\/buli-home.cn\/java_collection\/","datePublished": "2022-02-24T20:15:26+08:00","dateModified": "2022-06-17T09:26:55+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Java","wordcount":  4296 ,
+    "url": "https:\/\/buli-home.cn\/java_collection\/","datePublished": "2022-02-24T20:15:26+08:00","dateModified": "2024-04-23T11:04:45+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Lruihao","logo": {
           "@type": "ImageObject",
@@ -45,118 +52,143 @@
           "height":  512 
         }},"author": {
         "@type": "Person",
-        "name": "Mustard"
+        "name": "作者"
       },"description": ""
   }
   </script></head>
-  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
-
-    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
   <div class="header-wrapper">
     <div class="header-title">
-      <a href="/" title="Buli&#39;s Home"><img
-    class="lazyload logo"
-    src="/svg/loading.min.svg"
-    data-src="/logo.png"
-    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
-    data-sizes="auto"
-    alt="/logo.png"
-    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
-    <div class="menu">
-      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="Buli&#39;s Home" data-title="Buli&#39;s Home" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
             <input type="text" placeholder=" " id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
-              <i class="fas fa-search fa-fw"></i>
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
-              <i class="fas fa-times-circle fa-fw"></i>
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
             </a>
             <span class="search-button search-loading" id="search-loading-desktop">
-              <i class="fas fa-spinner fa-fw fa-spin"></i>
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
             </span>
-          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-          <i class="fas fa-adjust fa-fw"></i>
-        </a>
-      </div>
-    </div>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
   </div>
-</header><header class="mobile" id="header-mobile">
+</header><header class="mobile animate__faster" id="header-mobile">
   <div class="header-container">
     <div class="header-wrapper">
       <div class="header-title">
-        <a href="/" title="Buli&#39;s Home"><img
-    class="lazyload logo"
-    src="/svg/loading.min.svg"
-    data-src="/logo.png"
-    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
-    data-sizes="auto"
-    alt="/logo.png"
-    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="/logo.png" data-title="/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
       <div class="menu-toggle" id="menu-toggle-mobile">
         <span></span><span></span><span></span>
       </div>
     </div>
-    <div class="menu" id="menu-mobile"><div class="search-wrapper">
-          <div class="search mobile" id="search-mobile">
-            <input type="text" placeholder=" " id="search-input-mobile">
-            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
-              <i class="fas fa-search fa-fw"></i>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
             </a>
-            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
-              <i class="fas fa-times-circle fa-fw"></i>
-            </a>
-            <span class="search-button search-loading" id="search-loading-mobile">
-              <i class="fas fa-spinner fa-fw fa-spin"></i>
-            </span>
-          </div>
-          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-            取消
-          </a>
-        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
-        <i class="fas fa-adjust fa-fw"></i>
-      </a></div>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
   </div>
-</header>
-<div class="search-dropdown desktop">
-  <div id="search-dropdown-desktop"></div>
-</div>
-<div class="search-dropdown mobile">
-  <div id="search-dropdown-mobile"></div>
-</div>
-<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
-      <div class="toc-content" id="toc-content-auto"></div></aside>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
 
-  <aside class="aside-custom">
-    
-  </aside>
-
-  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Java集合</h1><div class="post-meta">
-      <div class="post-meta-line"><span class="post-author"><a
-  href="https://github.com/immustard"
-  
-    title="Author"
-  
-  
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer author"
-  
-  
-  
-    class="author"
-  
-  
-><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/java/"><i class="far fa-folder fa-fw"></i>Java</a></span></div>
-      <div class="post-meta-line"><span title=2022-02-24&#32;20:15:26>
-            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-24" >2022-02-24</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4202 字&nbsp;
-        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
-    </div><div class="details toc" id="toc-static" kept="false">
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Java集合</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/java/" class="post-category" title="分类 - Java"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Java</a></span></div><div class="post-meta-line"><span title="发布于 2022-02-24 20:15:26"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2022-02-24">2022-02-24</time></span>&nbsp;<span title="更新于 2024-04-23 11:04:45"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-23">2024-04-23</time></span>&nbsp;<span title="4296 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 4300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 9 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
-          <span><i class="details-icon fas fa-angle-right"></i></span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
@@ -212,17 +244,9 @@
   	</div>
 </center>
 <p>根据这张图能发现, 这一切的一切都起始于<code>Iterable</code>接口.</p>
-<h2 id="iterable">Iterable</h2>
-<p>从源码里能看到, 这个接口允许对象成为<code>for-each</code>的循环目标, 也就是增强型<code>for</code>循环, 是Java中的一种<a
-  href="../syntacticsugar"
-  
-  
-  
-  
-  
-  
->语法糖</a>.</p>
-<div class="highlight"><div class="chroma">
+<h2 id="iterable" class="heading-element">
+  <a href="#iterable" class="heading-mark"></a>Iterable</h2><p>从源码里能看到, 这个接口允许对象成为<code>for-each</code>的循环目标, 也就是增强型<code>for</code>循环, 是Java中的一种<a href="../syntacticsugar">语法糖</a>.</p>
+<div class="highlight" id="id-1"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -231,61 +255,49 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 补充: 数组也可`for-each`遍历
-</span></span></span><span class="line"><span class="cl"><span class="c1">// Object[] list = new Object[5];
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">:</span> <span class="n">list</span><span class="o">)</span> <span class="o">{}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 补充: 数组也可`for-each`遍历</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Object[] list = new Object[5];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">:</span><span class="w"> </span><span class="n">list</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="其他遍历方式">其他遍历方式</h4>
-<p><strong>JDK 1.8</strong> 之前, <code>Iterable</code>只有一个方法:</p>
-<div class="highlight"><div class="chroma">
+</div><h4 id="其他遍历方式" class="heading-element">
+  <a href="#%e5%85%b6%e4%bb%96%e9%81%8d%e5%8e%86%e6%96%b9%e5%bc%8f" class="heading-mark"></a>其他遍历方式</h4><p><strong>JDK 1.8</strong> 之前, <code>Iterable</code>只有一个方法:</p>
+<div class="highlight" id="id-2"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterator</span><span class="o">();</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Iterator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">iterator</span><span class="p">();</span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>这个接口能够创建一个轻量级的迭代器, 用于<strong>安全的</strong>遍历元素, 移除元素, 添加元素. 其中涉及了一个概念就是<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>.</p>
+</div><p>这个接口能够创建一个轻量级的迭代器, 用于<strong>安全的</strong>遍历元素, 移除元素, 添加元素. 其中涉及了一个概念就是<a href="../failfast">fail-fast</a>.</p>
 <p>总结起来就是: <strong>能创建迭代器进行元素添加和删除的话, 就尽量使用迭代器进行添加和删除操作</strong>.</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-3"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">	<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Iterator</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="na">iterator</span><span class="p">();</span><span class="w"> </span><span class="n">it</span><span class="p">.</span><span class="na">hasNext</span><span class="p">();</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">it</span><span class="p">.</span><span class="na">next</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="顶层接口">顶层接口</h2>
-<p><code>Collection</code>是一个顶层接口, 主要是用来定义集合的约定.</p>
+</div><h2 id="顶层接口" class="heading-element">
+  <a href="#%e9%a1%b6%e5%b1%82%e6%8e%a5%e5%8f%a3" class="heading-mark"></a>顶层接口</h2><p><code>Collection</code>是一个顶层接口, 主要是用来定义集合的约定.</p>
 <p><code>List</code>接口也是一个顶层接口, 继承了<code>Collection</code>接口, 同时也是<code>ArrayList</code>, <code>LinkedList</code>等集合元素的父类.</p>
 <p><code>Set</code>接口位于与<code>List</code>接口同级的层次上, 它同时也继承了<code>Collection</code>接口. <code>Set</code>接口提供了额外的规定. 对<code>add()</code>, <code>equals()</code>, <code>hashCode()</code>方法提供了额外的标准.</p>
 <p><code>Queue</code>是和<code>List</code>, <code>Set</code>接口并列的<code>Collection</code>的<strong>三大接口</strong>之一. <code>Queue</code>的设计用来在处理之前保持元素的访问次序. 除了<code>Collection</code>基础的操作外, 对立提供了额外的插入, 读取, 检查操作.</p>
 <p><code>SortSet</code>接口直接继承与<code>Set</code>接口,  使用<code>Comparable</code>对元素进行自然排序或者使用<code>Comparator</code>在创建时对元素提供<strong>定制的</strong>排序规则. <code>set</code>的迭代器将按升序元素顺序遍历集合.</p>
 <p><code>Map</code>是一个支持<code>key-value</code>存储的对象, <code>Map</code>不能包含重复的<code>key</code>, 每个键最多映射一个值. 这个接口替代了<code>Dictionary</code>类, <code>Dictionary</code>是一个抽象类而不是接口.</p>
-<h2 id="arraylist">ArrayList</h2>
-<p><code>ArrayList</code>是实现<code>List</code>接口的<strong>可扩容数组(动态数组)</strong>, 它的内部是基于数组实现的, 具体的定义:</p>
-<div class="highlight"><div class="chroma">
+<h2 id="arraylist" class="heading-element">
+  <a href="#arraylist" class="heading-mark"></a>ArrayList</h2><p><code>ArrayList</code>是实现<code>List</code>接口的<strong>可扩容数组(动态数组)</strong>, 它的内部是基于数组实现的, 具体的定义:</p>
+<div class="highlight" id="id-4"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kd">implements</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;,</span> <span class="n">RandomAccess</span><span class="o">,</span> <span class="n">Cloneable</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">io</span><span class="o">.</span><span class="na">Serializable</span> <span class="o">{...}</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">AbstractList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">RandomAccess</span><span class="p">,</span><span class="w"> </span><span class="n">Cloneable</span><span class="p">,</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">io</span><span class="p">.</span><span class="na">Serializable</span><span class="w"> </span><span class="p">{...}</span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li>
@@ -298,123 +310,89 @@
 <p><code>ArrayList</code>有一个容量的概念, 这个数组的容量就是<code>List</code>用来存储元素的容量.</p>
 <blockquote>
 <p>在不声明容量的时候, 默认的是10. 当达到当前容量上限的时候, 就会进行扩容, 负载因子为0.5, 即:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-5"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">旧容量 * 1.5 ==&gt; 10-&gt;15-&gt;22-&gt;33...
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">旧容量 * 1.5 ==&gt; 10-&gt;15-&gt;22-&gt;33...</span></span></code></pre></td></tr></table>
 </div>
 </div></blockquote>
 <p><code>ArrayList</code>的上限为<code>Integer.MAX_VALUE - 8</code>(2<sup>32</sup> - 8).</p>
 </li>
 <li>
 <p><code>ArrayList</code>不是线程安全的容器, 所以可以使用线程安全的<code>List</code>:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-6"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizedList</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">());</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
-<p><code>ArrayList</code>具有<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>快速失败机制, 当在迭代集合的过程中, 该集合发成了改变的时候, 就<strong>可能</strong>会发生<code>fail-fast</code>, 抛出<code>ConcurrentModificationException</code>异常.</p>
+<p><code>ArrayList</code>具有<a href="../failfast">fail-fast</a>快速失败机制, 当在迭代集合的过程中, 该集合发成了改变的时候, 就<strong>可能</strong>会发生<code>fail-fast</code>, 抛出<code>ConcurrentModificationException</code>异常.</p>
 </li>
 </ul>
-<h2 id="vector">Vector</h2>
-<p>Java中的<a
-  href="https://baike.baidu.com/item/Vector/3330482#1_2"
-  
-  
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->Vector</a>类是允许不同类型共存的变长数组, Java.util.Vector提供了向量(<code>Vector</code>)类以实现类似动态数组的功能. 在相对于<code>ArrayList</code>来说, <code>Vector</code>线程是安全的, 也就是说是同步的. 因为<code>Vector</code>对内部的每个方法都是简单粗暴的上锁, 所以访问元素的效率<strong>远远低于</strong><code>ArrayList</code>.</p>
+<h2 id="vector" class="heading-element">
+  <a href="#vector" class="heading-mark"></a>Vector</h2><p>Java中的<a href="https://baike.baidu.com/item/Vector/3330482#1_2"target="_blank" rel="external nofollow noopener noreferrer">Vector</a>类是允许不同类型共存的变长数组, Java.util.Vector提供了向量(<code>Vector</code>)类以实现类似动态数组的功能. 在相对于<code>ArrayList</code>来说, <code>Vector</code>线程是安全的, 也就是说是同步的. 因为<code>Vector</code>对内部的每个方法都是简单粗暴的上锁, 所以访问元素的效率<strong>远远低于</strong><code>ArrayList</code>.</p>
 <p>还有一点在扩容上, <code>ArrayList</code>扩容后的数组长度会增加50%, 而<code>Vector</code>的扩容长度后数组是翻倍.</p>
-<h2 id="linkedlist">LinkedList</h2>
-<p><code>LinkedList</code>是一个双向链表, 允许所有元素 <strong>(包括</strong> <code>null</code><strong>)</strong>:</p>
+<h2 id="linkedlist" class="heading-element">
+  <a href="#linkedlist" class="heading-mark"></a>LinkedList</h2><p><code>LinkedList</code>是一个双向链表, 允许所有元素 <strong>(包括</strong> <code>null</code><strong>)</strong>:</p>
 <ul>
 <li>
 <p><code>LinkedList</code>所有的操作都可以表现为<strong>双向性</strong>, 索引到链表的操作将遍历从头到尾, 看那个距离短为遍历顺序.</p>
 </li>
 <li>
 <p><code>LinkedList</code>不是线程安全的容器, 所以可以使用线程安全的<code>Set</code>:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-7"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizedList</span><span class="o">(</span><span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;());</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">());</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>因为<code>LinkedList</code>是一个双向链表, 所以没有初始化大小, 没有扩容机制.</p>
 </li>
 </ul>
-<h2 id="stack">Stack</h2>
-<p>堆栈(<code>Stack</code>)就是常说的<strong>后入先出</strong>的容器. 它继承了<code>Vector</code>类, 提供了常用的<code>pop</code>, <code>push</code>和<code>peek</code>操作, 以及判断<code>stack</code>是否为空的<code>empty</code>方法和寻找与栈顶距离的<code>search</code>方法.</p>
-<h2 id="hashset">HashSet</h2>
-<ul>
+<h2 id="stack" class="heading-element">
+  <a href="#stack" class="heading-mark"></a>Stack</h2><p>堆栈(<code>Stack</code>)就是常说的<strong>后入先出</strong>的容器. 它继承了<code>Vector</code>类, 提供了常用的<code>pop</code>, <code>push</code>和<code>peek</code>操作, 以及判断<code>stack</code>是否为空的<code>empty</code>方法和寻找与栈顶距离的<code>search</code>方法.</p>
+<h2 id="hashset" class="heading-element">
+  <a href="#hashset" class="heading-mark"></a>HashSet</h2><ul>
 <li>
 <p><code>HashSet</code>是<code>Set</code>接口的实现类, 有哈希表支持 <strong>(实际上</strong><code>HashSet</code><strong>是</strong><code>HashMap</code><strong>的一个实例)</strong>, 不能保证集合的迭代顺序. 允许所有元素 <strong>(包括</strong> <code>null</code><strong>)</strong>.</p>
 </li>
 <li>
 <p><code>HashSet</code>不是线程安全的容器, 所以可以使用线程安全的<code>Set</code>:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-8"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Set</span> <span class="n">set</span> <span class="o">=</span> <span class="n">Collections</span><span class="o">.</span><span class="na">synchronizedSet</span><span class="o">(</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;());</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Set</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Collections</span><span class="p">.</span><span class="na">synchronizedSet</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">());</span></span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
-<p>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</p>
+<p>支持<a href="../failfast">fail-fast</a>机制.</p>
 </li>
 <li>
 <p>因为<code>HashSet</code>的底层实际使用<code>HashMap</code>实现的, 所以和<code>HashMap</code>的容量和扩容机制是一致的:</p>
 <blockquote>
 <p>在不声明容量的时候, 默认的是16. 当达到当前容量上限的时候, 就会进行扩容, 负载因子为0.75, 即:</p>
-<div class="highlight"><div class="chroma">
+<div class="highlight" id="id-9"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">旧容量 * 1.75 ==&gt; 16-&gt;28-&gt;49-&gt;85...
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">旧容量 * 1.75 ==&gt; 16-&gt;28-&gt;49-&gt;85...</span></span></code></pre></td></tr></table>
 </div>
 </div></blockquote>
 </li>
 </ul>
-<h2 id="treeset">TreeSet</h2>
-<p><code>TreeSet</code>是一个基于<code>TreeMap</code>的<code>NavigableSet</code>实现. 这些元素使用他们的自然排序或者在创建时提供的<code>Comparator</code>进行排序, 具体取决于使用的构造函数.</p>
+<h2 id="treeset" class="heading-element">
+  <a href="#treeset" class="heading-mark"></a>TreeSet</h2><p><code>TreeSet</code>是一个基于<code>TreeMap</code>的<code>NavigableSet</code>实现. 这些元素使用他们的自然排序或者在创建时提供的<code>Comparator</code>进行排序, 具体取决于使用的构造函数.</p>
 <ul>
 <li>
 <p>此实现为基本操作<code>add</code>, <code>remove</code>, <code>contains</code>提供了<code>log(n)</code>的时间成本.</p>
@@ -423,19 +401,11 @@
 <p><code>HashSet</code>不是线程安全的容器.</p>
 </li>
 <li>
-<p>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</p>
+<p>支持<a href="../failfast">fail-fast</a>机制.</p>
 </li>
 </ul>
-<h2 id="linkedhashset">LinkedHashSet</h2>
-<center>
+<h2 id="linkedhashset" class="heading-element">
+  <a href="#linkedhashset" class="heading-mark"></a>LinkedHashSet</h2><center>
     <img style="border-radius: 0.3125em;
     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
     src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/2022-02/202202260717202.png" width = "65%" alt="" onclick="window.open(this.src)"/>
@@ -456,19 +426,11 @@
 <p><code>LinkedHashSet</code>不是线程安全的容器.</p>
 </li>
 <li>
-<p>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</p>
+<p>支持<a href="../failfast">fail-fast</a>机制.</p>
 </li>
 </ul>
-<h2 id="priorityqueue">PriorityQueue</h2>
-<p><code>PriorityQueue</code>(优先级队列)是<code>AbstractQueue</code>的实现类, 其中的元素根据自然排序(最小元素最先出)或者通过构造函数时期提供的<code>Comparator</code>来排序, 具体根据构造器判断. <strong>注意</strong>: <code>PriorityQueue</code><strong>不允许</strong><code>null</code><strong>元素</strong>.</p>
+<h2 id="priorityqueue" class="heading-element">
+  <a href="#priorityqueue" class="heading-mark"></a>PriorityQueue</h2><p><code>PriorityQueue</code>(优先级队列)是<code>AbstractQueue</code>的实现类, 其中的元素根据自然排序(最小元素最先出)或者通过构造函数时期提供的<code>Comparator</code>来排序, 具体根据构造器判断. <strong>注意</strong>: <code>PriorityQueue</code><strong>不允许</strong><code>null</code><strong>元素</strong>.</p>
 <ul>
 <li>队列的头在某种意义上是指定顺序的最后一个元素. 队列查找操作<code>poll</code>, <code>remove</code>, <code>peek</code>和<code>element</code>访问队列头部元素.</li>
 <li><code>PriorityQueue</code>是无界队列(无限制的), 但是有内部<code>capacity</code>, 用户控制用于在队列中存储元素的数组大小.</li>
@@ -476,14 +438,14 @@
 <li><code>PriorityQueue</code>必须存储的可比较的对象, 如果不是的话, 则必须指定比较器.</li>
 <li><code>PriorityQueue</code>不是线程安全的容器, 而线程安全的类是<code>PriorityBlockingQueue</code>.</li>
 </ul>
-<h2 id="hashmap">HashMap</h2>
-<p><code>HashMap</code>是一个利用哈希表原理来存储元素的集合, 允许空的<code>key-value</code>键值对.</p>
+<h2 id="hashmap" class="heading-element">
+  <a href="#hashmap" class="heading-mark"></a>HashMap</h2><p><code>HashMap</code>是一个利用哈希表原理来存储元素的集合, 允许空的<code>key-value</code>键值对.</p>
 <ul>
 <li><code>HashMap</code>的默认初始用量和负载因子和<code>HashSet</code>一致.</li>
 <li><code>HashMap</code>不是线程安全的容器.</li>
 </ul>
-<h2 id="treemap">TreeMap</h2>
-<p>一个基于<code>NavigableMap</code>实现的红黑树. 这个<code>map</code>根据<code>key</code>自认排序存储, 或者通过<code>Comparator</code>进行定制排序.</p>
+<h2 id="treemap" class="heading-element">
+  <a href="#treemap" class="heading-mark"></a>TreeMap</h2><p>一个基于<code>NavigableMap</code>实现的红黑树. 这个<code>map</code>根据<code>key</code>自认排序存储, 或者通过<code>Comparator</code>进行定制排序.</p>
 <ul>
 <li>
 <p><code>TreeMap</code>为<code>containsKey</code>,<code>get</code>,<code>put</code>和<code>remove</code>方法提供了<code>log(n)</code>的时间开销.</p>
@@ -492,19 +454,11 @@
 <p><code>TreeMap</code>不是线程安全的容器.</p>
 </li>
 <li>
-<p>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</p>
+<p>支持<a href="../failfast">fail-fast</a>机制.</p>
 </li>
 </ul>
-<h2 id="linkedhashmap">LinkedHashMap</h2>
-<p><code>LinkedHashMap</code>是<code>Map</code>接口的哈希表和链表的实现. 这个实现与<code>HashMap</code>的不同之处在于它维护了一个贯穿其所有条目的双向链表. 这个链表中定义的顺序, 通常是插入的顺序.</p>
+<h2 id="linkedhashmap" class="heading-element">
+  <a href="#linkedhashmap" class="heading-mark"></a>LinkedHashMap</h2><p><code>LinkedHashMap</code>是<code>Map</code>接口的哈希表和链表的实现. 这个实现与<code>HashMap</code>的不同之处在于它维护了一个贯穿其所有条目的双向链表. 这个链表中定义的顺序, 通常是插入的顺序.</p>
 <ul>
 <li>
 <p>提供了一个特殊的构造器: <code>LinkedHashMap(int,float,boolean)</code>, 其遍历的顺序是其最后一次访问的顺序.</p>
@@ -522,32 +476,16 @@
 <p><code>LinkedHashMap</code>不是线程安全的容器.</p>
 </li>
 <li>
-<p>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</p>
+<p>支持<a href="../failfast">fail-fast</a>机制.</p>
 </li>
 </ul>
-<h2 id="hashtable">HashTable</h2>
-<p>与<code>HashMap</code>不同的是, <code>HashTable</code><strong>是线程安全的</strong>. 任何非空对象都可以用作键或值.</p>
+<h2 id="hashtable" class="heading-element">
+  <a href="#hashtable" class="heading-mark"></a>HashTable</h2><p>与<code>HashMap</code>不同的是, <code>HashTable</code><strong>是线程安全的</strong>. 任何非空对象都可以用作键或值.</p>
 <ul>
-<li>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</li>
+<li>支持<a href="../failfast">fail-fast</a>机制.</li>
 </ul>
-<h2 id="identityhashmap">IdentityHashMap</h2>
-<p><code>IdentityHashMap</code> 是一个比较小众的<code>Map</code>实现类.</p>
+<h2 id="identityhashmap" class="heading-element">
+  <a href="#identityhashmap" class="heading-mark"></a>IdentityHashMap</h2><p><code>IdentityHashMap</code> 是一个比较小众的<code>Map</code>实现类.</p>
 <ul>
 <li>
 <p><code>IdentityHashMap</code>不是一个通用的<code>Map</code>实现, 虽然这个类实现了<code>Map</code>接口, 但是它故意违反了<code>Map</code>的约定, 该约定要求在比较对象时使用<code>equals</code>方法, 此类仅适用于需要引用相等语义的极少数情况.</p>
@@ -556,27 +494,19 @@
 <p><code>IdentityHashMap</code>不是线程安全的容器.</p>
 </li>
 <li>
-<p>支持<a
-  href="../failfast"
-  
-  
-  
-  
-  
-  
->fail-fast</a>机制.</p>
+<p>支持<a href="../failfast">fail-fast</a>机制.</p>
 </li>
 </ul>
-<h2 id="weakhashmap">WeakHashMap</h2>
-<p><code>WeakHashMap</code>类基于哈希表的<code>Map</code>基础实现, 带有弱键. <code>WeakHashMap</code>中的<code>entry</code>当不再使用时还会自动移除. 也就是说, <code>WeakHashMap</code>中的<code>entry</code>不会增加其引用计数.</p>
+<h2 id="weakhashmap" class="heading-element">
+  <a href="#weakhashmap" class="heading-mark"></a>WeakHashMap</h2><p><code>WeakHashMap</code>类基于哈希表的<code>Map</code>基础实现, 带有弱键. <code>WeakHashMap</code>中的<code>entry</code>当不再使用时还会自动移除. 也就是说, <code>WeakHashMap</code>中的<code>entry</code>不会增加其引用计数.</p>
 <ul>
 <li>基于<code>map</code>接口, 是一种弱键相连, <code>WeakHashMap</code>里面的键会自动回收.</li>
 <li>支持<code>null</code>键和<code>null</code>值.</li>
 <li>支持<code>fail-fast</code>机制</li>
 <li><code>WeakHashMap</code>经常用作缓存.</li>
 </ul>
-<h2 id="集合实现类特征图">集合实现类特征图</h2>
-<p>下面这个表格汇总了部分集合框架的主要实现类的特征</p>
+<h2 id="集合实现类特征图" class="heading-element">
+  <a href="#%e9%9b%86%e5%90%88%e5%ae%9e%e7%8e%b0%e7%b1%bb%e7%89%b9%e5%be%81%e5%9b%be" class="heading-mark"></a>集合实现类特征图</h2><p>下面这个表格汇总了部分集合框架的主要实现类的特征</p>
 <table>
 <thead>
 <tr>
@@ -694,68 +624,42 @@
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-06-17&#32;09:26:55>更新于 2022-06-17</span>
-      </div>
-      <div class="post-info-license"></div>
-    </div>
-    <div class="post-info-line">
-      <div class="post-info-md"><span>
-              <a class="link-to-markdown" href="/java_collection/index.md" target="_blank">阅读原始文档</a>
-            </span></div>
-      <div class="post-info-share">
-        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/java_collection/" data-title="Java集合" data-hashtags="Java"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/java_collection/" data-hashtag="Java"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/java_collection/" data-title="Java集合"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/java_collection/" data-title="Java集合"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/java_collection/" data-title="Java集合" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
-      </div>
-    </div>
-  </div>
+        <span title="更新于 2024-04-23 11:04:45">更新于 2024-04-23&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/java_collection/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/java_collection/" data-title="Java集合" data-hashtags="Java"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/java_collection/" data-hashtag="Java"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/java_collection/" data-title="Java集合"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/java_collection/" data-title="Java集合"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/java_collection/" data-title="Java集合" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
 
   <div class="post-info-more">
-    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/java/">Java</a></section>
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/java/" class="post-tag" title="标签 - Java">Java</a></section>
     <section>
       <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
     </section>
   </div>
 
-  <div class="post-nav"><a href="/sqlinjection/" class="prev" rel="prev" title="SQL注入"><i class="fas fa-angle-left fa-fw"></i>SQL注入</a>
-      <a href="/binarysearch/" class="next" rel="next" title="二分法查找">二分法查找<i class="fas fa-angle-right fa-fw"></i></a></div>
+  <div class="post-nav"><a href="/sqlinjection/" class="post-nav-item" rel="prev" title="SQL注入"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>SQL注入</a>
+      <a href="/binarysearch/" class="post-nav-item" rel="next" title="二分法查找">二分法查找<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
-</article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
-        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
-              <a
-  href="https://github.com/immustard"
-  
-  
-    
-    target="_blank"
-  
-  
-    rel="external nofollow noopener noreffer"
-  
-  
-  
-  
->Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
-          <span id="busuanzi_container_site_uv" title=总访客数
-            ><i class="far fa-user"></i>
-            <span id="busuanzi_value_site_uv"
-              ><i class="fa fa-spinner fa-spin"></i
-            ></span
-          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
-              ><i class="fas fa-heartbeat animate-icon"></i>
-              <span class="run-times">Loading...</span
-            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
-            ><i class="far fa-eye"></i>
-            <span id="busuanzi_value_site_pv"
-              ><i class="fa fa-spinner fa-spin"></i
-            ></span
-          ></span>
-        </div></div>
-  </footer></div>
+</article>
 
-    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
-        <i class="fas fa-arrow-up fa-fw"></i>
-      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
-        <i class="fas fa-comment fa-fw"></i>
-      </a>
-    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
 </html>

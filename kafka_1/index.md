@@ -1,7 +1,7 @@
 # Kafka概述
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -41,7 +41,7 @@
 
 ## Kafka基础框架
 
-<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202207261603195.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       Kafka基础框架   	</div> </center>
+&lt;center&gt;     &lt;img style=&#34;border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34;      src=&#34;https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202207261603195.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;     &lt;br&gt;     &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;&#34;&gt;       Kafka基础框架   	&lt;/div&gt; &lt;/center&gt;
 
 1. **Producer**: 消息生产者, 向 Kafka broker 发消息的客户端. 
 2. **Consumer**: 消息消费者, 向 Kafka broker 取消息的客户端. 
@@ -50,6 +50,12 @@
 5. **Topic**: 可以理解为一个队列, 生产者和消费者面向的都是一个 topic. 
 6. **Partition**: 为了实现扩展性, 一个非常大的 topic 可以分布到多个 broker(即服务器) 上, 一个 topic 可以分为多个 partition, 每个 partition 是一个有序的队列. 
 7. **Replica**: 副本. 一个 topic 的每个分区都有若干个副本, 一个 Leader 和若干个 Follower. 
-8. **Leader**: 每个分区多个副本的"主", 生产者发送数据的对象, 以及消费者消费数据的对象都是Leader. 
-9. **Follower**: 每个分区多个副本中的"从", 实时从 Leader 中同步数据, 保持和 Leader 数据的同步. Leader 发生故障时, 某个 Follower 会成为新的 Leader. 
+8. **Leader**: 每个分区多个副本的&#34;主&#34;, 生产者发送数据的对象, 以及消费者消费数据的对象都是Leader. 
+9. **Follower**: 每个分区多个副本中的&#34;从&#34;, 实时从 Leader 中同步数据, 保持和 Leader 数据的同步. Leader 发生故障时, 某个 Follower 会成为新的 Leader. 
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/kafka_1/  
 

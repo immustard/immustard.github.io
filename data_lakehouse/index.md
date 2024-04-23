@@ -1,7 +1,7 @@
 # 湖仓一体
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
@@ -44,9 +44,9 @@
 
 
 
->  需要注意的是: 
->
-> 数据湖 + 数据仓库 ≠ 湖仓一体
+&gt;  需要注意的是: 
+&gt;
+&gt; 数据湖 &#43; 数据仓库 ≠ 湖仓一体
 
 
 
@@ -57,18 +57,18 @@
 
 
 
-<center>
-    <img style="border-radius: 0.3125em;
-    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);" 
-    src="https://miro.medium.com/max/1280/1*Nv28a3S6zQFAHZd4iVy8Xw.png" width = "65%" alt="" onclick="window.open(this.src)"/>
-    <br>
-    <div style="color:orange; border-bottom: 1px solid #d9d9d9;
+&lt;center&gt;
+    &lt;img style=&#34;border-radius: 0.3125em;
+    box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);&#34; 
+    src=&#34;https://miro.medium.com/max/1280/1*Nv28a3S6zQFAHZd4iVy8Xw.png&#34; width = &#34;65%&#34; alt=&#34;&#34; onclick=&#34;window.open(this.src)&#34;/&gt;
+    &lt;br&gt;
+    &lt;div style=&#34;color:orange; border-bottom: 1px solid #d9d9d9;
     display: inline-block;
     color: #999;
-    padding: 2px;">
+    padding: 2px;&#34;&gt;
       灵活性与成长性
-  	</div>
-</center>
+  	&lt;/div&gt;
+&lt;/center&gt;
 
 
 
@@ -83,4 +83,10 @@
 * **数据停滞**：在数据湖中，数据停滞是一个最为严重的问题，如果数据一直无人治理，那将很快变为数据沼泽。我们往往轻易的将数据丢入湖中，但缺乏有效的治理，长此以往，数据的时效性变得越来越难追溯。湖仓一体的引入，对于海量数据进行治理，能够更有效地帮助提升分析数据的时效性。
 
 * **潜在不兼容性带来的风险**：数据分析仍是一门兴起的技术，新的工具和技术每年仍在不停地出现中。一些技术可能只和数据湖兼容，而另一些则又可能只和数据仓库兼容。湖仓一体的架构意味着为两方面做准备。
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/data_lakehouse/  
 

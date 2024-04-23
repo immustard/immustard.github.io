@@ -1,14 +1,87 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Tags - 标签 - 我的全新 Hugo 网站</title>
+    <title>Tags - 标签 - Buli&#39;s Home</title>
     <link>https://buli-home.cn/tags/</link>
-    <description>Tags - 标签 - 我的全新 Hugo 网站</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 21 Feb 2022 16:37:27 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/" rel="self" type="application/rss+xml" /><item>
-  <title>draft</title>
-  <link>https://buli-home.cn/tags/draft/</link>
-  <pubDate>Mon, 21 Feb 2022 16:37:27 &#43;0800</pubDate>
+    <description>Tags - 标签 | Buli&#39;s Home</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Apr 2024 10:59:07 &#43;0800</lastBuildDate><atom:link href="https://buli-home.cn/tags/" rel="self" type="application/rss+xml" /><item>
+  <title>AES</title>
+  <link>https://buli-home.cn/tags/aes/</link>
+  <pubDate>Tue, 23 Apr 2024 10:59:07 &#43;0800</pubDate>
   <author>作者</author>
-  <guid>https://buli-home.cn/tags/draft/</guid>
+  <guid>https://buli-home.cn/tags/aes/</guid>
   <description><![CDATA[]]></description>
-</item></channel>
+</item>
+<item>
+  <title>Encrypt</title>
+  <link>https://buli-home.cn/tags/encrypt/</link>
+  <pubDate>Tue, 23 Apr 2024 10:59:07 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/encrypt/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Security</title>
+  <link>https://buli-home.cn/tags/security/</link>
+  <pubDate>Tue, 23 Apr 2024 10:59:07 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/security/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Big Data</title>
+  <link>https://buli-home.cn/tags/big-data/</link>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/big-data/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>SeaTunnel</title>
+  <link>https://buli-home.cn/tags/seatunnel/</link>
+  <pubDate>Mon, 04 Dec 2023 17:20:12 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/seatunnel/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Distributed System</title>
+  <link>https://buli-home.cn/tags/distributed-system/</link>
+  <pubDate>Mon, 23 Oct 2023 10:22:21 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/distributed-system/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Database</title>
+  <link>https://buli-home.cn/tags/database/</link>
+  <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/database/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Mongodb</title>
+  <link>https://buli-home.cn/tags/mongodb/</link>
+  <pubDate>Mon, 16 Oct 2023 12:48:45 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/mongodb/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Hive</title>
+  <link>https://buli-home.cn/tags/hive/</link>
+  <pubDate>Tue, 10 Oct 2023 17:23:33 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/hive/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
+  <title>Network</title>
+  <link>https://buli-home.cn/tags/network/</link>
+  <pubDate>Tue, 15 Aug 2023 09:43:55 &#43;0800</pubDate>
+  <author>作者</author>
+  <guid>https://buli-home.cn/tags/network/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Kafka生产者 - Buli&#39;s Home</title><meta name="author" content="">
+<meta name="author-link" content="">
+<meta name="description" content="关于 FixIt 主题" /><meta name="keywords" content='Kafka, Message Queue, big data' />
+  <meta itemprop="name" content="Kafka生产者">
+  <meta itemprop="description" content="关于 FixIt 主题">
+  <meta itemprop="datePublished" content="2022-09-02T12:48:11+08:00">
+  <meta itemprop="dateModified" content="2024-04-23T11:04:45+08:00">
+  <meta itemprop="wordCount" content="1245">
+  <meta itemprop="image" content="https://buli-home.cn/logo.png">
+  <meta itemprop="keywords" content="Kafka,Message Queue,Big Data"><meta property="og:url" content="https://buli-home.cn/kafka_3/">
+  <meta property="og:site_name" content="Buli&#39;s Home">
+  <meta property="og:title" content="Kafka生产者">
+  <meta property="og:description" content="关于 FixIt 主题">
+  <meta property="og:locale" content="zh-CN">
+  <meta property="og:type" content="article">
+  <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-02T12:48:11+08:00">
+    <meta property="article:modified_time" content="2024-04-23T11:04:45+08:00">
+    <meta property="article:tag" content="Kafka">
+    <meta property="article:tag" content="Message Queue">
+    <meta property="article:tag" content="Big Data">
+    <meta property="og:image" content="https://buli-home.cn/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"><meta name="twitter:title" content="Kafka生产者">
+<meta name="twitter:description" content="">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#ffffff" data-dark="#252627" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/kafka_3/" /><link rel="prev" href="https://buli-home.cn/kafka_2/" /><link rel="next" href="https://buli-home.cn/hdfs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Kafka生产者",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/kafka_3\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Kafka, Message Queue, big data","wordcount":  1245 ,
+    "url": "https:\/\/buli-home.cn\/kafka_3\/","datePublished": "2022-09-02T12:48:11+08:00","dateModified": "2024-04-23T11:04:45+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "作者"
+      },"description": ""
+  }
+  </script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><script>(window.localStorage?.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('data-theme', 'dark');</script><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="Buli&#39;s Home" data-title="Buli&#39;s Home" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              >所有文章</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              >标签</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              >分类</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/documents/"
+                
+                
+              >文档</a></li><li class="menu-item">
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              >关于</a></li><li class="menu-item delimiter"></li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img loading="lazy" src="/logo.png" alt="/logo.png" data-title="/logo.png" class="logo" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder=" " id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw" aria-hidden="true"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw" aria-hidden="true"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/posts/"
+                  
+                  
+                >所有文章</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/tags/"
+                  
+                  
+                >标签</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/categories/"
+                  
+                  
+                >分类</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/documents/"
+                  
+                  
+                >文档</a></li><li
+              class="menu-item"
+            ><a
+                  class="menu-link"
+                  href="/about/"
+                  
+                  
+                >关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+  </div>
+  <div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+  </div><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Kafka生产者</span>
+      </h1><p class="single-subtitle animate__animated animate__fadeIn">Kafka Producer</p></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/kafka/" class="post-category" title="分类 - Kafka"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Kafka</a></span></div><div class="post-meta-line"><span title="发布于 2022-09-02 12:48:11"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2022-09-02">2022-09-02</time></span>&nbsp;<span title="更新于 2024-04-23 11:04:45"><i class="fa-regular fa-calendar-check fa-fw me-1" aria-hidden="true"></i><time datetime="2024-04-23">2024-04-23</time></span>&nbsp;<span title="1245 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 1300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#生产者消息发送流程">生产者消息发送流程</a>
+      <ul>
+        <li><a href="#发送原理">发送原理</a></li>
+        <li><a href="#生产者重要参数">生产者重要参数</a></li>
+      </ul>
+    </li>
+    <li><a href="#生产者分区">生产者分区</a>
+      <ul>
+        <li><a href="#分区的好处">分区的好处</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据传递语义">数据传递语义</a></li>
+    <li><a href="#幂等性">幂等性</a>
+      <ul>
+        <li><a href="#幂等性原理">幂等性原理</a></li>
+        <li><a href="#如何使用幂等性">如何使用幂等性</a></li>
+      </ul>
+    </li>
+    <li><a href="#生产者事务">生产者事务</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="生产者消息发送流程" class="heading-element">
+  <a href="#%e7%94%9f%e4%ba%a7%e8%80%85%e6%b6%88%e6%81%af%e5%8f%91%e9%80%81%e6%b5%81%e7%a8%8b" class="heading-mark"></a>生产者消息发送流程</h2><h3 id="发送原理" class="heading-element">
+  <a href="#%e5%8f%91%e9%80%81%e5%8e%9f%e7%90%86" class="heading-mark"></a>发送原理</h3><p>在消息发送的过程中, 涉及到了<strong>两个线程&ndash;<code>main线程</code>和<code>Sender线程</code></strong>. 在 main 线程中创建了一个<code>双端队列RecordAccumulator</code>. main 线程将消息发送个 RecordAccumulator, Sender 线程不断从 RecordAccumulator 中拉取消息发送到 Kafka Broker.</p>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202209041729645.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       发送流程   	</div> </center>
+<h3 id="生产者重要参数" class="heading-element">
+  <a href="#%e7%94%9f%e4%ba%a7%e8%80%85%e9%87%8d%e8%a6%81%e5%8f%82%e6%95%b0" class="heading-mark"></a>生产者重要参数</h3><table>
+<thead>
+<tr>
+<th><strong>参数名称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bootstrap.servers</code></td>
+<td>生产者连接集群所需的 boker 地址清单. 可以设置一个或多个, 中间用<code>,</code>隔开. <strong>注意:</strong> 并非需要所有的 broker 地址, 因为生产者从给定的 broker 里查找其他 broker 信息</td>
+</tr>
+<tr>
+<td><code>key.serializer</code>和<code>value.serializer</code></td>
+<td>指定发送消息的 key 和 value 的序列化类型. <strong>一定要写全类名!</strong></td>
+</tr>
+<tr>
+<td><code>buffer.memory</code></td>
+<td>RecordAccumulator 缓冲区总大小, <code>默认32m</code>.</td>
+</tr>
+<tr>
+<td><code>batch.size</code></td>
+<td>缓冲区一批数据最大值, <code>默认16k</code>. (适当增加可以提高吞吐量; 但是如果过大的话, 会导致数据传输延迟增加).</td>
+</tr>
+<tr>
+<td><code>linger.ms</code></td>
+<td>如果数据一直未到达 batch.size, sender 等待 linger.ms 之后就会发送数据, 单位是ms. <code>默认0ms</code>, 表示没有延迟. (生产环境一般 5-100ms 之间)</td>
+</tr>
+<tr>
+<td><code>acks</code></td>
+<td>0: 生产者发送过来的数据, 不需要等数据落盘应答; 1: 生产者发送过来的数据, Leader 收到数据后应答; -1(all): 生产者发送过来的数据, Leader+ 和 isr 队列里面的所有节点收齐数据后应答. <code>默认是-1</code>, -1和all是等价的.</td>
+</tr>
+<tr>
+<td><code>max.in.flight.request.per.connection</code></td>
+<td>允许最多没有返回 ack 的次数, <code>默认为5</code>, 开启幂等性要保证该值是 1-5 的数字.</td>
+</tr>
+<tr>
+<td><code>retries</code></td>
+<td>当消息发送出现错误的时候, 系统会重发消息. 该值表示重复次数. <code>默认为int最大值,2147483647</code>. 如果设置了重试, 还想保证消息的有序性, 需要设置 MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION=1 否则在重试此失败消息的时候, 其他的消息可能发送成功了.</td>
+</tr>
+<tr>
+<td><code>retry.backoff.ms</code></td>
+<td>两次重试之间的时间间隔, <code>默认为100ms</code>.</td>
+</tr>
+<tr>
+<td><code>enable.idempotence</code></td>
+<td>是否开启幂等性, <code>默认为true</code>, 开启幂等性.</td>
+</tr>
+<tr>
+<td><code>compression.type</code></td>
+<td>生产者发送的所有数据的压缩方式. <code>默认为none</code>, 也就是不压缩. 支持压缩类型: none, gzip, snappy, lz4和zstd.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="生产者分区" class="heading-element">
+  <a href="#%e7%94%9f%e4%ba%a7%e8%80%85%e5%88%86%e5%8c%ba" class="heading-mark"></a>生产者分区</h2><h3 id="分区的好处" class="heading-element">
+  <a href="#%e5%88%86%e5%8c%ba%e7%9a%84%e5%a5%bd%e5%a4%84" class="heading-mark"></a>分区的好处</h3><ol>
+<li><strong>便于合理使用存储资源</strong>, 每个 Partition 在一个 Broker 上存储, 可以吧海量的数据按照分区切割成小块存储在多台 Broker 上. 合理控制分区的任务, 可以实现<strong>负载均衡</strong>的效果.</li>
+<li><strong>提高并行度</strong>, 生产者可以以分区为单位<strong>发送数据</strong>; 消费者可以以分区为单位<strong>消费数据</strong>.</li>
+</ol>
+<h2 id="数据传递语义" class="heading-element">
+  <a href="#%e6%95%b0%e6%8d%ae%e4%bc%a0%e9%80%92%e8%af%ad%e4%b9%89" class="heading-mark"></a>数据传递语义</h2><ul>
+<li><strong>至少一次</strong>(At Least Once) = <code>ACK级别设置为-1</code> + <code>分区副本大于等于2</code> + <code>ISR里应答的最小副本数量大于等于2</code></li>
+<li><strong>最多一次</strong>(At Most Once) = <code>ACK级别设置为0</code>.</li>
+<li><strong>精确一次</strong>(Exactly Once): 对于一些非常重要的信息, 例如和钱相关的数据, 要求数据既不能重复也不能丢失.</li>
+</ul>
+<p>也就是说, At Least Once 可以保证数据不丢失, 但是<strong>不能保证数据不重复</strong>; At Most Once 可以保证数据不重复, 但是<strong>不能保证数据不丢失</strong>.</p>
+<h2 id="幂等性" class="heading-element">
+  <a href="#%e5%b9%82%e7%ad%89%e6%80%a7" class="heading-mark"></a>幂等性</h2><h3 id="幂等性原理" class="heading-element">
+  <a href="#%e5%b9%82%e7%ad%89%e6%80%a7%e5%8e%9f%e7%90%86" class="heading-mark"></a>幂等性原理</h3><p>幂等性就是指 Producer 不论向 Broker 发送多少次重复数据, Broker 端都只会持久化一条, 保证了不重复.</p>
+<p>所以上面的 Exactly Once = <code>幂等性</code> + <code>At Least Once</code>(ack=-1 + partitions&gt;=2 + ISR最小副本数&gt;=2)</p>
+<p><strong>重复数据的判断标准</strong>: 具有<code>&lt;PID, Partition, SeqNumber&gt;</code>相同逐渐的消息提交时, Borker 只会持久化一条. 其中:</p>
+<ul>
+<li>PID 是 Kafka 每次重启都会分配一个新的;</li>
+<li>Partition 表示分区号</li>
+<li>Sequence Number 单调自增</li>
+</ul>
+<p><strong>综上, 幂等性只能保证的是在单分区单会话内不重复</strong>.</p>
+<h3 id="如何使用幂等性" class="heading-element">
+  <a href="#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8%e5%b9%82%e7%ad%89%e6%80%a7" class="heading-mark"></a>如何使用幂等性</h3><p>开启参数<code>enable.idempotence</code>.</p>
+<h2 id="生产者事务" class="heading-element">
+  <a href="#%e7%94%9f%e4%ba%a7%e8%80%85%e4%ba%8b%e5%8a%a1" class="heading-mark"></a>生产者事务</h2><blockquote>
+<p>开启事务, 必须开启幂等性!</p>
+</blockquote>
+<center>     <img style="border-radius: 0.3125em;     box-shadow: 0 2px 4px 0 rgba(34,36,38,.12),0 2px 10px 0 rgba(34,36,38,.08);"      src="https://cdn.jsdelivr.net/gh/immustard/gallery/pictures/202209041812162.png" width = "65%" alt="" onclick="window.open(this.src)"/>     <br>     <div style="color:orange; border-bottom: 1px solid #d9d9d9;     display: inline-block;     color: #999;     padding: 2px;">       Kafka事务原理   	</div> </center></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-04-23 11:04:45">更新于 2024-04-23&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"><span><a href="/kafka_3/index.md" title="阅读原始文档" class="link-to-markdown">阅读原始文档</a></span></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者" data-hashtags="Kafka,Message Queue,big data"><i class="fa-brands fa-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/kafka_3/" data-hashtag="Kafka"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者"><i class="fa-brands fa-hacker-news fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/kafka_3/" data-title="Kafka生产者" data-ralateuid="6162021698"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/kafka/" class="post-tag" title="标签 - Kafka">Kafka</a><a href="/tags/message-queue/" class="post-tag" title="标签 - Message Queue">Message Queue</a><a href="/tags/big-data/" class="post-tag" title="标签 - Big Data">Big Data</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/kafka_2/" class="post-nav-item" rel="prev" title="Kafka命令行操作"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Kafka命令行操作</a>
+      <a href="/hdfs/" class="post-nav-item" rel="next" title="Hadoop分布式文件系统——HDFS">Hadoop分布式文件系统——HDFS<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.125.3"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.2"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a href="/"></a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="ms-1 d-none">Buli Home</span><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">FixIt 主题在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/autocomplete/autocomplete.min.js" defer></script><script src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script src="/lib/cell-watermark/watermark.min.js" defer></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":16},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-11-20T08:27:00+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.02,"rotate":15,"rowspacing":60,"width":150}};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

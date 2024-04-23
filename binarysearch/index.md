@@ -1,13 +1,13 @@
 # 二分法查找
 
 
-<!--more-->
+&lt;!--more--&gt;
 
 
 
-> 前两天在[LeetCode](https://leetcode-cn.com/)做题的时候, 做到了二分查找(Binary Search). 现在来做一下梳理. 
->
-> 地址: [LeetCode-Binary Search](https://leetcode-cn.com/problems/binary-search/)
+&gt; 前两天在[LeetCode](https://leetcode-cn.com/)做题的时候, 做到了二分查找(Binary Search). 现在来做一下梳理. 
+&gt;
+&gt; 地址: [LeetCode-Binary Search](https://leetcode-cn.com/problems/binary-search/)
 
 
 
@@ -38,15 +38,15 @@
 public int search(int[] array, int target) {
   int left = 0, right = array.length-1;
   // 1. 因为循环中包含了 left == right 的条件, 所以每次循环的时候, left或right都要有变化
-  while (left <= right) {
-    // 这句话其实等同于 (right+left)/2, 但是这样的写法可以避免溢出
-    int mid = ((right - left) >> 1) + left;
+  while (left &lt;= right) {
+    // 这句话其实等同于 (right&#43;left)/2, 但是这样的写法可以避免溢出
+    int mid = ((right - left) &gt;&gt; 1) &#43; left;
     
     if (array[mid] == target) {
       return mid;
-    } else if (array[mid] < target) {
+    } else if (array[mid] &lt; target) {
       // 左边界更新
-      left = mid + 1;
+      left = mid &#43; 1;
     } else {
       // 右边界更新
       right = mid - 1;
@@ -79,11 +79,11 @@ public int search(int[] array, int target) {
 public int search(int[] array, int target) {
   int left = 0, right = array.length-1;
   
-  while (left < right) {
-    int mid = ((right - left) >> 1) + left;
+  while (left &lt; right) {
+    int mid = ((right - left) &gt;&gt; 1) &#43; left;
 				
-    if (array[mid] < target) {
-      left = mid + 1;
+    if (array[mid] &lt; target) {
+      left = mid &#43; 1;
     } else {
       right = mid;
     }
@@ -94,9 +94,9 @@ public int search(int[] array, int target) {
 
 可以很明显的看出来和标准的有何不同: 
 
-1. 查找条件变为了`left < right`
+1. 查找条件变为了`left &lt; right`
 
-   因为在最后`left`与`right`相邻的时候, `mid`和`left`处在同一位置. 所以下一步, `left`, `mid`, `right`都会在同一位置. 也就是说, 如果判断条件还是`left <= right`的话, 可能最后就会进入死循环. 
+   因为在最后`left`与`right`相邻的时候, `mid`和`left`处在同一位置. 所以下一步, `left`, `mid`, `right`都会在同一位置. 也就是说, 如果判断条件还是`left &lt;= right`的话, 可能最后就会进入死循环. 
 
 2. 右边界更新为`right = mid`
 
@@ -112,11 +112,11 @@ public int search(int[] array, int target) {
 public int search(int[] array, int target) {
   int left = 0, right = array.length-1;
   
-  while (left < right) {
-    int mid = ((right - left) >> 1) + left;
-    if (array[mid] < target) {
-      left = mid + 1;
-    } else if (array[mid] > target) {
+  while (left &lt; right) {
+    int mid = ((right - left) &gt;&gt; 1) &#43; left;
+    if (array[mid] &lt; target) {
+      left = mid &#43; 1;
+    } else if (array[mid] &gt; target) {
       right = mid;
     } else {
       --right;
@@ -130,4 +130,10 @@ public int search(int[] array, int target) {
 
 
 
+
+
+---
+
+> 作者:   
+> URL: https://buli-home.cn/binarysearch/  
 
