@@ -9,14 +9,14 @@
 <meta name="description" content="关于 FixIt 主题" />
 <meta name="keywords" content="Database,MySQL" /><meta itemprop="name" content="MySQL总览">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2021-12-13T16:31:37+08:00" />
-<meta itemprop="dateModified" content="2022-02-25T09:26:53+08:00" />
-<meta itemprop="wordCount" content="1675"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="dateModified" content="2022-06-17T08:36:34+08:00" />
+<meta itemprop="wordCount" content="1680"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
 <meta itemprop="keywords" content="Database,MySQL," /><meta property="og:title" content="MySQL总览" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://buli-home.cn/mysql_1/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-13T16:31:37+08:00" />
-<meta property="article:modified_time" content="2022-02-25T09:26:53+08:00" />
+<meta property="article:modified_time" content="2022-06-17T08:36:34+08:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
@@ -35,8 +35,8 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/buli-home.cn\/mysql_1\/"
-    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Database, MySQL","wordcount":  1675 ,
-    "url": "https:\/\/buli-home.cn\/mysql_1\/","datePublished": "2021-12-13T16:31:37+08:00","dateModified": "2022-02-25T09:26:53+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Database, MySQL","wordcount":  1680 ,
+    "url": "https:\/\/buli-home.cn\/mysql_1\/","datePublished": "2021-12-13T16:31:37+08:00","dateModified": "2022-06-17T08:36:34+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
       "@type": "Organization",
       "name": "Lruihao","logo": {
           "@type": "ImageObject",
@@ -64,7 +64,7 @@
     title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
     <div class="menu">
       <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-            <input type="text" placeholder="         搜索" id="search-input-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
               <i class="fas fa-search fa-fw"></i>
             </a>
@@ -98,7 +98,7 @@
     </div>
     <div class="menu" id="menu-mobile"><div class="search-wrapper">
           <div class="search mobile" id="search-mobile">
-            <input type="text" placeholder="         搜索" id="search-input-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
             <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
               <i class="fas fa-search fa-fw"></i>
             </a>
@@ -130,7 +130,7 @@
     
   </aside>
 
-  <article class="page single"><h1 class="single-title animated flipInX">MySQL总览</h1><div class="post-meta">
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL总览</h1><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><a
   href="https://github.com/immustard"
   
@@ -145,13 +145,13 @@
   
   
   
-    class=" author"
+    class="author"
   
   
 ><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/mysql/"><i class="far fa-folder fa-fw"></i>MySQL</a></span></div>
       <div class="post-meta-line"><span title=2021-12-13&#32;16:31:37>
             <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-13" >2021-12-13</time>
-          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1675 字&nbsp;
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1680 字&nbsp;
         <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
     </div><div class="details toc" id="toc-static" kept="false">
         <div class="details-summary toc-title">
@@ -192,8 +192,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>MySQL</strong>本身也是一个系统, 是一个<strong>数据库管理系统(DBMS)</strong>, 是没法直接理解这些语句的, 所以就需要**查询解析器(Parser)**出场了! 这个查询解析器是负责对SQL语句进行解析的, 比如上面的语句拆解一下, 可以拆解为一下几个部分:</p>
 <ol>
@@ -209,7 +209,7 @@
 </ol>
 <p>所谓的<strong>SQL解析</strong>, 就是按照既定的SQL语法, 对我们按照SQL语法规则编写的SQL语句进行解析, 然后理解这个SQL语句要干什么事情.</p>
 <h3 id="第三步-查询优化器-选择最优查询路径">第三步 查询优化器: 选择最优查询路径</h3>
-<p>当通过解析器理解了SQL语句要干什么之后, 接着就会找**查询优化器(Optimizer)**来选择一个最优的查询路径.</p>
+<p>当通过解析器理解了SQL语句要干什么之后, 接着就会找<strong>查询优化器</strong>(Optimizer)来选择一个最优的查询路径.</p>
 <h3 id="第四步-存储引擎-调用存储引擎接口-真正执行sql语句">第四步 存储引擎: 调用存储引擎接口, 真正执行SQL语句</h3>
 <p>最后一步, 就是把查询优化器选择的最有查询路径交给底层的存储引擎去真正的执行.</p>
 <p><strong>存储引擎</strong>是MySQL架构设计中很有特色的一个环节. 在真正执行SQL语句的时候, 要不是更新数据, 要不是查询数据, 但是具体的数据是存放在内存里还是在磁盘里呢? 这个时候就需要<strong>存储引擎</strong>了, 存储引擎其实就是执行SQL语句的, 它是按照一定的步骤去查询内存缓存数据, 更新磁盘数据, 查询磁盘数据等等, 执行诸如此类的一系列的操作.</p>
@@ -218,11 +218,11 @@
 <p>现在回过头来看一个问题, 存储引擎可以访问内存和磁盘上的数据, 那么是谁来调用存储引擎的接口呢?</p>
 <p>其实还漏了一个<strong>执行器</strong>的概念, 执行器会根据优化器选择的执行方案, 去调用存储引擎的接口按照一定的顺序和步骤, 就把SQL语句的逻辑给执行了.</p>
 <p>举个🌰: 比如执行器可能会先调用存储引擎的一个接口, 去获取<code>users</code>表中的第一行数据, 然后判断一下这个数据的<code>id</code>字段的值是否等于我们期望的值, 如果不是的话, 就继续调用存储引擎的接口, 去获取<code>users</code>表的下一行数据.</p>
-<p>基于上述的思路, <strong>执行器就会去根据优化器生成的一套执行计划, 然后不停的调用存储引擎的各种接口去完成SQL语句的执行计划</strong>, 大致就是不听的更新或者提取一些数据出来.</p></div><div class="post-footer" id="post-footer">
+<p>基于上述的思路, <strong>执行器就会去根据优化器生成的一套执行计划, 然后不停的调用存储引擎的各种接口去完成SQL语句的执行计划</strong>, 大致就是不停的更新或者提取一些数据出来.</p></div><div class="post-footer" id="post-footer">
   <div class="post-info">
     <div class="post-info-line">
       <div class="post-info-mod">
-        <span title=2022-02-25&#32;09:26:53>更新于 2022-02-25</span>
+        <span title=2022-06-17&#32;08:36:34>更新于 2022-06-17</span>
       </div>
       <div class="post-info-license"></div>
     </div>
@@ -247,8 +247,8 @@
       <a href="/mysql_2/" class="next" rel="next" title="InnoDB存储引擎的架构设计">InnoDB存储引擎的架构设计<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.92.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
-        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
               <a
   href="https://github.com/immustard"
   
@@ -285,5 +285,5 @@
       </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
         <i class="fas fa-comment fa-fw"></i>
       </a>
-    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"buli-home","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
 </html>

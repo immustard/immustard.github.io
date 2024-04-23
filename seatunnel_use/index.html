@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Seatunnel使用手册 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="SeaTunnel,big data" /><meta itemprop="name" content="Seatunnel使用手册">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-07-12T16:47:48+08:00" />
+<meta itemprop="dateModified" content="2022-07-13T13:55:47+08:00" />
+<meta itemprop="wordCount" content="3445"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="SeaTunnel,big data," /><meta property="og:title" content="Seatunnel使用手册" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/seatunnel_use/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-12T16:47:48+08:00" />
+<meta property="article:modified_time" content="2022-07-13T13:55:47+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="Seatunnel使用手册"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/seatunnel_use/" /><link rel="prev" href="https://buli-home.cn/scala_2/" /><link rel="next" href="https://buli-home.cn/scala_3/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Seatunnel使用手册",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/seatunnel_use\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "SeaTunnel, big data","wordcount":  3445 ,
+    "url": "https:\/\/buli-home.cn\/seatunnel_use\/","datePublished": "2022-07-12T16:47:48+08:00","dateModified": "2022-07-13T13:55:47+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Seatunnel使用手册</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/big-data/"><i class="far fa-folder fa-fw"></i>big data</a></span></div>
+      <div class="post-meta-line"><span title=2022-07-12&#32;16:47:48>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-07-12" >2022-07-12</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3445 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#seatunnel是什么">SeaTunnel是什么</a>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#为什么我们需要-seatunnel">为什么我们需要 SeaTunnel</a></li>
+        <li><a href="#seatunnel-使用场景">SeaTunnel 使用场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#环境依赖">环境依赖</a>
+      <ul>
+        <li><a href="#环境配置">环境配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#官方示例">官方示例</a>
+      <ul>
+        <li><a href="#sql执行顺序">sql执行顺序</a></li>
+        <li><a href="#启动命令">启动命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#应用配置的4个基本组件">应用配置的4个基本组件</a>
+      <ul>
+        <li><a href="#env块">env块</a></li>
+        <li><a href="#row">Row</a></li>
+        <li><a href="#source块">source块</a>
+          <ul>
+            <li><a href="#当前支持的source">当前支持的source</a></li>
+          </ul>
+        </li>
+        <li><a href="#transform块">transform块</a>
+          <ul>
+            <li><a href="#split插件">Split插件</a></li>
+            <li><a href="#sql-插件">Sql 插件</a></li>
+          </ul>
+        </li>
+        <li><a href="#sink块">Sink块</a>
+          <ul>
+            <li><a href="#当前支持的sink">当前支持的sink</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><blockquote>
+<p>官方文档: <a
+  href="https://seatunnel.apache.org/"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></p>
+</blockquote>
+<blockquote>
+<p>本文档针对 SeaTunnel v2.1.2 编写</p>
+</blockquote>
+<hr>
+<h2 id="seatunnel是什么">SeaTunnel是什么</h2>
+<h3 id="概述">概述</h3>
+<p>先来看一下官方文档上是怎么说的:</p>
+<p>SeaTunnel is a very easy-to-use ultra-high-performance distributed data integration platform that supports real-time synchronization of massive data. It can synchronize tens of billions of data stably and efficiently every day, and has been used in the production of nearly 100 companies.</p>
+<blockquote>
+<p>翻译一下:</p>
+<p>SeaTunnel 是一个使用起来非常简单, 性能非常高效的分布式数据集成平台. 它支持海量数据的实时同步. 它可以每天稳定高效的同步数百亿的数据, 并且已经用于近百个公司的生产中.</p>
+</blockquote>
+<p>可以从上面提炼出几个关键词:</p>
+<ol>
+<li>very easy-to-use: 使用非常简单. 其实 SeaTunnel 并不是对 Flink 或是 Spark 或是以后支持的其他技术的二次开发, 而是在其之上封装了一层, 使得这些技术使用起来会更简便.</li>
+<li>ultra-high-performance: 超高性能.</li>
+<li>real-time synchronization of massive data: 海量数据的实时同步.</li>
+</ol>
+<blockquote>
+<p>以下是从官方文档摘抄:</p>
+</blockquote>
+<blockquote>
+<h3 id="为什么我们需要-seatunnel">为什么我们需要 SeaTunnel</h3>
+<p>SeaTunnel 尽所能为您解决海量数据同步中可能遇到的问题：</p>
+<ul>
+<li>数据丢失与重复</li>
+<li>任务堆积与延迟</li>
+<li>吞吐量低</li>
+<li>应用到生产环境周期长</li>
+<li>缺少应用运行状态监控</li>
+</ul>
+</blockquote>
+<blockquote>
+<h3 id="seatunnel-使用场景">SeaTunnel 使用场景</h3>
+<ul>
+<li>海量数据同步</li>
+<li>海量数据集成</li>
+<li>海量数据的 ETL</li>
+<li>海量数据聚合</li>
+<li>多源数据处理</li>
+</ul>
+</blockquote>
+<h2 id="环境依赖">环境依赖</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">组件</th>
+<th>版本</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Java</td>
+<td>&gt;=8</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">Flink</td>
+<td>1.13</td>
+<td>因为当前版本SeaTunnel还未适配Flink1.14, 所以使用Flink1.13版本进行文档编写</td>
+</tr>
+<tr>
+<td style="text-align:center">Spark</td>
+<td>2.x</td>
+<td>如果是集群方式的话, Yarn/Standalone 都是支持的</td>
+</tr>
+</tbody>
+</table>
+<h3 id="环境配置">环境配置</h3>
+<p><code>config</code>目录下<code>seatunnel-env.sh</code>中可以配置Spark和Flink的环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># Home directory of spark distribution.
+</span></span><span class="line"><span class="cl">SPARK_HOME=${SPARK_HOME:-/opt/spark}
+</span></span><span class="line"><span class="cl"># Home directory of flink distribution.
+</span></span><span class="line"><span class="cl">FLINK_HOME=${FLINK_HOME:-/opt/flink}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>:-</code>代表: 若未找到之前的地址, 则用之后的地址</p>
+</blockquote>
+<h2 id="官方示例">官方示例</h2>
+<p>首先来进行一个官方示例简单的运行一下.</p>
+<p>在<code>config</code>目录下创建文件<code>example.conf</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 配置 Spark 或 Flink 的参数
+</span></span><span class="line"><span class="cl">env {
+</span></span><span class="line"><span class="cl">    # You can set flink configuration here
+</span></span><span class="line"><span class="cl">    execution.parallelism = 1
+</span></span><span class="line"><span class="cl">    #execution.checkpoint.interval = 10000
+</span></span><span class="line"><span class="cl">    #execution.checkpoint.data-uri = &#34;hdfs://hadoop102:9092/checkpoint&#34;
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 在 source 所属的块中配置数据源
+</span></span><span class="line"><span class="cl"># 默认端口: 9999
+</span></span><span class="line"><span class="cl">source {
+</span></span><span class="line"><span class="cl">    SocketStream{
+</span></span><span class="line"><span class="cl">        host = hadoop102
+</span></span><span class="line"><span class="cl">        result_table_name = &#34;fake&#34;
+</span></span><span class="line"><span class="cl">        field_name = &#34;info&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 在 transform 的块中声明转换插件
+</span></span><span class="line"><span class="cl"># 这里需要说明的是: Split是不会立即生效的, 只有当sql插件中的sql语句中调用了split函数才会真正的作用在数据上
+</span></span><span class="line"><span class="cl">transform {
+</span></span><span class="line"><span class="cl">    Split{
+</span></span><span class="line"><span class="cl">        separator = &#34;#&#34;
+</span></span><span class="line"><span class="cl">        fields = [&#34;name&#34;,&#34;age&#34;]
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    sql {
+</span></span><span class="line"><span class="cl">        sql = &#34;select info, split(info) as info_row from fake&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"># 在 sink 块中声明要输出到哪
+</span></span><span class="line"><span class="cl">sink {
+</span></span><span class="line"><span class="cl">     ConsoleSink {}
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后<code>cd</code>到seatunnel目录在shell中执行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh --config config/example.conf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>用<code>nc -lk 9999</code>模拟一下socket连接</p>
+</blockquote>
+<h3 id="sql执行顺序">sql执行顺序</h3>
+<ol>
+<li>在<code>source</code>块中, 利用<code>SocketStream</code>插件读取出数据, 命名为<code>fake</code>表, 字段名为<code>info</code></li>
+<li>拿到<code>info</code>字段, 利用<code>Split</code>插件进行切分</li>
+</ol>
+<h3 id="启动命令">启动命令</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh -h
+</span></span><span class="line"><span class="cl">Usage: start-seatunnel-flink.sh [options]
+</span></span><span class="line"><span class="cl">  Options:
+</span></span><span class="line"><span class="cl">    -t, --check    check config (default: false)
+</span></span><span class="line"><span class="cl">  * -c, --config   Config file
+</span></span><span class="line"><span class="cl">    -h, --help     Show the usage message
+</span></span><span class="line"><span class="cl">    -r, --run-mode job run mode, run or run-application (default: RUN) 
+</span></span><span class="line"><span class="cl">                   (values: [RUN, APPLICATION_RUN])
+</span></span><span class="line"><span class="cl">    -i, --variable variable substitution, such as -i city=beijing, or -i 
+</span></span><span class="line"><span class="cl">                   date=20190318 (default: [])
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>其中, <code>--config</code>是必填参数</strong></p>
+<ul>
+<li>
+<p><code>-i</code></p>
+<p>当其中上面的sql改为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sql = &#34;select * from (select info, split(info) as info_row from fake) where age &gt; &#34;${age}&#34;&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动命令改为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./bin/start-seatunnel-flink.sh --config config/example02.conf -i age=18
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>-r</code></p>
+<p>执行 flink 自带的命令参数, 可以<code>cd</code>到 flink 下面 -&gt; <code>./bin/flink run -h</code>查看</p>
+</li>
+</ul>
+<h2 id="应用配置的4个基本组件">应用配置的4个基本组件</h2>
+<p>一个完整的SeaTunnel配置文件应包含四个配置组件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">env{}`  `source{}` --&gt; `transform{}` --&gt; `sink{}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="env块">env块</h3>
+<p>env块中可以直接写 spark 或 flink 支持的配置项. 比如并行度, 检查点时间, 检查点 hdfs 路径等. 以 Flink 为例, 在 SeaTunnel 源码的<code>ConfigKeyName</code>类中声明了所有可用的key:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">seatunnel</span><span class="p">.</span><span class="nx">flink</span><span class="p">.</span><span class="nx">util</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">ConfigKeyName</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">private</span> <span class="nf">ConfigKeyName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">throw</span> <span class="nx">new</span> <span class="nf">IllegalStateException</span><span class="p">(</span><span class="s">&#34;Utility class&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">TIME_CHARACTERISTIC</span> <span class="p">=</span> <span class="s">&#34;execution.time-characteristic&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">BUFFER_TIMEOUT_MILLIS</span> <span class="p">=</span> <span class="s">&#34;execution.buffer.timeout&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">PARALLELISM</span> <span class="p">=</span> <span class="s">&#34;execution.parallelism&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MAX_PARALLELISM</span> <span class="p">=</span> <span class="s">&#34;execution.max-parallelism&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">CHECKPOINT_INTERVAL</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.interval&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">CHECKPOINT_MODE</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.mode&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">CHECKPOINT_TIMEOUT</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.timeout&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">CHECKPOINT_DATA_URI</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.data-uri&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MAX_CONCURRENT_CHECKPOINTS</span> <span class="p">=</span> <span class="s">&#34;execution.max-concurrent-checkpoints&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">CHECKPOINT_CLEANUP_MODE</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.cleanup-mode&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MIN_PAUSE_BETWEEN_CHECKPOINTS</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.min-pause&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">FAIL_ON_CHECKPOINTING_ERRORS</span> <span class="p">=</span> <span class="s">&#34;execution.checkpoint.fail-on-error&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">RESTART_STRATEGY</span> <span class="p">=</span> <span class="s">&#34;execution.restart.strategy&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">RESTART_ATTEMPTS</span> <span class="p">=</span> <span class="s">&#34;execution.restart.attempts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">RESTART_DELAY_BETWEEN_ATTEMPTS</span> <span class="p">=</span> <span class="s">&#34;execution.restart.delayBetweenAttempts&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">RESTART_FAILURE_INTERVAL</span> <span class="p">=</span> <span class="s">&#34;execution.restart.failureInterval&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">RESTART_FAILURE_RATE</span> <span class="p">=</span> <span class="s">&#34;execution.restart.failureRate&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">RESTART_DELAY_INTERVAL</span> <span class="p">=</span> <span class="s">&#34;execution.restart.delayInterval&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MAX_STATE_RETENTION_TIME</span> <span class="p">=</span> <span class="s">&#34;execution.query.state.max-retention&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">MIN_STATE_RETENTION_TIME</span> <span class="p">=</span> <span class="s">&#34;execution.query.state.min-retention&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">STATE_BACKEND</span> <span class="p">=</span> <span class="s">&#34;execution.state.backend&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">static</span> <span class="nx">final</span> <span class="nx">String</span> <span class="nx">PLANNER</span> <span class="p">=</span> <span class="s">&#34;execution.planner&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="row">Row</h3>
+<p>在说明<code>source块</code>, <code>transform块</code>和<code>sink块</code>之前, 需要先了解一下 SeaTunnel 中的核心数据结构: <code>Row</code></p>
+<p>Row 是 SeaTunnel 中数据传递的核心数据结构. 对来 Flink 说, source 插件需要给下游的转换插件返回一个 <code>DataStream&lt;Row&gt;</code>, 转换插件接到上游的 <code>DataStream&lt;Row&gt;</code>进行处理后需要再给下游返回一个 <code>DataStream&lt;Row&gt;</code>. 最后 Sink 插件将转换插件处理好的<code>DataStream&lt;Row&gt;</code>输出到外部的数据系统.</p>
+<blockquote>
+<p>因为 <code>DataStream</code>可以很方便地和 Table 进行互转, 所以将 Row 当作核心数据结构可以让转换插件同时具有使用代码 (命令式) 和 sql (声明式) 处理数据的能力.</p>
+</blockquote>
+<p>可以看一下上面示例中, 读取数据的源码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">org</span><span class="p">.</span><span class="nx">apache</span><span class="p">.</span><span class="nx">seatunnel</span><span class="p">.</span><span class="nx">flink</span><span class="p">.</span><span class="nx">socket</span><span class="p">.</span><span class="nx">source</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">@</span><span class="nf">AutoService</span><span class="p">(</span><span class="nx">BaseFlinkSource</span><span class="p">.</span><span class="nx">class</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">public</span> <span class="nx">class</span> <span class="nx">SocketStream</span> <span class="nx">implements</span> <span class="nx">FlinkStreamSource</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">@</span><span class="nx">Override</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">public</span> <span class="nx">DataStream</span><span class="p">&lt;</span><span class="nx">Row</span><span class="p">&gt;</span> <span class="nf">getData</span><span class="p">(</span><span class="nx">FlinkEnvironment</span> <span class="nx">env</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">final</span> <span class="nx">StreamExecutionEnvironment</span> <span class="nx">environment</span> <span class="p">=</span> <span class="nx">env</span><span class="p">.</span><span class="nf">getStreamExecutionEnvironment</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">environment</span><span class="p">.</span><span class="nf">socketTextStream</span><span class="p">(</span><span class="nx">host</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="p">.</span><span class="kd">map</span><span class="p">((</span><span class="nx">MapFunction</span><span class="p">&lt;</span><span class="nx">String</span><span class="p">,</span> <span class="nx">Row</span><span class="p">&gt;)</span> <span class="nx">value</span> <span class="o">-</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">Row</span> <span class="nx">row</span> <span class="p">=</span> <span class="nx">new</span> <span class="nf">Row</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="nx">row</span><span class="p">.</span><span class="nf">setField</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">return</span> <span class="nx">row</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}).</span><span class="nf">returns</span><span class="p">(</span><span class="nx">new</span> <span class="nf">RowTypeInfo</span><span class="p">(</span><span class="nx">Types</span><span class="p">.</span><span class="nf">STRING</span><span class="p">()));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>感兴趣的话, 也可以看到源码中的 Split, sql, sink 都是用<code>DataStream&lt;Row&gt;</code>进行数据传递的</p>
+<h3 id="source块">source块</h3>
+<p><code>source{}</code>是可以配置多个 source 插件的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 伪代码
+</span></span><span class="line"><span class="cl">env {
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">source {
+</span></span><span class="line"><span class="cl">    hdfs { ... }
+</span></span><span class="line"><span class="cl">    jdbc { ... }
+</span></span><span class="line"><span class="cl">    elasticsearch { ... }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">transform {
+</span></span><span class="line"><span class="cl">    sql {
+</span></span><span class="line"><span class="cl">        sql = &#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">            select ... from hdfs_table
+</span></span><span class="line"><span class="cl">            join es_table on
+</span></span><span class="line"><span class="cl">            hdfs_table.uid = es_table.uid
+</span></span><span class="line"><span class="cl">            where ...&#34;&#34;&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sink {
+</span></span><span class="line"><span class="cl">    elasticsearch { ... }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>需要注意的是: 所有的 source 插件中都可以声明<code>result_table_name</code>. 如果声明了<code>result_table_name</code>. SeaTunnel 会将 source 插件输出的<code>DataStream&lt;Row&gt;</code>转换为 Table 并注册在 Table 环境中. 当指定了<code>result_table_name</code>那么还可以指定<code>field_name</code>, 在注册时, 给 Table重设字段名.</p>
+</blockquote>
+<blockquote>
+<p>因为每个 source 所需要的配置是不一致的 (<code>result_table_name</code>和<code>field_name</code>为共有非必填参数), 所以<strong>配置的时候查找官方文档会好一点</strong></p>
+</blockquote>
+<h4 id="当前支持的source">当前支持的source</h4>
+<table>
+<thead>
+<tr>
+<th>source</th>
+<th>支持Spark</th>
+<th>支持Flink</th>
+<th>备注</th>
+<th>文档地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Druid</strong></td>
+<td>❌</td>
+<td>✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Druid"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Elasticsearch</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Elasticsearch"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Fake</strong></td>
+<td>✔️</td>
+<td>✔️</td>
+<td>改类型主要是用于方便生成指定的数据, 用作 SeaTunnel 的功能验证, 测试和性能测试.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Fake"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Feishu Sheet</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/FeishuSheet"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>File</strong></td>
+<td>✔️</td>
+<td>✔️</td>
+<td>从本地或者 hdfs 中读取.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/File"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>HBase</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Hbase"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Hive</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Hive"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Http</strong></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Http"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Hudi</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Hudi"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Iceberg</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Iceberg"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>InfluxDb</strong></td>
+<td>❌</td>
+<td>✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/InfluxDb"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Jdbc</strong></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Jdbc"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Kafka</strong></td>
+<td>✔️</td>
+<td>✔️</td>
+<td>Kafka 版本 &gt;= 0.10.0, <del>目前源码中发现 Schema 的解析有问题</del>(原因为社区把 fastjson 换成 Jackon 引起的).</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Kafka"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Kudu</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td>兼容 Kerberos 认证</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Kudu"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>MongoDb</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/MongoDB"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Neo4j</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/neo4j"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Phoenix</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Phoenix"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Redis</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Redis"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Socket</strong></td>
+<td>✔️</td>
+<td>✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Redis"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Tidb</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Redis"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>WebhookStream</strong></td>
+<td>✔️</td>
+<td>❌</td>
+<td>提供 http 接口推送数据, 仅支持 <strong>POST</strong> 请求</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/source/Redis"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="transform块">transform块</h3>
+<p>目前社区对 transform 插件做了很多规划, 但截至 <code>v2.1.2</code> 版本, 可用的插件有3个: <code>Split</code>, <code>Sql</code>和<code>Json</code>. 其中<code>Json</code>只适配 Spark 可用.</p>
+<p><code>transform{}</code>中可以声明多个转换插件. 所有的转换插件都可以使用<code>source_table_name</code>, 和<code>result_table_name</code>. 同样, 如果声明了<code>result_table_name</code>, 那么就能声明<code>field_name</code>.</p>
+<h4 id="split插件">Split插件</h4>
+<p>这里着重说一下 Split 插件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    @Override
+</span></span><span class="line"><span class="cl">    public DataSet&lt;Row&gt; processBatch(FlinkEnvironment env, DataSet&lt;Row&gt; data) {
+</span></span><span class="line"><span class="cl">        return data;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    @Override
+</span></span><span class="line"><span class="cl">    public DataStream&lt;Row&gt; processStream(FlinkEnvironment env, DataStream&lt;Row&gt; dataStream) {
+</span></span><span class="line"><span class="cl">        return dataStream;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    @Override
+</span></span><span class="line"><span class="cl">    public void registerFunction(FlinkEnvironment flinkEnvironment) {
+</span></span><span class="line"><span class="cl">        if (flinkEnvironment.isStreaming()) {
+</span></span><span class="line"><span class="cl">            flinkEnvironment
+</span></span><span class="line"><span class="cl">                    .getStreamTableEnvironment()
+</span></span><span class="line"><span class="cl">                    .registerFunction(&#34;split&#34;, new ScalarSplit(rowTypeInfo, num, separator));
+</span></span><span class="line"><span class="cl">        } else {
+</span></span><span class="line"><span class="cl">            flinkEnvironment
+</span></span><span class="line"><span class="cl">                    .getBatchTableEnvironment()
+</span></span><span class="line"><span class="cl">                    .registerFunction(&#34;split&#34;, new ScalarSplit(rowTypeInfo, num, separator));
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>从源码中可以发现 Split 插件并没有对数据流进行任何的处理, 而是将它直接<code>return</code>了. 反之, 它向表环境中注册了一个名为 <strong>split</strong> 的 UDF(用户自定义函数). 而且, 函数名是写死的. 这意味着, <strong>如果声明了多个 Split 后面的 UDF 还会把前面的覆盖</strong>.</p>
+<blockquote>
+<p>从 Split 插件中就能看出了, 这个插件其实是通过注册方法的方式来调用的. 但是, transform 接口其实是预留了直接操作数据的能力的 (比如 Sql 插件中的处理方式), 也就是<code>processStream</code>方法. <strong>那么, 一个 transform 插件其实同时履行了 process 和 UDF 的职责, 这是违背单一职责原则的. 所以要判断一个 transform 插件在做什么就只能从源码和文档的方面来加以区分了</strong>.</p>
+</blockquote>
+<h4 id="sql-插件">Sql 插件</h4>
+<p>sql插件中需要特别说明的是, 指定<code>source_table_name</code>对于 sql 插件的意义不大, 因为可以通过<code>from</code>子句来决定从哪个表里抽取数据.</p>
+<h3 id="sink块">Sink块</h3>
+<p>sink块里可以声明多个 sink 插件, 每个 sink 插件都可以指定<code>source_table_name</code>.</p>
+<h4 id="当前支持的sink">当前支持的sink</h4>
+<table>
+<thead>
+<tr>
+<th>source</th>
+<th style="text-align:center">支持Spark</th>
+<th style="text-align:center">支持Flink</th>
+<th>备注</th>
+<th>文档地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clickhouse</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td>使用 Clickhouse-jdbc 根据字段名称对应数据源, 并将其写入. 使用前需创建对应的数据表.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Clickhouse"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>ClickhouseFile</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td>通过 clickhouse-local 程序生成 Clickhouse 数据文件, 然后将其发送到 Clickhouse 服务器, 也称为是 bulk load (批量加载).</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/ClickhouseFile"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Console</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td>将数据输出到标准终端或 Flink 的 TaskManager. 通常用于调试和易于观察的数据.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Console"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Doris</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Doris"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Druid</strong></td>
+<td style="text-align:center">❌</td>
+<td style="text-align:center">✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Druid"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Elasticsearch</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td>Spark 支持的 Elasticsearch &gt;= 2.0 并且 &lt; 7.0.0; Flink 支持的 Elasticsearch = 7.x, 如果要用 Elasticsearch 6.x, 需用源码执行命令 <code>mvn clean package -Delasticsearch=6</code>重新打包.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Elasticsearch"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td>支持通过 email 附件输出数据.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Email"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>File</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/File"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Hbase</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td>使用 hbase-connectors 将数据输出到 Hbase(&gt;=2.1.0) 和 Spark(&gt;=2.0.0) 版本兼容性取决于 hbase-connectors.</td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Hbase"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Hive</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Hive"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Hudi</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Hudi"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Iceberg</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Iceberg"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>InfluxDB</strong></td>
+<td style="text-align:center">❌️</td>
+<td style="text-align:center">✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/InfluxDb"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Jdbc</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Jdbc"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Kafka</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">✔️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Kafka"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Kudu</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Kudu"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>MongoDB</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/MongoDB"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Phoenix</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Phoenix"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>Redis</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Redis"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+<tr>
+<td><strong>TiDb</strong></td>
+<td style="text-align:center">✔️</td>
+<td style="text-align:center">❌️</td>
+<td></td>
+<td><a
+  href="https://seatunnel.apache.org/docs/2.1.2/connector/sink/Tidb"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>传送门</a></td>
+</tr>
+</tbody>
+</table></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-07-13&#32;13:55:47>更新于 2022-07-13</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/seatunnel_use/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/seatunnel_use/" data-title="Seatunnel使用手册" data-hashtags="SeaTunnel,big data"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/seatunnel_use/" data-hashtag="SeaTunnel"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/seatunnel_use/" data-title="Seatunnel使用手册"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/seatunnel_use/" data-title="Seatunnel使用手册"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/seatunnel_use/" data-title="Seatunnel使用手册" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/seatunnel/">SeaTunnel</a>,&nbsp;<a href="/tags/big-data/">big data</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/scala_2/" class="prev" rel="prev" title="Scala变量和数据类型"><i class="fas fa-angle-left fa-fw"></i>Scala变量和数据类型</a>
+      <a href="/scala_3/" class="next" rel="next" title="Scala运算符">Scala运算符<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

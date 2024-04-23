@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>系统调用、异常和中断 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="Operating System" /><meta itemprop="name" content="系统调用、异常和中断">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-03-16T13:44:12+08:00" />
+<meta itemprop="dateModified" content="2022-06-14T09:22:19+08:00" />
+<meta itemprop="wordCount" content="1070"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="Operating System," /><meta property="og:title" content="系统调用、异常和中断" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/os_interface/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-16T13:44:12+08:00" />
+<meta property="article:modified_time" content="2022-06-14T09:22:19+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="系统调用、异常和中断"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/os_interface/" /><link rel="prev" href="https://buli-home.cn/os_bootloader/" /><link rel="next" href="https://buli-home.cn/os_computerarchitecture/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "系统调用、异常和中断",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/os_interface\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Operating System","wordcount":  1070 ,
+    "url": "https:\/\/buli-home.cn\/os_interface\/","datePublished": "2022-03-16T13:44:12+08:00","dateModified": "2022-06-14T09:22:19+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">系统调用、异常和中断</h1><h2 class="single-subtitle">System Call, Exception, Interrupt</h2><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/operating-system/"><i class="far fa-folder fa-fw"></i>Operating System</a></span></div>
+      <div class="post-meta-line"><span title=2022-03-16&#32;13:44:12>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-16" >2022-03-16</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1070 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#系统调用-异常-中断的特点">系统调用, 异常, 中断的特点</a>
+      <ul>
+        <li><a href="#来源">来源</a></li>
+        <li><a href="#处理时间">处理时间</a></li>
+        <li><a href="#响应">响应</a></li>
+      </ul>
+    </li>
+    <li><a href="#中断和异常的处理机制">中断和异常的处理机制</a>
+      <ul>
+        <li><a href="#中断">中断</a>
+          <ul>
+            <li><a href="#硬件">硬件</a></li>
+            <li><a href="#软件">软件</a></li>
+          </ul>
+        </li>
+        <li><a href="#异常">异常</a></li>
+      </ul>
+    </li>
+    <li><a href="#系统调用">系统调用</a>
+      <ul>
+        <li><a href="#跨越操作系统边界的开销">跨越操作系统边界的开销</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="系统调用-异常-中断的特点">系统调用, 异常, 中断的特点</h2>
+<h3 id="来源">来源</h3>
+<ol>
+<li><strong>系统调用</strong>: 应用程序</li>
+<li><strong>异常</strong>: 应用程序</li>
+<li><strong>中断</strong>: 外设</li>
+</ol>
+<h3 id="处理时间">处理时间</h3>
+<ol>
+<li><strong>系统调用</strong>: 异步或同步</li>
+<li><strong>异常</strong>: 同步</li>
+<li><strong>中断</strong>: 异步</li>
+</ol>
+<h3 id="响应">响应</h3>
+<ol>
+<li><strong>系统调用</strong>: 等待和持续</li>
+<li><strong>异常</strong>: 杀死或重新执行意想不到的应用程序指令</li>
+<li><strong>中断</strong>: 持续, 对用户应用程序是透明的</li>
+</ol>
+<hr>
+<h2 id="中断和异常的处理机制">中断和异常的处理机制</h2>
+<ul>
+<li>中断陈外设的事件</li>
+<li>异常是内部CPU的事件</li>
+<li>中断和异常迫使CPU访问一些被中断和异常服务访问的功能</li>
+</ul>
+<h3 id="中断">中断</h3>
+<h4 id="硬件">硬件</h4>
+<ul>
+<li>设置中断标记**[CPU初始化]**
+<ol>
+<li>将内部、外部事件设置中断标记</li>
+<li>中断时间的ID</li>
+</ol>
+</li>
+</ul>
+<h4 id="软件">软件</h4>
+<ul>
+<li>保存当前处理状态: 为了确保之后能从打断的地方能够继续执行</li>
+<li>中断服务程序处理</li>
+<li>清除中断标记</li>
+<li>恢复之前保存的处理状态</li>
+</ul>
+<h3 id="异常">异常</h3>
+<ul>
+<li>保存现场</li>
+<li>异常处理
+<ul>
+<li>杀死产生异常的程序</li>
+<li>重新执行异常指令 (这种情况下, 对于用户来说, 异常就是透明的)</li>
+</ul>
+</li>
+<li>恢复现场</li>
+</ul>
+<hr>
+<h2 id="系统调用">系统调用</h2>
+<p>系统调用和前面的中断和异常从名字上看就不一样(认真脸). 应用程序需要系统提供一些服务, 而这些服务不能由应用程序直接执行, 需要由操作系统来执行, 这个过程就需要接口, 这个接口就称为系统调用接口.</p>
+<p>举个🌰, <strong>C语言</strong>中的<code>printf()</code>就会触发系统调用<code>write()</code>.</p>
+<ul>
+<li>
+<p>程序访问主要是通过<strong>高层次</strong>的API接口, 而不是直接进行系统调用.</p>
+<ul>
+<li>Win32 API 用于 Windows</li>
+<li>POSIX API 用于 POSIX-based systems (包括UNIX, Linux, Mac OS 的所有版本)</li>
+<li>Java API 用于 JVM</li>
+</ul>
+</li>
+<li>
+<p>通常, 每个系统调用相关的序号. 系统调用接口根据这些需要来维护表的索引.</p>
+</li>
+<li>
+<p>系统调用接口调用内核态中预期的系统调用, 并返回系统调用的状态和其他任何返回值</p>
+</li>
+<li>
+<p>用户不需要知道系统调用是如何实现的, 只需要获取API和了解操作系统将什么作为返回结果. 操作系统接口的细节大部分都隐藏在API中, 通过运行程序支持的库来管理(包括编译器的库来创建函数集).</p>
+</li>
+<li>
+<p><strong>系统调用</strong>和传统的<strong>函数调用</strong>是有区别的:</p>
+<ul>
+<li>当应用程序发出<strong>函数调用</strong>的时候, 是在一个栈空间完成了参数的传递和参数的返回.</li>
+<li><strong>系统调用</strong>的执行过程中, 应用程序和OS是有各自的堆栈. 当应用程序发出系统调用的时候, 当切换到内核中执行之后也需要切换堆栈. 同时, <strong>也需要完成特权级的转换(从用户态转为内核态)</strong>.</li>
+</ul>
+<p>也就是说<strong>系统调用</strong>的开销是比<strong>函数调用</strong>的开销大得多, 但是这样的做法也提高了安全性.</p>
+</li>
+</ul>
+<h3 id="跨越操作系统边界的开销">跨越操作系统边界的开销</h3>
+<blockquote>
+<p>通过上面可以了解到, 其实系统调用, 异常和中断就是操作系统和应用程序, 以及操作系统和外设之间跨越了边界.</p>
+</blockquote>
+<ul>
+<li>在执行时间上的开销超过程序调用</li>
+<li>开销:
+<ul>
+<li>建立中断/异常/系统调用号与对应服务例程映射关系的初始化开销</li>
+<li>建立内核堆栈</li>
+<li>验证参数, 因为操作系统是不信任应用程序的</li>
+<li>内核态映射到用户态的地址空间, 更新页面映射权限. 这是一个拷贝的过程, 因为不能将内核态中的数据简单的用传递指针的方式传递给用户态.</li>
+<li>内核态独立地址空间, TLB</li>
+</ul>
+</li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-06-14&#32;09:22:19>更新于 2022-06-14</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/os_interface/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/os_interface/" data-title="系统调用、异常和中断" data-hashtags="Operating System"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/os_interface/" data-hashtag="Operating System"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/os_interface/" data-title="系统调用、异常和中断"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/os_interface/" data-title="系统调用、异常和中断"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/os_interface/" data-title="系统调用、异常和中断" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/operating-system/">Operating System</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/os_bootloader/" class="prev" rel="prev" title="操作系统的启动"><i class="fas fa-angle-left fa-fw"></i>操作系统的启动</a>
+      <a href="/os_computerarchitecture/" class="next" rel="next" title="计算机体系结构及内存分层体系">计算机体系结构及内存分层体系<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

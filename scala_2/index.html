@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Scala变量和数据类型 - Buli&#39;s Home</title><meta name="author" content="Mustard: https://github.com/immustard">
+<meta name="description" content="关于 FixIt 主题" />
+<meta name="keywords" content="Scala" /><meta itemprop="name" content="Scala变量和数据类型">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2022-07-07T09:00:03+08:00" />
+<meta itemprop="dateModified" content="2022-08-15T09:38:21+08:00" />
+<meta itemprop="wordCount" content="1947"><meta itemprop="image" content="https://buli-home.cn/logo.png"/>
+<meta itemprop="keywords" content="Scala," /><meta property="og:title" content="Scala变量和数据类型" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://buli-home.cn/scala_2/" /><meta property="og:image" content="https://buli-home.cn/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-07T09:00:03+08:00" />
+<meta property="article:modified_time" content="2022-08-15T09:38:21+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://buli-home.cn/logo.png"/>
+
+<meta name="twitter:title" content="Scala变量和数据类型"/>
+<meta name="twitter:description" content=""/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://buli-home.cn/scala_2/" /><link rel="prev" href="https://buli-home.cn/scala_1/" /><link rel="next" href="https://buli-home.cn/seatunnel_use/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Scala变量和数据类型",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/buli-home.cn\/scala_2\/"
+    },"image": ["https:\/\/buli-home.cn\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "Scala","wordcount":  1947 ,
+    "url": "https:\/\/buli-home.cn\/scala_2\/","datePublished": "2022-07-07T09:00:03+08:00","dateModified": "2022-08-15T09:38:21+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/buli-home.cn\/images\/avatar.png",
+          "width":  512 ,
+          "height":  512 
+        }},"author": {
+        "@type": "Person",
+        "name": "Mustard"
+      },"description": ""
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+    <div class="menu">
+      <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/documents/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <input type="text" placeholder=" " id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+          <i class="fas fa-adjust fa-fw"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Buli&#39;s Home"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/logo.png"
+    data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+    data-sizes="auto"
+    alt="/logo.png"
+    title="/logo.png" /><span class="header-title-text">Buli</span></a><span class="header-subtitle">HOME</span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="menu" id="menu-mobile"><div class="search-wrapper">
+          <div class="search mobile" id="search-mobile">
+            <input type="text" placeholder=" " id="search-input-mobile">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-mobile">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </div>
+          <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+            取消
+          </a>
+        </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/documents/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <i class="fas fa-adjust fa-fw"></i>
+      </a></div>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录</h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Scala变量和数据类型</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://github.com/immustard"
+  
+    title="Author"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><i class="fas fa-user-circle fa-fw"></i>Mustard</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/scala/"><i class="far fa-folder fa-fw"></i>scala</a></span></div>
+      <div class="post-meta-line"><span title=2022-07-07&#32;09:00:03>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-07-07" >2022-07-07</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1947 字&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#注释">注释</a></li>
+    <li><a href="#变量和常量">变量和常量</a>
+      <ul>
+        <li><a href="#基本语法">基本语法</a></li>
+      </ul>
+    </li>
+    <li><a href="#标识符的命名规范">标识符的命名规范</a>
+      <ul>
+        <li><a href="#命名规范">命名规范</a></li>
+      </ul>
+    </li>
+    <li><a href="#字符串输出">字符串输出</a>
+      <ul>
+        <li><a href="#基本语法-1">基本语法</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据类型">数据类型</a>
+      <ul>
+        <li><a href="#java数据类型">Java数据类型</a></li>
+        <li><a href="#scala数据类型">Scala数据类型</a>
+          <ul>
+            <li><a href="#整数类型">整数类型</a></li>
+            <li><a href="#浮点类型">浮点类型</a></li>
+            <li><a href="#字符类型-char">字符类型 (Char)</a></li>
+            <li><a href="#布尔类型-boolean">布尔类型 (Boolean)</a></li>
+            <li><a href="#unit-类型null-类型和-nothing-类型">Unit 类型、Null 类型和 Nothing 类型</a></li>
+            <li><a href="#类型转换">类型转换</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="注释">注释</h2>
+<p>Scala 的注释和 Java 的完全一样:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 1. 单行注释
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/* 2. 多行注释 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 3. 文档注释
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="变量和常量">变量和常量</h2>
+<h3 id="基本语法">基本语法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// var 变量名 [: 变量类型] = 初始值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">var</span> <span class="n">i</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// val 常量名 [: 常量类型] = 初始值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">j</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<ul>
+<li>能用常量的地方就不要用变量</li>
+</ul>
+</blockquote>
+<blockquote>
+<ol>
+<li>声明变(常)量时, 类型可以省略, 编译器自动推导, 即<strong>类型推导</strong></li>
+<li>类型确定后, 就不能更改, 因为 Scala 是强数据类型语音</li>
+<li>变量声明时, 必须有初始值</li>
+</ol>
+</blockquote>
+<h2 id="标识符的命名规范">标识符的命名规范</h2>
+<h3 id="命名规范">命名规范</h3>
+<p>Scala 中的标识符声明, <strong>基本和Java是一致的</strong>, 但是细节上会有变化:</p>
+<ol>
+<li>以字母或下划线开头, 后接字母、数字、下划线</li>
+<li><strong>以操作符开头, 且只包含操作符(+-*/#!等)</strong></li>
+<li><strong>用反引号`&hellip;`包括的任意字符串, 即使是 Scala 关键字(39个)也可以</strong>
+<ul>
+<li>package, import, class, <strong>object</strong>, <strong>trait</strong>, extends, <strong>with</strong>, type, forSom</li>
+<li>private, protected, abstract, <strong>sealed</strong>, final, <strong>implicit</strong>, lazy, override</li>
+<li>try, catch, finally, throw</li>
+<li>if, else, <strong>match</strong>, case, do, while, for, return, <strong>yield</strong></li>
+<li><strong>def</strong>, <strong>var</strong>, <strong>val</strong></li>
+<li>this, super</li>
+<li>new</li>
+<li>true, false, null</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>看几个特殊一点的🌰</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">Hello</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ok 因为在 Scala 中 Int 是预定义的字符, 不是关键字, 但是不推荐
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">var</span> <span class="nc">Int</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ok 单独一个下划线不可作为标识符, 因为 _ 被认为是一个方法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">var</span> <span class="k">_:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;str&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 会报错
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">println</span><span class="o">(</span><span class="k">_</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// ok
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">var</span> <span class="o">-+*/#!</span> <span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// error 以操作符开否, 必都是操作符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">var</span> <span class="o">-</span><span class="k">_</span><span class="o">*/#!</span><span class="mi">1</span> <span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">    <span class="c1">// error
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">var</span> <span class="k">if:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// ok
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">var</span> <span class="n">`if`</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="字符串输出">字符串输出</h2>
+<h3 id="基本语法-1">基本语法</h3>
+<ol>
+<li>字符串, 通过<code>+</code>号连接</li>
+<li><code>printf</code>用法: 字符串，通过<code>%</code>传值。</li>
+<li>字符串模板(插值字符串): 通过<code>$</code>获取变量值</li>
+</ol>
+<blockquote>
+<p>来看看🌰:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">Hello</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&#34;mustard&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="n">age</span> <span class="k">=</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">printf</span><span class="o">(</span><span class="s">&#34;name=%s, age=%d&#34;</span><span class="o">,</span> <span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 多行字符串， 在 Scala 中，利用三个双引号包围多行字符串就可以实现。
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 输入的内容，带有空格、 \t 之类，导致每一行的开始位置不能整洁对齐。
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 应用 scala 的 stripMargin 方法，在 scala 中 stripMargin 默认是 &#34;|&#34; 作为连接符，
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 在多行换行的行头前面加一个 &#34;|&#34; 符号即可。
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="n">sql1</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">        |select
+</span></span></span><span class="line"><span class="cl"><span class="s">        |   name
+</span></span></span><span class="line"><span class="cl"><span class="s">        |   age
+</span></span></span><span class="line"><span class="cl"><span class="s">        |from user
+</span></span></span><span class="line"><span class="cl"><span class="s">        |where name = &#34;mustard&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;&#34;&#34;</span><span class="o">.</span><span class="n">stripMargin</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="o">(</span><span class="n">sql1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 如果需要对变量进行运算，那么可以加 ${}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">val</span> <span class="n">sql2</span> <span class="k">=</span>
+</span></span><span class="line"><span class="cl">      <span class="s">s&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">         |select
+</span></span></span><span class="line"><span class="cl"><span class="s">         |   name
+</span></span></span><span class="line"><span class="cl"><span class="s">         |   age
+</span></span></span><span class="line"><span class="cl"><span class="s">         |from user
+</span></span></span><span class="line"><span class="cl"><span class="s">         |where name = &#34;</span><span class="si">$name</span><span class="s">&#34; and age = </span><span class="si">${</span><span class="n">age</span> <span class="o">+</span> <span class="mi">2</span><span class="si">}</span><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;&#34;&#34;</span><span class="o">.</span><span class="n">stripMargin</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="o">(</span><span class="n">sql2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="n">s</span> <span class="k">=</span> <span class="s">s&#34;name=</span><span class="si">$name</span><span class="s">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="o">(</span><span class="n">s</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="数据类型">数据类型</h2>
+<h3 id="java数据类型">Java数据类型</h3>
+<p>先来回顾一下 Java 的数据类型:</p>
+<ol>
+<li>基本数据类型(8种): <code>char</code>, <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>bollean</code></li>
+<li>引用类型: (对象类型)</li>
+</ol>
+<p><strong>由于 Java 有基本类型, 并且基本类型并不是真正意义的对象, 所以 Java 语言并不是真正意义的面向对象</strong>.</p>
+<blockquote>
+<p>注意哈: Java 中基本类型和引用类型没有共同的祖先</p>
+</blockquote>
+<h3 id="scala数据类型">Scala数据类型</h3>
+<ol>
+<li>Scala 中一切都是对象, <strong>都是<code>Any</code>的子类</strong></li>
+<li>Scala 中数据类型分为两大类: 数值类型 (<code>AnyVal</code>), 引用类型 (<code>AnyRef</code>), <strong>但是都是对象</strong></li>
+<li>Scala 数据类型仍然遵守<strong>隐式转换</strong> (低精度的值向高精度的值自动转换)</li>
+<li>Scala 中的<code>StringOps</code>是对 Java 中的<code>String</code>增强</li>
+<li><code>Unit</code>: 对应 Java 中的<code>void</code>, 用于方法返回值的位置, 表示方法没有返回值. <code>Unit</code>是一个数据类型, 只有一个对象就是<code>()</code>. <code>Void</code>不是数据类型, 只是一个关键字.</li>
+<li><code>Null</code>是一个类型, 只有一个对象就是<code>null</code>. <strong>它是所有引用类型(<code>AnyRef</code>)的子类</strong>.</li>
+<li><code>Nothing</code>: <strong>是所有数据类型的子类</strong>, 主要用在一个函数没有明确返回值时使用, 因为这样可以把抛出的返回值, 返回给任何的变量或者函数.</li>
+</ol>
+<h4 id="整数类型">整数类型</h4>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Byte[1]</code></td>
+<td>8位有符号补码整数. 数值区间: -128 到 127</td>
+</tr>
+<tr>
+<td><code>Short[2]</code></td>
+<td>16位有符号补码整数. 数值区间: -32768 到 32767</td>
+</tr>
+<tr>
+<td><code>Int[4]</code></td>
+<td>32位有符号补码整数. 数值区间: -2147483648 到 2147483647</td>
+</tr>
+<tr>
+<td><code>Long[8]</code></td>
+<td>64位有符号补码整数. 数值区间: -2^64 到 2^64-1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Scala 的整型，默认为<code>Int</code>型，声明<code>Long</code>型，须后加<code>l</code>或<code>L</code></p>
+</blockquote>
+<h4 id="浮点类型">浮点类型</h4>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FLoat[4]</code></td>
+<td>32位</td>
+</tr>
+<tr>
+<td><code>Double[8]</code></td>
+<td>64位</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">TestDataType</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 这是个 Float
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">var</span> <span class="n">n1</span> <span class="k">=</span> <span class="mf">1.23456789f</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 这是个 Double
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">var</span> <span class="n">n2</span> <span class="k">=</span> <span class="mf">1.23456789</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="字符类型-char">字符类型 (Char)</h4>
+<h4 id="布尔类型-boolean">布尔类型 (Boolean)</h4>
+<p>占 1 个字节</p>
+<h4 id="unit-类型null-类型和-nothing-类型">Unit 类型、Null 类型和 Nothing 类型</h4>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Unit</code></td>
+<td>表示无值, 和其他语言中<code>void</code>等同. 用作不返回任何结果的方法的结果类型. <code>Unit</code>只有一个实例: <code>()</code>, 且没有实际意义</td>
+</tr>
+<tr>
+<td><code>Null</code></td>
+<td><code>null</code>, <code>Null</code>类型只有一个实例: <code>null</code>. <strong><code>Null</code>可以赋值给任意引用类型(AnyRef), 但是不能赋值给值类型(AnyVal)</strong></td>
+</tr>
+<tr>
+<td><code>Nothing</code></td>
+<td><code>Nothing</code>类型在 Scala 的类层级最低端; 它是任何其他类型的子类型. 当一个函数, 确定没有正常的返回值时, 可以用<code>Nothing</code>来指定返回类型.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>Nothing</code>的这种机制有一个好处: 可以把返回的值(异常)赋给其它的函数或者变量(兼容性)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">object</span> <span class="nc">TestDataType</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="n">main</span><span class="o">(</span><span class="n">args</span><span class="k">:</span> <span class="kt">Array</span><span class="o">[</span><span class="kt">String</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">cat</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Cat</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 正确
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">cat</span> <span class="k">=</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// 错误
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">var</span> <span class="n">n1</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">def</span> <span class="n">test</span><span class="o">()</span><span class="k">:</span> <span class="kt">Nothing</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">throw</span> <span class="k">new</span> <span class="nc">Exception</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">test</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="类型转换">类型转换</h4>
+<ul>
+<li>
+<p>数值类型自动转换: 精度小的类型自动转换为精度大的数值类型. (隐式转换)</p>
+<p><code>Byte &lt; Short &lt; Int &lt; Long &lt; Float &lt; Double</code></p>
+<ol>
+<li>自动提升原则: 有多种类型的数据混合运算时, 首先<strong>自动将所有数据转换成精度大的数据类型</strong>, 然后再计算</li>
+<li><strong>把精度大的数值类型赋值给精度小的数值类型时, 会报错</strong></li>
+<li>(<code>byte</code>, <code>short</code>)和<code>char</code>之间不会相互自动转换</li>
+<li><code>byte</code>,<code>short</code>,<code>char</code>三者可以计算, <strong>但会先转换为<code>int</code>类型</strong></li>
+</ol>
+</li>
+<li>
+<p>强制类型转换</p>
+<p>可能造成精度降低或溢出, 所以需要特别注意</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">num</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mf">2.7</span><span class="o">.</span><span class="n">toInt</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>数值类型和<code>String</code>类型间的转换</p>
+<ul>
+<li>数值 -&gt; <code>String</code>: <code>+ &quot;&quot;</code>就行, 和 Java 一样</li>
+<li><code>String</code> -&gt; 数值: <code>s1.toInt</code>, <code>s1.toFloat</code>, <code>s1.toDouble</code>, <code>s1.toByte</code>, <code>s1.toLong</code>, <code>s1.toShort</code></li>
+</ul>
+</li>
+</ul></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-08-15&#32;09:38:21>更新于 2022-08-15</span>
+      </div>
+      <div class="post-info-license"></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span>
+              <a class="link-to-markdown" href="/scala_2/index.md" target="_blank">阅读原始文档</a>
+            </span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://buli-home.cn/scala_2/" data-title="Scala变量和数据类型" data-hashtags="Scala"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://buli-home.cn/scala_2/" data-hashtag="Scala"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://buli-home.cn/scala_2/" data-title="Scala变量和数据类型"><i class="fab fa-hacker-news fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://buli-home.cn/scala_2/" data-title="Scala变量和数据类型"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://buli-home.cn/scala_2/" data-title="Scala变量和数据类型" data-ralateuid="6162021698"><i class="fab fa-weibo fa-fw"></i></a></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/scala/">scala</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/scala_1/" class="prev" rel="prev" title="Scala概述"><i class="fas fa-angle-left fa-fw"></i>Scala概述</a>
+      <a href="/seatunnel_use/" class="next" rel="next" title="Seatunnel使用手册">Seatunnel使用手册<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.100.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt 0.2.13"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2024</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://github.com/immustard"
+  
+  
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Mustard</a></span><span class="footer-divider"></span><span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title=总访客数
+            ><i class="far fa-user"></i>
+            <span id="busuanzi_value_site_uv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span><span class="site-time footer-divider" title=网站运行中&#32;...
+              ><i class="fas fa-heartbeat animate-icon"></i>
+              <span class="run-times">Loading...</span
+            ></span><span id="busuanzi_container_site_pv" class="footer-divider" title=总访问量
+            ><i class="far fa-eye"></i>
+            <span id="busuanzi_value_site_pv"
+              ><i class="fa fa-spinner fa-spin"></i
+            ></span
+          ></span>
+        </div></div>
+  </footer></div>
+
+    <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <i class="fas fa-arrow-up fa-fw"></i>
+      </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        <i class="fas fa-comment fa-fw"></i>
+      </a>
+    </div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js" defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"ibruce":{"enable":true,"siteTime":"2021-11-20T08:27:00+08:00"},"search":{"algoliaAppID":"2PKND1CXGC","algoliaIndex":"zh-cn","algoliaSearchKey":"ed1ddbc039865dff516f78d4d0ca9e2e","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.02}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>
